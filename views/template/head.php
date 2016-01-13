@@ -9,14 +9,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    
+
     <link rel="shortcut icon" href="<?php echo THEMEURL?>favicon.ico" />
     <link rel="stylesheet" href="<?php echo THEMEURL?>assets/css/index.css">
     <script src="<?php echo THEMEURL?>assets/js/vendor/modernizr.min.js"></script>
 
 
     <?php wp_head(); ?>
-   
+
 
     <script type='text/javascript'>
     /* <![CDATA[ */

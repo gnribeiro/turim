@@ -1,0 +1,16 @@
+.a{
+    &-fade-out{
+      @include transition(opacity 0s ease-in-out);
+      visibility: hidden;
+      opacity   : 0;
+      height    : 0px;
+      overflow  : hidden
+    }
+
+    &-fade-in{
+       @include transition(opacity 0.5s ease-in-out);
+      visibility: visible;
+      opacity   : 1;
+      height    : auto;
+    }
+}

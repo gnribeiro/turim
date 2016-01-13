@@ -1,0 +1,40 @@
+.a{
+    &-btn {
+        @include border-top-radius(3px);
+        @include border-left-radius(3px);
+        @include border-right-radius(3px);
+        @include border-bottom-radius(3px);
+        @include transition(all .3s ease-in-out);
+        box-sizing          :border-box;
+        display             : inline-block;
+        padding             : 6px 12px;
+        margin-bottom       : 0;
+        font-size           : 16px;
+        font-weight         : 400;
+        line-height         : 1.42857143;
+        text-align          : center;
+        white-space         : nowrap;
+        vertical-align      : middle;
+        -ms-touch-action    : manipulation;
+        touch-action        : manipulation;
+        cursor              : pointer;
+        -webkit-user-select : none;
+        -moz-user-select    : none;
+        -ms-user-select     : none;
+        user-select         : none;
+        background-image    : none;
+        border              : 1px solid transparent;
+        cursor              : pointer;
+        font-weight         :  400;
+        text-decoration     : none;
+        position            : relative;
+    }
+}
+
+@each $type, $bgcolor in $btn-colores {
+    .a-btn-#{$type},
+    .a-btn-#{$type}:focus,
+    .a-btn-#{$type}:hover {
+        background-color: $bgcolor;
+    }
+}

@@ -1,0 +1,73 @@
+@mixin retina-img($image , $size, $ext:'png'){
+    & {
+        background-image: image-url('#{$image}@1x.#{$ext}');
+    }
+
+    @media all and (-webkit-min-device-pixel-ratio : 1.5),
+        all and (-o-min-device-pixel-ratio: 3/2),
+        all and (min--moz-device-pixel-ratio: 1.5),
+        all and (min-device-pixel-ratio: 1.5)
+    {
+        & {
+            background-image: image-url('#{$image}@2x.#{$ext}');
+            background-size : $size;
+        }
+    }
+}
+
+@mixin sprite($sprite: 'sprite'){
+    background-position : 0 0;
+    background-color    : transparent;
+    background-image    : image-url('home/#{$sprite}.png')  ;
+    background-repeat   : no-repeat;
+}
+
+@mixin arrow($postion:down , $size:14px, $color:#42af83){
+  width: 0;
+  height: 0;
+
+  @if ($postion == up) {
+    border-left   : $size solid transparent;
+    border-right  : $size solid transparent;
+    border-bottom : $size solid $color
+  }
+
+  @else if ($postion == left) {
+    border-top    : $size solid transparent;
+    border-bottom : $size solid transparent;
+    border-right  : $size solid $color;
+  }
+
+  @else if ($postion == right) {
+    border-top    : $size solid transparent;
+    border-bottom : $size solid transparent;
+    border-left   : $size solid $color;
+  }
+  @else {
+    border-left  : $size solid transparent;
+    border-right : $size solid transparent;
+    border-top   : $size solid $color;
+  }
+}
+
+@mixin clip-path($path){
+
+    -webkit-clip-path : image-url(#{$path});
+    clip-path         : image-url(#{$path}#svgClip);
+    -webkit-mask      : image-url(#{$path});
+}
+
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+   -khtml-#{$property}: #{$value};
+     -moz-#{$property}: #{$value};
+      -ms-#{$property}: #{$value};
+       -o-#{$property}: #{$value};
+          #{$property}: #{$value};
+}
+
+@mixin border-radius($value){
+    @include css3-prefix(border-radius , $value);
+    @include css3-prefix(background-clip , padding);
+}
+

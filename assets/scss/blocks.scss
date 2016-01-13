@@ -1,0 +1,5 @@
+@each $class , $color in $section-bkg {
+    a-.#{$class} {
+        background-color: $color;
+    }
+}

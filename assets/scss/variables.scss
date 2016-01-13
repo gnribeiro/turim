@@ -1,0 +1,95 @@
+
+
+
+$screen-xs-max :767px;
+//COLORS
+
+$darkness-bkg     : #221f1f;
+$gray-dark        : #808080; // background banner and text with background white
+
+ // pricing
+$gray-ligther     : #cccbcb; // panels thumbtitle
+$cream            : #e6e6e6;
+$footer-color     : #cecece;
+
+$dark-2           : #a0a0a0;
+
+$gray-bkg-ligther : #f2f2f2;
+$gray             : #c1c1c1;
+$gray-2           : #b3b3b3;
+$red              : #c1272d;
+
+
+$dark             : #666666;
+
+$green            : #02b885;
+$green-2          : #029f73;
+$green-3          : #02d197;
+$green-4          : #44b084;
+
+
+
+//FONTS
+$Oswald        : 'Oswald', sans-serif;
+$Roboto        : 'Roboto', sans-serif;
+
+
+
+//BUTTONS
+$btn-colores: (
+    default  : $green-4,
+    lighter  : #ffffff,
+    invert   : transperent,
+    dark     : $gray-2 ,
+    darkness : $dark-2 ,
+);
+
+$btn-border: (
+    default  : $green-4,
+    lighter  : #ffffff,
+    invert   : #ffffff,
+    dark     : $gray-2,
+    darkness : $dark-2 ,
+);
+
+$btn-text: (
+    default  : #ffffff,
+    lighter  : #000000,
+    invert   : #ffffff,
+    dark     : #ffffff,
+    darkness : #ffffff,
+    link     :$green-4
+);
+
+//SECTIONS
+$section-bkg: (
+    ligth    : $gray-bkg-ligther,
+    dark     : $gray-dark,
+    darkness : $darkness-bkg
+);
+
+//GRID
+$grid:(
+    col-1  : 1,
+    col-2  : 2,
+    col-3  : 3,
+    col-4  : 4,
+    col-5  : 5,
+    col-6  : 6,
+    col-7  : 7,
+    col-8  : 8,
+    col-9  : 9,
+    col-10 : 10,
+    col-11 : 11,
+    col-12 : 12,
+);
+
+
+body{
+    font-size               : 16px;
+    font-family             : $Roboto;
+    color                   : #000000;
+    background-color        : $gray-bkg-ligther;
+    -webkit-font-smoothing  : antialiased;
+    -moz-osx-font-smoothing : grayscale;
+}

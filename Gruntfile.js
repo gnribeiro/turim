@@ -3,13 +3,14 @@ module.exports = function(grunt){
     require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
 
+
     grunt.initConfig({
 
-        
+
         files_js: {
             all:[
-                //'bower_components/bootstrap/dist/js/bootstrap.min.js',
-                //'bower_components/jquery/jquery.min.js',
+                //'assets/js/vendor/bootstrap/assets/javascripts/bootstrap/*.js',
+                //'assets/js/vendor/bootstrap/*.js',
                 'assets/js/index.js'
             ]
         },
@@ -37,7 +38,7 @@ module.exports = function(grunt){
 
             prod: {
                 options: {
-                 
+
                 },
                 files: {
                     'assets/js/index.min.js': [
@@ -47,11 +48,12 @@ module.exports = function(grunt){
             }
         },
 
-         less: {
+
+        less: {
           dev: {
             options: {
               paths: ["assets/css"],
-              compress: false,
+
               cleancss: true
             },
             files: {
@@ -71,6 +73,30 @@ module.exports = function(grunt){
           }
         },
 
+        sass: {
+          dev: {
+            options: {
+              style: 'expanded',
+              loadPath: require('node-bourbon').includePaths,
+               loadPath: require('node-neat').includePaths
+            },
+            files: {
+              "assets/css/index.css": "assets/scss/index.scss"
+            }
+          },
+
+          prod: {
+            options: {
+              style: 'expanded',
+              loadPath: require('node-bourbon').includePaths,
+              loadPath: require('node-neat').includePaths
+            },
+            files: {
+             "assets/css/index.css": "assets/scss/index.scss"
+            }
+          }
+        },
+
         cssmin: {
             options: {
                 shorthandCompacting: false,
@@ -86,10 +112,10 @@ module.exports = function(grunt){
         },
 
         notify: {
-            less: {
+            sass: {
                 options: {
                     title: 'Grunt, grunt!',
-                    message: 'less is all gravy'
+                    message: 'scss is all gravy'
                 }
             },
             js: {
@@ -100,45 +126,30 @@ module.exports = function(grunt){
             }
         },
 
-     
+
 
          watch: {
-          
+
             js: {
               files: [
                     '<%= files_js.all %>'
                 ],
                 tasks: [
-                  'uglify:dev',
+                  'uglify',
                   'notify:js'
                 ]
             },
 
-            less: {
-                files: ['assets/less/*.less'],
+            sass: {
+                files: ['assets/scss/*.scss'],
                 tasks: [
-                  'less:dev',
-                  'notify:less'
+                  'scss',
+                  'notify:scss'
                 ]
             }
         },
     });
 
-    grunt.registerTask('default', [
-    'dev'
-    ]);
-    
-    grunt.registerTask('dev', [
-        'less:dev',
-        'uglify:dev',
-        'cssmin', 
-        'notify'
-    ]);
-    
-    grunt.registerTask('prod', [
-        'less:prod',                        
-        'uglify:prod', 
-        'cssmin', 
-        'notify'
-    ]);
+    grunt.registerTask('default',   ['sass:dev','uglify:dev',   'cssmin', 'notify']);
+    //grunt.registerTask('prod',      ['scss:prod','uglify:prod', 'cssmin', 'notify']);
 }
