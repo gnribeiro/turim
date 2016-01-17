@@ -55,14 +55,14 @@ if(is_admin()){
 
 if(!is_admin()){
     $autoloader    = new GWP_Autoloader();
-    
+
     Gwp_Form_Handler::init();
     Gwp_Shortcodes::init();
-    
+
     $ajax_instance  = new Gwp_Ajax();
     $hooks_instance = new Gwp_Hooks();
     $site_instance  = new Site();
-    
+
     $GLOBALS['site'] = $site_instance;
 }
 

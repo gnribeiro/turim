@@ -1,0 +1,114 @@
+header.main{
+    height     : 40px;
+    padding-top: 10px;
+    background-color: $dark;
+
+    & > ul{
+      list-style : none;
+      width      : auto;
+      height     : 40px;
+      float      : right;
+      margin     : 0;
+      padding    : 0;
+    }
+
+    .a{
+        &-lang{
+            float         : left;
+            position      : relative;
+            padding-right : 20px;
+
+            @include e('content'){
+                @extend .a-nolist;
+                position : relative;
+                color    : #ffffff;
+                position : relative;
+            }
+
+            @include e('country'){
+                font-size   : 12px;
+                font-weight : bold;
+                display     : none;
+                color       : #ffffff;
+                line-height : 22px;
+
+                &-selected{
+                  display: block;
+                }
+            }
+            &:after{
+                @include sprite();
+                width               : 12px;
+                height              : 8px;
+                content             : '';
+                position            : absolute;
+                top                 : 6px;
+                right               : 0;
+                background-position : -336px 0px;
+            }
+        }
+
+      &-social{
+        float: left;
+
+        @include m('facebook'){
+          @include sprite();
+          @extend .a-hidetext;
+          background-position : -316px 0px;
+          width               : 18px;
+          height              : 18px;
+          margin-right        : 11px;
+          color               : #ffffff;
+          overflow            : hidden;
+        }
+
+        @include m('instagram') {
+            @include sprite();
+            @extend .a-hidetext;
+            background-position: -296px 0px;
+            width : 18px;
+            height: 18px;
+            margin-right: 18px;
+            color:#ffffff;
+            overflow: hidden;
+        }
+
+        @include m('phone') {
+            @include lato-blackbold;
+            margin-right: 18px;
+            position: relative;
+            padding-left: 25px;
+            color: #ffffff;
+            display: block;
+            position: relative;
+            padding-right: 15px;
+            font-size: 16px;
+
+          &:before{
+            @include sprite();
+            display             : inline-block;
+            background-position : -278px 0px;
+            width               : 18px;
+            height              : 18px;
+            content             : '';
+            position            : absolute;
+            top: 2px;
+            left: 0;
+          }
+
+          &:after{
+            @include sprite();
+            display             : inline-block;
+            background-position : -358px 0px;
+            width               : 2px;
+            height              : 11px;
+            content             : '';
+            position            : absolute;
+            top                 : 5px;
+            right               : 0;
+          }
+        }
+      }
+    }
+
+}

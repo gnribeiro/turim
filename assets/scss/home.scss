@@ -1,0 +1,210 @@
+.a{
+
+  &-intro{
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+    background-repeat: no-repeat;
+    background-size  : cover;
+    background-attachment: fixed;
+    background-color   : $dark;
+    background-position: 0% 0%;
+    color             :#ffffff;
+    min-height: 237px;
+
+    @include e('content') {
+      text-align : center;
+      max-width: 700px;
+      margin:0 auto;
+      p{
+        margin-bottom: 30px;
+      }
+      strong{
+        @include lato-bold;
+        font-size: 18px;
+      }
+
+    }
+
+    @include e('title') {
+      text-align    : center;
+    }
+
+    @include e('resume') {
+      text-align : center;
+      font-size  : 13px;
+      margin: 0 0 13px;
+      text-transform: uppercase;
+    }
+
+    @include e('link') {
+      text-align    : center;
+    }
+  }
+
+  &-panel-promo{
+    margin-bottom: 9px;
+    h6{
+      font-size: 16px;
+      line-height: 17px;
+      margin: 0 0 22px;
+      strong{
+         @include lato-bold;
+      }
+    }
+
+    @include e('header') {
+      text-align : center;
+      max-height : 276px;
+      overflow   : hidden;
+      color      : #ffffff;
+      position: relative;
+      max-width: 277px;
+      float    : left;
+
+      @include e('text') {
+        @include display(flex);
+        @include align-items(center);
+        @include justify-content(center);
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom:0;
+        right: 0;
+      }
+    }
+
+
+
+    @include e('list') {
+      text-align    : center;
+      font-size: 12px;
+      margin-bottom: 8px;
+      line-height: 13px;
+    }
+
+    @include e('content') {
+      @include display(flex);
+      @include align-items(center);
+      @include justify-content(center);
+      text-align : center;
+      max-height : 276px;
+      max-width: 864px;
+      overflow: hidden;
+      color: #ffffff;
+      float: right;
+      background-color: $blue;
+
+
+    }
+
+    @include e('figure') {
+      position    : relative;
+      text-align  : center;
+      max-width   : 570px;
+      float       : left;
+    }
+
+    @include e('label') {
+      top:15px;
+      left: 15px;
+      max-width: 131px;
+      height: 45px;
+      position   : absolute;
+      text-align : center;
+      white-space: nowrap;
+      vertical-align: middle;
+      box-sizing          : border-box;
+      display             : inline-block;
+      padding             : 0 1.1em;
+      font-weight         : 400;
+      line-height         : 44px;
+      background-color : $blue;
+    }
+
+    @include e('highlight') {
+      text-align  : center;
+      float       : right;
+      padding          : 0 30px;
+      max-width        : 284px;
+      position: relative;
+      &:before{
+        @include arrow(left , 12px, $blue);
+        position: absolute;
+        top: 50%;
+        left: -12px;
+        content:' ';
+        margin-top: -6px;
+      }
+    }
+
+    @include e('txt') {
+      line-height: 17px;
+      margin-bottom: 22px;
+    }
+
+
+    @include m(highlight) {
+
+      .a-panel-promo__header {
+        float: right;
+      }
+
+      .a-panel-promo__content {
+        float: left;
+        background-color : $green;
+      }
+
+      .a-panel-promo__label {
+        background-color : $green;
+      }
+
+      .a-panel-promo__highlight  {
+        &:before{
+          @include arrow(left , 12px, $green);
+        }
+      }
+    }
+
+    @include m(experience) {
+      color:red;
+
+      .a-panel-promo__content {
+        background-color : $yellow;
+        @include flex-direction(row-reverse);
+      }
+
+      .a-panel-promo__label {
+        background-color : $yellow;
+      }
+
+      .a-panel-promo__highlight  {
+        &:before{
+          @include arrow(right , 12px, $yellow);
+          right: -12px;
+          left: auto;
+          border-right:none;
+        }
+      }
+    }
+  }
+  &-newsletter{
+    @include e(info){
+      font-size: 16px;
+    }
+  }
+
+
+
+  &-hotel-legend{
+    font-size: 13px;
+    line-height: 13px;
+    margin-top: 15px;
+    strong{
+      @include lato-bold;
+    }
+    i.a-instragram{
+      font-size: 13px;
+    }
+  }
+}

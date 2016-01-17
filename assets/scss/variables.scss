@@ -4,52 +4,33 @@
 $screen-xs-max :767px;
 //COLORS
 
-$darkness-bkg     : #221f1f;
-$gray-dark        : #808080; // background banner and text with background white
-
- // pricing
-$gray-ligther     : #cccbcb; // panels thumbtitle
-$cream            : #e6e6e6;
-$footer-color     : #cecece;
-
-$dark-2           : #a0a0a0;
-
-$gray-bkg-ligther : #f2f2f2;
-$gray             : #c1c1c1;
-$gray-2           : #b3b3b3;
-$red              : #c1272d;
-
-
-$dark             : #666666;
-
-$green            : #02b885;
-$green-2          : #029f73;
-$green-3          : #02d197;
-$green-4          : #44b084;
-
-
+$dark      :#202020;
+$highlight :#000000;
+$blue      :#607d8b;
+$green     :#47b7a2;
+$yellow    :#ffb300;
 
 //FONTS
-$Oswald        : 'Oswald', sans-serif;
-$Roboto        : 'Roboto', sans-serif;
+$Lato        : 'Lato', sans-serif;
+$Montserrat  : 'Montserrat', sans-serif;
 
 
 
 //BUTTONS
 $btn-colores: (
-    default  : $green-4,
+    default  : $dark,
     lighter  : #ffffff,
     invert   : transperent,
-    dark     : $gray-2 ,
-    darkness : $dark-2 ,
+    dark     : $dark ,
+    darkness : $dark ,
 );
 
 $btn-border: (
-    default  : $green-4,
+    default  : $dark,
     lighter  : #ffffff,
     invert   : #ffffff,
-    dark     : $gray-2,
-    darkness : $dark-2 ,
+    dark     : $dark,
+    darkness : $dark ,
 );
 
 $btn-text: (
@@ -58,14 +39,13 @@ $btn-text: (
     invert   : #ffffff,
     dark     : #ffffff,
     darkness : #ffffff,
-    link     :$green-4
+    link     :$dark
 );
 
 //SECTIONS
 $section-bkg: (
-    ligth    : $gray-bkg-ligther,
-    dark     : $gray-dark,
-    darkness : $darkness-bkg
+    ligth: ('color':$dark,  "background-color":#ffffff),
+    dark: ('color': #ffffff,  "background-color":$dark)
 );
 
 //GRID
@@ -85,11 +65,14 @@ $grid:(
 );
 
 
+
+
 body{
-    font-size               : 16px;
-    font-family             : $Roboto;
-    color                   : #000000;
-    background-color        : $gray-bkg-ligther;
+    @include lato-regular;
+    font-size               : 18px;
+    color                   : $dark;
+    background-color        : #ffffff;
+    line-height             : 25px;
     -webkit-font-smoothing  : antialiased;
     -moz-osx-font-smoothing : grayscale;
 }

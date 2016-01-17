@@ -12,6 +12,7 @@
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
     "grunt-cssc": "*",
+    "grunt-font-awesome-vars": "^1.0.1",
     "grunt-notify": "~0.2.16",
     "matchdep": "*",
     "node-bourbon": "~1.0.0",

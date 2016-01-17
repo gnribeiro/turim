@@ -85,7 +85,7 @@ module.exports = function(grunt){
             }
           },
 
-          prod: {
+          /*prod: {
             options: {
               style: 'expanded',
               loadPath: require('node-bourbon').includePaths,
@@ -94,7 +94,7 @@ module.exports = function(grunt){
             files: {
              "assets/css/index.css": "assets/scss/index.scss"
             }
-          }
+          }*/
         },
 
         cssmin: {
@@ -128,6 +128,7 @@ module.exports = function(grunt){
 
 
 
+
          watch: {
 
             js: {
@@ -143,13 +144,13 @@ module.exports = function(grunt){
             sass: {
                 files: ['assets/scss/*.scss'],
                 tasks: [
-                  'scss',
-                  'notify:scss'
+                  'sass',
+                  'notify:sass'
                 ]
             }
         },
     });
 
-    grunt.registerTask('default',   ['sass:dev','uglify:dev',   'cssmin', 'notify']);
+  grunt.registerTask('default',   ['sass:dev','uglify:dev',   'cssmin']);
     //grunt.registerTask('prod',      ['scss:prod','uglify:prod', 'cssmin', 'notify']);
 }

@@ -1,14 +1,14 @@
 .a{
   &-container{
     @include outer-container(1170px);
-     box-sizing:border-box;
+    box-sizing    : border-box;
+    position      : relative;
     padding-left  : 15px;
     padding-right : 15px;
   }
 
   &-row{
-    padding-left  : -15px;
-    padding-right : -15px;
+
   }
 }
 
@@ -16,8 +16,7 @@
 @each $col , $number in $grid{
     .a-#{$col} {
       @include span-columns($number);
-      padding-left  : 15px;
-      padding-right : 15px;
+
     }
 }
 

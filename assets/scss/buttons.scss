@@ -1,17 +1,13 @@
 .a{
     &-btn {
-        @include border-top-radius(3px);
-        @include border-left-radius(3px);
-        @include border-right-radius(3px);
-        @include border-bottom-radius(3px);
-        @include transition(all .3s ease-in-out);
-        box-sizing          :border-box;
+        box-sizing          : border-box;
         display             : inline-block;
-        padding             : 6px 12px;
+        padding             : 0 1.1em;
         margin-bottom       : 0;
         font-size           : 16px;
         font-weight         : 400;
-        line-height         : 1.42857143;
+        line-height         : 36px;
+        height              : 42px;
         text-align          : center;
         white-space         : nowrap;
         vertical-align      : middle;
@@ -22,19 +18,66 @@
         -moz-user-select    : none;
         -ms-user-select     : none;
         user-select         : none;
-        background-image    : none;
         border              : 1px solid transparent;
         cursor              : pointer;
-        font-weight         :  400;
         text-decoration     : none;
         position            : relative;
-    }
-}
+        min-width           : 128px;
+        color               : #ffffff;
 
-@each $type, $bgcolor in $btn-colores {
-    .a-btn-#{$type},
-    .a-btn-#{$type}:focus,
-    .a-btn-#{$type}:hover {
-        background-color: $bgcolor;
+        & > .fa.fa-chevron-right{
+            margin-left: 3px;
+            position: relative;
+            &:before{
+                position: relative;
+                top: 1px;
+            }
+        }
+
+        @include m('transparent'){
+            background-color : transparent;
+            border           : 1px solid #ffffff;
+            height           : 40px;
+            width            : 126px;
+
+        }
+        @include m('menu') {
+            background-color : $dark;
+            width            : 138px;
+            border           : 2px solid $dark;
+            height           : 42px;
+        }
+
+        @include m('darkness') {
+           background-color : #191919;
+           width            : 180px;
+        }
+
+        @include m('light') {
+           background-color : #ffffff;
+           color:#000000;
+        }
+
+        @include m('blue') {
+           color:$blue;
+        }
+
+        @include m('green') {
+           color:$green;
+        }
+
+        @include m('yellow') {
+           color:$yellow;
+        }
+
+
+
+        @include m('reservation') {
+            background-color : $dark;
+            width            : 134px;
+            border           : 2px solid #ffffff;
+            height           : 42px;
+            margin-left      : 9px
+        }
     }
 }

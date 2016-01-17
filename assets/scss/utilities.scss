@@ -1,5 +1,5 @@
 
-@for $i from 1 through 60{
+@for $i from 1 through 100{
     .p-r-#{$i * 5} {
         padding-right: #{$i * 5}px;
     }
@@ -57,6 +57,21 @@
 }
 
 .a{
+    &-instragram{
+        color: #555555;
+        font-size: 35px;
+    }
+
+    &-content{
+        p{
+        margin:0px;
+        }
+        strong{
+            @include lato-bold;
+            font-size: 18px;
+        }
+    }
+
     &-pull-left{
         float: left;
     }
@@ -64,16 +79,21 @@
     &-pull-right{
         float: right;
     }
+    &-nolist{
+        list-style: none;
+        margin    : 0;
+        padding   : 0;
+    }
 
     &-text-center{
         text-align: center;
     }
 
-    &-text-center{
+    &-text-left{
         text-align: left;
     }
 
-    &-text-center{
+    &-text-right{
         text-align: right;
     }
 
@@ -87,6 +107,7 @@
         overflow     : hidden;
         text-indent  : -9999px;
         zoom         : 1;
+        display      : inline-block;
     }
 
     &-clearfix{

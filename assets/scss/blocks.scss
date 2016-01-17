@@ -1,5 +1,23 @@
-@each $class , $color in $section-bkg {
-    a-.#{$class} {
-        background-color: $color;
-    }
+@each $class , $rules in $section-bkg {
+  .a-#{$class} {
+    @each $rule , $value in $rules {
+
+          #{$rule}: #{$value};
+        }
+  }
+}
+
+.a{
+  &-block-center-900{
+    max-width  : 900px;
+    margin : 0 auto;
+  }
+
+  &-dark-ligth{
+    background-color: #ffffff;
+    background-image: url(../images/dark-bkg.jpg);
+    background-repeat: repeat-x;
+    background-position: 0 0;
+  }
+
 }

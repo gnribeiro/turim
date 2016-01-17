@@ -1,10 +1,13 @@
 @import "bourbon";
 @import "neat";
+@import "../../bower_components/fontAwesome/scss/font-awesome";
 
 @import "normalize";
 @import "fonts";
-@import "variables";
 @import "mixins";
+@import "variables";
+@import "utilities";
+
 @import "animations";
 @import "buttons";
 @import "blocks";
@@ -13,10 +16,10 @@
 @import "grid";
 
 
-@import "site/header";
-@import "site/footer";
-@import "site/home";
-
+@import "header";
+@import "banner";
+@import "footer";
+@import "home";
 
 
 @import "mediaquerie-992";

@@ -1,0 +1,57 @@
+.a{
+  &-logo{
+    @include sprite;
+    @extend .a-hidetext;
+    margin : 0 auto 156px;
+    width  : 279px;
+    height : 96px;
+    display: block;
+  }
+
+  &-menu {
+    position : absolute;
+    top      : 3px;
+    right    : 0;
+    width    : 285px;
+    height   : 46px;
+  }
+
+  &-weather{
+    width    : 165px;
+    height   : 95px;
+    font-size: 13px;
+
+    &:before{
+        @include sprite;
+        display             : block;
+        width               : 58px;
+        height              : 56px;
+        content             : "";
+        margin-bottom       : 24px;
+        background-position : -280px -62px;
+    }
+  }
+
+  &-banner{
+    padding-top         : 30px;
+    background-repeat   : no-repeat;
+    background-position : 0 0;
+    background-size     : cover;
+    height              : 619px;
+    color               : #ffffff;
+
+    @include e('title'){
+        @include montserrat-bold;
+        font-size      : 54px;
+        text-align     : center;
+        text-transform : uppercase;
+        margin-bottom  : 24px;
+    }
+
+    @include e('resume'){
+        text-align    : center;
+        font-size     : 18px;
+        margin-bottom : 24px;
+    }
+  }
+}

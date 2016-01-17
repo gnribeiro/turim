@@ -36,6 +36,7 @@
     "jquery-migrate": "git://github.com/jquery/jquery-migrate.git#~1.2.1",
     "gsap": "git://github.com/greensock/GreenSock-JS.git#~1.16.1",
     "bourbon": "git://github.com/thoughtbot/bourbon.git",
-    "bourbon": "git://github.com/thoughtbot/neat.git"
+    "neat": "git://github.com/thoughtbot/neat.git",
+    "fontAwesome":"https://github.com/FortAwesome/Font-Awesome.git"
   }
 }

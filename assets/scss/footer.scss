@@ -1,0 +1,165 @@
+.a{
+
+  &-links-footer{
+    @include e(list){
+      margin:0;
+      padding: 0;
+      float: left;
+      margin-right:78px;
+      list-style: none;
+
+      &:last-child  {
+        margin-right: 0;
+      }
+
+
+      @include m(group){
+        li:first-child{
+          width:100px;
+        }
+      }
+
+      @include m(hotel){
+        li{
+          float: none;
+
+        }
+
+        li:first-child{
+          width:350px;
+          float: none
+        }
+        li:nth-child(2n+2){
+          float:left;
+          width: 50%;
+        }
+
+        li:first-child{
+          width:350px;
+          float: none
+        }
+      }
+
+      @include m(events){
+        li:first-child{
+          width:150px;
+        }
+      }
+
+      @include m(restaurants){
+        li:first-child{
+          width:108px;
+        }
+      }
+
+      @include m(comercial){
+        li:first-child{
+            width:117px;
+        }
+      }
+
+    }
+
+    @include e(title) {
+      font-size: 14px;
+      line-height: 17px;
+      border-bottom: 1px solid $dark;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      padding-bottom: 6px;
+    }
+
+    @include e(text) {
+      color:$dark;
+      font-size: 12px;
+      line-height: 13px;
+      margin-bottom: 12px;
+      a{
+        color:$dark;
+         text-decoration: none;
+        &:hover,
+        &:active,
+        &:focus,{
+          color:$dark;
+          text-decoration: none;
+        }
+
+      }
+    }
+  }
+
+  &-footer-contacts{
+
+    text-align: center;
+
+    @include e(title) {
+      font-size: 11px;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      line-height: 12px;
+    }
+    @include e(content) {
+
+    }
+    @include e(phone) {
+      font-size: 20px;
+      margin-right: 7px;
+      i{
+        margin-right: 13px;
+      }
+    }
+
+    @include e(email) {
+      i{
+        margin-right: 5px;
+        font-size: 9px;
+        position: relative;
+        top: -2px;
+      }
+    }
+
+
+  }
+
+  &-footer-copyright{
+    font-size: 14px;
+    line-height:13px;
+    @include e(list) {
+      list-style: none;
+      float: left;
+      padding:0;
+      margin:0;
+
+      li{
+        float: left;
+        border-left: 1px solid $dark;
+        height: 13px;
+        padding-right: 15px;
+        padding-left: 15px;
+        font-size: 14px;
+        cursor:pointer;
+
+        a{
+          color:$dark;
+          text-decoration: none;
+
+          &:hover,
+          &:active
+          &:focus{
+            text-decoration: none;
+            color:$dark;
+          }
+        }
+
+        &:first-child{
+          padding-left: 0;
+          border-left: none;
+        }
+
+        &:last-child{
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}

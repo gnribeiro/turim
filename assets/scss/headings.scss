@@ -1,9 +1,13 @@
 h1{
-  font-family   : $Oswald;
-  font-size     : 36px;
-  color         : #000000;
+  @include montserrat;
+  font-size     : 55px;
   margin        : 0 0 25px;
-  text-align    : center;
   line-height   : 50px;
-  font-weight   : 400;
+
+}
+
+h3{
+  @include lato-bold;
+  font-size: 30px;
+  margin: 6px  0;
 }
