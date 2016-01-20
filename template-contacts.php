@@ -4,6 +4,6 @@
 */
 
 global $site;
-$site->set_content('contacts');
+$site->contact();
 
 ?>

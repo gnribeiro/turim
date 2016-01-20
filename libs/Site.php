@@ -18,13 +18,28 @@
         }
 
 
+        public function contact()
+        {
+            $this->view->set('banner', $this->get_banner());
+            $this->view->set('contacts', $this->list_contacts());
+            $content = $this->view->render('contacts');
+            $this->content($content);  
+        }
+
+
         public function page()
         {
+        
+            $this->view->set('banner', $this->get_banner());
 
+            $this->view->set('form', $this->get_form());
 
             $content = $this->view->render('page');
             $this->content($content);
+
+
         }
+
 
         public function homepage()
         {
@@ -71,13 +86,63 @@
             return $intros;
         }
 
-        protected function get_banner(){
+        protected function get_banner()
+        {
             $banner = get_field('banner') ;
             $this->view->style  = ($banner) ? "style='background-image:url({$banner})'":'';
             $this->view->title  = (get_field('title'))  ? get_field('title') : '';
             $this->view->resume = (get_field('resume')) ? get_field('resume') : '';
 
             return $this->view->render('shared/banner');
+        }
+
+        protected function list_contacts()
+        {
+            $this->view->set("list" , $this->get_contacts() );
+            return $this->view->render('shared/list_contacts');
+        }
+
+        protected function get_form()
+        {
+            if(!get_field('form_sidebar'))
+                return '';
+
+            $form = get_field('form_sidebar');
+
+            if($form==='none')
+                return '';
+
+            return $this->{$form}();
+
+            
+        }
+
+        protected function recrutamento()
+        {
+            $this->view->set('content' , $this->list_contacts());
+            return $this->view->render('forms/recrutamento');
+        }
+
+        protected function info()
+        {
+            return $this->view->render('forms/info');
+        }
+        
+        protected function adesao()
+        {
+            return $this->view->render('forms/adesao');
+        }
+
+        protected function get_contacts()
+        {
+            $query = new WP_Query( array(
+                'post_type'      => 'contactos' ,      
+                'posts_per_page' => -1, 
+                'order'        => 'asc'
+            ));
+
+            return $query->posts;
+
         }
     }
 ?>

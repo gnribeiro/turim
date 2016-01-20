@@ -5,7 +5,9 @@ Class Gwp_Shortcodes {
     public static function init() {
         // Define shortcodes
         $shortcodes = array(
-            'youtube' => __CLASS__ . '::youtube'
+            'youtube' => __CLASS__ . '::youtube',
+            'highlight' => __CLASS__ . '::highlight'
+
         );
 
         foreach ( $shortcodes as $shortcode => $function ) {
@@ -21,6 +23,15 @@ Class Gwp_Shortcodes {
         $view->set('id' , $id);
 
         return $view->render('shortcodes/youtube');
+    }
+
+    public static function highlight ($atts, $content=null) {
+        extract(shortcode_atts( array('id' => ''), $atts));
+
+        $view = View::factory();
+        $view->set('content' , $content);
+
+        return $view->render('shortcodes/highlight');
     }
 }
 

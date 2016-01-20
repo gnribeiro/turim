@@ -15,5 +15,4 @@ echo $site->get_partial('home/promos');
 
 <?php echo $site->get_partial('home/hoteis'); ?>
 
-<?php echo $site->get_partial('home/newsletter'); ?>
 
