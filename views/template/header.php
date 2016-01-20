@@ -22,4 +22,5 @@
             </ul>
         </div>
     </header>
-    <?php echo $banner; ?>
+
+    <?php if(isset($banner)) echo $banner; ?>
