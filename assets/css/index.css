@@ -8844,6 +8844,9 @@ body {
 .a-text-center {
   text-align: center;
 }
+.a-text-center p {
+  text-align: center;
+}
 .a-text-left {
   text-align: left;
 }
@@ -9126,7 +9129,8 @@ body {
 
 .a-block-center-900 {
   max-width: 900px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 .a-dark-ligth {
   background-color: #ffffff;
@@ -10130,6 +10134,49 @@ header.main .a-social--phone:after {
 }
 .a-bo p {
   margin: 0 0 20px;
+}
+.a-bo-events {
+  margin-bottom: 40px;
+}
+.a-bo-events:first-child {
+  margin-top: 20px;
+}
+.a-bo-events__icon {
+  margin-top: 9px;
+  margin-bottom: 27px;
+}
+.a-bo-events__title {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  margin: 0 0 27px;
+  font-size: 18px;
+  line-height: 20px;
+}
+.a-bo-events__title--small {
+  font-size: 14px;
+  line-height: 18px;
+}
+.a-bo-events__content {
+  margin-bottom: 40px;
+}
+.a-bo-events__list {
+  font-size: 14px;
+  line-height: 14px;
+  margin-bottom: 40px;
+}
+.a-bo-events__list ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.a-bo-events__list li {
+  margin-bottom: 8px;
+}
+.a-bo-resume-events {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 18px;
 }
 .a-bo-highlights {
   padding-left: 26px;

@@ -3,7 +3,7 @@
   <div class="a-container">
    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <h1 class="a-text-center"><?php the_title() ?></h1>
-        <div class="a-bo a-text-center a-block-center-900 p-b-25"><?php the_content() ?></div>
+        <div class="a-bo a-text-center a-block-center-900 p-b-50"><?php the_content() ?></div>
 
         <?php if(get_field('image-collum-2') && get_field('content-collum-2')): ?>
         <div class="a-clearfix">

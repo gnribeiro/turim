@@ -9,14 +9,12 @@
 
         }
 
-
         public function index()
         {
 
             $content = $this->view->render('index');
             $this->content($content);
         }
-
 
         public function contact()
         {
@@ -33,8 +31,12 @@
             $this->content($content);
         }
 
-
-
+        public function events()
+        {
+            $this->view->set('banner', $this->get_banner());
+            $content = $this->view->render('events');
+            $this->content($content);
+        }
 
         public function page()
         {
