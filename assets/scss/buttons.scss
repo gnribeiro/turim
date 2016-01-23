@@ -58,6 +58,10 @@
            color:#000000;
         }
 
+        @include m('round') {
+            @include css3-prefix('border-radius' , 42px);
+        }
+
         @include m('blue') {
            color:$blue;
         }

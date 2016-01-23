@@ -16,7 +16,7 @@
                 <?php if($error_nome): echo $error_nome; endif;?>
                 </div>
             </div>
-            
+
             <div class="a-field">
                 <select name="type-company" id="" class="a-field-select">
                     <option value="" class="a-field-option">PARTICULAR OU EMPRESA</option>
@@ -52,7 +52,7 @@
                     <?php if($error_phone): echo $error_phone; endif;?>
                 </div>
             </div>
-            
+
             <div class="a-field">
                 <label for="mensage">MENSAGEM</label>
                 <?php $error_mensage =  Helper::get_flashdata("mensage-error");?>
@@ -85,15 +85,17 @@
         </form>
     </div>
     <aside class="a-col-3">
+        <div class="a-aside">
         <div class="a-aside-header">
-            <h4>
-                
-            </h4>
+            <h5>
+
+            </h5>
         </div>
         <?php if(isset($contacts)): ?>
         <div class="a-aside-content">
             <?php echo $contacts ?>
         </div>
         <?php endif; ?>
+        </div>
     </aside>
 </article>

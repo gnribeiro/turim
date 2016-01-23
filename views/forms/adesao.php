@@ -1,4 +1,4 @@
-<div class="a-side">
+<div class="a-aside">
 	<div class="a-aside__header">
 	    <h5>Adesão</h5>
 	    Turim Hoteis ....

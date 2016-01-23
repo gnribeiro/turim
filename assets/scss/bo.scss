@@ -1,7 +1,64 @@
 .a{
 	&-bo{
-		&-highlights{
-			position: relative
+    max-width: 650px;
+    p{
+      margin: 0 0 28px;
+    }
+
+    &-highlights{
+			padding-left: 26px;
+      position: relative;
+      margin-bottom: 40px;
+
+      &:before{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 5px;
+        background-color: #202020;
+        content: '';
+      }
 		}
 	}
+
+  &-aside{
+    max-width: 257px;
+    float: right;
+
+    @include e('header'){
+      padding: 15px 15px 25px;
+      background-color: #202020;
+      color: #ffffff;
+      font-size: 12px;
+
+    }
+
+    @include e('content'){
+      padding: 35px 15px;
+      background-color: $gray;
+      color: #191919;
+      overflow: hidden;
+    }
+
+    @include e('list') {
+      list-style : none;
+      padding    : 0;
+      margin     : 0 0 30px;
+
+      li{
+        margin: 0 0 6px;
+        font-size   : 14px;
+        line-height : 16px;
+
+        &:first-child{
+          @include lato-bold;
+
+          color:$dark;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+  }
 }

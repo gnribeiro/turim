@@ -9,7 +9,7 @@ $highlight :#000000;
 $blue      :#607d8b;
 $green     :#47b7a2;
 $yellow    :#ffb300;
-
+$gray      :#f3f3f3;
 //FONTS
 $Lato        : 'Lato', sans-serif;
 $Montserrat  : 'Montserrat', sans-serif;
@@ -69,7 +69,7 @@ $grid:(
 
 body{
     @include lato-regular;
-    font-size               : 18px;
+    font-size               : 16px;
     color                   : $dark;
     background-color        : #ffffff;
     line-height             : 25px;

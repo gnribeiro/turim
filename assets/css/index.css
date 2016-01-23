@@ -3309,8 +3309,8 @@ textarea {
 
 body {
   font-family: "Lato", sans-serif;
-  font-size: 400;
-  font-size: 18px;
+  font-weight: 400;
+  font-size: 16px;
   color: #202020;
   background-color: #ffffff;
   line-height: 25px;
@@ -9084,6 +9084,14 @@ body {
   background-color: #ffffff;
   color: #000000;
 }
+.a-btn--round {
+  -webkit-border-radius: 42px;
+  -khtml-border-radius: 42px;
+  -moz-border-radius: 42px;
+  -ms-border-radius: 42px;
+  -o-border-radius: 42px;
+  border-radius: 42px;
+}
 .a-btn--blue {
   color: #607d8b;
 }
@@ -9177,9 +9185,9 @@ body {
 
 h1 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 55px;
-  margin: 0 0 25px;
+  margin: 0 0 40px;
   line-height: 50px;
 }
 
@@ -9188,6 +9196,14 @@ h3 {
   font-weight: 700;
   font-size: 30px;
   margin: 6px  0;
+}
+
+h5 {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  margin: 0px  0 5px;
 }
 
 .a-container {
@@ -9612,7 +9628,7 @@ header.main .a-social--phone:after {
 }
 .a-banner__title {
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 54px;
   text-align: center;
   text-transform: uppercase;
@@ -10000,8 +10016,57 @@ header.main .a-social--phone:after {
   font-size: 13px;
 }
 
+.a-bo {
+  max-width: 650px;
+}
+.a-bo p {
+  margin: 0 0 28px;
+}
 .a-bo-highlights {
+  padding-left: 26px;
   position: relative;
+  margin-bottom: 40px;
+}
+.a-bo-highlights:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #202020;
+  content: '';
+}
+.a-aside {
+  max-width: 257px;
+  float: right;
+}
+.a-aside__header {
+  padding: 15px 15px 25px;
+  background-color: #202020;
+  color: #ffffff;
+  font-size: 12px;
+}
+.a-aside__content {
+  padding: 35px 15px;
+  background-color: #f3f3f3;
+  color: #191919;
+  overflow: hidden;
+}
+.a-aside__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+}
+.a-aside__list li {
+  margin: 0 0 6px;
+  font-size: 14px;
+  line-height: 16px;
+}
+.a-aside__list li:first-child {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  color: #202020;
+  text-transform: uppercase;
 }
 
 /*# sourceMappingURL=index.css.map */

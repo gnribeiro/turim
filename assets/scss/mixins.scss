@@ -19,11 +19,11 @@
 //FONTS
 @mixin lato-regular{
   font-family: $Lato;
-  font-size: 400;
+  font-weight: 400;
 }
 @mixin lato-light{
   font-family: $Lato;
-  font-size: 300;
+  font-weight: 300;
 }
 @mixin lato-bold{
   font-family: $Lato;
@@ -63,7 +63,7 @@
 
 @mixin montserrat-bold{
     font-family: $Montserrat;
-    font-weight: 400;
+    font-weight: 700;
 }
 
 

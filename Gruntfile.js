@@ -111,24 +111,6 @@ module.exports = function(grunt){
             }
         },
 
-        notify: {
-            sass: {
-                options: {
-                    title: 'Grunt, grunt!',
-                    message: 'scss is all gravy'
-                }
-            },
-            js: {
-                options: {
-                    title: 'Grunt, grunt!',
-                    message: 'JS is all good'
-                }
-            }
-        },
-
-
-
-
          watch: {
 
             js: {
@@ -136,21 +118,19 @@ module.exports = function(grunt){
                     '<%= files_js.all %>'
                 ],
                 tasks: [
-                  'uglify',
-                  'notify:js'
+                  'uglify'
                 ]
             },
 
             sass: {
                 files: ['assets/scss/*.scss'],
                 tasks: [
-                  'sass',
-                  'notify:sass'
+                  'sass'
                 ]
             }
         },
     });
 
-  grunt.registerTask('default',   ['sass:dev','uglify:dev',   'cssmin']);
+  grunt.registerTask('default',   ['sass:dev','uglify:dev','cssmin']);
     //grunt.registerTask('prod',      ['scss:prod','uglify:prod', 'cssmin', 'notify']);
 }

@@ -1,6 +1,6 @@
 <?php global $post ?>
 
-<section class="a-light p-t-30">
+<section class="a-light p-t-70 p-b-75">
 	<article class="a-container">
 	    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 	    	<div class="a-col-9">
@@ -18,7 +18,7 @@
 
 			<?php if(isset($form)): ?>
 	       		<aside class="a-col-3">
-	       		<?php echo $form ?>	
+	       		<?php echo $form ?>
 	       		</aside>
 	       <?php endif ?>
 	    <?php endwhile; endif ?>

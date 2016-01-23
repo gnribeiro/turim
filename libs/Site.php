@@ -23,18 +23,33 @@
             $this->view->set('banner', $this->get_banner());
             $this->view->set('contacts', $this->list_contacts());
             $content = $this->view->render('contacts');
-            $this->content($content);  
+            $this->content($content);
         }
+
+        public function collum2()
+        {
+            $this->view->set('banner', $this->get_banner());
+            $content = $this->view->render('collum2');
+            $this->content($content);
+        }
+
+
 
 
         public function page()
         {
-        
+
+            $form = get_field('form_sidebar');
+
             $this->view->set('banner', $this->get_banner());
 
-            $this->view->set('form', $this->get_form());
+            if($form !=='none')
+                $this->view->set('form', $this->get_form());
 
-            $content = $this->view->render('page');
+            $view =($form !=='none') ? 'page' : 'page-noform';
+
+            $content = $this->view->render($view);
+
             $this->content($content);
 
 
@@ -43,6 +58,8 @@
 
         public function homepage()
         {
+           // pr($GLOBALS['wp_query']);
+            //$this->get_weather();
 
             $this->view->set('banner', $this->get_banner());
             $this->view->set('intros', $this->get_homeintros());
@@ -86,6 +103,36 @@
             return $intros;
         }
 
+        protected function get_weather(){
+            $feed = "http://weather.yahooapis.com/forecastrss?p=POXX0039&u=c";
+            $xml  =  new SimpleXMLElement(file_get_contents($feed));
+
+
+            if ( $xml !== false ) {
+                $namespaces = $xml->getNamespaces(true);
+                $geo = $xml->channel->item->children($namespaces['yweather']);
+
+                foreach ($geo as $key => $value) {
+                      echo strtotime(date('d M Y')) . "<--->";
+                      if($key==='forecast'){
+                        $attr = $value->attributes();
+
+
+                          foreach ($attr->date as $k => $v) {
+                               echo strtotime($v);
+                          }
+
+                      }
+
+
+                }
+
+
+            }
+
+
+        }
+
         protected function get_banner()
         {
             $banner = get_field('banner') ;
@@ -114,7 +161,7 @@
 
             return $this->{$form}();
 
-            
+
         }
 
         protected function recrutamento()
@@ -127,7 +174,7 @@
         {
             return $this->view->render('forms/info');
         }
-        
+
         protected function adesao()
         {
             return $this->view->render('forms/adesao');
@@ -136,8 +183,8 @@
         protected function get_contacts()
         {
             $query = new WP_Query( array(
-                'post_type'      => 'contactos' ,      
-                'posts_per_page' => -1, 
+                'post_type'      => 'contactos' ,
+                'posts_per_page' => -1,
                 'order'        => 'asc'
             ));
 
