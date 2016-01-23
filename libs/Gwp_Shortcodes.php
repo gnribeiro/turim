@@ -26,9 +26,10 @@ Class Gwp_Shortcodes {
     }
 
     public static function highlight ($atts, $content=null) {
-        extract(shortcode_atts( array('id' => ''), $atts));
+        extract(shortcode_atts( array('title' => false), $atts));
 
         $view = View::factory();
+        $view->set('title' , $title);
         $view->set('content' , $content);
 
         return $view->render('shortcodes/highlight');

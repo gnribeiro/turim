@@ -1,15 +1,43 @@
 .a{
 	&-bo{
     max-width: 650px;
+
+    @include m('center') {
+        margin-left  : auto;
+        margin-right : auto;
+    }
+
+    @include m('collum-2') {
+        ul{
+            margin: 0 0 6px;
+            list-style:none;
+            padding-left: 0;
+            font-size: 14px;
+        }
+    }
+
+
+
     p{
       margin: 0 0 20px;
     }
 
     &-highlights{
 			padding-left: 26px;
-      position: relative;
-      margin-bottom: 40px;
+            position: relative;
+            margin-bottom: 40px;
 
+      @include  m("title"){
+        @include lato-blackbold;
+            font-size: 14px;
+            padding-left: 16px;
+            margin-bottom: 10px;
+            h2{
+                font-size: 14px;
+                line-height: 25px;
+                margin-right: 0;
+            }
+      }
       &:before{
         position: absolute;
         top: 0;
