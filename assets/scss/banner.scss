@@ -40,6 +40,10 @@
     height              : 619px;
     color               : #ffffff;
 
+    h2 {
+        margin:0 0 42px;
+    }
+
     @include e('title'){
         @include montserrat-bold;
         font-size      : 54px;
@@ -51,7 +55,8 @@
     @include e('resume'){
         text-align    : center;
         font-size     : 18px;
-        margin-bottom : 24px;
+        margin        : 0 auto 24px;
+        max-width     : 640px;
     }
   }
 }

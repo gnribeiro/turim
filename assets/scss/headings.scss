@@ -1,8 +1,8 @@
 h1{
   @include montserrat-bold;
-  font-size     : 55px;
+  font-size     : 50px;
   margin        : 0 0 40px;
-  line-height   : 50px;
+  line-height   : 60px;
 
 }
 
@@ -12,9 +12,11 @@ h3{
   margin: 6px  0;
 }
 
+
+
 h5{
-  @include lato-regular;
+  @include lato-bold;
   font-size: 20px;
-  line-height: 20px;
+  line-height: 25px;
   margin: 0px  0 5px;
 }

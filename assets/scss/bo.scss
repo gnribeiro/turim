@@ -2,7 +2,7 @@
 	&-bo{
     max-width: 650px;
     p{
-      margin: 0 0 28px;
+      margin: 0 0 20px;
     }
 
     &-highlights{
@@ -23,10 +23,11 @@
 	}
 
   &-aside{
-    max-width: 257px;
-    float: right;
+    max-width: 277px;
+
 
     @include e('header'){
+      @include lato-bold;
       padding: 15px 15px 25px;
       background-color: #202020;
       color: #ffffff;
@@ -35,7 +36,7 @@
     }
 
     @include e('content'){
-      padding: 35px 15px;
+      padding: 35px 25px;
       background-color: $gray;
       color: #191919;
       overflow: hidden;
@@ -47,7 +48,7 @@
       margin     : 0 0 30px;
 
       li{
-        margin: 0 0 6px;
+        margin: 0 0 10px;
         font-size   : 14px;
         line-height : 16px;
 
