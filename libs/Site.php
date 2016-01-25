@@ -33,6 +33,7 @@
 
         public function events()
         {
+
             $this->view->set('banner', $this->get_banner());
             $content = $this->view->render('events');
             $this->content($content);
@@ -168,6 +169,16 @@
 
         protected function recrutamento()
         {
+            $modal = array('content' => '#recrutamento');
+            $ajax  = array(
+                'action' => 'recrutament',
+                'form'   => '#form-recrutamento'
+
+            );
+
+            $this->view->set('modal',  Helper::setJson($modal));
+            $this->view->set('ajax' ,  Helper::setJson($ajax));
+
             $this->view->set('content' , $this->list_contacts());
             return $this->view->render('forms/recrutamento');
         }

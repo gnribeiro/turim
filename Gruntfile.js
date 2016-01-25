@@ -9,9 +9,12 @@ module.exports = function(grunt){
 
         files_js: {
             all:[
-                //'assets/js/vendor/bootstrap/assets/javascripts/bootstrap/*.js',
-                //'assets/js/vendor/bootstrap/*.js',
+                'bower_components/jquery/jquery.js',
+                'assets/js/widgets/init.js',
+                'assets/js/widgets/a-ajax.js',
+                'assets/js/widgets/a-modal.js',
                 'assets/js/index.js'
+
             ]
         },
 
@@ -30,7 +33,7 @@ module.exports = function(grunt){
                    beautify: true
                 },
                 files: {
-                    'assets/js/index.min.js': [
+                    'assets/js/index-min.js': [
                         '<%= files_js.all %>'
                     ]
                 }

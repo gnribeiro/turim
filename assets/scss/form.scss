@@ -2,9 +2,18 @@
     &-field{
         padding-left: 27px;
 
+        @include m(modal) {
+            padding-left: 0px;
+            min-width: 500px;
+        }
+
         &-form{
             width:100%;
             max-width: 723px;
+
+            @include m(modal) {
+                padding: 15px 20px;
+            }
         }
 
         &__label{
@@ -12,17 +21,54 @@
             color: #0000000;
             display: block;
             margin-bottom: 8px;
+
+            @include m(modal) {
+                font-size: 12px;
+                line-height: 12px;
+                margin-bottom: 3px;
+            }
+
+            @include m(file) {
+                width            : 25%;
+                float            : left;
+                height           : 36px;
+                border: 1px solid #000000;
+                background-color : #000000;
+                cursor: pointer;
+                color: #ffffff;
+                text-align: center;
+                line-height: 31px;
+                font-size: 15px;
+            }
         }
     }
 
     &-input{
         &-textarea{
-             height: 123px;
+            height: 123px;
             width:100%;
             max-width: 723px;
             box-sizing          : border-box;
             padding: 0px 26px 0;
-            border: 1px solid $dark;
+            border: 1px solid #000000;
+
+            @include m(modal) {
+                height: 70px;
+            }
+        }
+
+        &-fake{
+            width  : 75%;
+            float  : left;
+            height : 36px;
+            border: 1px solid #000000;
+        }
+
+        &-file{
+                position: absolute;
+                left: -9999px;
+                visibility: hidden;
+                display: block;
         }
 
         &-large{
@@ -40,6 +86,10 @@
             height: 30px;
             font-size: 12px;
             color:red;
+
+            @include m(modal) {
+                height: 16px;
+            }
         }
 
         &-text,
@@ -52,7 +102,7 @@
             box-sizing          : border-box;
             display             : inline-block;
             padding: 0px 26px 0;
-            border: 1px solid $dark;
+            border: 1px solid #000000;
              color: #000000;
 
             &::-webkit-input-placeholder { /* Safari, Chrome and Opera */
@@ -112,6 +162,10 @@
 
 
             }
+
+             @include m(modal) {
+                height: 36px;
+             }
             @include m(captcha) {
                 width: 501px;
 
@@ -162,6 +216,8 @@
     }
 
     &-select{
+        height: 36px;
+        width: 100%
         &-large{
 
         }

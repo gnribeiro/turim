@@ -1,0 +1,1 @@
+jQuery(function($){letsgetitoNamespace.Accordion=function i(t,e){this.elem=$(t),this.options=e,this.init()}});

@@ -1,0 +1,1 @@
+jQuery(function($){letsgetitoNamespace.Exg_modal_prd_thumbs=function t(e,o){this.options=o||{},this.init()},letsgetitoNamespace.Exg_modal_prd_thumbs.prototype={}});

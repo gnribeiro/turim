@@ -1,0 +1,1 @@
+jQuery(function($){letsgetitoNamespace.Exg_modal=function t(e,i){this.elem=$(e),this.options=i||{},this.init()},letsgetitoNamespace.Exg_modal.prototype={}});

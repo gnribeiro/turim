@@ -16,21 +16,26 @@ class Helper {
         return rtrim(preg_replace(array('@\?.*$@' , '#^/#' , '@page/[\d]+@'), array('' , '', ''), $_SERVER['REQUEST_URI']) , '/');
     }
 
-    
+    public static function setJson($data){
+      $json = json_encode($data);
+      return htmlentities($json, ENT_QUOTES, 'UTF-8');
+    }
+
+
     public static  function get_id_by_slug($slug , $type)
     {
         if(!function_exists('icl_object_id'))
             return;
-        
+
         $page = get_page_by_path( $slug );
         return icl_object_id($page->ID, $type, true);
     }
 
-    
+
      public static function message($file, $path = NULL, $default = NULL)
     {
          static $messages;
-        
+
         if ( ! isset($messages[$file]))
         {
             $messages[$file] = array();
@@ -41,7 +46,7 @@ class Helper {
                 $messages[$file] =  Wparr::merge($messages[$file], $files);
             }
         }
-    
+
 
         if ($path === NULL)
         {
@@ -53,14 +58,14 @@ class Helper {
         }
     }
 
-    
-    
+
+
     public static function load_messages($file) {
         $file = MESSAGES . $file;
         return self::load_file($file);
     }
-    
-    
+
+
     public static function arraypath($array, $path, $default = NULL, $delimiter = NULL)
     {
         if ( ! is_array($array))
@@ -162,9 +167,9 @@ class Helper {
         // Unable to find the value requested
         return $default;
     }
-    
-    
-    
+
+
+
     public static function arraymap($callbacks, $array, $keys = NULL)
     {
         foreach ($array as $key => $val)
@@ -191,11 +196,11 @@ class Helper {
 
         return $array;
     }
-    
-    
-    
-    
-    
+
+
+
+
+
      public static  function get_link_translation($slug , $type ){
        $id = self::get_id_by_slug($slug , $type );
        return get_page_link(  $id  );
@@ -499,11 +504,11 @@ class Helper {
     public static function get_protocol(){
        $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
        return $protocol;
-    } 
+    }
 
     public static function current_url(){
        $url = self::get_protocol() . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
        return $url;
-    } 
+    }
 }
 ?>

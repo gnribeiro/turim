@@ -1,7 +1,7 @@
-<?php global $post ?>
-
+<?php global $post;?>
 <section class="a-light p-t-70 p-b-75">
   <article class="a-container">
+
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <?php if(get_field('resume_page')): ?>
             <div class="a-bo a-bo--center m-b-20 a-text-center a-bo-resume-events">
