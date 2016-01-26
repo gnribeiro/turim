@@ -171,9 +171,8 @@
         {
             $modal = array('content' => '#recrutamento');
             $ajax  = array(
-                'action' => 'recrutament',
-                'form'   => '#form-recrutamento'
-
+                'action'     => 'recrutament',
+                'uploadFile' => 'cvform'
             );
 
             $this->view->set('modal',  Helper::setJson($modal));
@@ -185,11 +184,21 @@
 
         protected function info()
         {
+            $modal = array('content' => '#info');
+            $ajax  = array('action'  => 'info');
+
+            $this->view->set('modal',  Helper::setJson($modal));
+            $this->view->set('ajax' ,  Helper::setJson($ajax));
             return $this->view->render('forms/info');
         }
 
         protected function adesao()
         {
+            $modal = array('content' => '#adesao');
+            $ajax  = array('action'  => 'adesao');
+
+            $this->view->set('modal',  Helper::setJson($modal));
+            $this->view->set('ajax' ,  Helper::setJson($ajax));
             return $this->view->render('forms/adesao');
         }
 

@@ -20,16 +20,16 @@ Class Gwp_Form_Handler {
 //        $validation      = new ValidFluent($_POST);
 //        $requerid        = 'Preenchimento Obrigatório';
 //        $invalid_email   = 'Email inválido';
-        
-        
-        
+
+
+
         $validation2 = Validation::factory($_POST);
         $validation2->rule('nome',    'not_empty');
         $validation2->rule('phone',   'not_empty');
         $validation2->rule('email',   'not_empty');
         $validation2->rule('email',   'Valid::email');
         $validation2->rule('mensage', 'not_empty');
-        
+
          pr($validation2->check());
 
 //        $validation->name('nome')

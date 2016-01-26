@@ -8847,6 +8847,21 @@ body {
 .a-text-center p {
   text-align: center;
 }
+.a-relative {
+  position: relative;
+}
+.a-loading {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  color: #ffffff;
+}
+.a-loading--modal {
+  color: #000000;
+  position: absolute;
+  top: 20px;
+  right: 5px;
+}
 .a-text-left {
   text-align: left;
 }
@@ -9167,7 +9182,7 @@ body {
 .a-field__label--file {
   width: 25%;
   float: left;
-  height: 36px;
+  height: 33px;
   border: 1px solid #000000;
   background-color: #000000;
   cursor: pointer;
@@ -9185,12 +9200,12 @@ body {
   border: 1px solid #000000;
 }
 .a-input-textarea--modal {
-  height: 70px;
+  height: 65px;
 }
 .a-input-fake {
   width: 75%;
   float: left;
-  height: 36px;
+  height: 33px;
   border: 1px solid #000000;
 }
 .a-input-file {
@@ -9205,7 +9220,8 @@ body {
   color: red;
 }
 .a-input-error--modal {
-  height: 16px;
+  height: 20px;
+  line-height: 15px;
 }
 .a-input-text, .a-input-password, .a-input-email {
   height: 48px;
@@ -9275,7 +9291,7 @@ body {
   color: #ffffff;
 }
 .a-input-text--modal, .a-input-password--modal, .a-input-email--modal {
-  height: 36px;
+  height: 33px;
 }
 .a-input-text--captcha, .a-input-password--captcha, .a-input-email--captcha {
   width: 501px;

@@ -57,6 +57,8 @@
 }
 
 .a{
+
+
     &-instragram{
         color: #555555;
         font-size: 35px;
@@ -89,6 +91,24 @@
         text-align: center;
         p{
            text-align: center;
+        }
+    }
+
+    &-relative{
+        position: relative;
+    }
+
+    &-loading {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        color: #ffffff;
+
+        @include m(modal){
+            color: #000000;
+            position: absolute;
+            top: 20px;
+            right: 5px;
         }
     }
 

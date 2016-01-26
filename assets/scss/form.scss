@@ -31,7 +31,7 @@
             @include m(file) {
                 width            : 25%;
                 float            : left;
-                height           : 36px;
+                height : 33px;
                 border: 1px solid #000000;
                 background-color : #000000;
                 cursor: pointer;
@@ -53,14 +53,14 @@
             border: 1px solid #000000;
 
             @include m(modal) {
-                height: 70px;
+                height: 65px;
             }
         }
 
         &-fake{
             width  : 75%;
             float  : left;
-            height : 36px;
+            height : 33px;
             border: 1px solid #000000;
         }
 
@@ -88,7 +88,8 @@
             color:red;
 
             @include m(modal) {
-                height: 16px;
+                height: 20px;
+                line-height: 15px;
             }
         }
 
@@ -164,7 +165,7 @@
             }
 
              @include m(modal) {
-                height: 36px;
+                height : 33px;
              }
             @include m(captcha) {
                 width: 501px;

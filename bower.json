@@ -1,5 +1,5 @@
 {
-   "name": "bower_test",
+  "name": "bower_test",
   "version": "1",
   "description": "base html",
   "main": [
@@ -37,6 +37,7 @@
     "gsap": "git://github.com/greensock/GreenSock-JS.git#~1.16.1",
     "bourbon": "git://github.com/thoughtbot/bourbon.git",
     "neat": "git://github.com/thoughtbot/neat.git",
-    "fontAwesome":"https://github.com/FortAwesome/Font-Awesome.git"
+    "fontAwesome": "https://github.com/FortAwesome/Font-Awesome.git",
+    "pikaday": "~1.4.0"
   }
 }

@@ -12,4 +12,4 @@
 	</div>
 </div>
 
-<?php echo $site->get_partial('modals/recrutamento' , $ajax) ?>
+<?php echo $site->get_partial('modals/recrutamento' , array('ajax'=>$ajax)) ?>

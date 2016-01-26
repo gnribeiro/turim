@@ -34,17 +34,18 @@ unset($libs, $views, $config, $messages);
 
 include LIBS . 'View' . EXT;
 include LIBS . 'Helper' . EXT;
-
+include LIBS . 'Gwp_Ajax' . EXT;
 
 $load_libs = array(
-    'GWP_Autoloader',
+    'GWP_Autoloader'
 );
 
 
 foreach ($load_libs as $value) {
     if(!is_admin()){
-        if(is_file( $class = LIBS . $value . EXT ))
+        if(is_file( $class = LIBS . $value . EXT )){
             include $class ;
+        }
     }
 }
 
@@ -59,16 +60,20 @@ if(!is_admin()){
     Gwp_Form_Handler::init();
     Gwp_Shortcodes::init();
 
-    $ajax_instance  = new Gwp_Ajax();
+
     $hooks_instance = new Gwp_Hooks();
     $site_instance  = new Site();
 
     $GLOBALS['site'] = $site_instance;
 }
 
+
+
 function pr( $var ) {
     print( '<pre class="dump">' );
     var_dump( $var );
     print( '</pre>' );
 }
+
+ $ajax_instance  = new Gwp_Ajax();
 ?>

@@ -4,7 +4,7 @@
         TURIM HOTÉIS  •  FICHA DE INSCRIÇÃO
     </div>
 
-    <form action="" id="form-recrutamento" enctype='multipart/form-data'  class="a-field-form a-field-form--modal">
+    <form action="" id="form-recrutamento" enctype='multipart/form-data'  class="a-field-form a-field-form--modal" data-a-widget="Ajax" data-a-widget-options="<?php echo $ajax ?>" >
         <div class="a-field a-field--modal">
             <label class="a-field__label a-field__label--modal"for="nome">NOME</label>
             <input class="a-input-text a-input-text--modal" type="text" name="nome" placeholder="Introduzir Nome Completo" id="nome" value="" />
@@ -38,9 +38,8 @@
         <div class="a-field a-field--modal ">
             <div class="a-clearfix">
                 <div class="a-input-fake"></div>
-                <label class="a-field__label--file" for="cvform">Anexar Ficheiro
+                <label class="a-field__label--file" for="cvform">Anexar Ficheiro</label>
                 <input type="file" class="a-input-file" id="cvform" name="cvform" />
-                </label>
             </div>
             <div class="a-input-error a-input-error--modal"></div>
         </div>
@@ -58,8 +57,12 @@
             <div class="a-input-error a-input-error--modal"></div>
         </div>
 
-        <div class="a-text-center">
-            <button type="submit" data-a-widget="Ajax" data-a-widget-options="<?php echo $ajax ?>" class="a-btn a-btn--submit">Enviar <i class="fa fa-chevron-right"></i></button>
+        <div class="a-text-center a-relative">
+             <div class="a-loading a-loading--modal a-hide">
+                <i class="fa fa-spinner"></i>
+            </div>
+
+            <button type="submit" class="a-btn a-btn--submit">Enviar <i class="fa fa-chevron-right"></i></button>
         </div>
     </form>
 </div>
