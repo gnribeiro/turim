@@ -5,6 +5,9 @@
     </div>
 
     <form action="" id="form-recrutamento" enctype='multipart/form-data'  class="a-field-form a-field-form--modal" data-a-widget="Ajax" data-a-widget-options="<?php echo $ajax ?>" >
+        <div class=" a-field-success" id="sucesso">
+        </div>
+
         <div class="a-field a-field--modal">
             <label class="a-field__label a-field__label--modal"for="nome">NOME</label>
             <input class="a-input-text a-input-text--modal" type="text" name="nome" placeholder="Introduzir Nome Completo" id="nome" value="" />
@@ -45,8 +48,10 @@
         </div>
 
         <div class="a-field a-field--modal">
-            <select name="type-company" id="" class="a-field-select a-field-select--modal">
+            <select name="subject" id="subject" class="a-field-select a-field-select--modal">
                 <option value="" class="a-field-option">ASSUNTO</option>
+                <option value="2" class="a-field-option">ASSUNTO2</option>
+                <option value="2" class="a-field-option">ASSUNTO3</option>
             </select>
             <div class="a-input-error a-input-error--modal"></div>
         </div>
@@ -62,7 +67,7 @@
                 <i class="fa fa-spinner"></i>
             </div>
 
-            <button type="submit" class="a-btn a-btn--submit">Enviar <i class="fa fa-chevron-right"></i></button>
+            <button type="submit" class="a-btn a-btn--submit a-btn--submit--modal">Enviar <i class="fa fa-chevron-right"></i></button>
         </div>
     </form>
 </div>

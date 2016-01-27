@@ -18,7 +18,12 @@ Class Gwp_Ajax{
 
       add_action( 'wp_ajax_adesao',        array( $this, 'adesao' ) );
       add_action( 'wp_ajax_nopriv_adesao', array( $this, 'adesao' ) );
+
+      add_action( 'wp_ajax_reservas',        array( $this, 'reservas' ) );
+      add_action( 'wp_ajax_nopriv_reservas', array( $this, 'reservas' ) );
+
     }
+
 
     public function recrutament(){
 
@@ -47,6 +52,8 @@ Class Gwp_Ajax{
         $validation->rule('localidade',  'not_empty');
         $validation->rule('age',         'not_empty');
         $validation->rule('age',         'numeric');
+        $validation->rule('obs',         'not_empty');
+        $validation->rule('subject',     'not_empty');
 
         $validation->check();
 
@@ -74,22 +81,97 @@ Class Gwp_Ajax{
     }
 
     public function info(){
-        //$output = array();
-        // echo    json_encode( $output);
-        echo "lol2o";
-        pr($_POST);
-        pr($_FILES['cvform']);
+        $errors  = array();
+        $data    = array();
+        parse_str($_POST['dados'], $data);
+
+        $validation = Validation::factory($data );
+        $validation->rule('nome',        'not_empty');
+        $validation->rule('company',     'not_empty');
+        $validation->rule('address',     'not_empty');
+        $validation->rule('cp7',         'not_empty');
+        $validation->rule('email',       'not_empty');
+        $validation->rule('email',       'Valid::email');
+        $validation->rule('localidade',  'not_empty');
+        $validation->rule('obs',         'not_empty');
+        $validation->check();
+
+        $errors = $validation->errors('forms/info');
+
+        if(count($errors)){
+            echo   json_encode( $errors);
+        }
+        else{
+            $sucess = array(
+                'sucesso' => Helper::message("forms/info", "sucesso.msg")
+            );
+            echo json_encode($sucess) ;
+        }
 
         die();
     }
 
 
     public function adesao(){
-        //$output = array();
-        // echo    json_encode( $output);
-        echo "lol2o";
-        pr($_POST);
-        pr($_FILES['cvform']);
+        $errors  = array();
+        $data    = array();
+        parse_str($_POST['dados'], $data);
+
+        $validation = Validation::factory($data );
+        $validation->rule('nome',        'not_empty');
+        $validation->rule('company',     'not_empty');
+        $validation->rule('address',     'not_empty');
+        $validation->rule('nif',         'not_empty');
+        $validation->rule('nif',         'numeric');
+        $validation->rule('cp7',         'not_empty');
+        $validation->rule('email',       'not_empty');
+        $validation->rule('email',       'Valid::email');
+        $validation->rule('localidade',  'not_empty');
+        $validation->check();
+
+        $errors = $validation->errors('forms/adesao');
+
+        if(count($errors)){
+            echo   json_encode( $errors);
+        }
+        else{
+            $sucess = array(
+                'sucesso' => Helper::message("forms/adesao", "sucesso.msg")
+            );
+            echo json_encode($sucess) ;
+        }
+
+        die();
+    }
+
+
+    public function reservas(){
+        $errors  = array();
+        $data    = array();
+        parse_str($_POST['dados'], $data);
+
+        $validation = Validation::factory($data );
+        $validation->rule('nome',        'not_empty');
+        $validation->rule('phone',       'not_empty');
+        $validation->rule('phone',       'numeric');
+        $validation->rule('persons',     'not_empty');
+        $validation->rule('persons',     'numeric');
+        $validation->rule('cp7',         'not_empty');
+        $validation->rule('date ',       'not_empty');
+        $validation->rule('time',        'not_empty');
+        $validation->check();
+
+        $errors = $validation->errors('forms/reserva');
+
+        if(count($errors)){
+            echo   json_encode( $errors);
+        }
+        else{
+            $sucess = array(
+                'sucesso' => Helper::message("forms/reserva", "sucesso.msg")
+            );
+            echo json_encode($sucess);
+        }
 
         die();
     }

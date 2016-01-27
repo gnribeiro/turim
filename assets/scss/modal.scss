@@ -24,7 +24,7 @@
       background-color : transparent;
       padding          : 0;
       cursor           : default;
-      height           : 95%;
+      max-height       : 98%;
       overflow-y       : scroll;
       overflow-x       : hidden;
     }
@@ -46,7 +46,7 @@
     }
 
     @include e(header) {
-      padding: 15px 20px;
+      padding: 10px 20px;
       background-color: #000000;
       color:#ffffff;
       font-size: 12px;

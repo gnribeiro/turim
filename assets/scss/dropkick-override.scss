@@ -1,0 +1,85 @@
+.dk-select.form-control,
+.form-control.dropkick {
+    padding: 0;
+}
+
+.dk-selected{
+    @include lato-regular;
+    @include css3-prefix(border-radius , 0 );
+    border           : none;
+    height           : 48px;
+    line-height      : 48px;
+    font-size        : 16px;
+    background-color : #000000;
+    text-align       : left;
+    color            : #ffffff;
+
+    &:after{
+        border: none;
+    }
+}
+
+.dk-select-open-up .dk-select-options,
+.dk-select-open-down .dk-select-options,
+.dk-select-multi:focus .dk-select-options{
+    @include css3-prefix(border-radius , 0 );
+    border-color : #000000;
+    font-size    : 15px;
+    line-height: 35px;
+}
+
+.dk-option-selected,
+.dk-select-options .dk-option-highlight{
+    background-color:#f3f3f3;
+    color:#000000;
+}
+
+.dk-selected:hover:before,
+.dk-selected:focus:before,
+.dk-selected:hover,
+.dk-selected:focus{
+    border-color: transparent;
+}
+
+.dk-selected:before{
+        top: 39%;
+        right: 5px;
+    border            : none;
+    width             : 18px;
+    height            : 8px;
+    color:#ffffff;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+     content: "\f078";
+}
+
+.dk-select, .dk-select-multi{
+    width     : 100%;
+}
+
+.dk-option {
+    padding-bottom : 3px;
+    padding-top    : 3px;
+    margin-bottom  : 3px;
+    text-align     : left;
+}
+
+
+.a-field--modal{
+   .dk-selected{
+    height: 38px;
+    font-size: 12px;
+    line-height: 38px;
+   }
+
+   .dk-select-open-up .dk-select-options,
+.dk-select-open-down .dk-select-options,
+.dk-select-multi:focus .dk-select-options{
+    @include css3-prefix(border-radius , 0 );
+    border-color : #000000;
+    font-size    : 12px;
+    line-height: 30px;
+    }
+}

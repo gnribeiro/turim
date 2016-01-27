@@ -10,7 +10,10 @@ module.exports = function(grunt){
         files_js: {
             all:[
                 'bower_components/jquery/jquery.js',
+                'bower_components/jquery/jquery-migrate.min.js',
                 'bower_components/pikaday/pikaday.js',
+                'assets/js/vendor/dropkick_min.js',
+
                 'assets/js/widgets/init.js',
                 'assets/js/widgets/a-ajax.js',
                 'assets/js/widgets/a-modal.js',

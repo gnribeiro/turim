@@ -5,6 +5,7 @@
     </div>
 
     <form action=""  class="a-field-form" enctype='multipart/form-data'  class="a-field-form a-field-form--modal" data-a-widget="Ajax" data-a-widget-options="<?php echo $ajax ?>">
+      <div class=" a-field-success" id="sucesso"></div>
       <div class="a-field">
             <label class="a-field__label"for="nome">NOME</label>
             <input class="a-input-text" type="text" name="nome" placeholder="Introduzir Nome Completo" id="nome" value="" />
@@ -39,7 +40,7 @@
             <div class="a-loading a-loading--modal a-hide">
                 <i class="fa fa-spinner"></i>
             </div>
-            <button type="submit" class="a-btn a-btn--submit">Enviar pedido de reserva <i class="fa fa-chevron-right"></i></button>
+            <button type="submit" class="a-btn a-btn--submit a-btn--submit--modal">Enviar pedido de reserva <i class="fa fa-chevron-right"></i></button>
         </div>
 
     </form>

@@ -41,73 +41,105 @@ jQuery(function($){
                 $(this.elem).on('submit' , function(event){
                     event.preventDefault();
 
-                    var data   = $(this).serialize();
-                    var load   = $("a-loading" , this.elem);
-                    var action = self.settings.action;
+                    $('.a-input-error').html('');
 
                     if(self.settings.uploadFile){
-                        var files     = $("#"+self.settings.uploadFile)[0].files;
-                        var errorFile = $("#"+self.settings.uploadFile)
-                        .parent('.a-clearfix')
-                        .siblings('.a-input-error');
-
-                        errorFile.html('');
-
-                        console.log(files );
-
-                        if(!files.length){
-                            errorFile.html('Campo Obrigatório');
-                            return
-                        }
-                        var file     = files[0]
-                        var data     = new FormData();
-
-                        data.append('cvform' , file, file.name);
-                        data.append('action' , action);
-                        data.append('dados'   , $(this).serialize());
+                        self.handlerUploadFile($(this).serialize() , $(this));
                     }
                     else{
-                        data = {
-                            'action' :action,
-                            'data'   :data
+                        self.handlerDefault($(this).serialize() , $(this));
+                    }
+                });
+            }
+        },
+
+
+        handlerUploadFile: function(values , form){
+            var self      = this;
+            var load      = $("a-loading" , this.elem);
+            var action    = self.settings.action;
+            var files     = $("#"+self.settings.uploadFile)[0].files;
+            var errorFile = $("#"+self.settings.uploadFile)
+                .parent('.a-clearfix')
+                .siblings('.a-input-error');
+
+            errorFile.html('');
+
+            if(!files.length){
+                errorFile.html('Campo Obrigatório');
+                return
+            }
+            var file     = files[0]
+            var data     = new FormData();
+
+            data.append('cvform' , file, file.name);
+            data.append('action' , action);
+            data.append('dados'  , values);
+
+            load.removeClass('a-hide');
+            $.ajax ({
+                url         :  vars_site.ajax_url,
+                type        : 'post',
+                data        : data,
+                contentType : false,
+                processData : false,
+
+                success : function( response ) {
+                    self.handlerAjaxSucess( response , load , form)
+                }
+
+            });
+        },
+
+
+        handlerDefault: function(values , form){
+            var self = this;
+            var load = $("a-loading" , this.elem);
+            var data = {
+                'action' : self.settings.action,
+                'dados'   : values
+            }
+
+            load.removeClass('a-hide');
+
+            $.ajax ({
+                url         :  vars_site.ajax_url,
+                type        : 'post',
+                data        : data,
+                success : function( response ) {
+                    self.handlerAjaxSucess(response , load, form)
+                }
+            });
+        },
+
+
+        handlerAjaxSucess: function(response , load , form){
+            var output = jQuery.parseJSON(response);
+            if(Object.keys(output).length){
+                for(var index in output){
+                    if(index ==='sucesso'){
+                        $('#'+index).html(output[index]);
+
+                        form.trigger('reset')
+
+                    }
+                    else{
+                        error = $('#'+index).siblings('.a-input-error');
+
+                        if(error.length){
+                            error.html(output[index]);
+                        }
+                        else {
+                            $('#'+index)
+                            .parent('.a-clearfix')
+                            .siblings('.a-input-error')
+                            .html(output[index]);
                         }
                     }
 
-                    load.removeClass('a-hide');
-
-                    $.ajax ( {
-                        url         :  vars_site.ajax_url,
-                        type        : 'post',
-                        data        : data,
-                        contentType : false,
-                        processData : false,
-
-                        success : function( response ) {
-                            console.log(response);
-                            var output = jQuery.parseJSON(response);
-
-                            console.log(Object.keys(output).length);
-                            if(Object.keys(output).length){
-                                for(var index in output){
-                                    error = $('#'+index).siblings('.a-input-error');
-
-                                    if(error.length){
-                                        error.html(output[index]);
-                                    }
-                                    else {
-                                        $('#'+index)
-                                        .parent('.a-clearfix')
-                                        .siblings('.a-input-error')
-                                        .html(output[index]);
-                                    }
-                                }
-                            }
-                            load.addClass('a-hide');
-                        }
-                    });
-                })
+                }
             }
+            load.addClass('a-hide');
         }
     }
-
 });

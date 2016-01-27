@@ -10,30 +10,31 @@ return array(
       'Valid::email' => 'Email inválido'
     ),
 
-     'phone' => array(
+    'company' => array(
       'not_empty'    => 'Campo de preenchimento obrigatório',
-      'numeric' => 'Telemóvel inválido'
     ),
 
-    'age' => array(
+    'address' => array(
       'not_empty'    => 'Campo de preenchimento obrigatório',
-      'numeric' => 'Idade inválida'
+    ),
+
+    'nif' => array(
+      'not_empty' => 'Campo de preenchimento obrigatório',
+      'numeric'   => 'Nif inválido'
+    ),
+
+    'cp7' => array(
+      'not_empty'    => 'Campo de preenchimento obrigatório',
     ),
 
     'localidade' => array(
       'not_empty' => 'Campo de preenchimento obrigatório',
     ),
+
     'obs' => array(
       'not_empty' => 'Campo de preenchimento obrigatório',
     ),
-    'subject' => array(
-      'not_empty' => 'Campo de preenchimento obrigatório',
-    ),
 
-    'cvform' => array(
-      'mimetypes' => 'Ficheiro inválido, só permitido pdf`s ou ficheiros word',
-      'mainerror' => 'Não possivel fazer upload do ficheiro tente outra vez ou contacte-nos',
-    ),
 
     'sucesso' => array(
       'msg' => 'Dados enviados com sucesso, aguarde uma resposta',

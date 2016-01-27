@@ -2753,7 +2753,167 @@
     return _.noConflict = function(b) {
         return a.$ === _ && (a.$ = Lb), b && a.jQuery === _ && (a.jQuery = Kb), _;
     }, typeof b === za && (a.jQuery = a.$ = _), _;
-}), function(a, b) {
+}), void 0 === jQuery.migrateMute && (jQuery.migrateMute = !0), function(a, b, c) {
+    function d(c) {
+        var d = b.console;
+        f[c] || (f[c] = !0, a.migrateWarnings.push(c), d && d.warn && !a.migrateMute && (d.warn("JQMIGRATE: " + c), 
+        a.migrateTrace && d.trace && d.trace()));
+    }
+    function e(b, e, f, g) {
+        if (Object.defineProperty) try {
+            return Object.defineProperty(b, e, {
+                configurable: !0,
+                enumerable: !0,
+                get: function() {
+                    return d(g), f;
+                },
+                set: function(a) {
+                    d(g), f = a;
+                }
+            }), c;
+        } catch (h) {}
+        a._definePropertyBroken = !0, b[e] = f;
+    }
+    var f = {};
+    a.migrateWarnings = [], !a.migrateMute && b.console && b.console.log && b.console.log("JQMIGRATE: Logging is active"), 
+    a.migrateTrace === c && (a.migrateTrace = !0), a.migrateReset = function() {
+        f = {}, a.migrateWarnings.length = 0;
+    }, "BackCompat" === document.compatMode && d("jQuery is not compatible with Quirks Mode");
+    var g = a("<input/>", {
+        size: 1
+    }).attr("size") && a.attrFn, h = a.attr, i = a.attrHooks.value && a.attrHooks.value.get || function() {
+        return null;
+    }, j = a.attrHooks.value && a.attrHooks.value.set || function() {
+        return c;
+    }, k = /^(?:input|button)$/i, l = /^[238]$/, m = /^(?:autofocus|autoplay|async|checked|controls|defer|disabled|hidden|loop|multiple|open|readonly|required|scoped|selected)$/i, n = /^(?:checked|selected)$/i;
+    e(a, "attrFn", g || {}, "jQuery.attrFn is deprecated"), a.attr = function(b, e, f, i) {
+        var j = e.toLowerCase(), o = b && b.nodeType;
+        return i && (4 > h.length && d("jQuery.fn.attr( props, pass ) is deprecated"), b && !l.test(o) && (g ? e in g : a.isFunction(a.fn[e]))) ? a(b)[e](f) : ("type" === e && f !== c && k.test(b.nodeName) && b.parentNode && d("Can't change the 'type' of an input or button in IE 6/7/8"), 
+        !a.attrHooks[j] && m.test(j) && (a.attrHooks[j] = {
+            get: function(b, d) {
+                var e, f = a.prop(b, d);
+                return f === !0 || "boolean" != typeof f && (e = b.getAttributeNode(d)) && e.nodeValue !== !1 ? d.toLowerCase() : c;
+            },
+            set: function(b, c, d) {
+                var e;
+                return c === !1 ? a.removeAttr(b, d) : (e = a.propFix[d] || d, e in b && (b[e] = !0), 
+                b.setAttribute(d, d.toLowerCase())), d;
+            }
+        }, n.test(j) && d("jQuery.fn.attr('" + j + "') may use property instead of attribute")), 
+        h.call(a, b, e, f));
+    }, a.attrHooks.value = {
+        get: function(a, b) {
+            var c = (a.nodeName || "").toLowerCase();
+            return "button" === c ? i.apply(this, arguments) : ("input" !== c && "option" !== c && d("jQuery.fn.attr('value') no longer gets properties"), 
+            b in a ? a.value : null);
+        },
+        set: function(a, b) {
+            var e = (a.nodeName || "").toLowerCase();
+            return "button" === e ? j.apply(this, arguments) : ("input" !== e && "option" !== e && d("jQuery.fn.attr('value', val) no longer sets properties"), 
+            a.value = b, c);
+        }
+    };
+    var o, p, q = a.fn.init, r = a.parseJSON, s = /^([^<]*)(<[\w\W]+>)([^>]*)$/;
+    a.fn.init = function(b, c, e) {
+        var f;
+        return b && "string" == typeof b && !a.isPlainObject(c) && (f = s.exec(a.trim(b))) && f[0] && ("<" !== b.charAt(0) && d("$(html) HTML strings must start with '<' character"), 
+        f[3] && d("$(html) HTML text after last tag is ignored"), "#" === f[0].charAt(0) && (d("HTML string cannot start with a '#' character"), 
+        a.error("JQMIGRATE: Invalid selector string (XSS)")), c && c.context && (c = c.context), 
+        a.parseHTML) ? q.call(this, a.parseHTML(f[2], c, !0), c, e) : q.apply(this, arguments);
+    }, a.fn.init.prototype = a.fn, a.parseJSON = function(a) {
+        return a || null === a ? r.apply(this, arguments) : (d("jQuery.parseJSON requires a valid JSON string"), 
+        null);
+    }, a.uaMatch = function(a) {
+        a = a.toLowerCase();
+        var b = /(chrome)[ \/]([\w.]+)/.exec(a) || /(webkit)[ \/]([\w.]+)/.exec(a) || /(opera)(?:.*version|)[ \/]([\w.]+)/.exec(a) || /(msie) ([\w.]+)/.exec(a) || 0 > a.indexOf("compatible") && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(a) || [];
+        return {
+            browser: b[1] || "",
+            version: b[2] || "0"
+        };
+    }, a.browser || (o = a.uaMatch(navigator.userAgent), p = {}, o.browser && (p[o.browser] = !0, 
+    p.version = o.version), p.chrome ? p.webkit = !0 : p.webkit && (p.safari = !0), 
+    a.browser = p), e(a, "browser", a.browser, "jQuery.browser is deprecated"), a.sub = function() {
+        function b(a, c) {
+            return new b.fn.init(a, c);
+        }
+        a.extend(!0, b, this), b.superclass = this, b.fn = b.prototype = this(), b.fn.constructor = b, 
+        b.sub = this.sub, b.fn.init = function(d, e) {
+            return e && e instanceof a && !(e instanceof b) && (e = b(e)), a.fn.init.call(this, d, e, c);
+        }, b.fn.init.prototype = b.fn;
+        var c = b(document);
+        return d("jQuery.sub() is deprecated"), b;
+    }, a.ajaxSetup({
+        converters: {
+            "text json": a.parseJSON
+        }
+    });
+    var t = a.fn.data;
+    a.fn.data = function(b) {
+        var e, f, g = this[0];
+        return !g || "events" !== b || 1 !== arguments.length || (e = a.data(g, b), f = a._data(g, b), 
+        e !== c && e !== f || f === c) ? t.apply(this, arguments) : (d("Use of jQuery.fn.data('events') is deprecated"), 
+        f);
+    };
+    var u = /\/(java|ecma)script/i, v = a.fn.andSelf || a.fn.addBack;
+    a.fn.andSelf = function() {
+        return d("jQuery.fn.andSelf() replaced by jQuery.fn.addBack()"), v.apply(this, arguments);
+    }, a.clean || (a.clean = function(b, e, f, g) {
+        e = e || document, e = !e.nodeType && e[0] || e, e = e.ownerDocument || e, d("jQuery.clean() is deprecated");
+        var h, i, j, k, l = [];
+        if (a.merge(l, a.buildFragment(b, e).childNodes), f) for (j = function(a) {
+            return !a.type || u.test(a.type) ? g ? g.push(a.parentNode ? a.parentNode.removeChild(a) : a) : f.appendChild(a) : c;
+        }, h = 0; null != (i = l[h]); h++) a.nodeName(i, "script") && j(i) || (f.appendChild(i), 
+        i.getElementsByTagName !== c && (k = a.grep(a.merge([], i.getElementsByTagName("script")), j), 
+        l.splice.apply(l, [ h + 1, 0 ].concat(k)), h += k.length));
+        return l;
+    });
+    var w = a.event.add, x = a.event.remove, y = a.event.trigger, z = a.fn.toggle, A = a.fn.live, B = a.fn.die, C = "ajaxStart|ajaxStop|ajaxSend|ajaxComplete|ajaxError|ajaxSuccess", D = RegExp("\\b(?:" + C + ")\\b"), E = /(?:^|\s)hover(\.\S+|)\b/, F = function(b) {
+        return "string" != typeof b || a.event.special.hover ? b : (E.test(b) && d("'hover' pseudo-event is deprecated, use 'mouseenter mouseleave'"), 
+        b && b.replace(E, "mouseenter$1 mouseleave$1"));
+    };
+    a.event.props && "attrChange" !== a.event.props[0] && a.event.props.unshift("attrChange", "attrName", "relatedNode", "srcElement"), 
+    a.event.dispatch && e(a.event, "handle", a.event.dispatch, "jQuery.event.handle is undocumented and deprecated"), 
+    a.event.add = function(a, b, c, e, f) {
+        a !== document && D.test(b) && d("AJAX events should be attached to document: " + b), 
+        w.call(this, a, F(b || ""), c, e, f);
+    }, a.event.remove = function(a, b, c, d, e) {
+        x.call(this, a, F(b) || "", c, d, e);
+    }, a.fn.error = function() {
+        var a = Array.prototype.slice.call(arguments, 0);
+        return d("jQuery.fn.error() is deprecated"), a.splice(0, 0, "error"), arguments.length ? this.bind.apply(this, a) : (this.triggerHandler.apply(this, a), 
+        this);
+    }, a.fn.toggle = function(b, c) {
+        if (!a.isFunction(b) || !a.isFunction(c)) return z.apply(this, arguments);
+        d("jQuery.fn.toggle(handler, handler...) is deprecated");
+        var e = arguments, f = b.guid || a.guid++, g = 0, h = function(c) {
+            var d = (a._data(this, "lastToggle" + b.guid) || 0) % g;
+            return a._data(this, "lastToggle" + b.guid, d + 1), c.preventDefault(), e[d].apply(this, arguments) || !1;
+        };
+        for (h.guid = f; e.length > g; ) e[g++].guid = f;
+        return this.click(h);
+    }, a.fn.live = function(b, c, e) {
+        return d("jQuery.fn.live() is deprecated"), A ? A.apply(this, arguments) : (a(this.context).on(b, this.selector, c, e), 
+        this);
+    }, a.fn.die = function(b, c) {
+        return d("jQuery.fn.die() is deprecated"), B ? B.apply(this, arguments) : (a(this.context).off(b, this.selector || "**", c), 
+        this);
+    }, a.event.trigger = function(a, b, c, e) {
+        return c || D.test(a) || d("Global events are undocumented and deprecated"), y.call(this, a, b, c || document, e);
+    }, a.each(C.split("|"), function(b, c) {
+        a.event.special[c] = {
+            setup: function() {
+                var b = this;
+                return b !== document && (a.event.add(document, c + "." + a.guid, function() {
+                    a.event.trigger(c, null, b, !0);
+                }), a._data(this, c, a.guid++)), !1;
+            },
+            teardown: function() {
+                return this !== document && a.event.remove(document, c + "." + a._data(this, c)), 
+                !1;
+            }
+        };
+    });
+}(jQuery, window), function(a, b) {
     "use strict";
     var c;
     if ("object" == typeof exports) {
@@ -3097,6 +3257,496 @@
             g(this._o.trigger, "blur", this._onInputBlur))), this.el.parentNode && this.el.parentNode.removeChild(this.el);
         }
     }, E;
+}), !function() {
+    if (!window.CustomEvent && document.createEventObject) return void (window.CustomEvent = function(a, b) {
+        if (!arguments.length) throw new Error("Not enough arguments");
+        var c = {
+            type: a,
+            bubbles: !1,
+            cancelable: !1,
+            detail: null
+        }, d = document.createEventObject();
+        for (var e in c) d[e] = c[e];
+        for (var e in b) d[e] = b[e];
+        return d;
+    });
+    try {
+        new CustomEvent("test");
+    } catch (a) {
+        var b = function(a, b) {
+            if (!arguments.length) throw new Error("Not enough arguments");
+            var c = {
+                bubbles: !1,
+                cancelable: !1,
+                detail: null
+            };
+            for (var d in b) c[d] = b[d];
+            var e = document.createEvent("CustomEvent");
+            return e.initCustomEvent(a, c.bubbles, c.cancelable, c.detail), e;
+        };
+        b.prototype = (window.CustomEvent || window.Event).prototype, window.CustomEvent = b;
+    }
+}(), function() {
+    if (!document.addEventListener && window.Element && window.Event) {
+        var a = "__events", b = "__immediateStopped";
+        Event.prototype.NONE = Event.NONE = 0, Event.prototype.CAPTURING_PHASE = Event.CAPTURING_PHASE = 1, 
+        Event.prototype.AT_TARGET = Event.AT_TARGET = 2, Event.prototype.BUBBLING_PHASE = Event.BUBBLING_PHASE = 3, 
+        Event.prototype.preventDefault = function() {
+            this.cancelable !== !1 && (this.returnValue = !1);
+        }, Event.prototype.stopPropagation = function() {
+            this.cancelBubble = !0;
+        }, Event.prototype.stopImmediatePropagation = function() {
+            this[b] = this.cancelBubble = !0;
+        };
+        for (var c = function(a, b) {
+            return a.timeStamp = +new Date(), a.target || (a.target = a.srcElement || b), a.pageX = a.clientX + document.documentElement.scrollLeft, 
+            a.pageY = a.clientY + document.documentElement.scrollTop, a.relatedTarget = "mouseover" == a.type ? a.fromElement : "mouseout" == a.type ? a.toElement : null, 
+            a;
+        }, d = function(a, b, c) {
+            for (var d = 0; d < a.length; d++) {
+                var e = a[d];
+                if (e.useCapture == c && e.listener == b) return d;
+            }
+            return -1;
+        }, e = function(a, b, c) {
+            a.currentTarget = c, "function" == typeof b ? b.call(c, a) : b.handleEvent(a);
+        }, f = function(a) {
+            for (var b = []; a.parentNode; ) b.unshift(a.parentNode), a = a.parentNode;
+            return b;
+        }, g = function(c, d, f) {
+            c.eventPhase = f;
+            for (var g = 0; g < d.length; g++) {
+                for (var h = d[g], i = [], j = (h[a] || {})[c.type] || [], k = 0; k < j.length; k++) {
+                    var l = j[k];
+                    l.useCapture && f == Event.BUBBLING_PHASE || (l.useCapture || f != Event.CAPTURING_PHASE) && i.push(l.listener);
+                }
+                for (k = 0; k < i.length; ) try {
+                    for (;k < i.length; ) {
+                        var m = i[k++];
+                        if (e(c, m, h), c[b]) return !0;
+                    }
+                } catch (n) {
+                    setTimeout(function() {
+                        throw n;
+                    }, 0);
+                }
+                if (c.cancelBubble) return !0;
+            }
+            return !1;
+        }, h = function(a) {
+            c(a, this);
+            var b = f(a.target);
+            return b.length && g(a, b, Event.CAPTURING_PHASE) ? a.returnValue : g(a, [ a.target ], Event.AT_TARGET) ? a.returnValue : b.length && a.bubbles !== !1 && (b.reverse(), 
+            g(a, b, Event.BUBBLING_PHASE)) ? a.returnValue : (a.stopPropagation(), a.returnValue);
+        }, i = ({
+            addEventListener: function(b, c, e) {
+                var f = this, g = (this[a] || {})[b] || [], i = g.length;
+                if (!(d(g, c, e) > -1)) {
+                    if (a in this) var j = this[a]; else {
+                        var j = {
+                            _handler: function() {
+                                h.apply(f, arguments);
+                            }
+                        };
+                        this[a] = j;
+                    }
+                    b in j || (j[b] = []), j[b].push({
+                        listener: c,
+                        useCapture: e
+                    }), i || this.attachEvent("on" + b, j._handler);
+                }
+            },
+            removeEventListener: function(b, c, e) {
+                var f = (this[a] || {})[b] || [], g = d(f, c, e);
+                -1 != g && (f.splice(g, 1), f.length || this.detachEvent("on" + b, this[a]._handler));
+            },
+            dispatchEvent: function(a) {
+                return a.returnValue = !0, h.call(this, a);
+            }
+        }), j = [ Element, window.constructor, document.constructor ]; j.length; ) {
+            var k = j.pop();
+            for (var l in i) k.prototype[l] = i[l];
+        }
+    }
+}(), Array.prototype.forEach || (Array.prototype.forEach = function(a, b) {
+    var c, d;
+    if (null == this) throw new TypeError(" this is null or not defined");
+    var e = Object(this), f = e.length >>> 0;
+    if ("function" != typeof a) throw new TypeError(a + " is not a function");
+    for (arguments.length > 1 && (c = b), d = 0; f > d; ) {
+        var g;
+        d in e && (g = e[d], a.call(c, g, d, e)), d++;
+    }
+}), Array.prototype.indexOf || (Array.prototype.indexOf = function(a, b) {
+    var c;
+    if (null == this) throw new TypeError('"this" is null or not defined');
+    var d = Object(this), e = d.length >>> 0;
+    if (0 === e) return -1;
+    var f = +b || 0;
+    if (Math.abs(f) === 1 / 0 && (f = 0), f >= e) return -1;
+    for (c = Math.max(f >= 0 ? f : e - Math.abs(f), 0); e > c; ) {
+        if (c in d && d[c] === a) return c;
+        c++;
+    }
+    return -1;
+}), function(a) {
+    var b;
+    if ("object" == typeof exports) {
+        try {
+            b = require("jquery");
+        } catch (c) {}
+        module.exports = a(window, document, b);
+    } else window.Dropkick = a(window, document, window.jQuery);
+}(function(a, b, c, d) {
+    var e, f = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent), g = a.parent !== a.self && location.host === parent.location.host, h = -1 !== navigator.appVersion.indexOf("MSIE"), i = function(c, d) {
+        var e, f;
+        if (this === a) return new i(c, d);
+        for ("string" == typeof c && "#" === c[0] && (c = b.getElementById(c.substr(1))), 
+        e = 0; e < i.uid; e++) if (f = i.cache[e], f instanceof i && f.data.select === c) return l.extend(f.data.settings, d), 
+        f;
+        return c ? "SELECT" === c.nodeName ? this.init(c, d) : void 0 : (console.error("You must pass a select to DropKick"), 
+        !1);
+    }, j = function() {}, k = {
+        initialize: j,
+        change: j,
+        open: j,
+        close: j,
+        search: "strict",
+        bubble: !0
+    }, l = {
+        hasClass: function(a, b) {
+            var c = new RegExp("(^|\\s+)" + b + "(\\s+|$)");
+            return a && c.test(a.className);
+        },
+        addClass: function(a, b) {
+            a && !l.hasClass(a, b) && (a.className += " " + b);
+        },
+        removeClass: function(a, b) {
+            var c = new RegExp("(^|\\s+)" + b + "(\\s+|$)");
+            a && (a.className = a.className.replace(c, " "));
+        },
+        toggleClass: function(a, b) {
+            var c = l.hasClass(a, b) ? "remove" : "add";
+            l[c + "Class"](a, b);
+        },
+        extend: function(a) {
+            return Array.prototype.slice.call(arguments, 1).forEach(function(b) {
+                if (b) for (var c in b) a[c] = b[c];
+            }), a;
+        },
+        offset: function(c) {
+            var d = c.getBoundingClientRect() || {
+                top: 0,
+                left: 0
+            }, e = b.documentElement, f = h ? e.scrollTop : a.pageYOffset, g = h ? e.scrollLeft : a.pageXOffset;
+            return {
+                top: d.top + f - e.clientTop,
+                left: d.left + g - e.clientLeft
+            };
+        },
+        position: function(a, b) {
+            for (var c = {
+                top: 0,
+                left: 0
+            }; a && a !== b; ) c.top += a.offsetTop, c.left += a.offsetLeft, a = a.parentNode;
+            return c;
+        },
+        closest: function(a, b) {
+            for (;a; ) {
+                if (a === b) return a;
+                a = a.parentNode;
+            }
+            return !1;
+        },
+        create: function(a, c) {
+            var d, e = b.createElement(a);
+            c || (c = {});
+            for (d in c) c.hasOwnProperty(d) && ("innerHTML" === d ? e.innerHTML = c[d] : e.setAttribute(d, c[d]));
+            return e;
+        },
+        deferred: function(b) {
+            return function() {
+                var c = arguments, d = this;
+                a.setTimeout(function() {
+                    b.apply(d, c);
+                }, 1);
+            };
+        }
+    };
+    return i.cache = {}, i.uid = 0, i.prototype = {
+        add: function(a, c) {
+            var d, e, f;
+            "string" == typeof a && (d = a, a = b.createElement("option"), a.text = d), "OPTION" === a.nodeName && (e = l.create("li", {
+                "class": "dk-option",
+                "data-value": a.value,
+                innerHTML: a.text,
+                role: "option",
+                "aria-selected": "false",
+                id: "dk" + this.data.cacheID + "-" + (a.id || a.value.replace(" ", "-"))
+            }), l.addClass(e, a.className), this.length += 1, a.disabled && (l.addClass(e, "dk-option-disabled"), 
+            e.setAttribute("aria-disabled", "true")), this.data.select.add(a, c), "number" == typeof c && (c = this.item(c)), 
+            this.options.indexOf(c) > -1 ? c.parentNode.insertBefore(e, c) : this.data.elem.lastChild.appendChild(e), 
+            e.addEventListener("mouseover", this), f = this.options.indexOf(c), this.options.splice(f, 0, e), 
+            a.selected && this.select(f));
+        },
+        item: function(a) {
+            return a = 0 > a ? this.options.length + a : a, this.options[a] || null;
+        },
+        remove: function(a) {
+            var b = this.item(a);
+            b.parentNode.removeChild(b), this.options.splice(a, 1), this.data.select.remove(a), 
+            this.select(this.data.select.selectedIndex), this.length -= 1;
+        },
+        init: function(a, c) {
+            var d, h = i.build(a, "dk" + i.uid);
+            if (this.data = {}, this.data.select = a, this.data.elem = h.elem, this.data.settings = l.extend({}, k, c), 
+            this.disabled = a.disabled, this.form = a.form, this.length = a.length, this.multiple = a.multiple, 
+            this.options = h.options.slice(0), this.selectedIndex = a.selectedIndex, this.selectedOptions = h.selected.slice(0), 
+            this.value = a.value, this.data.cacheID = i.uid, i.cache[this.data.cacheID] = this, 
+            this.data.settings.initialize.call(this), i.uid += 1, this._changeListener || (a.addEventListener("change", this), 
+            this._changeListener = !0), !f || this.data.settings.mobile) {
+                if (a.parentNode.insertBefore(this.data.elem, a), a.setAttribute("data-dkCacheId", this.data.cacheID), 
+                this.data.elem.addEventListener("click", this), this.data.elem.addEventListener("keydown", this), 
+                this.data.elem.addEventListener("keypress", this), this.form && this.form.addEventListener("reset", this), 
+                !this.multiple) for (d = 0; d < this.options.length; d++) this.options[d].addEventListener("mouseover", this);
+                e || (b.addEventListener("click", i.onDocClick), g && parent.document.addEventListener("click", i.onDocClick), 
+                e = !0);
+            }
+            return this;
+        },
+        close: function() {
+            var a, b = this.data.elem;
+            if (!this.isOpen || this.multiple) return !1;
+            for (a = 0; a < this.options.length; a++) l.removeClass(this.options[a], "dk-option-highlight");
+            b.lastChild.setAttribute("aria-expanded", "false"), l.removeClass(b.lastChild, "dk-select-options-highlight"), 
+            l.removeClass(b, "dk-select-open-(up|down)"), this.isOpen = !1, this.data.settings.close.call(this);
+        },
+        open: l.deferred(function() {
+            var c, d, e, f, g, i, j = this.data.elem, k = j.lastChild;
+            return g = h ? l.offset(j).top - b.documentElement.scrollTop : l.offset(j).top - a.scrollY, 
+            i = a.innerHeight - (g + j.offsetHeight), this.isOpen || this.multiple ? !1 : (k.style.display = "block", 
+            c = k.offsetHeight, k.style.display = "", d = g > c, e = i > c, f = d && !e ? "-up" : "-down", 
+            this.isOpen = !0, l.addClass(j, "dk-select-open" + f), k.setAttribute("aria-expanded", "true"), 
+            this._scrollTo(this.options.length - 1), this._scrollTo(this.selectedIndex), void this.data.settings.open.call(this));
+        }),
+        disable: function(a, b) {
+            var c = "dk-option-disabled";
+            (0 === arguments.length || "boolean" == typeof a) && (b = a === d ? !0 : !1, a = this.data.elem, 
+            c = "dk-select-disabled", this.disabled = b), b === d && (b = !0), "number" == typeof a && (a = this.item(a)), 
+            l[b ? "addClass" : "removeClass"](a, c);
+        },
+        select: function(a, b) {
+            var c, d, e, f, g = this.data.select;
+            if ("number" == typeof a && (a = this.item(a)), "string" == typeof a) for (c = 0; c < this.length; c++) this.options[c].getAttribute("data-value") === a && (a = this.options[c]);
+            return !a || "string" == typeof a || !b && l.hasClass(a, "dk-option-disabled") ? !1 : l.hasClass(a, "dk-option") ? (d = this.options.indexOf(a), 
+            e = g.options[d], this.multiple ? (l.toggleClass(a, "dk-option-selected"), e.selected = !e.selected, 
+            l.hasClass(a, "dk-option-selected") ? (a.setAttribute("aria-selected", "true"), 
+            this.selectedOptions.push(a)) : (a.setAttribute("aria-selected", "false"), d = this.selectedOptions.indexOf(a), 
+            this.selectedOptions.splice(d, 1))) : (f = this.data.elem.firstChild, this.selectedOptions.length && (l.removeClass(this.selectedOptions[0], "dk-option-selected"), 
+            this.selectedOptions[0].setAttribute("aria-selected", "false")), l.addClass(a, "dk-option-selected"), 
+            a.setAttribute("aria-selected", "true"), f.setAttribute("aria-activedescendant", a.id), 
+            f.className = "dk-selected " + e.className, f.innerHTML = e.text, this.selectedOptions[0] = a, 
+            e.selected = !0), this.selectedIndex = g.selectedIndex, this.value = g.value, b || this.data.select.dispatchEvent(new CustomEvent("change", {
+                bubbles: this.data.settings.bubble
+            })), a) : void 0;
+        },
+        selectOne: function(a, b) {
+            return this.reset(!0), this._scrollTo(a), this.select(a, b);
+        },
+        search: function(a, b) {
+            var c, d, e, f, g, h, i, j, k = this.data.select.options, l = [];
+            if (!a) return this.options;
+            for (b = b ? b.toLowerCase() : "strict", b = "fuzzy" === b ? 2 : "partial" === b ? 1 : 0, 
+            j = new RegExp((b ? "" : "^") + a, "i"), c = 0; c < k.length; c++) if (e = k[c].text.toLowerCase(), 
+            2 == b) {
+                for (d = a.toLowerCase().split(""), f = g = h = i = 0; g < e.length; ) e[g] === d[f] ? (h += 1 + h, 
+                f++) : h = 0, i += h, g++;
+                f === d.length && l.push({
+                    e: this.options[c],
+                    s: i,
+                    i: c
+                });
+            } else j.test(e) && l.push(this.options[c]);
+            return 2 === b && (l = l.sort(function(a, b) {
+                return b.s - a.s || a.i - b.i;
+            }).reduce(function(a, b) {
+                return a[a.length] = b.e, a;
+            }, [])), l;
+        },
+        focus: function() {
+            this.disabled || (this.multiple ? this.data.elem : this.data.elem.children[0]).focus();
+        },
+        reset: function(a) {
+            var b, c = this.data.select;
+            for (this.selectedOptions.length = 0, b = 0; b < c.options.length; b++) c.options[b].selected = !1, 
+            l.removeClass(this.options[b], "dk-option-selected"), this.options[b].setAttribute("aria-selected", "false"), 
+            !a && c.options[b].defaultSelected && this.select(b, !0);
+            this.selectedOptions.length || this.multiple || this.select(0, !0);
+        },
+        refresh: function() {
+            this.dispose().init(this.data.select, this.data.settings);
+        },
+        dispose: function() {
+            return delete i.cache[this.data.cacheID], this.data.elem.parentNode.removeChild(this.data.elem), 
+            this.data.select.removeAttribute("data-dkCacheId"), this;
+        },
+        handleEvent: function(a) {
+            if (!this.disabled) switch (a.type) {
+              case "click":
+                this._delegate(a);
+                break;
+
+              case "keydown":
+                this._keyHandler(a);
+                break;
+
+              case "keypress":
+                this._searchOptions(a);
+                break;
+
+              case "mouseover":
+                this._highlight(a);
+                break;
+
+              case "reset":
+                this.reset();
+                break;
+
+              case "change":
+                this.data.settings.change.call(this);
+            }
+        },
+        _delegate: function(b) {
+            var c, d, e, f, g = b.target;
+            if (l.hasClass(g, "dk-option-disabled")) return !1;
+            if (this.multiple) {
+                if (l.hasClass(g, "dk-option")) if (c = a.getSelection(), "Range" === c.type && c.collapseToStart(), 
+                b.shiftKey) if (e = this.options.indexOf(this.selectedOptions[0]), f = this.options.indexOf(this.selectedOptions[this.selectedOptions.length - 1]), 
+                d = this.options.indexOf(g), d > e && f > d && (d = e), d > f && f > e && (f = e), 
+                this.reset(!0), f > d) for (;f + 1 > d; ) this.select(d++); else for (;d > f - 1; ) this.select(d--); else b.ctrlKey || b.metaKey ? this.select(g) : (this.reset(!0), 
+                this.select(g));
+            } else this[this.isOpen ? "close" : "open"](), l.hasClass(g, "dk-option") && this.select(g);
+        },
+        _highlight: function(a) {
+            var b, c = a.target;
+            if (!this.multiple) {
+                for (b = 0; b < this.options.length; b++) l.removeClass(this.options[b], "dk-option-highlight");
+                l.addClass(this.data.elem.lastChild, "dk-select-options-highlight"), l.addClass(c, "dk-option-highlight");
+            }
+        },
+        _keyHandler: function(a) {
+            var b, c, d = this.selectedOptions, e = this.options, f = 1, g = {
+                tab: 9,
+                enter: 13,
+                esc: 27,
+                space: 32,
+                up: 38,
+                down: 40
+            };
+            switch (a.keyCode) {
+              case g.up:
+                f = -1;
+
+              case g.down:
+                if (a.preventDefault(), b = d[d.length - 1], l.hasClass(this.data.elem.lastChild, "dk-select-options-highlight")) for (l.removeClass(this.data.elem.lastChild, "dk-select-options-highlight"), 
+                c = 0; c < e.length; c++) l.hasClass(e[c], "dk-option-highlight") && (l.removeClass(e[c], "dk-option-highlight"), 
+                b = e[c]);
+                f = e.indexOf(b) + f, f > e.length - 1 ? f = e.length - 1 : 0 > f && (f = 0), this.data.select.options[f].disabled || (this.reset(!0), 
+                this.select(f), this._scrollTo(f));
+                break;
+
+              case g.space:
+                if (!this.isOpen) {
+                    a.preventDefault(), this.open();
+                    break;
+                }
+
+              case g.tab:
+              case g.enter:
+                for (f = 0; f < e.length; f++) l.hasClass(e[f], "dk-option-highlight") && this.select(f);
+
+              case g.esc:
+                this.isOpen && (a.preventDefault(), this.close());
+            }
+        },
+        _searchOptions: function(a) {
+            var b, c = this, e = String.fromCharCode(a.keyCode || a.which), f = function() {
+                c.data.searchTimeout && clearTimeout(c.data.searchTimeout), c.data.searchTimeout = setTimeout(function() {
+                    c.data.searchString = "";
+                }, 1e3);
+            };
+            this.data.searchString === d && (this.data.searchString = ""), f(), this.data.searchString += e, 
+            b = this.search(this.data.searchString, this.data.settings.search), b.length && (l.hasClass(b[0], "dk-option-disabled") || this.selectOne(b[0]));
+        },
+        _scrollTo: function(a) {
+            var b, c, d, e = this.data.elem.lastChild;
+            return -1 === a || "number" != typeof a && !a || !this.isOpen && !this.multiple ? !1 : ("number" == typeof a && (a = this.item(a)), 
+            b = l.position(a, e).top, c = b - e.scrollTop, d = c + a.offsetHeight, void (d > e.offsetHeight ? (b += a.offsetHeight, 
+            e.scrollTop = b - e.offsetHeight) : 0 > c && (e.scrollTop = b)));
+        }
+    }, i.build = function(a, b) {
+        var c, d, e, f = [], g = {
+            elem: null,
+            options: [],
+            selected: []
+        }, h = function(a) {
+            var c, d, e, f, i = [];
+            switch (a.nodeName) {
+              case "OPTION":
+                c = l.create("li", {
+                    "class": "dk-option ",
+                    "data-value": a.value,
+                    innerHTML: a.text,
+                    role: "option",
+                    "aria-selected": "false",
+                    id: b + "-" + (a.id || a.value.replace(" ", "-"))
+                }), l.addClass(c, a.className), a.disabled && (l.addClass(c, "dk-option-disabled"), 
+                c.setAttribute("aria-disabled", "true")), a.selected && (l.addClass(c, "dk-option-selected"), 
+                c.setAttribute("aria-selected", "true"), g.selected.push(c)), g.options.push(this.appendChild(c));
+                break;
+
+              case "OPTGROUP":
+                for (d = l.create("li", {
+                    "class": "dk-optgroup"
+                }), a.label && d.appendChild(l.create("div", {
+                    "class": "dk-optgroup-label",
+                    innerHTML: a.label
+                })), e = l.create("ul", {
+                    "class": "dk-optgroup-options"
+                }), f = a.children.length; f--; i.unshift(a.children[f])) ;
+                i.forEach(h, e), this.appendChild(d).appendChild(e);
+            }
+        };
+        for (g.elem = l.create("div", {
+            "class": "dk-select" + (a.multiple ? "-multi" : "")
+        }), d = l.create("ul", {
+            "class": "dk-select-options",
+            id: b + "-listbox",
+            role: "listbox"
+        }), a.disabled && l.addClass(g.elem, "dk-select-disabled"), g.elem.id = b + (a.id ? "-" + a.id : ""), 
+        l.addClass(g.elem, a.className), a.multiple ? (g.elem.setAttribute("tabindex", a.getAttribute("tabindex") || "0"), 
+        d.setAttribute("aria-multiselectable", "true")) : (c = a.options[a.selectedIndex], 
+        g.elem.appendChild(l.create("div", {
+            "class": "dk-selected " + c.className,
+            tabindex: a.tabindex || 0,
+            innerHTML: c ? c.text : "&nbsp;",
+            id: b + "-combobox",
+            "aria-live": "assertive",
+            "aria-owns": d.id,
+            role: "combobox"
+        })), d.setAttribute("aria-expanded", "false")), e = a.children.length; e--; f.unshift(a.children[e])) ;
+        return f.forEach(h, g.elem.appendChild(d)), g;
+    }, i.onDocClick = function(a) {
+        var b, c;
+        if (1 !== a.target.nodeType) return !1;
+        null !== (b = a.target.getAttribute("data-dkcacheid")) && i.cache[b].focus();
+        for (c in i.cache) l.closest(a.target, i.cache[c].data.elem) || c === b || i.cache[c].disabled || i.cache[c].close();
+    }, c !== d && (c.fn.dropkick = function() {
+        var a = Array.prototype.slice.call(arguments);
+        return c(this).each(function() {
+            a[0] && "object" != typeof a[0] ? "string" == typeof a[0] && i.prototype[a[0]].apply(new i(this), a.slice(1)) : new i(this, a[0] || {});
+        });
+    }), i;
 }), jQuery(function(a) {
     window.aws = {};
 }), jQuery(function(a) {
@@ -3104,7 +3754,12 @@
         this.init();
     }, Site.prototype = {
         init: function() {
-            this.reservationDatepicker(), this.uploadFile();
+            this.reservationDatepicker(), this.uploadFile(), this.dropkick();
+        },
+        dropkick: function() {
+            a(".a-field-select").length && a(".a-field-select").dropkick({
+                mobile: !0
+            });
         },
         reservationDatepicker: function() {
             if (a("#date-reserve").length) {
@@ -3138,32 +3793,44 @@
         events: function() {
             var b = this;
             b.settings.action && a(this.elem).on("submit", function(c) {
-                c.preventDefault();
-                var d = a(this).serialize(), e = a("a-loading", this.elem), f = b.settings.action;
-                if (b.settings.uploadFile) {
-                    var g = a("#" + b.settings.uploadFile)[0].files, h = a("#" + b.settings.uploadFile).parent(".a-clearfix").siblings(".a-input-error");
-                    if (h.html(""), console.log(g), !g.length) return void h.html("Campo Obrigatório");
-                    var i = g[0], d = new FormData();
-                    d.append("cvform", i, i.name), d.append("action", f), d.append("dados", a(this).serialize());
-                } else d = {
-                    action: f,
-                    data: d
-                };
-                e.removeClass("a-hide"), a.ajax({
-                    url: vars_site.ajax_url,
-                    type: "post",
-                    data: d,
-                    contentType: !1,
-                    processData: !1,
-                    success: function(b) {
-                        console.log(b);
-                        var c = jQuery.parseJSON(b);
-                        if (console.log(Object.keys(c).length), Object.keys(c).length) for (var d in c) error = a("#" + d).siblings(".a-input-error"), 
-                        error.length ? error.html(c[d]) : a("#" + d).parent(".a-clearfix").siblings(".a-input-error").html(c[d]);
-                        e.addClass("a-hide");
-                    }
-                });
+                c.preventDefault(), a(".a-input-error").html(""), b.settings.uploadFile ? b.handlerUploadFile(a(this).serialize(), a(this)) : b.handlerDefault(a(this).serialize(), a(this));
             });
+        },
+        handlerUploadFile: function(b, c) {
+            var d = this, e = a("a-loading", this.elem), f = d.settings.action, g = a("#" + d.settings.uploadFile)[0].files, h = a("#" + d.settings.uploadFile).parent(".a-clearfix").siblings(".a-input-error");
+            if (h.html(""), !g.length) return void h.html("Campo Obrigatório");
+            var i = g[0], j = new FormData();
+            j.append("cvform", i, i.name), j.append("action", f), j.append("dados", b), e.removeClass("a-hide"), 
+            a.ajax({
+                url: vars_site.ajax_url,
+                type: "post",
+                data: j,
+                contentType: !1,
+                processData: !1,
+                success: function(a) {
+                    d.handlerAjaxSucess(a, e, c);
+                }
+            });
+        },
+        handlerDefault: function(b, c) {
+            var d = this, e = a("a-loading", this.elem), f = {
+                action: d.settings.action,
+                dados: b
+            };
+            e.removeClass("a-hide"), a.ajax({
+                url: vars_site.ajax_url,
+                type: "post",
+                data: f,
+                success: function(a) {
+                    d.handlerAjaxSucess(a, e, c);
+                }
+            });
+        },
+        handlerAjaxSucess: function(b, c, d) {
+            var e = jQuery.parseJSON(b);
+            if (Object.keys(e).length) for (var f in e) "sucesso" === f ? (a("#" + f).html(e[f]), 
+            d.trigger("reset")) : (error = a("#" + f).siblings(".a-input-error"), error.length ? error.html(e[f]) : a("#" + f).parent(".a-clearfix").siblings(".a-input-error").html(e[f]));
+            c.addClass("a-hide");
         }
     };
 }), jQuery(function(a) {

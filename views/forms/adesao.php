@@ -1,8 +1,9 @@
+<?php global $site ?>
 <div class="a-aside">
 	<div class="a-aside__header">
 	    <h5>Adesão</h5>
 	    TURIM HOTÉIS  •  FICHA DE INSCRIÇÃO
-	    <a class="a-btn a-btn--light m-t-15">Adesão <i class="fa fa-chevron-right" data-a-widget="Amodal" data-a-widget-options="<?php echo $modal ?>"></i></a>
+	    <a class="a-btn a-btn--light m-t-15" data-a-widget="Amodal" data-a-widget-options="<?php echo $modal ?>">Adesão <i class="fa fa-chevron-right" ></i></a>
 	</div>
 	<div class="a-aside__content">
 		<?php if(have_rows('vantagens_adesao')): ?>

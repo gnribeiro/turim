@@ -1,3 +1,4 @@
+<?php global $site ?>
 <div class="a-aside">
 	<div class="a-aside__header">
 	    <h5>PEDIR <br/> INFORMAÇÕES</h5>

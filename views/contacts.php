@@ -19,7 +19,12 @@
 
             <div class="a-field">
                 <select name="type-company" id="" class="a-field-select">
-                    <option value="" class="a-field-option">PARTICULAR OU EMPRESA</option>
+                    <option value="" class="a-field-option">Particular ou Empresa</option>
+                    <option value="Particular" class="a-field-option">Particular</option>
+                    <option value="Empresa" class="a-field-option">Empresa</option>
+                    <option value="EMPRESA" class="a-field-option">Empresa</option>
+                    <option value="EMPRESA" class="a-field-option">Empresa</option>
+                    <option value="EMPRESA" class="a-field-option">Empresa</option>
                 </select>
                  <div class="a-input-error">
                 </div>

@@ -12,6 +12,17 @@ jQuery(function($){
         init : function(){
           this.reservationDatepicker();
           this.uploadFile();
+          this.dropkick();
+
+
+        },
+
+        dropkick:function(){
+            if($(".a-field-select").length){
+                $(".a-field-select").dropkick({
+                    mobile: true
+                });
+            }
         },
 
         reservationDatepicker: function(){
