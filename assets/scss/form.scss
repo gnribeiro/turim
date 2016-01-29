@@ -7,6 +7,10 @@
             min-width: 500px;
         }
 
+        @include m(nopd) {
+            padding-left: 0px;
+        }
+
         &-success{
             height: 25px;
             font-size: 12px;
@@ -33,6 +37,11 @@
                 font-size: 12px;
                 line-height: 12px;
                 margin-bottom: 3px;
+            }
+
+            @include m(reserva) {
+                color:#ffffff;
+                margin-bottom: 0px;
             }
 
             @include m(file) {
@@ -143,79 +152,41 @@
             &:placeholder-shown { /* Standard one last! */
               color: #d3d3d3;
             }
-            @include m(newsletter) {
-                float:left;
-                color: #ffffff;
-                border: 1px solid #ffffff;
-                height: 67px;
-                width:210px;
-                padding: 3px 26px 0;
 
+            &-modal{
                 &::-webkit-input-placeholder { /* Safari, Chrome and Opera */
-                    color: #ffffff;
+
+                    font-size: 13px;
                 }
 
                 &:-moz-placeholder { /* Firefox 18- */
-                  color: #ffffff;
+
+                  font-size: 13px;
                 }
 
                 &::-moz-placeholder { /* Firefox 19+ */
-                  color: #ffffff;
+
+                  font-size: 13px;
                 }
 
                 &:-ms-input-placeholder { /* IE 10+ */
-                  color: #ffffff;
+
+                  font-size: 13px;
                 }
 
                 &::-ms-input-placeholder { /* Edge */
-                  color: #ffffff;
+
+                  font-size: 13px;
                 }
 
                 &:placeholder-shown { /* Standard one last! */
-                  color: #ffffff;
+
+                  font-size: 13px;
                 }
-
-
             }
 
-             @include m(modal) {
-                height : 33px;
-                padding: 0 8px;
-                    font-size: 13px;
-                 &::-webkit-input-placeholder { /* Safari, Chrome and Opera */
-
-                    font-size: 13px;
-                }
-
-                &:-moz-placeholder { /* Firefox 18- */
-
-                  font-size: 13px;
-                }
-
-                &::-moz-placeholder { /* Firefox 19+ */
-
-                  font-size: 13px;
-                }
-
-                &:-ms-input-placeholder { /* IE 10+ */
-
-                  font-size: 13px;
-                }
-
-                &::-ms-input-placeholder { /* Edge */
-
-                  font-size: 13px;
-                }
-
-                &:placeholder-shown { /* Standard one last! */
-
-                  font-size: 13px;
-                }
-             }
-            @include m(captcha) {
-                width: 501px;
-
-                &::-webkit-input-placeholder { /* Safari, Chrome and Opera */
+            &-captcha{
+                  &::-webkit-input-placeholder { /* Safari, Chrome and Opera */
                     color: #000000;
                 }
 
@@ -238,6 +209,69 @@
                 &:placeholder-shown { /* Standard one last! */
                   color: #000000;
                 }
+            }
+
+            &--date-reserva,
+            &--date-newsletter{
+                 &::-webkit-input-placeholder { /* Safari, Chrome and Opera */
+                color: #ffffff;
+                }
+
+                &:-moz-placeholder { /* Firefox 18- */
+                  color: #ffffff;
+                }
+
+                &::-moz-placeholder { /* Firefox 19+ */
+                  color: #ffffff;
+                }
+
+                &:-ms-input-placeholder { /* IE 10+ */
+                  color: #ffffff;
+                }
+
+                &::-ms-input-placeholder { /* Edge */
+                  color: #ffffff;
+                }
+
+                &:placeholder-shown { /* Standard one last! */
+                  color: #ffffff;
+                }
+            }
+            @include m(newsletter) {
+                float:left;
+                color: #ffffff;
+                border: 1px solid #ffffff;
+                height: 67px;
+                width:210px;
+                padding: 3px 26px 0;
+            }
+
+            @include m(light) {
+              padding-left: 10px;
+              border:1px solid #ffffff;
+              color:#ffffff;
+            }
+
+            @include m(date-reserva) {
+                background-color:transparent;
+                border : none;
+                width: 83%;
+                height: 43px;
+                color:#ffffff;
+                padding-left: 13px;
+            }
+
+            @include m(date-reserva-content) {
+                border : 1px solid #ffffff;
+            }
+
+            @include m(modal) {
+                height : 33px;
+                padding: 0 8px;
+                font-size: 13px;
+             }
+            @include m(captcha) {
+                width: 501px;
             }
 
 

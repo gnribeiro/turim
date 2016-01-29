@@ -37,7 +37,7 @@
         @include m('transparent'){
             background-color : transparent;
             border           : 1px solid #ffffff;
-            height           : 40px;
+            height           : 42px;
             width            : 126px;
 
         }
@@ -46,6 +46,21 @@
             width            : 138px;
             border           : 2px solid $dark;
             height           : 42px;
+        }
+
+        @include m('close-reservar') {
+            @include lato-regular;
+            float: right;
+            font-size: 19px;
+            color: #ffffff;
+            margin-right: 33px;
+            height: 28px;
+            width: 32px;
+            overflow: hidden;
+            min-width: initial;
+            margin-top: 9px;
+            background-color: transparent;
+            cursor: pointer;
         }
 
         @include m('darkness') {
@@ -92,7 +107,19 @@
             width            : 134px;
             border           : 2px solid #ffffff;
             height           : 42px;
-            margin-left      : 9px
+            margin-left      : 9px;
+            cursor           : pointer;
+
+            &:hover{
+                 border           : 2px solid #a0a0a0;
+                background-color : #a0a0a0;
+            }
+             @include m('selected') {
+                border           : 2px solid #a0a0a0;
+                background-color : #a0a0a0;
+            }
+
         }
+
     }
 }

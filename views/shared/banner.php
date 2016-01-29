@@ -1,4 +1,5 @@
-<section class="a-banner" role="banner" <?php echo $style ?> >
+<?php global $site; ?>
+<section class="a-banner a-relative" role="banner" <?php echo $style ?> >
     <div class="a-container">
         <h1 class="a-logo">Turim</h1>
         <div class="a-menu">
@@ -15,5 +16,6 @@
             MAX: 23ºC  MÍN: 17ºC
         </div>
     </div>
+    <?php echo $site->get_partial('shared/form-reservas')?>
 </section>
 

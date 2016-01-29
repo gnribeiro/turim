@@ -1,0 +1,35 @@
+.a{
+    &-reservar{
+        @include  transform(translateX(500px));
+        @include transition-property(transform);
+        @include transition-duration(0.3s);
+        width: 500px;
+        background-color: $dark;
+        position: absolute;
+        top: 105px;
+        right:0;
+
+        @include m(selected){
+            @include  transform(translateX(0px));
+
+        }
+
+
+        @include e(header) {
+          @include lato-bold;
+          height           : 58px;
+          line-height      : 58px;
+          background-color : #a0a0a0;
+          padding-left     : 41px;
+        }
+
+        @include e(content){
+            padding: 21px 100px 21px 38px;
+            background-color: $dark;
+        }
+    }
+
+    &-select-limit-content{
+        width: 83%;
+    }
+}

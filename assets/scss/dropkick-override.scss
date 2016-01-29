@@ -75,11 +75,54 @@
    }
 
    .dk-select-open-up .dk-select-options,
-.dk-select-open-down .dk-select-options,
-.dk-select-multi:focus .dk-select-options{
-    @include css3-prefix(border-radius , 0 );
-    border-color : #000000;
-    font-size    : 12px;
-    line-height: 30px;
+    .dk-select-open-down .dk-select-options,
+    .dk-select-multi:focus .dk-select-options{
+        @include css3-prefix(border-radius , 0 );
+        border-color : #000000;
+        font-size    : 12px;
+        line-height: 30px;
+    }
+
+}
+
+.a-reservar{
+    .dk-selected{
+       background-color: transparent;
+       border: 1px solid #ffffff
+
+    }
+
+
+    .dk-selected:hover:before,
+    .dk-selected:focus:before,
+    .dk-selected:hover,
+    .dk-selected:focus{
+        border-color: #ffffff;
+    }
+
+    .dk-select-options{
+        border-color: #fff;
+        background-color: $dark;
+    }
+    .dk-option {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+    text-align: left;
+    background-color: #202020;
+    }
+
+    .dk-option:hover,
+    .dk-option-highlight{
+        background-color: #ffffff;
+        color:#000000;
+    }
+
+    .dk-option-selected{
+        color:#ffffff;
+    }
+
+    .dk-option-highlight.dk-option-selected{
+        color:#000000;
     }
 }

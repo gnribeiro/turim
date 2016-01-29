@@ -216,10 +216,10 @@ class Helper {
     }
 
      public static function check_select($name , $value){
-      if(!isset($_GET[$name]))
+      if(!isset($_POST[$name]))
           return;
 
-      if( $_GET[$name] == $value )
+      if( $_POST[$name] == $value )
           echo "selected='selected'";
     }
 

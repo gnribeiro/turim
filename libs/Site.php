@@ -18,10 +18,28 @@
 
         public function contact()
         {
-            $this->view->set('banner', $this->get_banner());
+
+
+
+            $captcha = new Gwp_Captcha();
+            $captcha->create();
+
+            $image = $_SESSION['GWP_captcha']['path'];
+
+            $this->view->set('banner',   $this->get_banner());
             $this->view->set('contacts', $this->list_contacts());
+            $this->view->set('captcha',  $this->getDataURI($image, 'image/png'));
             $content = $this->view->render('contacts');
             $this->content($content);
+
+            unlink($image);
+
+
+
+        }
+
+        public function getDataURI($image, $mime = '') {
+            return 'data: '.(function_exists('mime_content_type') ? mime_content_type($image) : $mime).';base64,'.base64_encode(file_get_contents($image));
         }
 
         public function collum2()
@@ -169,7 +187,10 @@
 
         protected function recrutamento()
         {
-            $modal = array('content' => '#recrutamento');
+            $modal = array(
+                'content' => '#recrutamento',
+                'form'    =>  true
+            );
             $ajax  = array(
                 'action'     => 'recrutament',
                 'uploadFile' => 'cvform'
@@ -184,7 +205,11 @@
 
         protected function info()
         {
-            $modal = array('content' => '#info');
+            $modal = array(
+                'content' => '#info',
+                'form'    =>  true
+            );
+
             $ajax  = array('action'  => 'info');
 
             $this->view->set('modal',  Helper::setJson($modal));
@@ -194,7 +219,11 @@
 
         protected function adesao()
         {
-            $modal = array('content' => '#adesao');
+            $modal = array(
+                'content' => '#adesao',
+                'form'    =>  true
+            );
+
             $ajax  = array('action'  => 'adesao');
 
             $this->view->set('modal',  Helper::setJson($modal));
@@ -213,5 +242,11 @@
             return $query->posts;
 
         }
+
+
+        public  function __destruct() {
+            pr("dsd");
+        }
+
     }
 ?>

@@ -13,44 +13,54 @@ Class Gwp_Form_Handler {
             return;
         }
 
+
         if ( empty( $_POST[ 'action' ] ) || 'contacts' !== $_POST[ 'action' ] || empty( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'contact-form' ) ) {
             return;
         }
 
-//        $validation      = new ValidFluent($_POST);
-//        $requerid        = 'Preenchimento Obrigatório';
-//        $invalid_email   = 'Email inválido';
-
-
-
-        $validation2 = Validation::factory($_POST);
-        $validation2->rule('nome',    'not_empty');
-        $validation2->rule('phone',   'not_empty');
-        $validation2->rule('email',   'not_empty');
-        $validation2->rule('email',   'Valid::email');
-        $validation2->rule('mensage', 'not_empty');
-
-         pr($validation2->check());
-
-//        $validation->name('nome')
-//            ->required( $requerid );
-//        $validation->name('phone')
-//            ->required( $requerid );
-//        $validation->name('email')
-//            ->required( $requerid )
-//            ->email($invalid_email);
-//        $validation->name('mensage')
-//            ->required( $requerid );
-
-        if(false){
-//            Helper::set_flashdata("nome-error"    , $validation->getError('nome'));
-//            Helper::set_flashdata("phone-error"   , $validation->getError('phone'));
-//            Helper::set_flashdata("email-error"   , $validation->getError('email'));
-//            Helper::set_flashdata("mensage-error" , $validation->getError('mensage'));
-//            Helper::set_flashdata("error"         , true);
+        if (isset($_SESSION['GWP_captcha']) && !empty($_SESSION['GWP_captcha'])) {
+            pr($_SESSION['GWP_captcha']["code"]);
         }
-        else{
-             pr('ok');
+
+        $error         = array();
+        $captcha_error = false;
+
+        $validation = Validation::factory($_POST);
+        $validation->rule('nome',         'not_empty');
+        $validation->rule('phone',        'not_empty');
+        $validation->rule('email',        'not_empty');
+        $validation->rule('email',        'Valid::email');
+        $validation->rule('mensage',      'not_empty');
+        $validation->rule('subject',      'not_empty');
+        $validation->rule('reserva',      'not_empty');
+        $validation->rule('type-company', 'not_empty');
+        $validation->rule('hotel'       , 'not_empty');
+        $validation->rule('captcha',      'not_empty');
+
+        if(!$validation->check()){
+            Helper::set_flashdata("data",  $_POST);
+
+            foreach ($validation->errors('forms/contactos') as $key => $value) {
+                $error[] = $key;
+                Helper::set_flashdata("{$key}-error",  $value);
+            }
+        }
+
+
+        if(!in_array('captcha', $error) && isset($_SESSION['GWP_captcha'])
+         && !empty($_SESSION['GWP_captcha']))
+        {
+            if($_SESSION['GWP_captcha']["code"] !== $_POST['captcha']){
+               Helper::set_flashdata(
+                "captcha-error", Helper::message("forms/contactos", "captcha.code")
+               );
+            }
+        }
+
+        if(!count($error)){
+            Helper::set_flashdata(
+                "sucesso", Helper::message("forms/contactos", "sucesso.msg")
+            );
         }
     }
 }

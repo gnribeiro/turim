@@ -8,83 +8,81 @@
         <?php endwhile; endif; ?>
 
         <form action="" method="post" class="m-t-40 a-field-form">
-            <?php $error =  Helper::get_flashdata("error"); $error_nome =  Helper::get_flashdata("nome-error");?>
+            <?php $error =  Helper::get_flashdata("data");?>
             <div class="a-field">
                 <label class="a-field__label"for="nome">NOME</label>
                 <input class="a-input-text" type="text" name="nome" placeholder="Introduzir Nome Completo" id="nome" value="<?php Helper::input_value( "nome"  , $error)?>" />
                 <div class="a-input-error">
-                <?php if($error_nome): echo $error_nome; endif;?>
+                     <?php if($erro= Helper::get_flashdata("nome-error")): echo $erro; endif;?>
                 </div>
             </div>
 
             <div class="a-field">
                 <select name="type-company" id="" class="a-field-select">
-                    <option value="" class="a-field-option">Particular ou Empresa</option>
-                    <option value="Particular" class="a-field-option">Particular</option>
-                    <option value="Empresa" class="a-field-option">Empresa</option>
-                    <option value="EMPRESA" class="a-field-option">Empresa</option>
-                    <option value="EMPRESA" class="a-field-option">Empresa</option>
-                    <option value="EMPRESA" class="a-field-option">Empresa</option>
+                    <option value="" <?php Helper::check_select('type-company', '' ); ?> class="a-field-option">Particular ou Empresa</option>
+                    <option value="Particular" <?php Helper::check_select('type-company', 'Particular' ); ?> class="a-field-option">Particular</option>
+                    <option value="Empresa"  <?php Helper::check_select('type-company', 'Empresa' ); ?>class="a-field-option">Empresa</option>
                 </select>
                  <div class="a-input-error">
+                    <?php if($erro= Helper::get_flashdata("type-company-error")): echo $erro; endif;?>
                 </div>
             </div>
 
             <div class="a-field">
-                <select name="type-company" id="" class="a-field-select">
+                <select name="hotel" id="" class="a-field-select">
                     <option value="" class="a-field-option">HOTEL</option>
                 </select>
                 <div class="a-input-error">
+                     <?php if($erro= Helper::get_flashdata("hotel-error")): echo $erro; endif;?>
                 </div>
             </div>
 
             <div class="a-field">
                 <label class="a-field__label" for="email">EMAIL</label>
-                <?php $error_email =  Helper::get_flashdata("email-error");?>
-                <input type="text" class="a-input-email" name="email" placeholder="Introduzir email" id="email" value="<?php Helper::input_value( "email"  , $error)?>"/>
+                <input type="text" class="a-input-email" name="email" placeholder="Introduzir email" id="email" value="<?php Helper::input_value( "email", $error)?>"/>
                 <div class="a-input-error">
-                    <?php if($error_email): echo $error_email; endif;?>
+                    <?php if($erro= Helper::get_flashdata("email-error")): echo $erro; endif;?>
                 </div>
             </div>
 
              <div class="a-field">
-                <select name="type-company" id="" class="a-field-select">
+                <select name="subject" id="" class="a-field-select">
                     <option value="" class="a-field-option">ASSUNTO</option>
                 </select>
                 <div class="a-input-error">
+                    <?php if($erro= Helper::get_flashdata("subject-error")): echo $erro; endif;?>
                 </div>
             </div>
 
             <div class="a-field">
-                <label class="a-field__label" for="numero-reserva">QUARTO/Nº DE RESERVA</label>
-                <?php $error_phone =  Helper::get_flashdata("phone-error");?>
-                <input class="a-input-text" type="text" name="numero-reserva" placeholder="Introduzir Número de Reserva ou Quarto" id="numero-reserva" value="<?php Helper::input_value( "phone"  , $error)?>"/>
+                <label class="a-field__label" for="reserva">QUARTO/Nº DE RESERVA</label>
+                <input class="a-input-text" type="text" name="reserva" placeholder="Introduzir Número de Reserva ou Quarto" id="reserva" value="<?php Helper::input_value( "reserva"  , $error)?>"/>
                 <div class="a-input-error">
-                    <?php if($error_phone): echo $error_phone; endif;?>
+                   <?php if($erro= Helper::get_flashdata("reserva-error")): echo $erro; endif;?>
                 </div>
             </div>
 
             <div class="a-field">
                 <label class="a-field__label" for="mensage">MENSAGEM</label>
-                <?php $error_mensage =  Helper::get_flashdata("mensage-error");?>
-                <textarea class="a-input-textarea" name="mensage" id="mensage" cols="30" rows="10"><?php Helper::input_value( "mensage"  , $error)?></textarea>
+                <textarea class="a-input-textarea" name="mensage" id="mensage" cols="30" rows="10"><?php Helper::input_value( "mensage",$error)?></textarea>
                 <div class="a-input-error">
-                    <?php if($error_mensage): echo $error_mensage; endif;?>
+                <?php if($erro= Helper::get_flashdata("mensage-error")): echo $erro; endif;?>
                 </div>
             </div>
 
             <div class="a-field">
-                <?php $error_email =  Helper::get_flashdata("email-error");?>
                 <div class="a-clearfix">
                     <div class="a-pull-left">
-                        <input type="text"  class="a-input-text a-input-text--captcha" name="captcha" placeholder="Inserir código de segurança" id="email" value="<?php Helper::input_value( "email"  , $error)?>"/>
+                        <input type="text"  class="a-input-text a-input-text--captcha" name="captcha" placeholder="Inserir código de segurança" id="captcha" value=""/>
                     </div>
                     <div class="a-pull-left">
-                        <div class="a-dark a-captcha__text">1122</div>
+                        <div class="a-dark a-captcha__text">
+                            <img src="<?php echo $captcha ?>" alt="">
+                        </div>
                     </div>
                 </div>
                 <div class="a-input-error">
-                    <?php if($error_email): echo $error_email; endif;?>
+                    <?php if($erro= Helper::get_flashdata("captcha-error")): echo $erro; endif;?>
                 </div>
             </div>
             <div class="pull-right">
@@ -95,6 +93,7 @@
             <?php //Helper::unset_all_flashdata(); ?>
         </form>
     </div>
+
     <aside class="a-col-3">
         <div class="a-aside">
         <div class="a-aside__header">

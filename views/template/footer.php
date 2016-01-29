@@ -1,6 +1,10 @@
 <?php global $site ?>
 <footer class="a-main">
-<?php echo $site->get_partial('home/newsletter'); ?>
+<?php
+
+echo $site->get_partial('home/newsletter',
+    array('ajax'=>Helper::setJson(array('action'=> 'newsletter'))));
+?>
     <section class="a-light p-t-30 p-b-55">
         <div class="a-container">
             <div class="a-links-footer">

@@ -75,11 +75,11 @@
     }
 
     &-pull-left{
-        float: left;
+        float: left !important;
     }
 
     &-pull-right{
-        float: right;
+        float: right !important;
     }
     &-nolist{
         list-style: none;

@@ -22,6 +22,8 @@ Class Gwp_Ajax{
       add_action( 'wp_ajax_reservas',        array( $this, 'reservas' ) );
       add_action( 'wp_ajax_nopriv_reservas', array( $this, 'reservas' ) );
 
+      add_action( 'wp_ajax_newsletter',        array( $this, 'newsletter' ) );
+      add_action( 'wp_ajax_nopriv_newsletter', array( $this, 'newsletter' ) );
     }
 
 
@@ -145,7 +147,33 @@ Class Gwp_Ajax{
     }
 
 
-    public function reservas(){
+    public function newsletter(){
+        $errors  = array();
+        $data    = array();
+        parse_str($_POST['dados'], $data);
+
+        $validation = Validation::factory($data );
+        $validation->rule('news-email',       'not_empty');
+        $validation->rule('news-email',       'Valid::email');
+        $validation->check();
+
+        $errors = $validation->errors('forms/newsletter');
+
+        if(count($errors)){
+            echo   json_encode( $errors);
+        }
+        else{
+            $sucess = array(
+                'sucesso-news' => Helper::message("forms/newsletter", "sucesso.msg")
+            );
+            echo json_encode($sucess);
+        }
+
+        die();
+    }
+
+
+     public function reservas(){
         $errors  = array();
         $data    = array();
         parse_str($_POST['dados'], $data);

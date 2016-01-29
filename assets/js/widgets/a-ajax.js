@@ -40,7 +40,7 @@ jQuery(function($){
             if(self.settings.action){
                 $(this.elem).on('submit' , function(event){
                     event.preventDefault();
-
+                     console.log("1sddwwwwdd");
                     $('.a-input-error').html('');
 
                     if(self.settings.uploadFile){
@@ -114,11 +114,15 @@ jQuery(function($){
 
 
         handlerAjaxSucess: function(response , load , form){
+
+
+
             var output = jQuery.parseJSON(response);
+
             if(Object.keys(output).length){
                 for(var index in output){
                     if(index ==='sucesso'){
-                        $('#'+index).html(output[index]);
+                        $('#'+index , form).html(output[index]);
 
                         form.trigger('reset')
 
@@ -130,6 +134,7 @@ jQuery(function($){
                             error.html(output[index]);
                         }
                         else {
+                            console.log("333ddwwwwdd" , Object.keys(output).length , output);
                             $('#'+index)
                             .parent('.a-clearfix')
                             .siblings('.a-input-error')

@@ -11,9 +11,9 @@ module.exports = function(grunt){
             all:[
                 'bower_components/jquery/jquery.js',
                 'bower_components/jquery/jquery-migrate.min.js',
+                'bower_components/moment/moment.js',
                 'bower_components/pikaday/pikaday.js',
                 'assets/js/vendor/dropkick_min.js',
-
                 'assets/js/widgets/init.js',
                 'assets/js/widgets/a-ajax.js',
                 'assets/js/widgets/a-modal.js',

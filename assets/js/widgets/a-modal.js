@@ -15,6 +15,7 @@ jQuery(function($){
         settings : {
             onOpen  : function(){},
             content : false,
+            form    : false,
             onClose : function(){}
         },
 
@@ -94,6 +95,12 @@ jQuery(function($){
         close : function(){
            if( typeof this.settings.onClose === "function" )
             this.settings.onClose();
+
+          if(this.settings.form && $(".a-field-form--modal").length){
+            $(".a-field-form--modal").trigger('reset');
+            $("#sucesso" , ".a-field-form--modal").html('');
+            $(".a-input-error--modal" , ".a-field-form--modal").html('');
+          }
 
           $(this.modalElement).removeClass("a-modal__container--selected");
         },
