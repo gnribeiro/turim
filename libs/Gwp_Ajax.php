@@ -164,7 +164,7 @@ Class Gwp_Ajax{
         }
         else{
             $sucess = array(
-                'sucesso-news' => Helper::message("forms/newsletter", "sucesso.msg")
+                'sucesso-news' => Helper::message("forms/newsletter", "sucesso-news.msg")
             );
             echo json_encode($sucess);
         }

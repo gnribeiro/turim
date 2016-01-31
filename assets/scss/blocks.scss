@@ -14,11 +14,124 @@
     margin-right: auto;
   }
 
+  &-block-center-550{
+    max-width  : 550px;
+    margin-left :auto;
+    margin-right: auto;
+  }
+
   &-dark-ligth{
     background-color: #ffffff;
     background-image: url(../images/dark-bkg.jpg);
     background-repeat: repeat-x;
     background-position: 0 0;
+
+    &-large{
+      background-image: url(../images/bkg-y-wb.jpg);
+      background-repeat: repeat-x;
+      background-color: #ffffff;
+
+       @include m('dark'){
+        background-color: $dark;
+        background-image:none;
+       }
+    }
+  }
+
+  &-ligth-txt{
+    color:#ffffff;
+
+    .a-bo-highlights:before{
+      background-color: #ffffff;
+    }
+  }
+
+
+  &-features{
+    color: $dark;
+
+    @include e('image') {
+      margin-bottom: 10px;
+    }
+
+    @include e('title') {
+      @include lato-blackbold;
+      font-size: 15px;
+      line-height: 16px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+
+    @include e('content') {
+      font-size: 12px;
+      line-height: 19px;
+      margin-top: 0;
+      margin-bottom:0;
+      p{
+        margin-top: 0;
+      margin-bottom:0;
+      }
+    }
+
+    @include e('resume') {
+      font-size: 15px;
+      line-height: 20px;
+      margin-bottom: 15px;
+      margin-top: 0;
+       p{
+        margin-top: 0;
+      margin-bottom:0;
+      }
+    }
+
+  }
+
+  &-highlights{
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+    background-repeat: no-repeat;
+    background-size  : cover;
+    background-attachment: fixed;
+    background-color   : $dark;
+    background-position: 0% 0%;
+    color             :#ffffff;
+
+    @include e('content') {
+      @include lato-light;
+      text-align : center;
+      max-width: 700px;
+      margin:0 auto;
+      line-height: 20px;
+      font-size: 19px;
+
+
+      p{
+        margin-bottom: 8px;
+        margin-top: 0;
+      }
+      strong{
+        @include lato-bold;
+        font-size: 18px;
+      }
+
+    }
+
+    @include e('title') {
+      text-align    : center;
+      text-transform: uppercase;
+      margin-bottom: 27px;
+    }
+
+    @include e('resume') {
+      @include lato-bold;
+      text-align : center;
+      font-size  : 12px;
+      line-height: 15px;
+      margin     : 35px 0 13px;
+      text-transform: uppercase;
+    }
   }
 
 }

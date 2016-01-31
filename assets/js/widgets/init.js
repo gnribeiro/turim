@@ -14,7 +14,24 @@ jQuery(function($){
             this.uploadFile();
             this.dropkick();
             this.reservation();
+            this.slickgallery();
 
+        },
+
+
+        slickgallery: function(){
+            if($('.a-slick-gallery')) {
+
+                var swiper = new Swiper('.swiper-container', {
+                   pagination: '.swiper-pagination',
+                    paginationClickable: true,
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    spaceBetween: 30
+                })
+
+
+            }
 
         },
 

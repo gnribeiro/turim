@@ -31,6 +31,7 @@
             <div class="a-field">
                 <select name="hotel" id="" class="a-field-select">
                     <option value="" class="a-field-option">HOTEL</option>
+                    <option value="13548">TURIM Lisboa Hotel</option>
                 </select>
                 <div class="a-input-error">
                      <?php if($erro= Helper::get_flashdata("hotel-error")): echo $erro; endif;?>
@@ -48,6 +49,8 @@
              <div class="a-field">
                 <select name="subject" id="" class="a-field-select">
                     <option value="" class="a-field-option">ASSUNTO</option>
+                    <option value="reservar" class="a-field-option">reservar</option>
+
                 </select>
                 <div class="a-input-error">
                     <?php if($erro= Helper::get_flashdata("subject-error")): echo $erro; endif;?>

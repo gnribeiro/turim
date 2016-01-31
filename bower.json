@@ -39,6 +39,7 @@
     "neat": "git://github.com/thoughtbot/neat.git",
     "fontAwesome": "https://github.com/FortAwesome/Font-Awesome.git",
     "pikaday": "~1.4.0",
-    "moment": "momentjs#~2.11.1"
+    "moment": "momentjs#~2.11.1",
+    "Swiper": "swiper#^3.3.0"
   }
 }

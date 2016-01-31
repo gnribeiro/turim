@@ -1,5 +1,5 @@
 <?php global $site; ?>
-<section class="a-banner a-relative" role="banner" <?php echo $style ?> >
+<section class="a-banner a-relative <?php echo $class ?>" role="banner" <?php echo $style ?> >
     <div class="a-container">
         <h1 class="a-logo">Turim</h1>
         <div class="a-menu">

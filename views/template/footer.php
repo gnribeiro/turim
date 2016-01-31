@@ -78,7 +78,7 @@ echo $site->get_partial('home/newsletter',
     </section>
 
 </footer>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.x.x/js/swiper.jquery.min.js"></script>
         <script src="<?php echo THEMEURL?>assets/js/index-min.js"></script>
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

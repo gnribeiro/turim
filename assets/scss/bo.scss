@@ -16,7 +16,11 @@
         }
     }
 
-
+    &-content {
+      @include m('medium'){
+        max-width: 420px;
+      }
+    }
 
     p{
       margin: 0 0 20px;

@@ -11,7 +11,7 @@
         <form action="" method="post" enctype='multipart/form-data' data-a-widget="Ajax" data-a-widget-options="<?php echo $ajax ?>">
           <div class=" a-field-success" id="sucesso-news"></div>
           <div class="a-clearfix">
-            <input type="email" name="news-email" name="news-email" placeholder="E-mail"  class="a-input-email a-input-email--newsletter" />
+            <input type="email" name="news-email" id="news-email" placeholder="E-mail"  class="a-input-email a-input-email--newsletter" />
             <input type="submit" value="Subscrever" class="a-input-submit a-input-submit--newsletter" />
           </div>
           <div class="a-input-error"></div>

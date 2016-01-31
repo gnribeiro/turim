@@ -1,0 +1,120 @@
+.a{
+  &-services{
+    h3{
+      @include montserrat-bold;
+      font-size: 14px;
+      text-transform: uppercase;
+      margin: 0 0 27px;
+    }
+
+    @include e(list){
+      list-style : none;
+      margin     : 0;
+      padding    : 0;
+    }
+
+    @include e(item){
+      @include montserrat;
+      width: 12.28571428571229%;
+      margin-left: 1%;
+      margin-bottom: 30px;
+      float: left;
+      text-align: center;
+      color:#9d9d9d;
+      font-size: 11px;
+      line-height: 14px;
+      text-transform: uppercase;
+
+      &:before{
+        @include sprite();
+        width: 45px;
+        height: 45px;
+        display: block;
+        content: ' ';
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+      }
+
+
+      @include m(room){
+          &:before{
+              background-position:-507px -46px ;
+          }
+      }
+
+      @include m(accessibility_rest){
+          &:before{
+              background-position:-645px 0 ;
+          }
+      }
+      @include m(meeting_room_rest) {
+          &:before{
+              background-position:-553px -46px ;
+          }
+      }
+      @include m(vip_rest) {
+          &:before{
+              background-position: -369px 0;
+          }
+      }
+      @include m(baby_rest) {
+          &:before{
+              background-position:-599px -46px;
+          }
+      }
+      @include m(wireless_rest) {
+          &:before{
+              background-position:-599px 0 ;
+          }
+      }
+      @include m(snake_bar_rest) {
+          &:before{
+              background-position:-461px -46px;
+          }
+      }
+
+      @include m(bar_rest) {
+          &:before{
+              background-position:-507px 0 ;
+          }
+      }
+
+      @include m(res_air_conditioned) {
+          &:before{
+              background-position:-553px 0 ;
+          }
+      }
+      @include m(rest_read_room) {
+          &:before{
+              background-position:-369px -46px ;
+          }
+      }
+      @include m(restpark_parking) {
+          &:before{
+              background-position:-461px 0 ;
+          }
+      }
+      @include m(rest_multimedia_room) {
+          &:before{
+              background-position:-415px -46px ;
+          }
+      }
+
+      @include m(rest_restaurant) {
+          &:before{
+              background-position:-415px 0 ;
+          }
+      }
+
+
+
+      &:nth-child(7n+1){
+        clear: both;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+

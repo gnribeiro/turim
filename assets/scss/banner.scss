@@ -35,11 +35,16 @@
   &-banner{
     padding-top         : 30px;
     background-repeat   : no-repeat;
-    background-position : 0 0;
+    background-position : 50% 0%;
     background-attachment: fixed;
     background-size     : cover;
     height              : 619px;
     color               : #ffffff;
+
+    @include m(nofixed) {
+        background-attachment: initial;
+        background-position : 50% 50%;
+    }
 
     h2 {
         margin:0 0 42px;

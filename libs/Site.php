@@ -19,8 +19,6 @@
         public function contact()
         {
 
-
-
             $captcha = new Gwp_Captcha();
             $captcha->create();
 
@@ -34,13 +32,14 @@
 
             unlink($image);
 
-
-
         }
 
         public function getDataURI($image, $mime = '') {
-            return 'data: '.(function_exists('mime_content_type') ? mime_content_type($image) : $mime).';base64,'.base64_encode(file_get_contents($image));
+            return 'data: '.(function_exists('mime_content_type')
+                ? mime_content_type($image)
+                : $mime).';base64,'.base64_encode(file_get_contents($image));
         }
+
 
         public function collum2()
         {
@@ -76,6 +75,54 @@
 
         }
 
+        public function restaurants()
+        {
+
+            $this->view->set('banner',     $this->get_banner());
+            $this->view->set('highlights', $this->highlights());
+
+            $content = $this->view->render('restaurants/index');
+            $this->content($content);
+        }
+
+        public function hoteis()
+        {
+
+            $this->view->set('banner', $this->get_banner());
+
+            $services = array(
+                'accessibility_rest'   => __('Facilidades <br> para Deficientes' , 'turim'),
+                'meeting_room_rest'    => __('Salas de <br> Reunião', 'turim'),
+                'vip_rest'             => __('Quarto <br> Executivo', 'turim'),
+                'baby_rest'            => __('Berço e Facilidades <br> para Bebés', 'turim'),
+                'wireless_rest'        => __('Wireless', 'turim'),
+                'snake_bar_rest'       => __('Cafetaria', 'turim'),
+                'res_air_conditioned'  => __('Ar <br> Condicionado', 'turim'),
+                'rest_read_room'       => __('Sala de <br> Leitura', 'turim'),
+                'restpark_parking'     => __('Parque de <br> Estacionamento', 'turim'),
+                'rest_multimedia_room' => __('Sala <br> Multimédia', 'turim'),
+                'rest_restaurant'      => __('Restaurante', 'turim'),
+                'bar_rest'             => __('Bar', 'turim')
+            );
+
+            $tabs = array(
+                'historia'           => 'tabs/history',
+                'galeria de Imagens' => 'tabs/galeria',
+                'reuniões & eventos' => 'tabs/events'
+            );
+
+            $tabs_json  = array(
+                'btns'    => '.a-tabs__link',
+                'content' => '.a-tabs__content'
+            );
+
+            $this->view->set('tabs_json',  Helper::setJson($tabs_json));
+            $this->view->set('highlights', $this->highlights());
+            $this->view->set('services'  , $services);
+            $this->view->set('tabs'      , $this->get_tabs($tabs));
+            $content = $this->view->render('hoteis/index');
+            $this->content($content);
+        }
 
         public function homepage()
         {
@@ -99,30 +146,60 @@
             return $this->view->render($partial);
         }
 
+
+        protected function get_tabs($tabs = array()){
+            $content = array( );
+
+            foreach ($tabs  as $name => $view) {
+                $content[$name]['name'] = $name;
+                $content[$name]['view'] = $this->view->render($view);
+            }
+
+            return $content;
+        }
+
+
+        protected function highlights(){
+
+            if($value =get_field('image_highligter_rest')){
+
+
+               $height = $value['height'];
+               $style  = ($value) ? "background-image:url({$value['url']}); height:{$height}px":'';
+
+               $this->view->set('style' , $style);
+               return $this->view->render('shared/highlights');
+            }
+
+        }
+
         protected function get_homeintros(){
             $intros = array();
 
-            foreach (get_field('home-intro') as  $values) {
-                foreach ($values as $key =>  $value) {
-                    if($key === 'image' ){
-                        $url    = $value['url'];
-                        $height = $value['height'];
-                        $style  = ($value) ? "style='background-image:url({$url}); height:{$height}px'":'';
-                        $this->view->set('style' , $style);
+            if(get_field('home-intro')){
+                foreach (get_field('home-intro') as  $values) {
+                    foreach ($values as $key =>  $value) {
+                        if($key === 'image' ){
+                            $url    = $value['url'];
+                            $height = $value['height'];
+                            $style  = ($value) ? "style='background-image:url({$url}); height:{$height}px'":'';
+                            $this->view->set('style' , $style);
+                        }
+                        elseif($key === 'link_type'){
+                            $class  = (!empty($value)) ? "class='a-btn a-btn--{$value}'":'class="a-btn a-btn--transparent';
+                            $this->view->set('class' , $class);
+                        }
+                        else{
+                            if(!empty($value)) $this->view->set("intro_{$key}" , $value);
+                        }
                     }
-                    elseif($key === 'link_type'){
-                        $class  = (!empty($value)) ? "class='a-btn a-btn--{$value}'":'class="a-btn a-btn--transparent';
-                        $this->view->set('class' , $class);
-                    }
-                    else{
-                        if(!empty($value)) $this->view->set("intro_{$key}" , $value);
-                    }
+                    $intros[] = $this->view->render('home/intro');
                 }
-                $intros[] = $this->view->render('home/intro');
             }
 
             return $intros;
         }
+
 
         protected function get_weather(){
             $feed = "http://weather.yahooapis.com/forecastrss?p=POXX0039&u=c";
@@ -134,29 +211,24 @@
                 $geo = $xml->channel->item->children($namespaces['yweather']);
 
                 foreach ($geo as $key => $value) {
-                      echo strtotime(date('d M Y')) . "<--->";
-                      if($key==='forecast'){
+                    echo strtotime(date('d M Y')) . "<--->";
+                    if($key==='forecast'){
                         $attr = $value->attributes();
 
 
-                          foreach ($attr->date as $k => $v) {
-                               echo strtotime($v);
-                          }
-
-                      }
-
-
+                        foreach ($attr->date as $k => $v) {
+                            echo strtotime($v);
+                        }
+                    }
                 }
-
-
             }
-
-
         }
+
 
         protected function get_banner()
         {
             $banner = get_field('banner') ;
+            $this->view->class  = (is_singular( "restaurantes" )) ? "a-banner--nofixed": '';
             $this->view->style  = ($banner) ? "style='background-image:url({$banner})'":'';
             $this->view->title  = (get_field('title'))  ? get_field('title') : '';
             $this->view->resume = (get_field('resume')) ? get_field('resume') : '';
@@ -164,11 +236,15 @@
             return $this->view->render('shared/banner');
         }
 
+
+
         protected function list_contacts()
         {
             $this->view->set("list" , $this->get_contacts() );
             return $this->view->render('shared/list_contacts');
         }
+
+
 
         protected function get_form()
         {
@@ -217,6 +293,8 @@
             return $this->view->render('forms/info');
         }
 
+
+
         protected function adesao()
         {
             $modal = array(
@@ -245,7 +323,7 @@
 
 
         public  function __destruct() {
-            pr("dsd");
+
         }
 
     }
