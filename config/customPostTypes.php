@@ -159,6 +159,8 @@ function custom_post_type_restaurantes() {
 
 }
 
+add_action( 'init', 'custom_post_type_restaurantes', 0 );
+
 // Register Custom Post Type
 function custom_post_type_destaques() {
 
@@ -213,7 +215,7 @@ function custom_post_type_destaques() {
 
 }
 add_action( 'init', 'custom_post_type_destaques', 0 );
-add_action( 'init', 'custom_post_type_restaurantes', 0 );
+
 add_action( 'init', 'custom_post_type_hoteis', 0 );
 add_action( 'init', 'custom_post_type', 0 );
 ?>

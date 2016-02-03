@@ -215,11 +215,12 @@ class Helper {
           echo $class;
     }
 
-     public static function check_select($name , $value){
-      if(!isset($_POST[$name]))
+     public static function check_select($name , $value, $error){
+
+      if(!isset($_REQUEST[$name]) || is_null($error))
           return;
 
-      if( $_POST[$name] == $value )
+      if( $_REQUEST[$name] == $value )
           echo "selected='selected'";
     }
 
@@ -237,11 +238,6 @@ class Helper {
         }
 
 
-    }
-
-    public static function check_selected($key , $value){
-      if( $key == $value )
-          echo "selected='selected'";
     }
 
     public static function is_categorie($slug){

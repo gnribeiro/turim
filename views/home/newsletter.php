@@ -8,13 +8,16 @@
         Insira o seu e-mail e mantenha-se atualizado com as últimas notícias e promoções!
       </div>
       <div class="a-col-4">
-        <form action="" method="post" enctype='multipart/form-data' data-a-widget="Ajax" data-a-widget-options="<?php echo $ajax ?>">
-          <div class=" a-field-success" id="sucesso-news"></div>
+        <form action="" method="post" enctype='multipart/form-data' data-a-widget="Ajax" data-a-widget-options="<?php echo $ajax ?>" class="a-relative">
+          <div class="a-loading  a-hide">
+                <img src="<?php printf('%s/assets/images/load.gif' , THEMEURL) ?>" alt="" />
+            </div>
           <div class="a-clearfix">
             <input type="email" name="news-email" id="news-email" placeholder="E-mail"  class="a-input-email a-input-email--newsletter" />
             <input type="submit" value="Subscrever" class="a-input-submit a-input-submit--newsletter" />
           </div>
           <div class="a-input-error"></div>
+          <div class=" a-field-success" id="sucesso-news"></div>
         </form>
       </div>
     </div>

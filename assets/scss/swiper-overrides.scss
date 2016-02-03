@@ -1,0 +1,49 @@
+.a-slick-gallery.swiper-container{
+  position: static;
+  margin-top: 98px;
+}
+
+
+.swiper-wrapper {
+    position: static;
+}
+
+.swiper-button-next, .swiper-button-prev{
+   @include css3-prefix(border-radius , 32px );
+    top: 70%;
+    border: 2px solid #ffffff;
+    background-image:none;
+    width: 32px;
+    height: 32px;
+    color:#ffffff;
+    background-color: transparent;
+
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+
+    &:before {
+      content: "\f053";
+      position: absolute;
+      top: 7px;
+      left: 7px;
+    }
+}
+
+.swiper-button-prev{
+    left: 30px;
+}
+
+.swiper-button-next {
+    &:before {
+      content: "\f054";
+      position: absolute;
+      top: 7px;
+      left: 10px;
+
+    }
+
+    right: 30px;
+}

@@ -2,8 +2,15 @@
 jQuery(function($){
 
     aws.Amodal = function amodal( elem , options){
-      this.elem    = elem;
-      this.options = options || {};
+      this.elem     = elem;
+      this.options  = options || {};
+      this.settings = {
+            onOpen  : function(){},
+            content : false,
+            form    : false,
+            onClose : function(){}
+        };
+
       this.init();
     }
 
@@ -11,13 +18,6 @@ jQuery(function($){
     aws.Amodal.prototype =  {
         modalElement : ".a-modal__container",
         modalContent : ".a-modal__setcontent",
-
-        settings : {
-            onOpen  : function(){},
-            content : false,
-            form    : false,
-            onClose : function(){}
-        },
 
         init : function(){
             this.merge(this.options);
@@ -45,7 +45,6 @@ jQuery(function($){
         create : function(){
             if( $(this.modalElement).length )
                 return
-
 
             $("body").append(this.modalHtml);
         },

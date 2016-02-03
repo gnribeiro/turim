@@ -1,6 +1,6 @@
-<?php 
+<?php
     return array(
-        'name'   => '',
+        'name'   => 'turim',
         'folder' => '/lang'
     );
-?> 
+?>

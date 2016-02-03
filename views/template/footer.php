@@ -7,48 +7,8 @@ echo $site->get_partial('home/newsletter',
 ?>
     <section class="a-light p-t-30 p-b-55">
         <div class="a-container">
-            <div class="a-links-footer">
-                <ul class="a-links-footer__list a-links-footer__list--group">
-                    <li class="a-links-footer__title">Grupo Turim</li>
-                    <li class="a-links-footer__text">Sobre</li>
-                    <li class="a-links-footer__text">Recrutamento</li>
-                    <li class="a-links-footer__text">Turim Mais</li>
-                    <li class="a-links-footer__text">Contactos</li>
-                </ul>
-                <ul class="a-links-footer__list a-links-footer__list--hotel">
-                    <li class="a-links-footer__title">HOTEIS</li>
-                    <li class="a-links-footer__text">Sobre</li>
-                    <li class="a-links-footer__text">Recrutamento</li>
-                    <li class="a-links-footer__text">Turim Mais</li>
-                    <li class="a-links-footer__text">Contactos</li>
-                    <li class="a-links-footer__text">Recrutamento</li>
-                    <li class="a-links-footer__text">Turim Mais</li>
-                    <li class="a-links-footer__text">Contactos</li>
-                    <li class="a-links-footer__text">Sobre</li>
-                    <li class="a-links-footer__text">Sobre</li>
-                    <li class="a-links-footer__text">Recrutamento</li>
-                    <li class="a-links-footer__text">Turim Mais</li>
-                    <li class="a-links-footer__text">Contactos</li>
-                    <li class="a-links-footer__text">Recrutamento</li>
-                    <li class="a-links-footer__text">Turim Mais</li>
-                </ul>
-                 <ul class="a-links-footer__list a-links-footer__list--events">
-                    <li class="a-links-footer__title">REUNIÕES & EVENTOS</li>
-                    <li class="a-links-footer__text">Sobre</li>
-                    <li class="a-links-footer__text">Recrutamento</li>
-                    <li class="a-links-footer__text">Recrutamento</li>
-                </ul>
-                <ul class="a-links-footer__list a-links-footer__list--restaurants">
-                    <li class="a-links-footer__title">RESTAURANTES</li>
-                    <li class="a-links-footer__text">Sobre</li>
-                    <li class="a-links-footer__text">Recrutamento</li>
-                    <li class="a-links-footer__text">Contactos</li>
-                </ul>
-                <ul class="a-links-footer__list a-links-footer__list--comercial">
-                    <li class="a-links-footer__title">DPT. COMERCIAL</li>
-                    <li class="a-links-footer__text">Sobre</li>
-                    <li class="a-links-footer__text">Recrutamento</li>
-                </ul>
+            <div class="a-menu-main a-menu-main--footer">
+                <?php echo $site->get_partial('shared/menu')  ?>
             </div>
         </div>
     </section>
@@ -78,7 +38,7 @@ echo $site->get_partial('home/newsletter',
     </section>
 
 </footer>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.x.x/js/swiper.jquery.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script src="<?php echo THEMEURL?>assets/js/index-min.js"></script>
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

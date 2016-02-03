@@ -51,7 +51,8 @@
 
         <div class="a-text-center a-relative">
             <div class="a-loading a-loading--modal a-hide">
-                <i class="fa fa-spinner"></i>
+                <img src="<?php printf('%s/assets/images/ring.gif' , THEMEURL) ?>" alt="" />
+
             </div>
 
             <button type="submit" class="a-btn a-btn--submit a-btn--submit--modal">Enviar pedido de Adesão <i class="fa fa-chevron-right"></i></button>

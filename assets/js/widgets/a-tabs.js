@@ -2,20 +2,18 @@
 jQuery(function($){
 
     aws.Tabs= function Tabs( elem , options){
-      this.elem   =  $(elem);
-      this.options = options    ;
-
-      this.init();
-    }
-
-    aws.Tabs.prototype =  {
-        settings   : {
+        this.elem     =  $(elem);
+        this.options  = options;
+        this.settings = {
             'btns'            : undefined,
             'content'         : undefined,
             'tabsSelected'    : 'a-tabs__link--selected',
             'contentSelected' : 'a-tabs__content--selected'
         },
+      this.init();
+    }
 
+    aws.Tabs.prototype =  {
 
         init : function(){
             this.merge( this.options );
@@ -51,10 +49,6 @@ jQuery(function($){
                          .removeClass('a-dark-ligth-large--dark')
                     }
 
-                    if($(this).data("tab") === "galeria de Imagens"){
-                        //$('.a-slick-gallery').slick('setPosition');
-                    }
-
                     self.deselect();
                     self.select(el , index);
                 });
@@ -64,14 +58,14 @@ jQuery(function($){
 
 
         deselect : function(){
-           // $('.'+this.settings.contentSelected).hide();
+           $('.'+this.settings.contentSelected).hide();
             $('.'+this.settings.tabsSelected).removeClass(this.settings.tabsSelected);
             $('.'+this.settings.contentSelected).removeClass(this.settings.contentSelected);
         },
 
         select : function(elem , index){
             $(elem).addClass(this.settings.tabsSelected);
-            //$(this.content[index]).fadeIn('slow');
+            $(this.content[index]).fadeIn('slow');
             $(this.content[index]).addClass(this.settings.contentSelected);
         }
     };

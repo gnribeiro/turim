@@ -58,6 +58,11 @@
 
 .a{
 
+    &-tab-visibility{
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+    }
 
     &-instragram{
         color: #555555;
@@ -99,15 +104,19 @@
     }
 
     &-loading {
-        width: 20px;
-        height: 20px;
+        width: 32px;
+        height: 32px;
         font-size: 20px;
         color: #ffffff;
+        position: absolute;
+        top: 15px;
+        right: -10px;
+
 
         @include m(modal){
             color: #000000;
             position: absolute;
-            top: 20px;
+            top: 7px;
             right: 5px;
         }
     }

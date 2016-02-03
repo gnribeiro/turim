@@ -19,7 +19,7 @@ Class Gwp_Form_Handler {
         }
 
         if (isset($_SESSION['GWP_captcha']) && !empty($_SESSION['GWP_captcha'])) {
-            pr($_SESSION['GWP_captcha']["code"]);
+            //pr($_SESSION['GWP_captcha']["code"]);
         }
 
         $error         = array();
@@ -27,7 +27,6 @@ Class Gwp_Form_Handler {
 
         $validation = Validation::factory($_POST);
         $validation->rule('nome',         'not_empty');
-        $validation->rule('phone',        'not_empty');
         $validation->rule('email',        'not_empty');
         $validation->rule('email',        'Valid::email');
         $validation->rule('mensage',      'not_empty');
@@ -44,6 +43,8 @@ Class Gwp_Form_Handler {
                 $error[] = $key;
                 Helper::set_flashdata("{$key}-error",  $value);
             }
+
+              Helper::set_flashdata("error",   true);
         }
 
 
@@ -51,17 +52,21 @@ Class Gwp_Form_Handler {
          && !empty($_SESSION['GWP_captcha']))
         {
             if($_SESSION['GWP_captcha']["code"] !== $_POST['captcha']){
+                $error[] = "codigo errado";
                Helper::set_flashdata(
                 "captcha-error", Helper::message("forms/contactos", "captcha.code")
                );
+
+               Helper::set_flashdata("error",   true);
             }
         }
 
         if(!count($error)){
             Helper::set_flashdata(
-                "sucesso", Helper::message("forms/contactos", "sucesso.msg")
+                "mensagem_sucesso", Helper::message("forms/contactos", "sucesso.msg")
             );
         }
+
     }
 }
 

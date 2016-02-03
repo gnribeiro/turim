@@ -6,6 +6,8 @@
     width  : 279px;
     height : 96px;
     display: block;
+    position: relative;
+    z-index: 3;
   }
 
   &-menu {
@@ -14,6 +16,7 @@
     right    : 0;
     width    : 285px;
     height   : 46px;
+    z-index: 3;
   }
 
   &-weather{

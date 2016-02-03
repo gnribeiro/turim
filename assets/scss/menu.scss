@@ -1,0 +1,176 @@
+.a {
+    &-menu-main{
+      position: absolute;
+      top:0;
+      left: 0;
+      right: 0;
+      height: auto;
+      color:#ffffff;
+      background-color: $dark;
+      z-index: 1;
+      padding-top: 200px;
+      padding-bottom: 200px;
+      text-align: center;
+
+
+
+      @include m('header'){
+        display: none;
+       .a-group-menu{
+        display: none;
+       }
+
+       .menu-menu-1-container ul.menu > li{
+          margin-left: 100px;
+
+           &:first-child + li {
+            margin-left:0;
+           }
+       }
+
+
+      }
+
+
+      ul {
+        list-style : none;
+        padding    : 0;
+        margin     : 0;
+        max-width  : 1220px;
+        margin-left: auto;
+        margin-right:auto;
+
+
+        li {
+          list-style: none;
+          text-align: left;
+        }
+
+        a{
+          color:#898989;
+          text-decoration: none;
+          font-size: 15px;
+          text-transform: capitalize;
+          cursor: pointer;
+
+          &:hover{
+            color:#ffffff;
+          }
+
+          &.current-menu-item{
+            color:#ffffff;
+          }
+        }
+      }
+
+
+      ul.menu{
+        display: inline-block;
+        & >li {
+          float: left;
+          text-align: left;
+          margin-left: 70px;
+
+          &:first-child{
+               margin-left:0;
+          }
+          span {
+            @include lato-regular;
+            font-size: 14px;
+            display: block;
+            padding-bottom: 25px;
+
+            text-transform: uppercase;
+            color:#ffffff;
+
+            &:after{
+              content:"\f078";
+              margin-left: 5px;
+              display: inline-block;
+              font: normal normal normal 14px/1 FontAwesome;
+              font-size: inherit;
+              text-rendering: auto;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+            }
+
+            &.hotel-region{
+              padding-bottom:0px;
+
+              &:after{
+                display: none;
+              }
+            }
+
+          }
+        }
+      }
+
+       @include m('footer') {
+        position: static;
+        background-color: transparent;
+        padding-top:0px;
+        padding-bottom: 0px;
+        ul {
+            a{
+
+            color: $dark;
+            font-size: 12px;
+            &:hover,
+            &.current-menu-item{
+              color:#a0a0a0
+            }
+          }
+        }
+
+        li.a-hotel-menu {
+          width: 370px;
+            li li {
+              color: red;
+              float: left;
+              width: 50%;
+
+
+              &:nth-child(2n+1){
+
+                padding-left: 0px;
+            }
+          }
+        }
+
+        ul.menu{
+        display: inline-block;
+          & >li {
+            float: left;
+            text-align: left;
+            margin-left: 70px;
+
+            &:first-child{
+                 margin-left:0;
+            }
+            span {
+              font-size: 14px;
+              line-height: 17px;
+              border-bottom: 1px solid #202020;
+              margin-bottom: 20px;
+              text-transform: uppercase;
+              padding-bottom: 6px;
+              color:$dark;
+
+              &:after{
+                display: none;
+              }
+            }
+          }
+
+          li.hotel-region{
+            & > span{
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+
+}

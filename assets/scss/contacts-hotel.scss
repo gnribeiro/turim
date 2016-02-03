@@ -1,0 +1,57 @@
+.a{
+    &-contacts-hotel {
+        color:$dark;
+        background-color: #f6f6f6;
+        padding:20px 0;
+
+        @include e(title) {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        @include e(google-map) {
+            max-width: 264px;
+            height: 275px;
+        }
+
+        @include e(address) {
+             margin-bottom: 28px;
+             line-height: 19px;
+        }
+
+        @include e(location) {
+
+        }
+
+        @include e(tripadviser) {
+            .widSSPData{
+                 background-color: #f6f6f6 !important;
+            }
+        }
+
+        @include e(list) {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #dadada;
+            font-size: 14px;
+
+
+            a{
+                color:$dark;
+                text-decoration: none;
+                cursor:pointer;
+
+                &:hover{
+                    color:$dark;
+                    text-decoration: underline;
+                }
+            }
+
+            &:first-child{
+                padding-top: 0px;
+                 font-size: 13px;
+            }
+        }
+
+    }
+}

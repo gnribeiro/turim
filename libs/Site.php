@@ -2,11 +2,16 @@
 
     class Site extends Base
     {
+        public $menu;
 
-        function __construct()
+        public function __construct()
         {
             parent::__construct();
 
+            $menu = $this->get_menu();
+
+            $this->data_header['hoteis'] = $this->hoteis_select();
+            $this->data_footer['menu']   =  $menu;
         }
 
         public function index()
@@ -23,7 +28,7 @@
             $captcha->create();
 
             $image = $_SESSION['GWP_captcha']['path'];
-
+            $this->view->set('hoteis',   $this->data_header['hoteis'] );
             $this->view->set('banner',   $this->get_banner());
             $this->view->set('contacts', $this->list_contacts());
             $this->view->set('captcha',  $this->getDataURI($image, 'image/png'));
@@ -77,16 +82,40 @@
 
         public function restaurants()
         {
+            $tabs = array(
+                'A nosso cozinha'  => 'tabs/cozinha',
+                'O nosso Chef'     => 'tabs/chef',
+                'Ementa'           => 'tabs/ementa',
+                'Galeria'          => 'tabs/galeria',
+            );
 
+            $tabs_json  = array(
+                'btns'    => '.a-tabs__link',
+                'content' => '.a-tabs__content'
+            );
+
+            $modal = array(
+                'content' => '#reservation',
+                'form'    =>  true
+            );
+
+            $ajax  = array(
+                'action' => 'reservas'
+            );
+
+            $this->view->set('ajax' ,      Helper::setJson($ajax));
+            $this->view->set('modal',      Helper::setJson($modal));
+            $this->view->set('tabs_json',  Helper::setJson($tabs_json));
             $this->view->set('banner',     $this->get_banner());
             $this->view->set('highlights', $this->highlights());
-
+            $this->view->set('tabs'      , $this->get_tabs($tabs , 'imgens_galeria_tabs_rest', 'imgen_galeria_tabs_rest'));
             $content = $this->view->render('restaurants/index');
             $this->content($content);
         }
 
         public function hoteis()
         {
+            global $post;
 
             $this->view->set('banner', $this->get_banner());
 
@@ -119,7 +148,7 @@
             $this->view->set('tabs_json',  Helper::setJson($tabs_json));
             $this->view->set('highlights', $this->highlights());
             $this->view->set('services'  , $services);
-            $this->view->set('tabs'      , $this->get_tabs($tabs));
+            $this->view->set('tabs'      , $this->get_tabs($tabs , 'imagens_tab_galeria_hotel' , 'imagem_tab_galeria_hotel'));
             $content = $this->view->render('hoteis/index');
             $this->content($content);
         }
@@ -147,11 +176,18 @@
         }
 
 
-        protected function get_tabs($tabs = array()){
+        protected function get_menu(){
+            $menu = $this->view->render('shared/menu');
+            return $menu;
+        }
+
+        protected function get_tabs($tabs = array() , $cf , $cf_sub){
             $content = array( );
 
             foreach ($tabs  as $name => $view) {
                 $content[$name]['name'] = $name;
+                $this->view->set('cf', $cf);
+                $this->view->set('cf_sub', $cf_sub);
                 $content[$name]['view'] = $this->view->render($view);
             }
 
@@ -227,11 +263,16 @@
 
         protected function get_banner()
         {
+            $this->menu = $this->get_menu();
+
             $banner = get_field('banner') ;
             $this->view->class  = (is_singular( "restaurantes" )) ? "a-banner--nofixed": '';
             $this->view->style  = ($banner) ? "style='background-image:url({$banner})'":'';
             $this->view->title  = (get_field('title'))  ? get_field('title') : '';
             $this->view->resume = (get_field('resume')) ? get_field('resume') : '';
+            $this->view->link   = (get_field('link_banner')) ? get_field('link_banner') : false;
+            $this->view->hoteis = $this->data_header['hoteis'];
+            $this->view->menu   = $this->menu;
 
             return $this->view->render('shared/banner');
         }
@@ -313,6 +354,33 @@
         {
             $query = new WP_Query( array(
                 'post_type'      => 'contactos' ,
+                'posts_per_page' => -1,
+                'order'        => 'asc'
+            ));
+
+            return $query->posts;
+
+        }
+
+        protected function hoteis_select()
+        {
+            $data   = array();
+            $hoteis = $this->get_hoteis();
+
+
+            foreach ($hoteis as $key => $value) {
+                $id =get_field('id_restaurant' , $value->ID);
+
+                $data[$id]= $value->post_title;
+            }
+
+            return $data;
+        }
+
+        protected function get_hoteis()
+        {
+            $query = new WP_Query( array(
+                'post_type'      => 'hoteis' ,
                 'posts_per_page' => -1,
                 'order'        => 'asc'
             ));

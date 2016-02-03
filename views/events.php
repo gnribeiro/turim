@@ -13,7 +13,7 @@
 
         <?php  if( have_rows('evento') ):?>
             <?php   while ( have_rows('evento') ) : the_row(); ?>
-            <div class="a-clearfix a-bo-events">
+            <div class="a-clearfix a-bo-events" id="<?php echo  get_sub_field('id_event');?>">
                 <div class="a-col-6">
                     <img src="<?php echo get_sub_field('image_event');?>" alt="" class="a-img-responsive">
                 </div>

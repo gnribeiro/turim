@@ -11,19 +11,9 @@
             <div class="a-field a-field--nopd m-b-15">
                 <select name="selectedHotelId" id="selectedHotelId" class="a-field-select">
                   <option value="">All hotels</option>
-                    <option value="13548">TURIM Lisboa Hotel</option>
-                    <option value="13549">TURIM Europa Hotel</option>
-                    <option value="13551">TURIM Ibéria Hotel</option>
-                    <option value="13552">TURIM Alameda Hotel</option>
-                    <option value="13553">TURIM Av Liberdade Hotel</option>
-                    <option value="13572">Luxe Hotel by TURIM Hoteis</option>
-                    <option value="13573">TURIM Restauradores Hotel</option>
-                    <option value="16202">TURIM Saldanha Hotel</option>
-                    <option value="17482">TURIM Terreiro do Paço</option>
-                    <option value="13693">Hotel Club d&#39;Azeitão</option>
-                    <option value="13648">Presidente Hotel</option>
-                    <option value="13649">Algarve Mor Hotel</option>
-                    <option value="13650">TURIM Estrela do Vau Hotel</option>
+                  <?php foreach ($hoteis as $key => $value): ?>
+                        <option value="<?php echo $key ?>"> <?php echo $value ?></option>
+                    <?php endforeach ?>
                 </select>
             </div>
 

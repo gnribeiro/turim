@@ -15,6 +15,7 @@ module.exports = function(grunt){
                 'bower_components/pikaday/pikaday.js',
                 'assets/js/vendor/dropkick_min.js',
                 'assets/js/vendor/swiper.jquery.min.js',
+                'assets/js/widgets/a-google-maps.js',
                 'assets/js/widgets/init.js',
                 'assets/js/widgets/a-ajax.js',
                 'assets/js/widgets/a-modal.js',

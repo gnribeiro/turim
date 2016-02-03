@@ -5,29 +5,22 @@ return array(
       'not_empty' => 'Campo de preenchimento obrigatório',
     ),
 
-    'email' => array(
+    'persons' => array(
       'not_empty'    => 'Campo de preenchimento obrigatório',
-      'Valid::email' => 'Email inválido'
+      'numeric'     => 'Numero inválido'
     ),
 
-    'company' => array(
+    'phone' => array(
       'not_empty'    => 'Campo de preenchimento obrigatório',
+      'numeric'     => 'Numero inválido'
     ),
 
-    'address' => array(
-      'not_empty'    => 'Campo de preenchimento obrigatório',
-    ),
-
-    'cp7' => array(
+    'date-reserve' => array(
       'not_empty'    => 'Campo de preenchimento obrigatório',
     ),
 
-    'localidade' => array(
-      'not_empty' => 'Campo de preenchimento obrigatório',
-    ),
-
-    'obs' => array(
-      'not_empty' => 'Campo de preenchimento obrigatório',
+    'time' => array(
+      'not_empty'    => 'Campo de preenchimento obrigatório',
     ),
 
     'sucesso' => array(

@@ -64,8 +64,8 @@
             height: 123px;
             width:100%;
             max-width: 723px;
-            box-sizing          : border-box;
-            padding: 0px 26px 0;
+            box-sizing : border-box;
+            padding: 15px 26px 0;
             border: 1px solid #000000;
 
             @include m(modal) {

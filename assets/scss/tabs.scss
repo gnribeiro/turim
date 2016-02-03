@@ -39,6 +39,8 @@
             @include m(selected) {
               @include lato-blackbold;
               text-decoration: underline;
+
+
             }
 
             &:first-child{
@@ -55,11 +57,15 @@
 
         @include e(content) {
             color: #ffffff;
-            display: none;
+
 
 
             @include m(selected) {
                 display: block;
+                 &.a-tab-visibility{
+                    opacity: 1;
+                    visibility: visible;
+              }
             }
 
             .a-bo-highlights{

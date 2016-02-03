@@ -15,3 +15,4 @@
 <?php echo $site->get_partial('hoteis/services') ?>
 <?php echo $highlights ?>
 <?php echo $site->get_partial('hoteis/features' , array('services'=> $services)) ?>
+<?php echo $site->get_partial('hoteis/contactos') ?>

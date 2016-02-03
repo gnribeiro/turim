@@ -15,22 +15,25 @@
 @import "headings";
 @import "grid";
 
+@import "tabs";
 @import "modal";
 @import "dropkick";
 @import "dropkick-override";
 @import "swiper.min";
+@import "swiper-overrides";
 @import "pikaday.scss";
 @import "theme-pikaday.scss";
 
 
 @import "header";
+@import "menu";
 @import "banner";
 @import "reservar";
 @import "footer";
 @import "home";
 @import "bo";
 @import "service";
-@import "tabs";
+@import "contacts-hotel";
 
 
 @import "mediaquerie-992";

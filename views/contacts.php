@@ -8,7 +8,15 @@
         <?php endwhile; endif; ?>
 
         <form action="" method="post" class="m-t-40 a-field-form">
-            <?php $error =  Helper::get_flashdata("data");?>
+            <?php $error   =  Helper::get_flashdata("error");?>
+            <?php $sucesso =  Helper::get_flashdata("mensagem_sucesso");?>
+
+            <?php if ($sucesso): ?>
+                <div class="a-field p-b-15" >
+                    <?php echo $sucesso; ?>
+                </div>
+            <?php endif ?>
+
             <div class="a-field">
                 <label class="a-field__label"for="nome">NOME</label>
                 <input class="a-input-text" type="text" name="nome" placeholder="Introduzir Nome Completo" id="nome" value="<?php Helper::input_value( "nome"  , $error)?>" />
@@ -19,9 +27,9 @@
 
             <div class="a-field">
                 <select name="type-company" id="" class="a-field-select">
-                    <option value="" <?php Helper::check_select('type-company', '' ); ?> class="a-field-option">Particular ou Empresa</option>
-                    <option value="Particular" <?php Helper::check_select('type-company', 'Particular' ); ?> class="a-field-option">Particular</option>
-                    <option value="Empresa"  <?php Helper::check_select('type-company', 'Empresa' ); ?>class="a-field-option">Empresa</option>
+                    <option value=""  class="a-field-option">Particular ou Empresa</option>
+                    <option value="Particular" <?php Helper::check_select('type-company', 'Particular', $error ); ?> class="a-field-option">Particular</option>
+                    <option value="Empresa"    <?php Helper::check_select('type-company', 'Empresa' , $error); ?>class="a-field-option">Empresa</option>
                 </select>
                  <div class="a-input-error">
                     <?php if($erro= Helper::get_flashdata("type-company-error")): echo $erro; endif;?>
@@ -31,7 +39,9 @@
             <div class="a-field">
                 <select name="hotel" id="" class="a-field-select">
                     <option value="" class="a-field-option">HOTEL</option>
-                    <option value="13548">TURIM Lisboa Hotel</option>
+                    <?php foreach ($hoteis as $key => $value): ?>
+                        <option value="<?php echo $key ?>"  <?php Helper::check_select('hotel',  $key , $error); ?>> <?php echo $value ?></option>
+                    <?php endforeach ?>
                 </select>
                 <div class="a-input-error">
                      <?php if($erro= Helper::get_flashdata("hotel-error")): echo $erro; endif;?>

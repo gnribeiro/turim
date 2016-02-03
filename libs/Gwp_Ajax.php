@@ -179,24 +179,23 @@ Class Gwp_Ajax{
         parse_str($_POST['dados'], $data);
 
         $validation = Validation::factory($data );
-        $validation->rule('nome',        'not_empty');
-        $validation->rule('phone',       'not_empty');
-        $validation->rule('phone',       'numeric');
-        $validation->rule('persons',     'not_empty');
-        $validation->rule('persons',     'numeric');
-        $validation->rule('cp7',         'not_empty');
-        $validation->rule('date ',       'not_empty');
-        $validation->rule('time',        'not_empty');
+        $validation->rule('nome',         'not_empty');
+        $validation->rule('phone',        'not_empty');
+        $validation->rule('phone',        'numeric');
+        $validation->rule('persons',      'not_empty');
+        $validation->rule('persons',      'numeric');
+        $validation->rule('date-reserve', 'not_empty');
+        $validation->rule('time',         'not_empty');
         $validation->check();
 
-        $errors = $validation->errors('forms/reserva');
+        $errors = $validation->errors('forms/reservas');
 
         if(count($errors)){
             echo   json_encode( $errors);
         }
         else{
             $sucess = array(
-                'sucesso' => Helper::message("forms/reserva", "sucesso.msg")
+                'sucesso' => Helper::message("forms/reservas", "sucesso.msg")
             );
             echo json_encode($sucess);
         }

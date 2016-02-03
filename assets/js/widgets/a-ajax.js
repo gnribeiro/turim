@@ -5,25 +5,24 @@ jQuery(function($){
 
         this.elem    = elem
         this.options = options || {};
-        this.init();
 
-    }
-
-    aws.Ajax.prototype =  {
-        settings : {
+        this.settings = {
             action     : false,
             uploadFile : false
         },
+
+        this.init();
+    }
+
+    aws.Ajax.prototype =  {
 
         init : function(){
             this.merge(this.options);
             this.events();
         },
 
-
-
-
         merge : function(options){
+            var options = options
 
           if(options !== undefined){
             for(var opt in options){
@@ -56,7 +55,7 @@ jQuery(function($){
 
         handlerUploadFile: function(values , form){
             var self      = this;
-            var load      = $("a-loading" , this.elem);
+            var load      = $(".a-loading" , this.elem);
             var action    = self.settings.action;
             var files     = $("#"+self.settings.uploadFile)[0].files;
             var errorFile = $("#"+self.settings.uploadFile)
@@ -64,7 +63,7 @@ jQuery(function($){
                 .siblings('.a-input-error');
 
             errorFile.html('');
-
+             console.log(self.settings.action , action , "dssdsd");
             if(!files.length){
                 errorFile.html('Campo Obrigatório');
                 return
@@ -94,12 +93,12 @@ jQuery(function($){
 
         handlerDefault: function(values , form){
             var self = this;
-            var load = $("a-loading" , this.elem);
+            var load = $(".a-loading" , this.elem);
             var data = {
                 'action' : self.settings.action,
                 'dados'   : values
             }
-
+             console.log(self.settings.action , "dssdsd");
             load.removeClass('a-hide');
 
             $.ajax ({
@@ -111,7 +110,6 @@ jQuery(function($){
                 }
             });
         },
-
 
         handlerAjaxSucess: function(response , load , form){
 

@@ -1,6 +1,5 @@
 <?php echo $head; ?>
-<body <?php body_class(); ?>>
-
+<body>
     <header class="main">
         <div class="a-container">
             <ul class="a-nolist a-pull-right">

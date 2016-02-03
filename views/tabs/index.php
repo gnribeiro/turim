@@ -7,7 +7,7 @@
 
     <div class="a-tabs__container">
         <?php $i=0 ; foreach($tabs as $key => $value): $i++; ?>
-            <div class="a-tabs__content <?php if($i===1) echo 'a-tabs__content--selected' ?> " >
+            <div class="a-tabs__content <?php if($i===1) echo 'a-tabs__content--selected' ?> a-tab-visibility" >
                 <?php echo $value['view'] ?>
             </div>
        <?php endforeach; ?>

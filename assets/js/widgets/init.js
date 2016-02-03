@@ -10,9 +10,11 @@ jQuery(function($){
 
     Site.prototype =  {
         init : function(){
+            this.menuClass();
             this.reservationDatepicker();
             this.uploadFile();
             this.dropkick();
+            this.menu();
             this.reservation();
             this.slickgallery();
 
@@ -30,7 +32,10 @@ jQuery(function($){
                     spaceBetween: 30
                 })
 
+                $( ".a-tabs__content:not(.a-tabs__content--selected)" ).hide();
 
+                if($('.a-tab-visibility').length)
+                    $('.a-tab-visibility').removeClass('a-tab-visibility');
             }
 
         },
@@ -135,6 +140,43 @@ jQuery(function($){
 
         },
 
+        menuClass: function(){
+
+            if($(".a-menu-main--footer a.current-menu-item").length > 1 &&  $(".a-menu-main--header a.current-menu-item").length > 1){
+                var linkf = $(" a.current-menu-item");
+                $("a.current-menu-item").removeClass('current-menu-item')
+
+
+                linkf.each(function(index, el) {
+                  if( el.href === location.href)
+                    $(el).addClass('current-menu-item')
+                });
+            }
+
+            $(".a-menu-main--footer a, .a-menu-main--header a").each(function(index ,  el) {
+                if(el.href.match(/#/)){
+
+                    $(el).on("click" , function (event) {
+
+                        if(el.href) {
+                          $("a.current-menu-item").removeClass('current-menu-item');
+
+                          $('.a-menu-main--footer a[href="'+el.href+'"] ,
+                            .a-menu-main--header a[href="'+el.href+'"]').addClass('current-menu-item');
+                        }
+
+                        var menubtn = $('.a-btn.a-btn--menu' , '.a-menu');
+
+                        if(menubtn.hasClass('a-btn--menu--selected')){
+                            menubtn.click();
+                        }
+
+                    });
+
+                }
+            });
+        },
+
         uploadFile: function(){
 
             if($(".a-input-file").length){
@@ -149,6 +191,26 @@ jQuery(function($){
                         $(inputFake).html(files[0].name);
                     }
                });
+            }
+        },
+
+        menu: function(){
+            var menu    = $(".a-menu-main--header");
+            var btnMenu = $(".a-btn--menu");
+
+            if(menu.length){
+                btnMenu.on('click' , function(event){
+                    event.preventDefault();
+                    if(btnMenu.hasClass('a-btn--menu--selected')){
+                        btnMenu.removeClass('a-btn--menu--selected');
+                        menu.slideUp()
+                    }
+                    else{
+                        btnMenu.addClass('a-btn--menu--selected');
+                        menu.slideDown();
+                    }
+
+                });
             }
         },
 

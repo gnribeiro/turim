@@ -6358,14 +6358,28 @@
     "use strict";
     return window.Swiper;
 }), jQuery(function(a) {
+    function b() {
+        var a = new google.maps.LatLng(38.723852, -9.149396), b = new google.maps.Map(document.getElementById("a-google-map"), {
+            center: a,
+            zoom: 15,
+            scrollwheel: !1,
+            disableDefaultUI: !0
+        });
+        new google.maps.Marker({
+            position: a,
+            map: b
+        });
+    }
+    a("#a-google-map").length && google.maps.event.addDomListener(window, "load", b);
+}), jQuery(function(a) {
     window.aws = {};
 }), jQuery(function(a) {
     Site = function() {
         this.init();
     }, Site.prototype = {
         init: function() {
-            this.reservationDatepicker(), this.uploadFile(), this.dropkick(), this.reservation(), 
-            this.slickgallery();
+            this.menuClass(), this.reservationDatepicker(), this.uploadFile(), this.dropkick(), 
+            this.menu(), this.reservation(), this.slickgallery();
         },
         slickgallery: function() {
             if (a(".a-slick-gallery")) {
@@ -6376,6 +6390,7 @@
                     prevButton: ".swiper-button-prev",
                     spaceBetween: 30
                 });
+                a(".a-tabs__content:not(.a-tabs__content--selected)").hide(), a(".a-tab-visibility").length && a(".a-tab-visibility").removeClass("a-tab-visibility");
             }
         },
         dropkick: function() {
@@ -6424,10 +6439,32 @@
                 });
             }
         },
+        menuClass: function() {
+            if (a(".a-menu-main--footer a.current-menu-item").length > 1 && a(".a-menu-main--header a.current-menu-item").length > 1) {
+                var b = a(" a.current-menu-item");
+                a("a.current-menu-item").removeClass("current-menu-item"), b.each(function(b, c) {
+                    c.href === location.href && a(c).addClass("current-menu-item");
+                });
+            }
+            a(".a-menu-main--footer a, .a-menu-main--header a").each(function(b, c) {
+                c.href.match(/#/) && a(c).on("click", function(b) {
+                    c.href && (a("a.current-menu-item").removeClass("current-menu-item"), a('.a-menu-main--footer a[href="' + c.href + '"] ,\n                            .a-menu-main--header a[href="' + c.href + '"]').addClass("current-menu-item"));
+                    var d = a(".a-btn.a-btn--menu", ".a-menu");
+                    d.hasClass("a-btn--menu--selected") && d.click();
+                });
+            });
+        },
         uploadFile: function() {
             a(".a-input-file").length && a(".a-input-file").on("change", function(b) {
                 var c = b.target.files, d = a(this).siblings(".a-input-fake");
                 a(d).html(""), c.length && c[0].name && a(d).html(c[0].name);
+            });
+        },
+        menu: function() {
+            var b = a(".a-menu-main--header"), c = a(".a-btn--menu");
+            b.length && c.on("click", function(a) {
+                a.preventDefault(), c.hasClass("a-btn--menu--selected") ? (c.removeClass("a-btn--menu--selected"), 
+                b.slideUp()) : (c.addClass("a-btn--menu--selected"), b.slideDown());
             });
         },
         reservation: function() {
@@ -6445,16 +6482,16 @@
     }, new Site();
 }), jQuery(function(a) {
     aws.Ajax = function(a, b) {
-        this.elem = a, this.options = b || {}, this.init();
-    }, aws.Ajax.prototype = {
-        settings: {
+        this.elem = a, this.options = b || {}, this.settings = {
             action: !1,
             uploadFile: !1
-        },
+        }, this.init();
+    }, aws.Ajax.prototype = {
         init: function() {
             this.merge(this.options), this.events();
         },
         merge: function(a) {
+            var a = a;
             if (void 0 !== a) for (var b in a) void 0 !== this.settings.hasOwnProperty(b) && (this.settings[b] = a[b]);
         },
         events: function() {
@@ -6464,8 +6501,8 @@
             });
         },
         handlerUploadFile: function(b, c) {
-            var d = this, e = a("a-loading", this.elem), f = d.settings.action, g = a("#" + d.settings.uploadFile)[0].files, h = a("#" + d.settings.uploadFile).parent(".a-clearfix").siblings(".a-input-error");
-            if (h.html(""), !g.length) return void h.html("Campo Obrigatório");
+            var d = this, e = a(".a-loading", this.elem), f = d.settings.action, g = a("#" + d.settings.uploadFile)[0].files, h = a("#" + d.settings.uploadFile).parent(".a-clearfix").siblings(".a-input-error");
+            if (h.html(""), console.log(d.settings.action, f, "dssdsd"), !g.length) return void h.html("Campo Obrigatório");
             var i = g[0], j = new FormData();
             j.append("cvform", i, i.name), j.append("action", f), j.append("dados", b), e.removeClass("a-hide"), 
             a.ajax({
@@ -6480,11 +6517,11 @@
             });
         },
         handlerDefault: function(b, c) {
-            var d = this, e = a("a-loading", this.elem), f = {
+            var d = this, e = a(".a-loading", this.elem), f = {
                 action: d.settings.action,
                 dados: b
             };
-            e.removeClass("a-hide"), a.ajax({
+            console.log(d.settings.action, "dssdsd"), e.removeClass("a-hide"), a.ajax({
                 url: vars_site.ajax_url,
                 type: "post",
                 data: f,
@@ -6502,16 +6539,15 @@
     };
 }), jQuery(function(a) {
     aws.Amodal = function(a, b) {
-        this.elem = a, this.options = b || {}, this.init();
-    }, aws.Amodal.prototype = {
-        modalElement: ".a-modal__container",
-        modalContent: ".a-modal__setcontent",
-        settings: {
+        this.elem = a, this.options = b || {}, this.settings = {
             onOpen: function() {},
             content: !1,
             form: !1,
             onClose: function() {}
-        },
+        }, this.init();
+    }, aws.Amodal.prototype = {
+        modalElement: ".a-modal__container",
+        modalContent: ".a-modal__setcontent",
         init: function() {
             if (this.merge(this.options), this.create(), this.btnClose = a(".a-model__close"), 
             this.events(), this.settings.content) {
@@ -6553,14 +6589,13 @@
     };
 }), jQuery(function(a) {
     aws.Tabs = function(b, c) {
-        this.elem = a(b), this.options = c, this.init();
-    }, aws.Tabs.prototype = {
-        settings: {
+        this.elem = a(b), this.options = c, this.settings = {
             btns: void 0,
             content: void 0,
             tabsSelected: "a-tabs__link--selected",
             contentSelected: "a-tabs__content--selected"
-        },
+        }, this.init();
+    }, aws.Tabs.prototype = {
         init: function() {
             this.merge(this.options), this.content = a(this.settings.content), this.events();
         },
@@ -6572,21 +6607,25 @@
             a(this.settings.btns).each(function(c, d) {
                 a(d).on("click", function(e) {
                     e.preventDefault(), a(this).hasClass(b.settings.tabsSelected) || ("reuniões & eventos" === a(this).data("tab") ? a("section.a-dark-ligth-large").addClass("a-dark-ligth-large--dark") : a("section.a-dark-ligth-large").removeClass("a-dark-ligth-large--dark"), 
-                    "galeria de Imagens" === a(this).data("tab"), b.deselect(), b.select(d, c));
+                    b.deselect(), b.select(d, c));
                 });
             });
         },
         deselect: function() {
-            a("." + this.settings.tabsSelected).removeClass(this.settings.tabsSelected), a("." + this.settings.contentSelected).removeClass(this.settings.contentSelected);
+            a("." + this.settings.contentSelected).hide(), a("." + this.settings.tabsSelected).removeClass(this.settings.tabsSelected), 
+            a("." + this.settings.contentSelected).removeClass(this.settings.contentSelected);
         },
         select: function(b, c) {
-            a(b).addClass(this.settings.tabsSelected), a(this.content[c]).addClass(this.settings.contentSelected);
+            a(b).addClass(this.settings.tabsSelected), a(this.content[c]).fadeIn("slow"), a(this.content[c]).addClass(this.settings.contentSelected);
         }
     };
 }), jQuery(function(a) {
+    $(window).on("load , hashchange", function() {
+        "#recrutamento" === location.hash && $('a[data-a-widget="Amodal"]').length && $('a[data-a-widget="Amodal"]').click();
+    }), $(".a-tab-visibility").length && $(".a-tab-visibility").removeClass("a-tab-visibility");
     var b = (a("[data-widget]"), []);
     a("[data-a-widget]").each(function(c, d) {
         var e = a(d).attr("data-a-widget"), f = a(d).attr("data-a-widget-options") ? a(d).attr("data-a-widget-options") : "{}";
-        f = a.parseJSON(f), "function" == typeof aws[e] && b.push(new aws[e](d, f));
+        f = a.parseJSON(f), "function" == typeof window.aws[e] && b.push(new window.aws[e](d, f));
     });
 });
