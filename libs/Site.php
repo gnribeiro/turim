@@ -156,7 +156,10 @@
         public function homepage()
         {
            // pr($GLOBALS['wp_query']);
-            //$this->get_weather();
+            ;
+
+
+
 
             $this->view->set('banner', $this->get_banner());
             $this->view->set('intros', $this->get_homeintros());
@@ -238,32 +241,45 @@
 
 
         protected function get_weather(){
-            $feed = "http://weather.yahooapis.com/forecastrss?p=POXX0039&u=c";
-            $xml  =  new SimpleXMLElement(file_get_contents($feed));
-
+            $feed  = "http://weather.yahooapis.com/forecastrss?p=POXX0039&u=c";
+            $xml   =  new SimpleXMLElement(file_get_contents($feed));
+            $temps = array();
 
             if ( $xml !== false ) {
                 $namespaces = $xml->getNamespaces(true);
                 $geo = $xml->channel->item->children($namespaces['yweather']);
 
-                foreach ($geo as $key => $value) {
-                    echo strtotime(date('d M Y')) . "<--->";
-                    if($key==='forecast'){
-                        $attr = $value->attributes();
+                if(is_object($geo[1])){
+                    $attr = $geo[1]->attributes();
 
-
-                        foreach ($attr->date as $k => $v) {
-                            echo strtotime($v);
-                        }
+                    if(is_object($attr->low) && is_object($attr->high)){
+                        $temps['low']  = (string) $attr->low;
+                        $temps['high'] = (string) $attr->high;
                     }
                 }
+
+
             }
+
+            return $temps;
         }
 
 
         protected function get_banner()
         {
-            $this->menu = $this->get_menu();
+            $weather = array();
+
+            if((is_home() || is_front_page())){
+                if ( false === ( $weather = get_transient( 'weather_homepage' ) ) ) {
+
+                    $weather = $this->get_weather();
+
+                    set_transient( 'weather_homepage', $weather, 3 * HOUR_IN_SECONDS );
+                }
+            }
+
+            //delete_transient( 'weather_homepage' );
+
 
             $banner = get_field('banner') ;
             $this->view->class  = (is_singular( "restaurantes" )) ? "a-banner--nofixed": '';
@@ -272,7 +288,7 @@
             $this->view->resume = (get_field('resume')) ? get_field('resume') : '';
             $this->view->link   = (get_field('link_banner')) ? get_field('link_banner') : false;
             $this->view->hoteis = $this->data_header['hoteis'];
-            $this->view->menu   = $this->menu;
+            $this->view->weather = $weather;
 
             return $this->view->render('shared/banner');
         }

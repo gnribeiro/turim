@@ -8878,7 +8878,7 @@ body {
   text-align: right;
 }
 .a-img-responsive {
-  display: block;
+  display: inline-block;
   max-width: 100%;
   height: auto;
 }
@@ -8887,7 +8887,7 @@ body {
   width: 100%;
   height: auto;
 }
-.a-hidetext, header.main .a-social--facebook, header.main .a-social--instagram, .a-logo {
+.a-hidetext, header.main .a-social--facebook, header.main .a-social--instagram, .a-logo a {
   overflow: hidden;
   text-indent: -9999px;
   zoom: 1;
@@ -11539,6 +11539,14 @@ header.main .a-social--phone:after {
   position: relative;
   z-index: 3;
 }
+.a-logo a {
+  width: 279px;
+  height: 96px;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  color: #fff;
+}
 .a-menu {
   position: absolute;
   top: 3px;
@@ -11593,6 +11601,12 @@ header.main .a-social--phone:after {
   font-size: 18px;
   margin: 0 auto 24px;
   max-width: 640px;
+}
+.a-banner__stars {
+  margin: 0 auto 0;
+  max-width: 150px;
+  font-size: 26px;
+  text-align: center;
 }
 
 .a-reservar {
@@ -12008,6 +12022,14 @@ header.main .a-social--phone:after {
   font-size: 13px;
   line-height: 13px;
   margin-top: 15px;
+}
+.a-hotel-legend a {
+  text-decoration: none;
+  color: #202020;
+}
+.a-hotel-legend a:hover {
+  text-decoration: none;
+  color: #202020;
 }
 .a-hotel-legend strong {
   font-family: "Lato", sans-serif;

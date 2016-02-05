@@ -6606,7 +6606,7 @@
             var b = this;
             a(this.settings.btns).each(function(c, d) {
                 a(d).on("click", function(e) {
-                    e.preventDefault(), a(this).hasClass(b.settings.tabsSelected) || ("reuniões & eventos" === a(this).data("tab") ? a("section.a-dark-ligth-large").addClass("a-dark-ligth-large--dark") : a("section.a-dark-ligth-large").removeClass("a-dark-ligth-large--dark"), 
+                    e.preventDefault(), a(this).hasClass(b.settings.tabsSelected) || ("reuniões & eventos" === a(this).data("tab") || "Ementa" === a(this).data("tab") ? a("section.a-dark-ligth-large").addClass("a-dark-ligth-large--dark") : a("section.a-dark-ligth-large").removeClass("a-dark-ligth-large--dark"), 
                     b.deselect(), b.select(d, c));
                 });
             });

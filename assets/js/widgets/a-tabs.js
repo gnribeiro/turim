@@ -40,7 +40,7 @@ jQuery(function($){
                         return
 
 
-                    if($(this).data("tab") === "reuniões & eventos"){
+                    if($(this).data("tab") === "reuniões & eventos" || $(this).data("tab") === "Ementa"){
                         $('section.a-dark-ligth-large')
                         .addClass('a-dark-ligth-large--dark')
                     }

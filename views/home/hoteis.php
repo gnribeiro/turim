@@ -8,39 +8,25 @@
             <div class="a-text-center"><i class="fa fa-instagram a-instragram"></i></div>
         <?php endif ?>
 
+
+
+        <?php  if( have_rows('hotels_social_media_home') ):?>
         <div class="a-row a-clearfix p-t-30">
-          <div class="a-col-3">
-            <div>
-              <img src="http://turim.local/wp-content/uploads/2016/01/1.jpg" alt="" class="a-img-responsive" />
+            <?php   while ( have_rows('hotels_social_media_home') ) : the_row(); ?>
+            <div class="a-col-3">
+                <div>
+                    <a href="<?php echo get_sub_field('hotels_social_media_home_link');?>">
+                        <img src="<?php echo get_sub_field('image_hotels_social_media_home');?>" alt="" class="a-img-responsive" border="0"/>
+                    </a>
+                </div>
+                <div class="a-hotel-legend">
+                    <a href="<?php echo get_sub_field('hotels_social_media_home_link');?>">
+                        <i class="fa fa-instagram a-instragram"></i> <?php echo get_sub_field('title_hotels_social_media_home');?>
+                    </a>
+                </div>
             </div>
-            <div class="a-hotel-legend">
-              <i class="fa fa-instagram a-instragram"></i> 24/07/2017 <strong>@TURIMHOTELS</strong>
-            </div>
-          </div>
-          <div class="a-col-3">
-            <div>
-              <img src="http://turim.local/wp-content/uploads/2016/01/h-3.jpg" alt="" class="a-img-responsive" />
-            </div>
-            <div class="a-hotel-legend">
-              <i class="fa fa-instagram a-instragram"></i> 24/07/2017 <strong>@TURIMHOTELS</strong>
-            </div>
-          </div>
-          <div class="a-col-3">
-            <div>
-              <img src="http://turim.local/wp-content/uploads/2016/01/h-4.jpg" alt="" class="a-img-responsive" />
-            </div>
-            <div class="a-hotel-legend">
-              <i class="fa fa-instagram a-instragram"></i> 24/07/2017 <strong>@TURIMHOTELS</strong>
-            </div>
-          </div>
-          <div class="a-col-3">
-            <div>
-              <img src="http://turim.local/wp-content/uploads/2016/01/h2.jpg" alt="" class="a-img-responsive" />
-            </div>
-            <div class="a-hotel-legend">
-              <i class="fa fa-instagram a-instragram"></i> 24/07/2017 <strong>@TURIMHOTELS</strong>
-            </div>
-          </div>
+           <?php  endwhile;?>
         </div>
+        <?php endif;?>
     </div>
 </section>
