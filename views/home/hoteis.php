@@ -8,8 +8,6 @@
             <div class="a-text-center"><i class="fa fa-instagram a-instragram"></i></div>
         <?php endif ?>
 
-
-
         <?php  if( have_rows('hotels_social_media_home') ):?>
         <div class="a-row a-clearfix p-t-30">
             <?php   while ( have_rows('hotels_social_media_home') ) : the_row(); ?>

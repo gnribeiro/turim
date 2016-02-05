@@ -3,7 +3,7 @@ global $site;
 
 echo $intros[0];
 
-echo $site->get_partial('home/promos');
+echo $site->get_partial('home/promos' , array('destaques' =>  $destaques ));
 
 ?>
 

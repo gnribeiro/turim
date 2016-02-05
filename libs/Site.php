@@ -155,14 +155,12 @@
 
         public function homepage()
         {
-           // pr($GLOBALS['wp_query']);
-            ;
 
 
 
-
-            $this->view->set('banner', $this->get_banner());
-            $this->view->set('intros', $this->get_homeintros());
+            $this->view->set('banner'    , $this->get_banner());
+            $this->view->set('destaques' , $this->destaques_home());
+            $this->view->set('intros'    , $this->get_homeintros());
 
             $content = $this->view->render('home/index');
             $this->content($content);
@@ -179,6 +177,33 @@
         }
 
 
+
+        protected function destaques_home()
+        {
+            $destaques = array();
+            $query     = new WP_Query( array(
+                'post_type'      => 'destaques-home' ,
+                'posts_per_page' => -1
+            ));
+
+            if(count($query->posts)){
+                foreach ($query->posts as $key => $value) {
+                 $destaques[$key] = array(
+                  'title'             => $value->post_title,
+                  'content'           => $value->post_content,
+                  'image'             => get_field('image_destaque_home', $value->ID),
+                  'title-box'         => get_field('titulo_destaque_home', $value->ID),
+                  'link'              => get_field('link_destaque_home', $value->ID),
+                  'title_highlight'   => get_field('title_highlight_destaque_home', $value->ID),
+                  'content_highlight' => get_field('content_highlight_destaque_home', $value->ID),
+                  'title_highlight'   => get_field('image_highlight_destaque_home', $value->ID),
+                  'color_highlight'   => get_field('color_destaque_home', $value->ID),
+                 );
+                }
+            }
+            return $destaques;
+
+        }
         protected function get_menu(){
             $menu = $this->view->render('shared/menu');
             return $menu;
