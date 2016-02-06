@@ -1,5 +1,145 @@
 @media (min-width: 768px ) and (max-width: 991px) {
 
+	.a-menu{
+		right:15px;
+	}
+
+	.a{
+		&-logo{
+		    margin: 0 auto 76px;	
+		}
+
+		&-menu{
+		   top: 103px;	
+		}
+
+		    
+
+		&-banner{
+			@include e('title') {
+				line-height: 58px;
+			}
+		}
+
+		&-intro{
+			@include e('title') {
+				margin-bottom: 15px;
+			}
+			@include e('content') {
+				p{
+					margin-bottom: 20px;	
+				}
+			}
+		}
+
+		&-panel-promo{
+			margin-bottom: 30px;
+			@include e('header') {
+				float: none;
+				display: block;
+				background-color: $dark;
+				height: auto;
+				max-width: none;
+		    	padding-bottom: 25px;
+		    	width: 100%;
+		    	padding-top: 25px;
+
+				& > img{
+					display: none;
+				}
+
+				@include e('text') {
+					position:static;
+					height: auto;
+				}
+
+			}
+			@include e('content') {
+				float: none !important;
+				display: block;
+				max-width: none;
+				width: 100%;
+
+			}
+			@include e('highlight') {
+				@include align-items(center);
+				@include display(flex);
+				@include justify-content(center);
+				float: left;
+				height: 230px;
+				width: 39%;
+    			max-width: none;
+			}
+
+			@include e('figure') {
+				   
+				width: 61%;
+				text-align: left;
+    			max-width: none;
+			}
+
+			
+
+		}
+		
+		&-input-email{
+			@include m('newsletter') {
+				width: 123px;
+			}
+		}
+
+		&-input-submit{
+			@include m('newsletter') {
+				width: 102px;
+			}
+		}
+
+		&-menu-main{
+			@include m('footer') {
+				ul.menu > li{
+					margin-bottom: 25px;
+					
+					&:nth-child(3){
+						clear: both;
+						margin: 0 0 25px; 
+					}
+				}
+				
+			}
+
+			@include m('header') {
+
+				ul.menu > li{
+					
+					&:last-child {
+						clear: both;
+						margin: 25px 0 0;
+					}
+				}
+			}
+		}
+	}
+
+	.a-footer-copyright__list li{
+		font-size: 11px;
+	}
+
+	.a-panel-promo--experience .a-panel-promo__highlight:before{
+		width: 0;
+		height: 0;
+		border-right: 12px solid #ffb300;
+		border-left: none;
+		right: auto;
+    	left: -12px;
+	}
+
+	h3{
+		line-height: 35px;
+	}
+
 }
+
+
+
 
 

@@ -9,7 +9,7 @@
         <?php endif ?>
 
         <?php  if( have_rows('hotels_social_media_home') ):?>
-        <div class="a-row a-clearfix p-t-30">
+        <div class="a-row a-clearfix p-t-30 a-phone-hoteis-home">
             <?php   while ( have_rows('hotels_social_media_home') ) : the_row(); ?>
             <div class="a-col-3">
                 <div>

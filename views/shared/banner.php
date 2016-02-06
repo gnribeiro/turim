@@ -24,7 +24,7 @@
         <?php if ($link): ?>
             <div class="a-text-center">
                 <a href="<?php echo $link ?>" class="a-btn a-btn--transparent">
-                <?php _e('Saber Mais' , 'turim')?> ?><i class="fa fa-chevron-right"></i></a>
+                <?php _e('Saber Mais' , 'turim')?><i class="fa fa-chevron-right"></i></a>
             </div>
         <?php endif ?>
         <?php if ((is_home() || is_front_page()) && count($weather) ): ?>

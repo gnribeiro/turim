@@ -171,8 +171,20 @@
       }
     }
 
+    @include e(bo) {
+      ul{
+       @extend .a-nolist 
+      }
+
+      li{
+        text-align    : center;
+        font-size: 12px;
+        margin-bottom: 8px;
+        line-height: 13px; 
+      }
+    }
+
     @include m(experience) {
-      color:red;
 
       .a-panel-promo__content {
         background-color : $yellow;

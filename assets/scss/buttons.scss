@@ -148,6 +148,19 @@
         @include m('yellow') {
            color:$yellow;
         }
+         @include m('promotion') {
+           color:$blue;
+        }
+
+        @include m('highlight') {
+           color:$green;
+        }
+
+        @include m('experience') {
+           color:$yellow;
+        }
+
+        
 
 
 

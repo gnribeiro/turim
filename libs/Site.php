@@ -196,7 +196,7 @@
                   'link'              => get_field('link_destaque_home', $value->ID),
                   'title_highlight'   => get_field('title_highlight_destaque_home', $value->ID),
                   'content_highlight' => get_field('content_highlight_destaque_home', $value->ID),
-                  'title_highlight'   => get_field('image_highlight_destaque_home', $value->ID),
+                  'image_highlight'   => get_field('image_highlight_destaque_home', $value->ID),
                   'color_highlight'   => get_field('color_destaque_home', $value->ID),
                  );
                 }

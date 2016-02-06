@@ -1,3 +1,231 @@
 @media  (max-width: 767px){
 
+	.a{
+		&-logo{
+		    margin: 50px auto 48px;	
+		}
+
+		&-menu{
+		   right: 50%;	
+		   top: -67px;
+		   margin-right: -142px;
+		}
+
+		&-banner{
+			@include e('title') {
+				line-height: 37px;
+    			font-size: 34px;
+			}
+		}
+
+		&-weather{
+			&:before{
+				margin-bottom: 7px;
+			}
+		}
+
+		&-panel-promo{
+			margin-bottom: 30px;
+			@include e('header') {
+				float: none !important;
+				margin-left: auto;
+    			margin-right: auto;
+    			margin-bottom: 10px;
+			}
+			@include e('content') {
+				float: none !important;
+				display: block;
+				max-width: none;
+				width: 100%;
+				height: auto;
+				max-height: none;
+			}
+
+			@include e('highlight') {
+				@include align-items(center);
+				@include display(flex);
+				@include justify-content(center);
+				float: none !important;
+				height: auto;
+				padding-bottom: 20px;
+				padding-top: 20px;
+				width: 100%;
+    			max-width: none;
+
+    			&:before{
+    				border-bottom: 12px solid #607d8b;
+    				border-left: 12px solid transparent;
+    				border-right: 12px solid transparent;
+    				border-top: none;
+    				top: -11px;
+    				left: 50%;
+    				content: ' ';
+    				margin-left: -6px;
+    				margin-top: 0;
+    			}
+			}
+
+			@include e('figure') {
+				float: none !important;
+				height: auto;
+				max-width: none;
+				img {
+					width: 100%;
+				}
+			}
+
+		}
+
+		&-input-text--date-reserva{
+			width: 78%;
+		}
+
+		&-reservar{
+			width: 320px;
+
+			.a-col-4 {
+    			float: left;
+    			display: block;
+    			margin-right: 2.35765%;
+    			width: 31.76157%;
+
+    			&:last-child{
+    				margin-right: 0;
+    			}
+			}
+
+			@include e(content){
+				padding: 21px 15px 21px 15px;
+			}
+
+			@include e(header){
+				padding-left: 17px;
+			}
+
+			.a-btn--transparent{
+				margin-top: 10px;
+				clear: both;
+    			float: none !important;
+			}
+		}
+
+		&-intro{
+			@include e('title') {
+				font-size: 31px;
+    			margin-bottom: 20px;
+    			line-height: 39px;
+			}
+		
+			@include e('content') {
+				font-size: 13px;
+    			line-height: 20px;
+
+    			p {
+    				margin-bottom: 15px;
+				}
+			}
+		}
+
+		&-phone-hoteis-home{
+			margin-left: auto;
+			margin-right: auto;
+			width: 280px;
+		}
+
+		&-input-submit {
+			@include m('newsletter') {
+				border-left: 1px solid #ffffff;
+				margin-top: 10px; 
+				clear: both;
+				display: block
+			}
+		}
+
+		&-footer-copyright__list{
+			
+			li{
+				border:none;
+				line-height: 20px;
+    			margin-bottom: 10px;
+    			float: none;
+    			padding: 0;
+    			height: auto;
+			}
+		}
+
+		&-footer-copyright {
+			.a-pull-right{
+				float: none !important;
+			}
+		}
+			
+	}
+
+	.a-menu-main{
+		text-align: left;
+		padding-bottom: 45px;
+	}
+
+	.a-menu-main--footer{
+		padding-bottom: 0px;
+	}
+
+	.a-menu-main--header .menu-menu-1-container ul.menu {
+		
+		margin-left: 0;
+		margin-right:0;
+		
+		& > li{
+			margin-left: 0;
+			margin-bottom: 30px;
+    		float: none;
+		}
+	}
+
+	.a-hotel-menu {
+		@include clearfix;
+	} 
+
+	.a-menu-main--footer .menu-menu-1-container ul.menu {
+		
+		margin-left: 0;
+		margin-right:0;
+		
+		& > li{
+			margin-left: 0;
+			margin-bottom: 30px;
+    		float: none;
+		}
+	}
+	
+	.a-menu-main--footer li.a-hotel-menu li li{
+		width: 100%;
+    	margin-bottom: 5px;
+	}
+
+	.a-panel-promo--highlight .a-panel-promo__highlight:before{
+		border-bottom: 12px solid #47b7a2;
+		border-right: 12px solid transparent;
+		border-top: none;
+	}
+	.a-panel-promo--experience .a-panel-promo__highlight:before{
+		border-bottom: 12px solid #ffb300;
+		border-right: 12px solid transparent;
+		border-left: 12px solid transparent;
+		border-top: none;
+		right: auto;
+		left: 50%;
+	}
+
+	h1 {
+		font-size: 40px;
+		line-height: 48px;
+	}
+
+
+	*[class^="a-col-"]{
+		width: 100%;
+		margin-right: 0px;
+		margin-bottom: 20px;
+	}
 }
