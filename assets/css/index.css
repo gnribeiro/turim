@@ -9782,6 +9782,127 @@ h5 {
   margin-right: 0;
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+  .a-sm-col-1 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 6.17215%;
+  }
+  .a-sm-col-1:last-child {
+    margin-right: 0;
+  }
+
+  .a-sm-col-2 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 14.70196%;
+  }
+  .a-sm-col-2:last-child {
+    margin-right: 0;
+  }
+
+  .a-sm-col-3 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%;
+  }
+  .a-sm-col-3:last-child {
+    margin-right: 0;
+  }
+
+  .a-sm-col-4 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+  }
+  .a-sm-col-4:last-child {
+    margin-right: 0;
+  }
+
+  .a-sm-col-5 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 40.29137%;
+  }
+  .a-sm-col-5:last-child {
+    margin-right: 0;
+  }
+
+  .a-sm-col-6 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+  }
+  .a-sm-col-6:last-child {
+    margin-right: 0;
+  }
+
+  .a-sm-col-7 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 57.35098%;
+  }
+  .a-sm-col-7:last-child {
+    margin-right: 0;
+  }
+
+  .a-sm-col-8 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+  }
+  .a-sm-col-8:last-child {
+    margin-right: 0;
+  }
+
+  .a-sm-col-9 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 74.41059%;
+  }
+  .a-sm-col-9:last-child {
+    margin-right: 0;
+  }
+
+  .a-sm-col-10 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%;
+  }
+  .a-sm-col-10:last-child {
+    margin-right: 0;
+  }
+
+  .a-sm-col-11 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 91.4702%;
+  }
+  .a-sm-col-11:last-child {
+    margin-right: 0;
+  }
+
+  .a-sm-col-12 {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+  }
+  .a-sm-col-12:last-child {
+    margin-right: 0;
+  }
+}
 @media (max-width: 767px) {
   .a-col-1-sd {
     float: left;
@@ -9913,7 +10034,6 @@ h5 {
 }
 .a-tabs__links {
   height: 56px;
-  margin-left: 0 30px;
 }
 .a-tabs__link {
   color: #ffffff;
@@ -10000,7 +10120,7 @@ h5 {
   -o-align-items: center;
   align-items: center;
   -ms-flex-align: center;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.8);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -11304,9 +11424,67 @@ header.main .a-lang {
   padding-right: 20px;
 }
 header.main .a-lang__content {
-  position: relative;
+  -webkit-transition: height 0.5s ease;
+  -moz-transition: height 0.5s ease;
+  transition: height 0.5s ease;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
   color: #ffffff;
   position: relative;
+  z-index: 999;
+  background-color: #202020;
+  padding-right: 40px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+  height: 30px;
+  overflow: hidden;
+  line-height: 18px;
+}
+header.main .a-lang__content li {
+  padding-bottom: 30px;
+  order: 1;
+}
+header.main .a-lang__content li.current-lang {
+  order: 0;
+}
+header.main .a-lang__content:hover {
+  height: 60px;
+}
+header.main .a-lang__content:after {
+  background-position: 0 0;
+  background-color: transparent;
+  background-image: url("../images/sprite.png");
+  background-repeat: no-repeat;
+  width: 12px;
+  height: 8px;
+  content: '';
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background-position: -336px 0px;
+}
+header.main .a-lang__content a {
+  color: #ffffff;
+  text-decoration: none;
+}
+header.main .a-lang__content a :hover {
+  color: #ffffff;
+  text-decoration: none;
 }
 header.main .a-lang__country {
   font-size: 12px;
@@ -11317,19 +11495,6 @@ header.main .a-lang__country {
 }
 header.main .a-lang__country-selected {
   display: block;
-}
-header.main .a-lang:after {
-  background-position: 0 0;
-  background-color: transparent;
-  background-image: url("../images/sprite.png");
-  background-repeat: no-repeat;
-  width: 12px;
-  height: 8px;
-  content: '';
-  position: absolute;
-  top: 6px;
-  right: 0;
-  background-position: -336px 0px;
 }
 header.main .a-social {
   float: left;
@@ -12357,9 +12522,19 @@ header.main .a-social--phone:after {
   .a-input-email--newsletter {
     width: 183px;
   }
+  .a-input-text--captcha {
+    width: 494px;
+  }
+  .a-aside .a-btn--light {
+    display: block;
+    max-width: 150px;
+  }
   .a-menu-main--footer ul.menu > li:last-child {
     clear: both;
     margin: 20px 0 0;
+  }
+  .a-tabs__content .a-panel-promo__header__text {
+    position: absolute;
   }
 
   .a-panel-promo--experience .a-panel-promo__highlight:before {
@@ -12470,6 +12645,36 @@ header.main .a-social--phone:after {
     clear: both;
     margin: 25px 0 0;
   }
+  .a-aside .a-btn--light {
+    display: block;
+    max-width: 150px;
+  }
+  .a-tabs__content .a-panel-promo__header__text {
+    position: absolute;
+    font-size: 13px;
+    line-height: 19px;
+  }
+  .a-contacts-hotel .a-sm-col-6 {
+    margin-bottom: 20px;
+  }
+  .a-contacts-hotel .a-sm-col-6:nth-child(2n+2) {
+    margin-right: 0;
+  }
+  .a-contacts-hotel .a-sm-col-6:nth-child(2n+3) {
+    clear: both;
+  }
+  .a-input-text--captcha {
+    width: 261px;
+  }
+  .a-btn--reserva {
+    top: 15px;
+  }
+
+  .a-dark-ligth-large {
+    background-image: none;
+    background-color: #202020;
+    padding-bottom: 30px;
+  }
 
   .a-footer-copyright__list li {
     font-size: 11px;
@@ -12486,6 +12691,15 @@ header.main .a-social--phone:after {
 
   h3 {
     line-height: 35px;
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    top: 78%;
+  }
+
+  .a-slick-gallery.swiper-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 }
 @media (max-width: 767px) {
@@ -12506,6 +12720,7 @@ header.main .a-social--phone:after {
   }
   .a-panel-promo {
     margin-bottom: 30px;
+    overflow: hidden;
   }
   .a-panel-promo__header {
     float: none !important;
@@ -12633,6 +12848,82 @@ header.main .a-social--phone:after {
   .a-footer-copyright .a-pull-right {
     float: none !important;
   }
+  .a-tabs .a-panel-promo__header__text--bkg {
+    max-width: 368px;
+  }
+  .a-tabs__container {
+    position: relative;
+  }
+  .a-tabs__links {
+    height: auto;
+    margin-top: 30px;
+  }
+  .a-tabs__link {
+    padding-left: 0;
+    padding-right: 0;
+    display: block;
+    line-height: 25px;
+  }
+  .a-tabs__link:after {
+    display: none;
+  }
+  .a-features__title {
+    text-align: center;
+  }
+  .a-features__resume {
+    text-align: center;
+  }
+  .a-features__content {
+    text-align: center;
+    padding-bottom: 25px;
+  }
+  .a-features__image {
+    text-align: center;
+  }
+  .a-services__item {
+    width: 32%;
+    font-size: 9px;
+  }
+  .a-services__item:nth-child(3n+4) {
+    clear: both;
+    margin-left: 0;
+  }
+  .a-services__item:nth-child(7n+1) {
+    clear: none;
+    margin-left: 1%;
+  }
+  .a-btn--reserva {
+    top: -65px;
+    right: auto;
+    left: 15px;
+  }
+  .a-field--modal {
+    min-width: 100%;
+  }
+  .a-bo-events__title {
+    margin: 0 0 0px;
+  }
+  .a-input-text--captcha {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .a-aside {
+    max-width: 100%;
+  }
+  .a-aside .a-btn--light {
+    display: block;
+    max-width: 150px;
+  }
+  .a-field {
+    padding-left: 0;
+  }
+  .a-field-form .pull-right {
+    float: left !important;
+  }
+
+  .a-slick-gallery.swiper-container {
+    margin-top: 35px;
+  }
 
   .a-menu-main {
     text-align: left;
@@ -12641,6 +12932,11 @@ header.main .a-social--phone:after {
 
   .a-menu-main--footer {
     padding-bottom: 0px;
+  }
+
+  .a-dark-ligth-large {
+    background-image: none;
+    background-color: #202020;
   }
 
   .a-menu-main--header .menu-menu-1-container ul.menu {

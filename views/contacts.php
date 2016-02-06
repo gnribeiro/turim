@@ -1,6 +1,6 @@
 <?php global $post ?>
 <article class="a-container a-clearfix p-t-70 p-b-75">
-    <div class="a-col-9">
+    <div class="a-col-9 a-sm-col-8">
         <?php if(have_posts()): while(have_posts()): the_post(); ?>
             <header><h1><?php the_title() ?></h1></header>
 
@@ -107,7 +107,7 @@
         </form>
     </div>
 
-    <aside class="a-col-3">
+    <aside class="a-col-3 a-sm-col-4">
         <div class="a-aside">
         <div class="a-aside__header">
             <h5>NÚMERO ÚNICO</h5>

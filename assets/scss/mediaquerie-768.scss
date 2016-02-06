@@ -6,14 +6,14 @@
 
 	.a{
 		&-logo{
-		    margin: 0 auto 76px;	
+		    margin: 0 auto 76px;
 		}
 
 		&-menu{
-		   top: 103px;	
+		   top: 103px;
 		}
 
-		    
+
 
 		&-banner{
 			@include e('title') {
@@ -27,7 +27,7 @@
 			}
 			@include e('content') {
 				p{
-					margin-bottom: 20px;	
+					margin-bottom: 20px;
 				}
 			}
 		}
@@ -72,16 +72,16 @@
 			}
 
 			@include e('figure') {
-				   
+
 				width: 61%;
 				text-align: left;
     			max-width: none;
 			}
 
-			
+
 
 		}
-		
+
 		&-input-email{
 			@include m('newsletter') {
 				width: 123px;
@@ -98,19 +98,19 @@
 			@include m('footer') {
 				ul.menu > li{
 					margin-bottom: 25px;
-					
+
 					&:nth-child(3){
 						clear: both;
-						margin: 0 0 25px; 
+						margin: 0 0 25px;
 					}
 				}
-				
+
 			}
 
 			@include m('header') {
 
 				ul.menu > li{
-					
+
 					&:last-child {
 						clear: both;
 						margin: 25px 0 0;
@@ -118,6 +118,56 @@
 				}
 			}
 		}
+
+		&-aside{
+			.a-btn--light{
+				display: block;
+				max-width: 150px;
+			}
+		}
+
+		&-tabs{
+			@include e('content') {
+				.a-panel-promo__header__text{
+						position: absolute;
+					  font-size: 13px;
+    				line-height: 19px;
+					}
+				}
+			}
+
+			&-contacts-hotel{
+					.a-sm-col-6{
+						margin-bottom: 20px;
+							&:nth-child(2n+2){
+								margin-right: 0;
+							}
+
+							&:nth-child(2n+3){
+								clear: both;
+							}
+					}
+
+
+			}
+			&-input-text{
+				@include m('captcha') {
+					width: 261px;
+				}
+			}
+
+
+			&-btn{
+				@include m('reserva') {
+						top:15px;
+				}
+			}
+	}
+
+	.a-dark-ligth-large{
+				background-image: none;
+				background-color: $dark;
+				padding-bottom: 30px;
 	}
 
 	.a-footer-copyright__list li{
@@ -135,6 +185,15 @@
 
 	h3{
 		line-height: 35px;
+	}
+
+	.swiper-button-next, .swiper-button-prev{
+		    top: 78%;
+	}
+
+	.a-slick-gallery.swiper-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
 	}
 
 }

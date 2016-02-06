@@ -20,6 +20,15 @@
     }
 }
 
+@media (min-width: 768px ) and (max-width: 991px) {
+  @each $col , $number in $grid{
+    .a-sm-#{$col} {
+      @include span-columns($number);
+
+    }
+  }
+}
+
 @media  (max-width: 767px){
     @each $col , $number in $grid{
         .a-#{$col}-sd {

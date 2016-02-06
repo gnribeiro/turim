@@ -2,10 +2,10 @@
 <section class="a-contacts-hotel">
     <div class="a-container">
       <div class="a-clearfix">
-        <div class="a-col-3">
+        <div class="a-col-3 a-sm-col-6">
           <div id="a-google-map" class="a-contacts-hotel__google-map"></div>
         </div>
-        <div class="a-col-3">
+        <div class="a-col-3 a-sm-col-6">
           <div class="p-t-20">
             <div class="a-contacts-hotel__title">
               <?php echo preg_replace('/turim/i', '<strong>TURIM</strong>', $post->post_title); ?>
@@ -22,7 +22,7 @@
             <?php endif ?>
           </div>
         </div>
-        <div class="a-col-3">
+        <div class="a-col-3 a-sm-col-6">
             <ul class="a-nolist">
                 <?php if (get_field('email_hotel')): ?>
                     <li class="a-contacts-hotel__list">
@@ -45,7 +45,7 @@
                 <?php endif ?>
             </ul>
         </div>
-        <div class="a-col-3">
+        <div class="a-col-3 a-sm-col-6">
             <?php if (get_field('tripadviser_hotel')): ?>
                 <div class="a-contacts-hotel__tripadviser">
                     <?php echo  get_field('tripadviser_hotel') ?>

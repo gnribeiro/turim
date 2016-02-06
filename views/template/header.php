@@ -14,8 +14,8 @@
                 </li>
                 <li class="a-lang">
                     <ul class="a-lang__content">
-                        <li class="a-lang__country a-lang__country-selected">Portugal</li>
-                        <li class="a-lang__country">Inglês</li>
+
+                    <?php pll_the_languages(array('display_names_as'=>"name" , 'hide_if_empty' =>0));?>
                     </ul>
                 </li>
             </ul>

@@ -5,7 +5,7 @@
       display: none;
       @include justify-content(center) ;
       @include align-items(center);
-      background : rgba(0,0,0,0.4);
+      background : rgba(0,0,0,0.8);
       position   : fixed;
       top        : 0;
       bottom     : 0;

@@ -43,22 +43,46 @@
 			}
 
 		}
-		
+
 		&-input-email{
 			@include m('newsletter') {
 				width: 183px;
 			}
 		}
 
+		&-input-text{
+			@include m('captcha') {
+				width: 494px;
+			}
+		}
+
+		&-aside{
+			.a-btn--light{
+				display: block;
+				max-width: 150px;
+			}
+		}
+
+
 		&-menu-main{
 			@include m('footer') {
 				ul.menu > li:last-child {
 					clear: both;
-					margin: 20px 0 0; 
+					margin: 20px 0 0;
+				}
+			}
+		}
+
+		&-tabs{
+			@include e('content') {
+				.a-panel-promo__header__text{
+					position: absolute;
 				}
 			}
 		}
 	}
+
+
 
 	.a-panel-promo--experience .a-panel-promo__highlight:before{
 		width: 0;
@@ -69,6 +93,6 @@
     	left: -12px;
 	}
 
-	
+
 
 }

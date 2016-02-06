@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="a-container">
-        <h1 class="a-logo"><a href="/">Turim</a></h1>
+        <h1 class="a-logo"><a href="<?php echo pll_home_url(); ?>">Turim</a></h1>
         <div class="a-menu">
             <a href="#" class="a-btn a-btn--menu">MENU</a>
             <a href="#" class="a-btn a-btn--reservation"><?php _e('RESERVA' , 'turim')?></a>

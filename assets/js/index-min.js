@@ -3997,7 +3997,7 @@
     });
     var Ud = /([\+\-]|\d\d)/gi;
     a.updateOffset = function() {};
-    var Vd = /^(\-)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)\.?(\d{3})?\d*)?$/, Wd = /^(-)?P(?:(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?|([0-9,.]*)W)$/;
+    var Vd = /(\-)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)\.?(\d{3})?)?/, Wd = /^(-)?P(?:(?:([0-9,.]*)Y)?(?:([0-9,.]*)M)?(?:([0-9,.]*)D)?(?:T(?:([0-9,.]*)H)?(?:([0-9,.]*)M)?(?:([0-9,.]*)S)?)?|([0-9,.]*)W)$/;
     Za.fn = Ia.prototype;
     var Xd = bb(1, "add"), Yd = bb(-1, "subtract");
     a.defaultFormat = "YYYY-MM-DDTHH:mm:ssZ";
@@ -4186,7 +4186,7 @@
         c._d = new Date(1e3 * parseFloat(a, 10));
     }), S("x", function(a, b, c) {
         c._d = new Date(r(a));
-    }), a.version = "2.11.2", b(Ea), a.fn = ke, a.min = Ga, a.max = Ha, a.now = Td, 
+    }), a.version = "2.11.1", b(Ea), a.fn = ke, a.min = Ga, a.max = Ha, a.now = Td, 
     a.utc = h, a.unix = kc, a.months = wc, a.isDate = d, a.locale = x, a.invalid = l, 
     a.duration = Za, a.isMoment = p, a.weekdays = yc, a.parseZone = lc, a.localeData = z, 
     a.isDuration = Ja, a.monthsShort = xc, a.weekdaysMin = Ac, a.defineLocale = y, a.weekdaysShort = zc, 

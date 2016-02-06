@@ -2,7 +2,6 @@
     &-tabs{
         @include e(links) {
             height: 56px;
-            margin-left: 0 30px;
         }
 
         @include e(link) {

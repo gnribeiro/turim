@@ -1,9 +1,12 @@
-<?php global $post ?>
+<?php
+	global $post;
+	$classes = (isset($form)) ? "a-col-9 a-sm-col-8" : "a-col-12";
+?>
 
 <section class="a-light p-t-70 p-b-75">
 	<article class="a-container">
 	    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-	    	<div class="a-col-9">
+	    	<div class="<?php echo $classes ?>">
 	        	<h1><?php the_title() ?></h1>
 	        	<div class="a-bo"><?php the_content() ?></div>
 
@@ -17,7 +20,7 @@
 
 
 			<?php if(isset($form)): ?>
-	       		<aside class="a-col-3">
+	       		<aside class="a-col-3 a-sm-col-4">
 	       		<?php echo $form ?>
 	       		</aside>
 	       <?php endif ?>
