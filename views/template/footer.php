@@ -16,7 +16,7 @@ echo $site->get_partial('home/newsletter',
     <section class="a-dark p-t-25 p-b-25">
         <div class="a-container">
             <div class="a-footer-contacts">
-                <div class="a-footer-contacts__title">Fale connosco</div>
+                <div class="a-footer-contacts__title"><?php _e('Fale connosco' , 'turim')?></div>
                 <div class="a-footer-contacts__content">
                     <span class="a-footer-contacts__phone"><i class="fa fa-phone"></i> 210 330 800</span>
                     <span class="a-footer-contacts__email"><i class="fa fa-chevron-right"></i> reservas@turimhoteis.com </span>
@@ -28,15 +28,14 @@ echo $site->get_partial('home/newsletter',
         <div class="a-container">
             <div class="a-clearfix a-footer-copyright">
                 <ul class="a-footer-copyright__list a-clearfix p-b-10">
-                    <li>Copyright © <?php echo date("Y"); ?>  Turim Hotels. Todos os Direitos Reservados.</li>
-                    <li>Politica de Privacidade </li>
-                    <li>Termos e Condições</li>
+                    <li>Copyright © <?php echo date("Y"); ?>  Turim Hotels. <?php _e('Todos os Direitos Reservados.' , 'turim')?> </li>
+                    <li> <?php _e('Politica de Privacidade' , 'turim')?></li>
+                    <li><?php _e('Termos e Condições' , 'turim')?></li>
                 </ul>
                 <div class="a-pull-right">Powered by ALICE</div>
             </div>
         </div>
     </section>
-
 </footer>
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script src="<?php echo THEMEURL?>assets/js/index-min.js"></script>

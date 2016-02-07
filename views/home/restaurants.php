@@ -12,7 +12,7 @@
             </div>
             <div class="a-col-3 a-text-right p-t-5">
                  <?php if(get_field('link_restaurantes_home')): ?>
-                    <a class="a-btn a-btn--darkness" href="<?php the_field('link_restaurantes_home')?>">Ver Restaurantes <i class="fa fa-chevron-right"></i></a>
+                    <a class="a-btn a-btn--darkness" href="<?php the_field('link_restaurantes_home')?>"><?php _e('Ver Restaurantes' , 'turim')?><i class="fa fa-chevron-right"></i></a>
                 <?php endif ?>
             </div>
         </div>

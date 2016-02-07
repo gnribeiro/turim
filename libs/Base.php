@@ -149,46 +149,6 @@ Class Base{
     }
 
 
-    public function lang_menu()
-    {
-
-        if(!defined(ICL_LANGUAGE_CODE))
-            return;
-
-        global $wp;
-        $langs = array();
-
-
-        $languages = icl_get_languages('skip_missing=0');
-
-        if(count($languages) > 1){
-          foreach($languages as $code => $l)
-          {
-            $query_string = (!empty($_SERVER["QUERY_STRING"])) ? '?'.$_SERVER["QUERY_STRING"] : '';
-
-            if( isset($_GET['product_cat'])  && !empty($query_string) ){
-
-                     $query_string =  str_replace("-en", '', $query_string );
-
-
-                     if($l['language_code'] == 'en')
-                        $query_string =  $query_string.'-en';
-            }
-
-            $langs[] = array(
-                    'url'      =>  $l['url'] . $query_string,
-                    'selected' => (ICL_LANGUAGE_CODE == $l['language_code']) ? 1 : 0,
-                    'code'     => $l['language_code'],
-                    'label'    => trim(preg_replace('@-\w+$@','', $l['language_code']))
-            ) ;
-          }
-
-          $this->view->set('langs' , $langs);
-          return $this->view->render('lang_menu');
-        }
-    }
-
-
     public function pagination($num_pages)
     {
         $big = 999999999;

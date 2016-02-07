@@ -40,7 +40,7 @@
                         <div class="clearfix m-b-40">
                             <div class="a-col-4">
                                 <h5 class="a-bo-events__title a-bo-events__title--small">
-                                    HOTÉIS DISPONIVEIS
+                                    <?php _e('HOTÉIS DISPONIVEIS' , 'turim')?>
                                 </h5>
                             </div>
                             <div class="a-col-8 a-bo-events__list">
@@ -51,7 +51,7 @@
                         <div class="clearfix m-b-40">
                             <div class="a-col-4">
                                 <h5 class="a-bo-events__title a-bo-events__title--small">
-                                    HOTÉIS DISPONIVEIS
+                                    <?php _e('HOTÉIS DISPONIVEIS ' , 'turim')?>
                                 </h5>
                             </div>
                             <div class="a-col-8 a-bo-events__list">
@@ -68,7 +68,7 @@
                         <div class="clearfix">
                             <div class="a-col-4">
                                 <h5 class="a-bo-events__title a-bo-events__title--small">
-                                    DISPOSIÇÃO
+                                    <?php _e('DISPOSIÇÃO' , 'turim')?>
                                 </h5>
                             </div>
                             <div class="a-col-8  a-bo-events__list">
