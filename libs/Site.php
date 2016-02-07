@@ -394,7 +394,7 @@
         protected function get_contacts()
         {
             $query = new WP_Query( array(
-                'post_type'      => 'contactos' ,
+                'post_type'      => 'list_contactos' ,
                 'posts_per_page' => -1,
                 'order'        => 'asc'
             ));

@@ -1,5 +1,6 @@
 <?php
 require_once LIBS . 'validFluent.php';
+require_once LIBS . 'Gwp_Mailman.php';
 
 Class Gwp_Form_Handler {
 
@@ -62,9 +63,33 @@ Class Gwp_Form_Handler {
         }
 
         if(!count($error)){
-            Helper::set_flashdata(
-                "mensagem_sucesso", Helper::message("forms/contactos", "sucesso.msg")
+
+            $mail    = new Gwp_Mailman();
+            $emailTo = "gnoribeiro@gmail.com";
+            //$attachments= array(ABSPATH . 'wp-content/uploads/2016/01/slider.jpg');
+            //$mail->set_attachments($attachments);
+
+            $dados= array(
+                'nome'         => $_POST['nome'],
+                'email'        => $_POST['email'],
+                'mensage'      => $_POST['mensage'],
+                'subject'      => $_POST['subject'],
+                'reserva'      => $_POST['reserva'],
+                'typecompany'  => $_POST['type-company'],
+                'hotel'        => $_POST['hotel']
             );
+
+            $mail->set_subject('Mensagem do Formulario');
+            $mail->set_template('contactos.php');
+            $mail->set_from("geral@turim-hotels.com");
+            $mail->set_to($emailTo);
+            $mail->set_vars($dados);
+            $send = $mail->send();
+
+            $message = ($send) ? Helper::message("forms/contactos", "sucesso.msg")
+                : Helper::message("forms/contactos", "sucesso.error") ;
+
+            Helper::set_flashdata("mensagem_sucesso", $message);
         }
 
     }

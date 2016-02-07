@@ -10,7 +10,7 @@
         <?php endif ?>
 
         <?php if(has_post_thumbnail(get_the_ID())): ?>
-            <div class="m-t-20 a-block-center-900 m-b-60">
+            <div class="m-t-20 a-block-center-900 m-b-60 a-text-center">
                 <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id(get_the_ID()) );
          ?>" alt="" class="a-img-responsive"/>
             </div>

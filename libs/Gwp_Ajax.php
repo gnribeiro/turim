@@ -68,9 +68,36 @@ Class Gwp_Ajax{
             $uploadfile = wp_handle_upload( $_FILES["cvform"], array( 'test_form' => false ) );
 
             if ( $uploadfile && !isset( $uploadfile['error'] ) ) {
-                $sucess = array(
-                    'sucesso' => Helper::message("forms/recrutamento", "sucesso.msg")
+                $file  = $uploadfile["file"];
+
+                $mail    = new Gwp_Mailman();
+                $emailTo = "gnoribeiro@gmail.com";
+                $attachments= array($file);
+
+
+                $dados= array(
+                    'nome'         => $_POST['nome'],
+                    'email'        => $_POST['email'],
+                    'phone'        => $_POST['phone'],
+                    'subject'      => $_POST['subject'],
+                    'localidade'   => $_POST['localidade'],
+                    'age'          => $_POST['age'],
+                    'obs'          => $_POST['obs']
                 );
+
+                $mail->set_attachments($attachments);
+                $mail->set_subject('Mensagem do Formulario de Recrutamento');
+                $mail->set_template('recrutamento.php');
+                $mail->set_from("geral@turim-hotels.com");
+                $mail->set_to($emailTo);
+                $mail->set_vars($dados);
+                $send = $mail->send();
+
+                $message = ($send) ? Helper::message("forms/recrutamento", "sucesso.msg")
+                : Helper::message("forms/recrutamento", "sucesso.error");
+
+                $sucess = array('sucesso' =>$message);
+
                 echo json_encode($sucess) ;
             }
             else{
@@ -104,9 +131,29 @@ Class Gwp_Ajax{
             echo   json_encode( $errors);
         }
         else{
-            $sucess = array(
-                'sucesso' => Helper::message("forms/info", "sucesso.msg")
+            $mail    = new Gwp_Mailman();
+            $emailTo = "gnoribeiro@gmail.com";
+            $dados= array(
+                'nome'         => $_POST['nome'],
+                'email'        => $_POST['email'],
+                'company'      => $_POST['company'],
+                'cp7'          => $_POST['cp7'],
+                'address'      => $_POST['address'],
+                'localidade'   => $_POST['localidade'],
+                'obs'          => $_POST['obs']
             );
+
+            $mail->set_subject('Mensagem do Formulario de Informação');
+            $mail->set_template('info.php');
+            $mail->set_from("geral@turim-hotels.com");
+            $mail->set_to($emailTo);
+            $mail->set_vars($dados);
+            $send = $mail->send();
+
+            $message = ($send) ? Helper::message("forms/info", "sucesso.msg")
+            : Helper::message("forms/info", "sucesso.error");
+
+            $sucess = array('sucesso' =>$message);
             echo json_encode($sucess) ;
         }
 
@@ -137,9 +184,29 @@ Class Gwp_Ajax{
             echo   json_encode( $errors);
         }
         else{
-            $sucess = array(
-                'sucesso' => Helper::message("forms/adesao", "sucesso.msg")
+            $mail    = new Gwp_Mailman();
+            $emailTo = "gnoribeiro@gmail.com";
+            $dados= array(
+                'nome'         => $_POST['nome'],
+                'email'        => $_POST['email'],
+                'company'      => $_POST['company'],
+                'cp7'          => $_POST['cp7'],
+                'address'      => $_POST['address'],
+                'localidade'   => $_POST['localidade'],
+                'nif'          => $_POST['nif']
             );
+
+            $mail->set_subject('Mensagem do Formulario de Adesão');
+            $mail->set_template('adesao.php');
+            $mail->set_from("geral@turim-hotels.com");
+            $mail->set_to($emailTo);
+            $mail->set_vars($dados);
+            $send = $mail->send();
+
+            $message = ($send) ? Helper::message("forms/adesao", "sucesso.msg")
+            : Helper::message("forms/adesao", "sucesso.error");
+
+            $sucess = array('sucesso' =>$message);
             echo json_encode($sucess) ;
         }
 
@@ -194,6 +261,28 @@ Class Gwp_Ajax{
             echo   json_encode( $errors);
         }
         else{
+            $mail    = new Gwp_Mailman();
+            $emailTo = "gnoribeiro@gmail.com";
+            $dados   = array(
+                'nome'         => $_POST['nome'],
+                'email'        => $_POST['email'],
+                'persons'      => $_POST['persons'],
+                'date'         => $_POST['date-reserve'],
+                'time'         => $_POST['time'],
+                'restaurent'   => $_POST['restaurent'],
+            );
+
+            $mail->set_subject('Mensagem do Formulario de Adesão');
+            $mail->set_template('reservas.php');
+            $mail->set_from("geral@turim-hotels.com");
+            $mail->set_to($emailTo);
+            $mail->set_vars($dados);
+            $send = $mail->send();
+
+            $message = ($send) ? Helper::message("forms/reservas", "sucesso.msg")
+            : Helper::message("forms/reservas", "sucesso.error");
+
+            $sucess = array('sucesso' =>$message);
             $sucess = array(
                 'sucesso' => Helper::message("forms/reservas", "sucesso.msg")
             );
@@ -203,6 +292,5 @@ Class Gwp_Ajax{
         die();
     }
 }
-
 
 ?>

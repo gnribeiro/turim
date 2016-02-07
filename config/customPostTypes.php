@@ -1,14 +1,16 @@
 <?php
 
-function custom_post_type() {
+
+
+function custom_post_type_Lista() {
 
   $labels = array(
-    'name'                  => _x( 'Contactos', 'Post Type General Name', 'text_domain' ),
-    'singular_name'         => _x( 'Contacto', 'Post Type Singular Name', 'text_domain' ),
-    'menu_name'             => __( 'Contactos', 'text_domain' ),
-    'name_admin_bar'        => __( 'Contactos', 'text_domain' ),
-    'archives'              => __( 'Contactos', 'text_domain' ),
-    'parent_item_colon'     => __( 'Contactos Item:', 'text_domain' ),
+    'name'                  => _x( 'Lista Contactos', 'Post Type General Name', 'text_domain' ),
+    'singular_name'         => _x( 'Lista Contacto', 'Post Type Singular Name', 'text_domain' ),
+    'menu_name'             => __( 'Lista Contactos', 'text_domain' ),
+    'name_admin_bar'        => __( 'Lista Contactos', 'text_domain' ),
+    'archives'              => __( 'Lista Contactos', 'text_domain' ),
+    'parent_item_colon'     => __( 'Lista Contactos Item:', 'text_domain' ),
     'all_items'             => __( 'All Contactos', 'text_domain' ),
     'add_new_item'          => __( 'Add New Contacto', 'text_domain' ),
     'add_new'               => __( 'Add Contacto', 'text_domain' ),
@@ -30,7 +32,7 @@ function custom_post_type() {
     'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
   );
   $args = array(
-    'label'                 => __( 'Contacto', 'text_domain' ),
+    'label'                 => __( 'Lista Contacto', 'text_domain' ),
     'description'           => __( 'Lista de contactos de Turim', 'text_domain' ),
     'labels'                => $labels,
     'supports'              => array( 'title'),
@@ -49,7 +51,7 @@ function custom_post_type() {
     'publicly_queryable'    => true,
     'capability_type'       => 'page',
   );
-  register_post_type( 'Contactos', $args );
+  register_post_type( 'list_contactos', $args );
 
 }
 
@@ -215,7 +217,7 @@ function custom_post_type_destaques() {
 
 }
 add_action( 'init', 'custom_post_type_destaques', 0 );
+add_action( 'init', 'custom_post_type_Lista', 0 );
 
 add_action( 'init', 'custom_post_type_hoteis', 0 );
-add_action( 'init', 'custom_post_type', 0 );
 ?>

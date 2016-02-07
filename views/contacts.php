@@ -1,4 +1,4 @@
-<?php global $post ?>
+<?php global $post; ?>
 <article class="a-container a-clearfix p-t-70 p-b-75">
     <div class="a-col-9 a-sm-col-8">
         <?php if(have_posts()): while(have_posts()): the_post(); ?>

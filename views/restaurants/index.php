@@ -1,11 +1,14 @@
-<?php global $post, $site; ?>
+<?php global $post, $site; $restaurent ='' ?>
 
 <section class="a-dark-ligth-large p-t-80 p-b-10 ">
     <div class="a-container a-relative">
         <a class="a-btn a-btn--light a-btn--reserva" data-a-widget="Amodal" data-a-widget-options="<?php echo $modal ?>">
             <?php _e('Reservar Mesa' , 'turim') ?>
         </a>
-        <?php  if ( have_posts() ): while ( have_posts() ) : the_post() ?>
+        <?php  if ( have_posts() ): while ( have_posts() ) :
+            the_post() ;
+           $restaurent = get_the_title();
+        ?>
             <div class="a-bo-content a-bo-content--medium a-ligth-txt">
                 <?php the_content(); ?>
             </div>
@@ -23,4 +26,4 @@
     </div>
 </section>
 <?php echo $highlights ?>
-<?php echo $site->get_partial('modals/reserva' , array('ajax'=>$ajax)) ?>
+<?php echo $site->get_partial('modals/reserva' , array('ajax'=>$ajax, 'restaurent' => $restaurent)) ?>

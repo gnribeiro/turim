@@ -40,6 +40,7 @@
             <div class="a-loading a-loading--modal a-hide">
                 <img src="<?php printf('%s/assets/images/ring.gif' , THEMEURL) ?>" alt="" />
             </div>
+            <input type="hidden" name="restaurent" value="<?php echo $restaurent; ?>">
             <button type="submit" class="a-btn a-btn--submit a-btn--submit--modal"> <?php _e('Enviar pedido de reserva' , 'turim')?><i class="fa fa-chevron-right"></i></button>
         </div>
 

@@ -36,7 +36,8 @@ return array(
     ),
 
     'sucesso' => array(
-      'msg' => 'Dados enviados com sucesso, aguarde uma resposta',
+      'msg'   => 'Dados enviados com sucesso, aguarde uma resposta',
+      'error' => 'Não possivel enviar email tente mais tarde'
     ),
 
 

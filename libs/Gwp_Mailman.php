@@ -8,7 +8,8 @@ class Gwp_Mailman {
           'template'     => '',
           'content_type' => 'text/html',
           'to'           => '',
-          'from'         => ''
+          'from'         => '',
+          'attachments'  => array()
     );
 
     protected $data  = array();
@@ -19,6 +20,10 @@ class Gwp_Mailman {
         $this->defaults['from'] = get_option('admin_email');
         $this->data           = array_merge( $this->defaults, $params );
         $this->vars           = $vars;
+    }
+
+    function set_attachments($attachments){
+        $this->data['attachments'] = $attachments;
     }
 
     function set_template($template){
@@ -82,12 +87,23 @@ class Gwp_Mailman {
           sprintf("Content-type: %s", $this->data['content_type'])
         );
 
-        return wp_mail(
-          $this->data['to'],
-          $this->data['subject'],
-          $message,
-          $headers
-        );
+        if(count($this->data['attachments'])){
+            return wp_mail(
+                $this->data['to'],
+                $this->data['subject'],
+                $message,
+                $headers,
+                $this->data['attachments']
+            );
+        }
+        else{
+            return wp_mail(
+              $this->data['to'],
+              $this->data['subject'],
+              $message,
+              $headers
+            );
+        }
     }
 
     private function render_template(){
@@ -95,7 +111,7 @@ class Gwp_Mailman {
             extract($this->vars);
         }
         ob_start();
-        include get_template_directory()."views/emails/" . $this->data['template'];
+        include get_template_directory()."/views/emails/" . $this->data['template'];
         return ob_get_clean();
     }
 };
