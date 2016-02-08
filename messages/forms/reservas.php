@@ -2,30 +2,30 @@
 
 return array(
     'nome' => array(
-      'not_empty' => 'Campo de preenchimento obrigatório',
+      'not_empty' => __('Campo de preenchimento obrigatório', 'turim'),
     ),
 
     'persons' => array(
-      'not_empty'    => 'Campo de preenchimento obrigatório',
-      'numeric'     => 'Numero inválido'
+      'not_empty'    => __('Campo de preenchimento obrigatório', 'turim'),
+      'numeric'     => __('Numero inválido', 'turim'),
     ),
 
     'phone' => array(
-      'not_empty'    => 'Campo de preenchimento obrigatório',
-      'numeric'     => 'Numero inválido'
+      'not_empty'    => __('Campo de preenchimento obrigatório', 'turim'),
+      'numeric'     => __('Numero inválido', 'turim'),
     ),
 
     'date-reserve' => array(
-      'not_empty'    => 'Campo de preenchimento obrigatório',
+      'not_empty'    => __('Campo de preenchimento obrigatório', 'turim'),
     ),
 
     'time' => array(
-      'not_empty'    => 'Campo de preenchimento obrigatório',
+      'not_empty'    => __('Campo de preenchimento obrigatório', 'turim'),
     ),
 
     'sucesso' => array(
-      'msg' => 'Dados enviados com sucesso, aguarde uma resposta',
-      'error' => 'Não possivel enviar email tente mais tarde'
+      'msg' => __('Dados enviados com sucesso, aguarde uma resposta', 'turim'),
+      'error' => __('Não possivel enviar email tente mais tarde', 'turim')
     ),
 
 

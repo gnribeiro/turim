@@ -65,7 +65,8 @@ jQuery(function($){
             errorFile.html('');
              console.log(self.settings.action , action , "dssdsd");
             if(!files.length){
-                errorFile.html('Campo Obrigatório');
+                var errorMessage = (vars_site.language_current ==='en') ? 'Required field' : 'Campo Obrigatório';
+                errorFile.html(errorMessage);
                 return
             }
             var file     = files[0]

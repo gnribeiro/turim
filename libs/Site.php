@@ -2,16 +2,16 @@
 
     class Site extends Base
     {
-        public $menu;
+
 
         public function __construct()
         {
             parent::__construct();
 
-            $menu = $this->get_menu();
 
-            $this->data_header['hoteis'] = $this->hoteis_select();
-            $this->data_footer['menu']   =  $menu;
+
+            $this->data_header['hoteis']     = $this->hoteis_select();
+
         }
 
         public function index()
@@ -303,19 +303,25 @@
                 }
             }
 
-            //delete_transient( 'weather_homepage' );
-
-
             $banner = get_field('banner') ;
-            $this->view->class  = (is_singular( "restaurantes" )) ? "a-banner--nofixed": '';
-            $this->view->style  = ($banner) ? "style='background-image:url({$banner})'":'';
+            $video  = get_field('video_banner');
+
+            $this->view->class  = (is_singular( "restaurantes" )) ? "a-banner--nofixed ": '';
+            $this->view->video  = ($video) ? get_field('video_banner') : false;
+            $this->view->style  = ($banner && !$video) ? "style='background-image:url({$banner})'":'';
             $this->view->title  = (get_field('title'))  ? get_field('title') : '';
             $this->view->resume = (get_field('resume')) ? get_field('resume') : '';
-            $this->view->link   = (get_field('link_banner')) ? get_field('link_banner') : false;
+            $this->view->link   = (get_field('link_banner'))? get_field('link_banner') : false;
             $this->view->hoteis = $this->data_header['hoteis'];
-            $this->view->weather = $weather;
+            $this->view->weather= $weather;
 
-            return $this->view->render('shared/banner');
+            if($video){
+                return $this->view->render('shared/banner-video');
+            }
+            else{
+               return $this->view->render('shared/banner');
+            }
+
         }
 
 

@@ -31,6 +31,14 @@ class Helper {
         return icl_object_id($page->ID, $type, true);
     }
 
+    public static  function get_slug_pll($slug , $type){
+       $id   = self::get_id_by_slug($slug ,  $type);
+       $id   = pll_get_post($id , pll_current_language());
+       $data = get_post($id, ARRAY_A);
+
+       return $data['post_name'];
+    }
+
 
      public static function message($file, $path = NULL, $default = NULL)
     {

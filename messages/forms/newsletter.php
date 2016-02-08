@@ -4,12 +4,12 @@ return array(
 
 
     'news-email' => array(
-      'not_empty'    => 'Campo de preenchimento obrigatório',
-      'Valid::email' => 'Email inválido'
+      'not_empty'    => __('Campo de preenchimento obrigatório', 'turim'),
+      'Valid::email' => __('Email inválido', 'turim'),
     ),
 
     'sucesso-news' => array(
-      'msg' => 'Subescrição feita com sucesso',
+      'msg' => __('Subescrição feita com sucesso', 'turim'),
     ),
 
 

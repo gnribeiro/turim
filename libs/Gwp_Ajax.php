@@ -230,13 +230,58 @@ Class Gwp_Ajax{
             echo   json_encode( $errors);
         }
         else{
-            $sucess = array(
-                'sucesso-news' => Helper::message("forms/newsletter", "sucesso-news.msg")
-            );
+
+            $message = $this->subscription_knews($data['news-email']);
+            $sucess  = array('sucesso-news' => $message);
+
             echo json_encode($sucess);
         }
 
         die();
+    }
+
+    private function get_unique_id($long=8) {
+        return substr(md5(uniqid()), $long * -1);
+    }
+
+    private function subscription_knews( $email_news){
+        global $wpdb;
+
+
+        //die(var_dump($wpdb));
+        $message            = __("Esse email já existe na base dados" , 'turim');
+        $email              = $email_news;
+        $knewsusers_table   = $wpdb->prefix . 'knewsusers';
+        $knewsuserslists_tb = $wpdb->prefix . 'knewsuserslists';
+        $email_exist        = $wpdb->get_row('SELECT * FROM  '.$knewsusers_table.' WHERE email = "'.$email.'";');
+
+        if( empty($email_exist) ){
+            $args    = array(
+                      'lang'    => pll_current_language(),
+                      'email'   => $email,
+                      'state'   => '2',
+                      'ip'      => '',
+                      'confkey' => $this->get_unique_id(),
+                      'joined'  => date("Y-m-d H:i:s")
+            );
+
+          $results = $wpdb->insert( $knewsusers_table , $args );
+
+          if($results){
+            $user_id = ($wpdb->insert_id !=0 ) ?$wpdb->insert_id : mysql_insert_id();
+
+            $query   = "INSERT INTO " . $knewsuserslists_tb . " (id_user, id_list) VALUES (" . $user_id . ", 1);";
+            $results = $wpdb->query( $query );
+
+            $message = __("Subscrição efetuada com sucesso."  , 'turim');
+          }
+          else{
+            $message = __("Ocorreu um erro. tente novamente." , 'turim');
+
+          }
+        }
+
+        return $message;
     }
 
 

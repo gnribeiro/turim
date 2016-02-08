@@ -44,6 +44,7 @@
 
   &-panel-promo{
     margin-bottom: 9px;
+    overflow: hidden;
     h6{
       font-size: 16px;
       line-height: 17px;
@@ -173,14 +174,14 @@
 
     @include e(bo) {
       ul{
-       @extend .a-nolist 
+       @extend .a-nolist
       }
 
       li{
         text-align    : center;
         font-size: 12px;
         margin-bottom: 8px;
-        line-height: 13px; 
+        line-height: 13px;
       }
     }
 

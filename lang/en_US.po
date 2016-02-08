@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: turim\n"
-"POT-Creation-Date: 2016-02-07 12:12+0000\n"
-"PO-Revision-Date: 2016-02-07 12:14+0000\n"
+"POT-Creation-Date: 2016-02-08 16:55+0000\n"
+"PO-Revision-Date: 2016-02-08 17:18+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -1050,314 +1050,314 @@ msgstr ""
 msgid "I know latin characters: á í ó ú ç ã õ ñ ü"
 msgstr ""
 
-#: ../config/customPostTypes.php:8 ../config/customPostTypes.php:9
-#: ../config/customPostTypes.php:10
-msgid "Contactos"
-msgstr ""
-
-#: ../config/customPostTypes.php:11
-msgid "Contactos Item:"
-msgstr ""
-
+#: ../config/customPostTypes.php:10 ../config/customPostTypes.php:11
 #: ../config/customPostTypes.php:12
-msgid "All Contactos"
+msgid "Lista Contactos"
 msgstr ""
 
 #: ../config/customPostTypes.php:13
-msgid "Add New Contacto"
+msgid "Lista Contactos Item:"
 msgstr ""
 
 #: ../config/customPostTypes.php:14
-msgid "Add Contacto"
+msgid "All Contactos"
 msgstr ""
 
 #: ../config/customPostTypes.php:15
-msgid "New Contacto"
+msgid "Add New Contacto"
 msgstr ""
 
 #: ../config/customPostTypes.php:16
-msgid "Edit Contactos"
+msgid "Add Contacto"
 msgstr ""
 
 #: ../config/customPostTypes.php:17
-msgid "Update Contacto"
+msgid "New Contacto"
 msgstr ""
 
 #: ../config/customPostTypes.php:18
-msgid "View Contacto"
+msgid "Edit Contactos"
 msgstr ""
 
 #: ../config/customPostTypes.php:19
+msgid "Update Contacto"
+msgstr ""
+
+#: ../config/customPostTypes.php:20
+msgid "View Contacto"
+msgstr ""
+
+#: ../config/customPostTypes.php:21
 msgid "Search Contacto"
-msgstr ""
-
-#: ../config/customPostTypes.php:20 ../config/customPostTypes.php:73
-#: ../config/customPostTypes.php:126 ../config/customPostTypes.php:182
-msgid "Not found"
-msgstr ""
-
-#: ../config/customPostTypes.php:21 ../config/customPostTypes.php:74
-#: ../config/customPostTypes.php:127 ../config/customPostTypes.php:183
-msgid "Not found in Trash"
 msgstr ""
 
 #: ../config/customPostTypes.php:22 ../config/customPostTypes.php:75
 #: ../config/customPostTypes.php:128 ../config/customPostTypes.php:184
-msgid "Featured Image"
+msgid "Not found"
 msgstr ""
 
 #: ../config/customPostTypes.php:23 ../config/customPostTypes.php:76
 #: ../config/customPostTypes.php:129 ../config/customPostTypes.php:185
-msgid "Set featured image"
+msgid "Not found in Trash"
 msgstr ""
 
 #: ../config/customPostTypes.php:24 ../config/customPostTypes.php:77
 #: ../config/customPostTypes.php:130 ../config/customPostTypes.php:186
-msgid "Remove featured image"
+msgid "Featured Image"
 msgstr ""
 
 #: ../config/customPostTypes.php:25 ../config/customPostTypes.php:78
 #: ../config/customPostTypes.php:131 ../config/customPostTypes.php:187
+msgid "Set featured image"
+msgstr ""
+
+#: ../config/customPostTypes.php:26 ../config/customPostTypes.php:79
+#: ../config/customPostTypes.php:132 ../config/customPostTypes.php:188
+msgid "Remove featured image"
+msgstr ""
+
+#: ../config/customPostTypes.php:27 ../config/customPostTypes.php:80
+#: ../config/customPostTypes.php:133 ../config/customPostTypes.php:189
 msgid "Use as featured image"
 msgstr ""
 
-#: ../config/customPostTypes.php:26
+#: ../config/customPostTypes.php:28
 msgid "Insert into Contacto"
 msgstr ""
 
-#: ../config/customPostTypes.php:27
+#: ../config/customPostTypes.php:29
 msgid "Uploaded to this Contacto"
 msgstr ""
 
-#: ../config/customPostTypes.php:28
+#: ../config/customPostTypes.php:30
 msgid "Contacto list"
 msgstr ""
 
-#: ../config/customPostTypes.php:29
+#: ../config/customPostTypes.php:31
 msgid "Contacto list navigation"
 msgstr ""
 
-#: ../config/customPostTypes.php:30
+#: ../config/customPostTypes.php:32
 msgid "Filter items list"
 msgstr ""
 
-#: ../config/customPostTypes.php:33
-msgid "Contacto"
+#: ../config/customPostTypes.php:35
+msgid "Lista Contacto"
 msgstr ""
 
-#: ../config/customPostTypes.php:34
+#: ../config/customPostTypes.php:36
 msgid "Lista de contactos de Turim"
 msgstr ""
 
-#: ../config/customPostTypes.php:61 ../config/customPostTypes.php:62
+#: ../config/customPostTypes.php:63 ../config/customPostTypes.php:64
 msgid "Hoteis"
 msgstr ""
 
-#: ../config/customPostTypes.php:63
+#: ../config/customPostTypes.php:65
 msgid "Hotel Archives"
 msgstr ""
 
-#: ../config/customPostTypes.php:64
+#: ../config/customPostTypes.php:66
 msgid "Parent Hotel:"
 msgstr ""
 
-#: ../config/customPostTypes.php:65
+#: ../config/customPostTypes.php:67
 msgid "All Hoteis"
 msgstr ""
 
-#: ../config/customPostTypes.php:66
+#: ../config/customPostTypes.php:68
 msgid "Add New Hotel"
 msgstr ""
 
-#: ../config/customPostTypes.php:67 ../config/customPostTypes.php:120
+#: ../config/customPostTypes.php:69 ../config/customPostTypes.php:122
 msgid "Add New"
 msgstr ""
 
-#: ../config/customPostTypes.php:68
+#: ../config/customPostTypes.php:70
 msgid "New Hotel"
 msgstr ""
 
-#: ../config/customPostTypes.php:69
+#: ../config/customPostTypes.php:71
 msgid "Edit Hotel"
 msgstr ""
 
-#: ../config/customPostTypes.php:70
+#: ../config/customPostTypes.php:72
 msgid "Update Hotel"
 msgstr ""
 
-#: ../config/customPostTypes.php:71
+#: ../config/customPostTypes.php:73
 msgid "View Hotel"
 msgstr ""
 
-#: ../config/customPostTypes.php:72
+#: ../config/customPostTypes.php:74
 msgid "Search Hotel"
 msgstr ""
 
-#: ../config/customPostTypes.php:79
+#: ../config/customPostTypes.php:81
 msgid "Insert into Hotel"
 msgstr ""
 
-#: ../config/customPostTypes.php:80
+#: ../config/customPostTypes.php:82
 msgid "Uploaded to this Hotel"
 msgstr ""
 
-#: ../config/customPostTypes.php:81
+#: ../config/customPostTypes.php:83
 msgid "Hotel list"
 msgstr ""
 
-#: ../config/customPostTypes.php:82
+#: ../config/customPostTypes.php:84
 msgid "Hoteis list navigation"
 msgstr ""
 
-#: ../config/customPostTypes.php:83
+#: ../config/customPostTypes.php:85
 msgid "Filter Hotel list"
 msgstr ""
 
-#: ../config/customPostTypes.php:86
+#: ../config/customPostTypes.php:88
 msgid "hotel"
 msgstr ""
 
-#: ../config/customPostTypes.php:87
+#: ../config/customPostTypes.php:89
 msgid "hoteis"
 msgstr ""
 
-#: ../config/customPostTypes.php:114 ../config/customPostTypes.php:115
+#: ../config/customPostTypes.php:116 ../config/customPostTypes.php:117
 msgid "Restaurantes"
 msgstr ""
 
-#: ../config/customPostTypes.php:116
+#: ../config/customPostTypes.php:118
 msgid "Restaurante Archives"
 msgstr ""
 
-#: ../config/customPostTypes.php:117
+#: ../config/customPostTypes.php:119
 msgid "Parent Restaurante:"
 msgstr ""
 
-#: ../config/customPostTypes.php:118
+#: ../config/customPostTypes.php:120
 msgid "All Restaurantes"
 msgstr ""
 
-#: ../config/customPostTypes.php:119
+#: ../config/customPostTypes.php:121
 msgid "Add New Restaurante"
 msgstr ""
 
-#: ../config/customPostTypes.php:121
+#: ../config/customPostTypes.php:123
 msgid "New Restaurante"
 msgstr ""
 
-#: ../config/customPostTypes.php:122
+#: ../config/customPostTypes.php:124
 msgid "Edit Restaurante"
 msgstr ""
 
-#: ../config/customPostTypes.php:123
+#: ../config/customPostTypes.php:125
 msgid "Update Restaurante"
 msgstr ""
 
-#: ../config/customPostTypes.php:124
+#: ../config/customPostTypes.php:126
 msgid "View Restaurante"
 msgstr ""
 
-#: ../config/customPostTypes.php:125
+#: ../config/customPostTypes.php:127
 msgid "Search Restaurante"
 msgstr ""
 
-#: ../config/customPostTypes.php:132
+#: ../config/customPostTypes.php:134
 msgid "Insert into Restaurante"
 msgstr ""
 
-#: ../config/customPostTypes.php:133
+#: ../config/customPostTypes.php:135
 msgid "Uploaded to this Restaurante"
 msgstr ""
 
-#: ../config/customPostTypes.php:134
+#: ../config/customPostTypes.php:136
 msgid "Restaurantes list"
 msgstr ""
 
-#: ../config/customPostTypes.php:135
+#: ../config/customPostTypes.php:137
 msgid "Restaurante list navigation"
 msgstr ""
 
-#: ../config/customPostTypes.php:136
+#: ../config/customPostTypes.php:138
 msgid "Filter Restaurante list"
 msgstr ""
 
-#: ../config/customPostTypes.php:139
+#: ../config/customPostTypes.php:141
 msgid "restaurante"
 msgstr ""
 
-#: ../config/customPostTypes.php:140
+#: ../config/customPostTypes.php:142
 msgid "restaurantes"
 msgstr ""
 
-#: ../config/customPostTypes.php:170 ../config/customPostTypes.php:171
+#: ../config/customPostTypes.php:172 ../config/customPostTypes.php:173
 msgid "Destaques Home"
 msgstr ""
 
-#: ../config/customPostTypes.php:172
+#: ../config/customPostTypes.php:174
 msgid "Destaques Home Archives"
 msgstr ""
 
-#: ../config/customPostTypes.php:173
+#: ../config/customPostTypes.php:175
 msgid "Parent Destaques:"
 msgstr ""
 
-#: ../config/customPostTypes.php:174
+#: ../config/customPostTypes.php:176
 msgid "All Destaques"
 msgstr ""
 
-#: ../config/customPostTypes.php:175
+#: ../config/customPostTypes.php:177
 msgid "Add New Destaques"
 msgstr ""
 
-#: ../config/customPostTypes.php:176
+#: ../config/customPostTypes.php:178
 msgid "Add New Destaque"
 msgstr ""
 
-#: ../config/customPostTypes.php:177
+#: ../config/customPostTypes.php:179
 msgid "New Destaque"
 msgstr ""
 
-#: ../config/customPostTypes.php:178
+#: ../config/customPostTypes.php:180
 msgid "Edit Destaque"
 msgstr ""
 
-#: ../config/customPostTypes.php:179
+#: ../config/customPostTypes.php:181
 msgid "Update Destaque"
 msgstr ""
 
-#: ../config/customPostTypes.php:180
+#: ../config/customPostTypes.php:182
 msgid "View Destaque"
 msgstr ""
 
-#: ../config/customPostTypes.php:181
+#: ../config/customPostTypes.php:183
 msgid "Search Destaque"
 msgstr ""
 
-#: ../config/customPostTypes.php:188
+#: ../config/customPostTypes.php:190
 msgid "Insert into Destaque"
 msgstr ""
 
-#: ../config/customPostTypes.php:189
+#: ../config/customPostTypes.php:191
 msgid "Uploaded to this Destaque"
 msgstr ""
 
-#: ../config/customPostTypes.php:190
+#: ../config/customPostTypes.php:192
 msgid "Destaque list"
 msgstr ""
 
-#: ../config/customPostTypes.php:191
+#: ../config/customPostTypes.php:193
 msgid "Destaque list navigation"
 msgstr ""
 
-#: ../config/customPostTypes.php:192
+#: ../config/customPostTypes.php:194
 msgid "Filter Destaque list"
 msgstr ""
 
-#: ../config/customPostTypes.php:195
+#: ../config/customPostTypes.php:197
 msgid "destaque-home"
 msgstr ""
 
-#: ../config/customPostTypes.php:196
+#: ../config/customPostTypes.php:198
 msgid "destaques-home"
 msgstr ""
 
@@ -1369,7 +1369,19 @@ msgstr ""
 msgid "&raquo;"
 msgstr ""
 
-#: ../libs/Gwp_Mailman.php:71
+#: ../libs/Gwp_Ajax.php:252
+msgid "Esse email já existe na base dados"
+msgstr "This email already exists in the database"
+
+#: ../libs/Gwp_Ajax.php:276
+msgid "Subscrição efetuada com sucesso."
+msgstr "Was successful subscription."
+
+#: ../libs/Gwp_Ajax.php:279
+msgid "Ocorreu um erro. tente novamente."
+msgstr "An error has occurred. try again."
+
+#: ../libs/Gwp_Mailman.php:76
 msgid "Please supply a render template"
 msgstr ""
 
@@ -1420,6 +1432,78 @@ msgstr "Restaurant"
 #: ../libs/Site.php:134
 msgid "Bar"
 msgstr "Pub"
+
+#: ../messages/forms/adesao.php:5 ../messages/forms/adesao.php:9
+#: ../messages/forms/adesao.php:14 ../messages/forms/adesao.php:18
+#: ../messages/forms/adesao.php:22 ../messages/forms/adesao.php:27
+#: ../messages/forms/adesao.php:31 ../messages/forms/adesao.php:35
+#: ../messages/forms/contactos.php:5 ../messages/forms/contactos.php:9
+#: ../messages/forms/contactos.php:14 ../messages/forms/contactos.php:19
+#: ../messages/forms/contactos.php:23 ../messages/forms/contactos.php:26
+#: ../messages/forms/contactos.php:30 ../messages/forms/contactos.php:34
+#: ../messages/forms/contactos.php:39 ../messages/forms/info.php:5
+#: ../messages/forms/info.php:9 ../messages/forms/info.php:14
+#: ../messages/forms/info.php:18 ../messages/forms/info.php:22
+#: ../messages/forms/info.php:26 ../messages/forms/info.php:30
+#: ../messages/forms/newsletter.php:7 ../messages/forms/recrutamento.php:5
+#: ../messages/forms/recrutamento.php:9 ../messages/forms/recrutamento.php:14
+#: ../messages/forms/recrutamento.php:19 ../messages/forms/recrutamento.php:24
+#: ../messages/forms/recrutamento.php:27 ../messages/forms/recrutamento.php:30
+#: ../messages/forms/reservas.php:5 ../messages/forms/reservas.php:9
+#: ../messages/forms/reservas.php:14 ../messages/forms/reservas.php:19
+#: ../messages/forms/reservas.php:23
+msgid "Campo de preenchimento obrigatório"
+msgstr "required field"
+
+#: ../messages/forms/adesao.php:10 ../messages/forms/contactos.php:10
+#: ../messages/forms/info.php:10 ../messages/forms/newsletter.php:8
+#: ../messages/forms/recrutamento.php:10
+msgid "Email inválido"
+msgstr "Invalid email"
+
+#: ../messages/forms/adesao.php:23
+msgid "Nif inválido"
+msgstr "Invalid Vat"
+
+#: ../messages/forms/adesao.php:40 ../messages/forms/contactos.php:43
+#: ../messages/forms/info.php:34 ../messages/forms/recrutamento.php:39
+#: ../messages/forms/reservas.php:27
+msgid "Dados enviados com sucesso, aguarde uma resposta"
+msgstr "Data sent successfully , wait for an answer"
+
+#: ../messages/forms/adesao.php:41 ../messages/forms/contactos.php:44
+#: ../messages/forms/info.php:35 ../messages/forms/recrutamento.php:40
+#: ../messages/forms/reservas.php:28
+msgid "Não possivel enviar email tente mais tarde"
+msgstr "Not possible to send email try later"
+
+#: ../messages/forms/contactos.php:15 ../messages/forms/recrutamento.php:15
+msgid "Telemóvel inválido"
+msgstr "Invalid phone"
+
+#: ../messages/forms/contactos.php:35
+msgid "Código Errado"
+msgstr "Wrong Code"
+
+#: ../messages/forms/newsletter.php:12
+msgid "Subescrição feita com sucesso"
+msgstr ""
+
+#: ../messages/forms/recrutamento.php:20
+msgid "Idade inválida"
+msgstr "Invalid age"
+
+#: ../messages/forms/recrutamento.php:34
+msgid "Ficheiro inválido, só permitido pdf`s ou ficheiros word"
+msgstr "Invalid file , only allowed pdf`s or word files"
+
+#: ../messages/forms/recrutamento.php:35
+msgid "Não possivel fazer upload do ficheiro tente outra vez ou contacte-nos"
+msgstr "Not possible to upload the file try again or contact us"
+
+#: ../messages/forms/reservas.php:10 ../messages/forms/reservas.php:15
+msgid "Numero inválido"
+msgstr "Invalid number"
 
 #: ../views/404.php:3
 msgid "Pagina não encontrada"
@@ -1562,8 +1646,7 @@ msgid ""
 "Insira o seu e-mail e mantenha-se atualizado com as últimas notícias e "
 "promoções!\n"
 msgstr ""
-"Enter your e-mail and keep up to date with the latest news and "
-"promotions!\n"
+"Enter your e-mail and keep up to date with the latest news and promotions!\n"
 
 #: ../views/home/newsletter.php:18
 msgid "Subscrever"
@@ -1581,7 +1664,11 @@ msgstr "See Location"
 msgid "Ver Transportes Mais próximos"
 msgstr "See Transport Closer"
 
-#: ../views/hoteis/index.php:6
+#: ../views/hoteis/index.php:5
+msgid "Promoções"
+msgstr "Promotions"
+
+#: ../views/hoteis/index.php:7
 msgid "SOBRE O HOTEL"
 msgstr "ABOUT THE HOTEL"
 
@@ -1641,7 +1728,7 @@ msgstr "Enter Zip Code"
 #: ../views/modals/adesao.php:48 ../views/modals/info.php:34
 #: ../views/modals/recrutamento.php:24
 msgid "LOCALIDADE"
-msgstr "Location"
+msgstr "LOCATION"
 
 #: ../views/modals/adesao.php:49 ../views/modals/info.php:35
 #: ../views/modals/recrutamento.php:25
@@ -1728,7 +1815,7 @@ msgstr "TIME"
 msgid "Introduzir Hora"
 msgstr "Enter Time"
 
-#: ../views/modals/reserva.php:43
+#: ../views/modals/reserva.php:44
 msgid "Enviar pedido de reserva"
 msgstr "Send booking request"
 
@@ -1736,7 +1823,7 @@ msgstr "Send booking request"
 msgid "Reservar Mesa"
 msgstr "Book Table"
 
-#: ../views/restaurants/index.php:20
+#: ../views/restaurants/index.php:23
 msgid "Siga-nos no Facebook"
 msgstr "Follow us on Facebook"
 

@@ -40,7 +40,7 @@
                 <select name="hotel" id="" class="a-field-select">
                     <option value="" class="a-field-option"><?php _e('HOTEL' , 'turim')?></option>
                     <?php foreach ($hoteis as $key => $value): ?>
-                        <option value="<?php echo $key ?>"  <?php Helper::check_select('hotel',  $key , $error); ?>> <?php echo $value ?></option>
+                        <option value="<?php echo $value ?>"  <?php Helper::check_select('hotel',  $value , $error); ?>> <?php echo $value ?></option>
                     <?php endforeach ?>
                 </select>
                 <div class="a-input-error">

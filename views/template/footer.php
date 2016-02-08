@@ -29,8 +29,8 @@ echo $site->get_partial('home/newsletter',
             <div class="a-clearfix a-footer-copyright">
                 <ul class="a-footer-copyright__list a-clearfix p-b-10">
                     <li>Copyright © <?php echo date("Y"); ?>  Turim Hotels. <?php _e('Todos os Direitos Reservados.' , 'turim')?> </li>
-                    <li> <?php _e('Politica de Privacidade' , 'turim')?></li>
-                    <li><?php _e('Termos e Condições' , 'turim')?></li>
+                    <li><a href="/<?php echo Helper::get_slug_pll('politica-de-privacidade' , 'page')?>/"><?php _e('Politica de Privacidade' , 'turim')?></a></li>
+                    <li><a href="/<?php echo  Helper::get_slug_pll('termos-e-condicoes' , 'page') ?>/"><?php _e('Termos e Condições' , 'turim')?></a></li>
                 </ul>
                 <div class="a-pull-right">Powered by ALICE</div>
             </div>

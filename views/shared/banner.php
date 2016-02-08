@@ -33,9 +33,6 @@
                 MAX: <?php echo $weather['high'] ?>ºC  MÍN: <?php echo $weather['low'] ?>ºC
             </div>
         <?php endif ?>
-
-
-
     </div>
     <?php echo $site->get_partial('shared/form-reservas' , array('hoteis' => $hoteis))?>
 </section>

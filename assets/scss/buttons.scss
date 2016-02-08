@@ -79,6 +79,18 @@
             right            : 12px;
         }
 
+        @include m('promotions') {
+            background-color : $dark;
+            width            : 138px;
+            border           : 2px solid $dark;
+            height           : 42px;
+            position         : absolute;
+            top              : 100px;
+            right            : 12px;
+        }
+
+
+
         @include m('facebook') {
             background-color : #8c8c8c;
             width            : auto;
@@ -160,7 +172,7 @@
            color:$yellow;
         }
 
-        
+
 
 
 

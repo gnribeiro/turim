@@ -1,7 +1,8 @@
 <?php global $post, $site; ?>
 
 <section class="a-dark-ligth-large p-t-80 p-b-10">
-    <div class="a-container ">
+    <div class="a-container a-relative">
+       <a href="<?php echo  Helper::get_slug_pll('em-destaque' , 'page') ?>" class="a-btn a-btn--light a-btn--promotions"><?php _e('Promoções' ,'turim') ?></a>
         <?php  if ( have_posts() ): while ( have_posts() ) : the_post() ?>
             <h1 class="a-ligth-txt"> <?php _e('SOBRE O HOTEL' , 'turim')?></h1>
             <div class="a-bo-content a-bo-content--medium a-ligth-txt">
