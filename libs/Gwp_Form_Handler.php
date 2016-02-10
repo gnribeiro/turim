@@ -65,7 +65,7 @@ Class Gwp_Form_Handler {
         if(!count($error)){
 
             $mail    = new Gwp_Mailman();
-            $emailTo = "gnoribeiro@gmail.com";
+            $emailTo = get_option('emails_contactos');
             //$attachments= array(ABSPATH . 'wp-content/uploads/2016/01/slider.jpg');
             //$mail->set_attachments($attachments);
 

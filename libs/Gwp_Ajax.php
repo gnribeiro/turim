@@ -70,9 +70,9 @@ Class Gwp_Ajax{
             if ( $uploadfile && !isset( $uploadfile['error'] ) ) {
                 $file  = $uploadfile["file"];
 
-                $mail    = new Gwp_Mailman();
-                $emailTo = "gnoribeiro@gmail.com";
-                $attachments= array($file);
+                $mail        = new Gwp_Mailman();
+                $emailTo     = get_option( 'emails_recrutamento' );
+                $attachments = array($file);
 
 
                 $dados= array(
@@ -132,8 +132,8 @@ Class Gwp_Ajax{
         }
         else{
             $mail    = new Gwp_Mailman();
-            $emailTo = "gnoribeiro@gmail.com";
-            $dados= array(
+            $emailTo = get_option( 'emails_info' );
+            $dados   = array(
                 'nome'         => $_POST['nome'],
                 'email'        => $_POST['email'],
                 'company'      => $_POST['company'],
@@ -185,8 +185,8 @@ Class Gwp_Ajax{
         }
         else{
             $mail    = new Gwp_Mailman();
-            $emailTo = "gnoribeiro@gmail.com";
-            $dados= array(
+            $emailTo = get_option('emails_adesao');
+            $dados   = array(
                 'nome'         => $_POST['nome'],
                 'email'        => $_POST['email'],
                 'company'      => $_POST['company'],
@@ -307,7 +307,7 @@ Class Gwp_Ajax{
         }
         else{
             $mail    = new Gwp_Mailman();
-            $emailTo = "gnoribeiro@gmail.com";
+            $emailTo =  get_option('emails_reservar');
             $dados   = array(
                 'nome'         => $_POST['nome'],
                 'email'        => $_POST['email'],
