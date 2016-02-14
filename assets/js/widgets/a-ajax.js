@@ -63,7 +63,6 @@ jQuery(function($){
                 .siblings('.a-input-error');
 
             errorFile.html('');
-             console.log(self.settings.action , action , "dssdsd");
             if(!files.length){
                 var errorMessage = (vars_site.language_current ==='en') ? 'Required field' : 'Campo Obrigatório';
                 errorFile.html(errorMessage);

@@ -219,7 +219,7 @@ jQuery(function($){
 
             if($('.a-btn--reservation').length) {
                 $('.a-btn--reservation').on('click', function(event){
-                    console.log("ssa");
+
                     event.preventDefault();
                     $(this).addClass('a-btn--reservation--selected');
 

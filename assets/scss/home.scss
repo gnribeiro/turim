@@ -132,7 +132,7 @@
       text-align  : center;
       float       : right;
       padding          : 0 30px;
-      max-width        : 284px;
+      width        : 284px;
       position: relative;
       &:before{
         @include arrow(left , 12px, $blue);

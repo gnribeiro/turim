@@ -1,6 +1,3 @@
-
-
-
 jQuery(function(a) {
     $(window).on('load , hashchange', function() {
         if(location.hash === "#recrutamento") {

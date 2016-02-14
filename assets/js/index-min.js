@@ -8467,8 +8467,7 @@ Zepto.fn.outerWidth = function(a) {
         reservation: function() {
             var b = this;
             a(".a-btn--reservation").length && a(".a-btn--reservation").on("click", function(b) {
-                console.log("ssa"), b.preventDefault(), a(this).addClass("a-btn--reservation--selected"), 
-                a(".a-reservar").length && a(".a-reservar").addClass("a-reservar--selected");
+                b.preventDefault(), a(this).addClass("a-btn--reservation--selected"), a(".a-reservar").length && a(".a-reservar").addClass("a-reservar--selected");
             }), a(".a-btn--close-reservar").length && a(".a-btn--close-reservar").on("click", function(c) {
                 c.preventDefault(), a(".a-btn--reservation").removeClass("a-btn--reservation--selected"), 
                 a(".a-reservar").length && a(".a-reservar").removeClass("a-reservar--selected"), 
@@ -8499,7 +8498,7 @@ Zepto.fn.outerWidth = function(a) {
         },
         handlerUploadFile: function(b, c) {
             var d = this, e = a(".a-loading", this.elem), f = d.settings.action, g = a("#" + d.settings.uploadFile)[0].files, h = a("#" + d.settings.uploadFile).parent(".a-clearfix").siblings(".a-input-error");
-            if (h.html(""), console.log(d.settings.action, f, "dssdsd"), !g.length) {
+            if (h.html(""), !g.length) {
                 var i = "en" === vars_site.language_current ? "Required field" : "Campo Obrigatório";
                 return void h.html(i);
             }
@@ -8589,9 +8588,9 @@ Zepto.fn.outerWidth = function(a) {
         events: function() {
             var b = this;
             a(this.elem).on("click", function(a) {
-                console.log("1112s"), a.preventDefault(), b.open();
+                a.preventDefault(), b.open();
             }), this.btnClose.on("click", function(a) {
-                a.preventDefault(), console.log("btnClose"), b.close();
+                a.preventDefault(), b.close();
             }), a(this.modalElement).on("click", function(a) {
                 a.preventDefault(), b.close();
             }), a(this.modalContent).on("click", function(a) {
@@ -8599,8 +8598,7 @@ Zepto.fn.outerWidth = function(a) {
             });
         },
         open: function() {
-            console.log("open", this.modalElement), "function" == typeof this.settings.onOpen && this.settings.onOpen(), 
-            a(this.modalElement).addClass("a-modal__container--selected");
+            "function" == typeof this.settings.onOpen && this.settings.onOpen(), a(this.modalElement).addClass("a-modal__container--selected");
         },
         setContent: function(b) {
             a(".a-modal__setcontent").append(b);

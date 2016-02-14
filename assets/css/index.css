@@ -12433,7 +12433,6 @@ header.main .a-lang__content {
   line-height: 18px;
 }
 header.main .a-lang__content li {
-  padding-bottom: 30px;
   order: 1;
 }
 header.main .a-lang__content li.current-lang {
@@ -12458,6 +12457,8 @@ header.main .a-lang__content:after {
 header.main .a-lang__content a {
   color: #ffffff;
   text-decoration: none;
+  height: 30px;
+  display: block;
 }
 header.main .a-lang__content a :hover {
   color: #ffffff;
@@ -13117,7 +13118,7 @@ header.main .a-social--phone:after {
   text-align: center;
   float: right;
   padding: 0 30px;
-  max-width: 284px;
+  width: 284px;
   position: relative;
 }
 .a-panel-promo__highlight:before {

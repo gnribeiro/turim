@@ -53,7 +53,7 @@ jQuery(function($){
           var that = this;
 
           $(this.elem).on('click', function(event){
-             console.log("1112s");
+
                 event.preventDefault();
                 that.open();
           });
@@ -61,7 +61,7 @@ jQuery(function($){
           this.btnClose.on('click', function(event){
                 event.preventDefault();
 
-                console.log("btnClose");
+
                 that.close();
           });
 
@@ -78,7 +78,7 @@ jQuery(function($){
         },
 
         open : function(){
-             console.log("open", this.modalElement);
+
 
             if( typeof this.settings.onOpen === "function" )
               this.settings.onOpen();

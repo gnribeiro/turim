@@ -10,7 +10,7 @@ jQuery(function($){
             'width'   : '600px',
             'height'  : '300px',
         };
-        console.log("sasas");
+
 
         this.init();
     }
