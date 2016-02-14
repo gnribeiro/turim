@@ -45,7 +45,7 @@ echo $site->get_partial('home/newsletter',
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-          ga('create', "", 'auto');
+          ga('create', "<?php echo get_option( 'google_analytics' ); ?>", 'auto');
           ga('send', 'pageview');
 
         </script>

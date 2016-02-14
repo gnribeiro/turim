@@ -155,9 +155,18 @@
 
         public function homepage()
         {
+            if(isset($_GET['delete_cache_instagram_turim'])){
+                delete_transient('instagram_homepage');
+            }
 
+            if ( false === ( $instagram = get_transient( 'instagram_homepage' ) ) ) {
 
+                    $instagram = $this->get_instagram();
 
+                    set_transient( 'instagram_homepage', $instagram, 3 * HOUR_IN_SECONDS );
+            }
+
+            $this->view->set('instagram' , $instagram );
             $this->view->set('banner'    , $this->get_banner());
             $this->view->set('destaques' , $this->destaques_home());
             $this->view->set('intros'    , $this->get_homeintros());
@@ -176,6 +185,42 @@
             return $this->view->render($partial);
         }
 
+
+        protected function get_instagram(){
+            $token     = get_option('instagram_token');
+            $userid    = get_option('instagram_user_id');
+            $count     = 4;
+            $api       = "https://api.instagram.com/v1/users/%s/media/recent/?access_token=%s&count=%s";
+            $url       = sprintf( $api, $userid, $token, $count);
+            $instagram = array();
+            $data      = $this->fetchData($url);
+            $data      = json_decode($data);
+
+
+            if(isset($data->data) && is_array($data->data)){
+
+                foreach ($data->data as $k => $value) {
+                    $instagram[$k]['link']  = $value->link ;
+                    $instagram[$k]['date']  = date("d/m/Y" , $value->created_time );
+                    $instagram[$k]['image'] = $value->images->low_resolution->url ;
+
+                }
+            }
+
+            return $instagram;
+        }
+
+        protected function fetchData($url){
+            $ch = curl_init();
+
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+
+            $result = curl_exec($ch);
+            curl_close($ch);
+            return $result;
+        }
 
 
         protected function destaques_home()

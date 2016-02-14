@@ -36,6 +36,28 @@
             ),
             array(
                'type'     => 'text',
+               'id'       => 'instagram_user_id',
+               'title'    => 'Instagram User ID',
+               'args'     => array(
+                   'type'      => 'text',
+                   'name'      => 'instagram_user_id',
+                   'desc'      => 'Instagram User ID',
+                   'class'     => 'css_class'
+               )
+            ),
+            array(
+               'type'     => 'text',
+               'id'       => 'instagram_token',
+               'title'    => 'Instagram Token',
+               'args'     => array(
+                   'type'      => 'text',
+                   'name'      => 'instagram_token',
+                   'desc'      => 'Instagram Token',
+                   'class'     => 'css_class'
+               )
+            ),
+            array(
+               'type'     => 'text',
                'id'       => 'emails_contactos',
                'title'    => 'Email contactos',
                'args'     => array(

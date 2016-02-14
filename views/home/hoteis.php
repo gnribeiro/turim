@@ -8,22 +8,22 @@
             <div class="a-text-center"><i class="fa fa-instagram a-instragram"></i></div>
         <?php endif ?>
 
-        <?php  if( have_rows('hotels_social_media_home') ):?>
+        <?php  if(count($instagram)):?>
         <div class="a-row a-clearfix p-t-30 a-phone-hoteis-home">
-            <?php   while ( have_rows('hotels_social_media_home') ) : the_row(); ?>
+            <?php   foreach ( $instagram as $value ) :  ?>
             <div class="a-col-3">
                 <div>
-                    <a href="<?php echo get_sub_field('hotels_social_media_home_link');?>">
-                        <img src="<?php echo get_sub_field('image_hotels_social_media_home');?>" alt="" class="a-img-responsive" border="0"/>
+                    <a href="<?php echo $value['link'] ?>" target="_blank">
+                        <img src="<?php echo  $value['image']?>" alt="" class="a-img-responsive" border="0"/>
                     </a>
                 </div>
                 <div class="a-hotel-legend">
-                    <a href="<?php echo get_sub_field('hotels_social_media_home_link');?>">
-                        <i class="fa fa-instagram a-instragram"></i> <?php echo get_sub_field('title_hotels_social_media_home');?>
+                    <a href="<?php echo $value['link'] ?>" target="_blank">
+                        <i class="fa fa-instagram a-instragram"></i> <?php echo  $value['date']?> @TurimHotels
                     </a>
                 </div>
             </div>
-           <?php  endwhile;?>
+           <?php  endforeach;?>
         </div>
         <?php endif;?>
     </div>
