@@ -155,9 +155,9 @@
 
         public function homepage()
         {
-            if(isset($_GET['delete_cache_instagram_turim'])){
-                delete_transient('instagram_homepage');
-            }
+            // if(isset($_GET['delete_cache_instagram_turim'])){
+            //     delete_transient('instagram_homepage');
+            // }
 
             if ( false === ( $instagram = get_transient( 'instagram_homepage' ) ) ) {
 
@@ -194,7 +194,13 @@
             $url       = sprintf( $api, $userid, $token, $count);
             $instagram = array();
             $data      = $this->fetchData($url);
-            $data      = json_decode($data);
+
+            if(!$data ){
+                $data  = json_decode(file_get_contents($url));
+            }
+
+            $data = json_decode($data);
+
 
 
             if(isset($data->data) && is_array($data->data)){
@@ -211,14 +217,25 @@
         }
 
         protected function fetchData($url){
-            $ch = curl_init();
 
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 20);
 
-            $result = curl_exec($ch);
-            curl_close($ch);
+            $c = curl_init();
+            curl_setopt($c, CURLOPT_URL, $url);
+            curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($c, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($c, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; rv:33.0) Gecko/20100101 Firefox/33.0");
+            curl_setopt($c, CURLOPT_MAXREDIRS, 10);
+            curl_setopt($c, CURLOPT_CONNECTTIMEOUT, 9);
+            curl_setopt($c, CURLOPT_CONNECTTIMEOUT, 9);
+            curl_setopt($c, CURLOPT_REFERER, $url);
+            curl_setopt($c, CURLOPT_TIMEOUT, 60);
+            curl_setopt($c, CURLOPT_AUTOREFERER, true);
+            curl_setopt($c, CURLOPT_ENCODING, 'gzip,deflate');
+            $result = curl_exec($c);
+            $status = curl_getinfo($c);
+            curl_close($c);
+
+
             return $result;
         }
 

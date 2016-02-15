@@ -18,6 +18,7 @@ Class Admin {
 
 
         add_theme_support( 'post-thumbnails' );
+        add_action( 'admin_menu',  array($this, 'instagram_delete_cache'));
     }
 
     protected function register_menus()
@@ -45,6 +46,18 @@ Class Admin {
                 //load_theme_textdomain($lang['name'], get_template_directory() . $lang['folder'] );
             }
         }
+    }
+
+    public function instagram_delete_cache(){
+        add_menu_page( 'Delete Instagram Cache', 'Delete Instagram Cache', 'manage_options', 'delete_cache.php', array($this, 'instagram_delete_cache_view'), '', 90  );
+
+    }
+
+    public function instagram_delete_cache_view(){
+       $view = View::factory();
+
+        echo $view->render('admin/instagram');
+
     }
 }
 ?>
