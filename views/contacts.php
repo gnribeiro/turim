@@ -26,11 +26,8 @@
             </div>
 
             <div class="a-field">
-                <select name="type-company" id="" class="a-field-select">
-                    <option value=""  class="a-field-option"><?php _e('Particular ou Empresa' , 'turim')?></option>
-                    <option value="Particular" <?php Helper::check_select('type-company', 'Particular', $error ); ?> class="a-field-option"><?php _e('Particular' , 'turim')?></option>
-                    <option value="Empresa"    <?php Helper::check_select('type-company', 'Empresa' , $error); ?>class="a-field-option"><?php _e('Empresa' , 'turim')?></option>
-                </select>
+            <label class="a-field__label" for="mensage"><?php _e('PARTICULAR OU EMPRESA' , 'turim')?></label>
+                <input class="a-input-text" type="text" name="type-company"  id="type-company" value="<?php Helper::input_value( "type-company"  , $error)?>" />
                  <div class="a-input-error">
                     <?php if($erro= Helper::get_flashdata("type-company-error")): echo $erro; endif;?>
                 </div>
@@ -61,14 +58,6 @@
                 <input type="text" class="a-input-email" name="subject" placeholder="<?php _e('Introduzir assunto' , 'turim')?>" id="subject" value="<?php Helper::input_value("subject", $error)?>"/>
                 <div class="a-input-error">
                     <?php if($erro= Helper::get_flashdata("subject-error")): echo $erro; endif;?>
-                </div>
-            </div>
-
-            <div class="a-field">
-                <label class="a-field__label" for="reserva"><?php _e('QUARTO/Nº DE RESERVA' , 'turim')?></label>
-                <input class="a-input-text" type="text" name="reserva" placeholder="<?php _e('Introduzir Número de Reserva ou Quarto' , 'turim')?>" id="reserva" value="<?php Helper::input_value( "reserva"  , $error)?>"/>
-                <div class="a-input-error">
-                   <?php if($erro= Helper::get_flashdata("reserva-error")): echo $erro; endif;?>
                 </div>
             </div>
 
@@ -109,7 +98,7 @@
         <div class="a-aside__header">
             <h5><?php _e('NÚMERO ÚNICO' , 'turim')?></h5>
             <div class="m-b-15"><?php _e('INFORMAÇÕES E RESERVAS' , 'turim')?></div>
-            <h3><a href="tel:210 330 800" class="a-link-phone">210 330 800</a></h3>
+            <h3><a href="tel:210 330 800" class="a-link-phone a-link-phone--ligth">210 330 800</a></h3>
         </div>
         <?php if(isset($contacts)): ?>
         <div class="a-aside__content">

@@ -17,25 +17,6 @@
             <div class="a-input-error  a-input-error--modal"></div>
         </div>
 
-         <div class="a-field a-field--modal">
-            <label class="a-field__label  a-field__label--modal" for="address"><?php _e('MORADA' , 'turim')?></label>
-            <input class="a-input-text a-input-text--modal" type="text" name="address" placeholder=" <?php _e('Introduzir Morada' , 'turim')?>" id="address" value="" />
-            <div class="a-input-error  a-input-error--modal"></div>
-        </div>
-
-        <div class="a-clearfix">
-            <div class="a-col-6">
-                <label class="a-field__label  a-field__label--modal" for="cp7"><?php _e('CÓDIGO POSTAL' , 'turim')?></label>
-                <input class="a-input-text a-input-text--modal" type="text" name="cp7" placeholder="<?php _e('Introduzir Código Postal' , 'turim')?>" id="cp7" value="" />
-                <div class="a-input-error  a-input-error--modal"></div>
-            </div>
-
-            <div class="a-col-6">
-                <label class="a-field__label  a-field__label--modal" for="localidade"><?php _e('LOCALIDADE' , 'turim')?></label>
-                <input class="a-input-text a-input-text--modal" type="text" name="localidade" placeholder="<?php _e('Introduzir Localidade' , 'turim')?>" id="localidade" value="" />
-                <div class="a-input-error  a-input-error--modal"></div>
-            </div>
-        </div>
 
         <div class="a-field a-field--modal">
             <label class="a-field__label  a-field__label--modal" for="email"><?php _e('EMAIL' , 'turim')?></label>

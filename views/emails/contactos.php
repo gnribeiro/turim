@@ -7,8 +7,6 @@
     <br>
     Assunto: <?php echo $subject ?>.
     <br>
-    Reserva: <?php echo $reserva ?>.
-    <br>
     hotel: <?php echo $hotel ?>.
     <br>
     <?php echo $typecompany ?>.

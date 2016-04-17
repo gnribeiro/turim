@@ -5,12 +5,6 @@
     <br>
     Email:&nbsp; <?php echo $email ?>.
     <br>
-    Morada:&nbsp; <?php echo $address ?>.
-    <br>
-    Código Postal:&nbsp; <?php echo $cp7 ?>.
-    <br>
-     Localidade:&nbsp; <?php echo $localidade ?>.
-    <br>
     Empresa:&nbsp; <?php echo $company ?>.
 </p>
 <p>

@@ -72,7 +72,6 @@ Class Gwp_Form_Handler {
                 'email'        => $_POST['email'],
                 'mensage'      => $_POST['mensage'],
                 'subject'      => $_POST['subject'],
-                'reserva'      => $_POST['reserva'],
                 'typecompany'  => $_POST['type-company'],
                 'hotel'        => $_POST['hotel']
             );

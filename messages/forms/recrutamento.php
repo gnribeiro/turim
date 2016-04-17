@@ -10,7 +10,7 @@ return array(
       'Valid::email' => __('Email inválido', 'turim'),
     ),
 
-     'phone' => array(
+    'phone' => array(
       'not_empty'    => __('Campo de preenchimento obrigatório', 'turim'),
       'numeric' => __('Telemóvel inválido', 'turim'),
     ),

@@ -1,4 +1,4 @@
-<?php global $post ?>
+<?php global $post, $site ?>
 <section class="a-lignt p-t-70 p-b-75">
   <div class="a-container">
    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -14,9 +14,14 @@
                 <div class="a-bo a-bo--collum-2">
                     <?php echo get_field('content-collum-2') ?>
                 </div>
+                <div>
+                  <a class="a-btn a-btn--dark m-t-15" data-a-widget="Amodal" data-a-widget-options="<?php echo $modal ?>"><?php _e('Pedir Adesão' , 'turim')?> <i class="fa fa-chevron-right" ></i></a>
+                </div>
             </div>
         </div>
         <?php endif; ?>
       <?php endwhile; endif; ?>
   </div>
 </section>
+
+<?php echo $site->get_partial('modals/adesao_ask' , array('ajax'=>$ajax)) ?>

@@ -2,8 +2,6 @@
 
     class Site extends Base
     {
-
-
         public function __construct()
         {
             parent::__construct();
@@ -48,6 +46,16 @@
 
         public function collum2()
         {
+            $modal = array(
+                'content' => '#adesao_ask',
+                'form'    =>  true
+            );
+
+            $ajax  = array('action'  => 'adesao_ask');
+
+            $this->view->set('modal',  Helper::setJson($modal));
+            $this->view->set('ajax' ,  Helper::setJson($ajax));
+            $this->view->set('modal',  Helper::setJson($modal));
             $this->view->set('banner', $this->get_banner());
             $content = $this->view->render('collum2');
             $this->content($content);
@@ -346,26 +354,34 @@
 
         protected function get_weather(){
             $feed  = "http://weather.yahooapis.com/forecastrss?p=POXX0039&u=c";
-            $xml   =  new SimpleXMLElement(file_get_contents($feed));
-            $temps = array();
+            $temps = [];
+            try {
+                $xml_contemt   = file_get_contents($feed);
 
-            if ( $xml !== false ) {
-                $namespaces = $xml->getNamespaces(true);
-                $geo = $xml->channel->item->children($namespaces['yweather']);
+                $xml   =  new SimpleXMLElement();
+                $temps = array();
 
-                if(is_object($geo[1])){
-                    $attr = $geo[1]->attributes();
+                if ( $xml !== false ) {
+                    $namespaces = $xml->getNamespaces(true);
+                    $geo = $xml->channel->item->children($namespaces['yweather']);
 
-                    if(is_object($attr->low) && is_object($attr->high)){
-                        $temps['low']  = (string) $attr->low;
-                        $temps['high'] = (string) $attr->high;
+                    if(is_object($geo[1])){
+                        $attr = $geo[1]->attributes();
+
+                        if(is_object($attr->low) && is_object($attr->high)){
+                            $temps['low']  = (string) $attr->low;
+                            $temps['high'] = (string) $attr->high;
+                        }
                     }
+
+
                 }
 
-
+                return $temps;
             }
-
-            return $temps;
+            catch (Exception $e) {
+                return $temps;
+            }
         }
 
 

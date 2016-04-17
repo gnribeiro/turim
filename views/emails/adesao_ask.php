@@ -12,8 +12,4 @@
     Código Postal:&nbsp; <?php echo $cp7 ?>.
     <br>
      Localidade:&nbsp; <?php echo $localidade ?>.
-    <br>
-    Nif:&nbsp; <?php echo $nif ?>.
-    <br>
-    Empresa:&nbsp; <?php echo $company ?>.
 </p>

@@ -14,6 +14,7 @@
             <div class="a-input-error a-input-error--modal"></div>
         </div>
 
+
         <div class="a-field a-field--modal">
             <label class="a-field__label a-field__label--modal" for="email"><?php _e('EMAIL' , 'turim')?></label>
             <input type="text" class="a-input-email a-input-email--modal" name="email" placeholder="<?php _e('Introduzir email' , 'turim')?>" id="email" value=""/>
@@ -48,8 +49,14 @@
         </div>
 
         <div class="a-field a-field--modal">
-            <label class="a-field__label a-field__label--modal" for="subject"><?php _e('ASSUNTO' , 'turim')?></label>
-            <input class="a-input-text a-input-text--modal" type="text" name="subject" placeholder="<?php _e('Introduzir assunto' , 'turim')?>" id="subject" value="" />
+            <select name="subject" class="a-field-select" id="subject" class="subject">
+                <option value=''><?php _e('ÁREA DE CANDIDATURA' , 'turim')?></option>
+                <option value='Receção'><?php _e('Receção' , 'turim')?></option>
+                <option value='Restauração/Bar'><?php _e('Restauração/Bar' , 'turim')?></option>
+                <option value='Manutenção/limpezas'><?php _e('Manutenção/limpezas' , 'turim')?></option>
+                <option value='Bagageiro'><?php _e('Bagageiro' , 'turim')?></option>
+                <option value='Outros'><?php _e('Outros' , 'turim')?></option>
+            </select>
             <div class="a-input-error a-input-error--modal"></div>
         </div>
 

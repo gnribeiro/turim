@@ -1,6 +1,6 @@
-<div id="adesao" class="a-hide">
+<div id="adesao_ask" class="a-hide">
     <div class="a-modal__header">
-        <h2><?php _e('ADESÃO' , 'turim')?></h2>
+        <h2><?php _e('PEDIR ADESÃO' , 'turim')?></h2>
         <?php _e('TURIM HOTÉIS  •  FICHA DE INSCRIÇÃO' , 'turim')?>
     </div>
 
@@ -16,18 +16,6 @@
             <label class="a-field__label a-field__label--modal" for="email"><?php _e('EMAIL' , 'turim')?></label>
             <input type="text" class="a-input-email a-input-email--modal" name="email" placeholder="<?php _e('Introduzir Email' , 'turim')?>" id="email" value=""/>
             <div   class="a-input-error  a-input-error--modal"></div>
-        </div>
-
-        <div class="a-field a-field--modal">
-            <label class="a-field__label a-field__label--modal" for="company"><?php _e('EMPRESA' , 'turim')?></label>
-            <input class="a-input-text a-input-text--modal" type="text" name="company" placeholder="<?php _e('Introduzir Empresa' , 'turim')?>" id="company" value="" />
-            <div class="a-input-error  a-input-error--modal"></div>
-        </div>
-
-        <div class="a-field a-field--modal">
-            <label class="a-field__label a-field__label--modal" for="nif"><?php _e('NIF' , 'turim')?></label>
-            <input class="a-input-text a-input-text--modal" type="text" name="nif" placeholder="<?php _e('Introduzir Nif' , 'turim')?>" id="nif" value="" />
-            <div class="a-input-error  a-input-error--modal"></div>
         </div>
 
         <div class="a-field a-field--modal">
