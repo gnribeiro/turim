@@ -1,6 +1,6 @@
 jQuery(function($){
     letsgetitoNamespace.Slidedown= function Slidedown( elem , options){
-      this.elem   =  $(elem); 
+      this.elem   =  $(elem);
       this.options = options;
       this.init();
     }
@@ -10,12 +10,12 @@ jQuery(function($){
             'button'  :"",
             'content' : 0
         },
-       
+
         init : function(){
             this.merge( this.options );
             this.settings.button = $(this.settings.button ) ;
             this.settings.content = $(this.settings.content ) ;
-           
+
 
            this.events();
         },
@@ -27,7 +27,7 @@ jQuery(function($){
                 if(this.settings.hasOwnProperty(opt ) !== undefined)
                     this.settings[opt] = options[opt];
             }
-                
+
           }
         },
 
@@ -44,7 +44,7 @@ jQuery(function($){
                 }
 
               self.settings.content.slideToggle(  );
-            
+
             });
         }
     }

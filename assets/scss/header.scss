@@ -35,8 +35,9 @@ header.main{
                 line-height: 18px;
 
                 li{
-
-
+                  @include display(flex);
+                  @include flex-grow(1);
+                  @include flex-shrink(0);
                   order:1;
 
                   &.current-lang{

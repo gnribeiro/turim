@@ -109,7 +109,7 @@
         <div class="a-aside__header">
             <h5><?php _e('NÚMERO ÚNICO' , 'turim')?></h5>
             <div class="m-b-15"><?php _e('INFORMAÇÕES E RESERVAS' , 'turim')?></div>
-            <h3>210 330 800</h3>
+            <h3><a href="tel:210 330 800" class="a-link-phone">210 330 800</a></h3>
         </div>
         <?php if(isset($contacts)): ?>
         <div class="a-aside__content">

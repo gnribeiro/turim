@@ -10,7 +10,7 @@
             <input type="hidden" name="nights" value="" id="nights-reservar">
             <div class="a-field a-field--nopd m-b-15">
                 <select name="selectedHotelId" id="selectedHotelId" class="a-field-select">
-                  <option value="">All hotels</option>
+                  <option value=""><?php _e("Todos os Hotéis", "turim")?></option>
                   <?php foreach ($hoteis as $key => $value): ?>
                         <option value="<?php echo $key ?>"> <?php echo $value ?></option>
                     <?php endforeach ?>

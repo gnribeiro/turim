@@ -83,11 +83,14 @@
         public function restaurants()
         {
             $tabs = array(
-                'A nosso cozinha'  => 'tabs/cozinha',
-                'O nosso Chef'     => 'tabs/chef',
-                'Ementa'           => 'tabs/ementa',
-                'Galeria'          => 'tabs/galeria',
+                __('A nossa cozinha' , "turim") => 'tabs/cozinha',
+                __('O nosso Chef', "turim")     => 'tabs/chef',
+                __('Ementa', "turim")           => 'tabs/ementa',
+                __('Galeria' , "turim")         => 'tabs/galeria'
             );
+
+            if((is_single("lisbon") || is_single('lisboa')))
+                array_splice($tabs,1,1);
 
             $tabs_json  = array(
                 'btns'    => '.a-tabs__link',
@@ -131,14 +134,29 @@
                 'restpark_parking'     => __('Parque de <br> Estacionamento', 'turim'),
                 'rest_multimedia_room' => __('Sala <br> Multimédia', 'turim'),
                 'rest_restaurant'      => __('Restaurante', 'turim'),
-                'bar_rest'             => __('Bar', 'turim')
+                'bar_rest'             => __('Bar', 'turim'),
+                'pool_rest'            => __('Piscina', 'turim'),
+                'tenis_res'            => __('Campo de ténis', 'turim'),
+                'golf_rest'            => __('Campo de golf', 'turim'),
+                'infantil_rest'        => __('Parque infantil', 'turim')
             );
 
-            $tabs = array(
-                'historia'           => 'tabs/history',
-                'galeria de Imagens' => 'tabs/galeria',
-                'reuniões & eventos' => 'tabs/events'
-            );
+            $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+
+            if (strpos($url,'-2/') !== false) {
+                $tabs = array(
+                    'History'           => 'tabs/history',
+                    'Gallery'           => 'tabs/galeria',
+                    'Events & Meetings' => 'tabs/events'
+                );
+            }
+            else {
+                $tabs = array(
+                    'historia'           => 'tabs/history',
+                    'galeria de Imagens' => 'tabs/galeria',
+                    'reuniões & eventos' => 'tabs/events'
+                );
+            }
 
             $tabs_json  = array(
                 'btns'    => '.a-tabs__link',
@@ -160,7 +178,6 @@
             // }
 
             if ( false === ( $instagram = get_transient( 'instagram_homepage' ) ) ) {
-
                     $instagram = $this->get_instagram();
 
                     set_transient( 'instagram_homepage', $instagram, 3 * HOUR_IN_SECONDS );

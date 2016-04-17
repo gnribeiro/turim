@@ -8,13 +8,13 @@
                 <?php echo get_field('resume_page') ?>
             </div>
         <?php endif ?>
-        <h1 class="a-text-center a-block-center-900"><?php the_title() ?></h1>
+        <h1 class="a-text-center a-block-center-900 m-b-20"><?php the_title() ?></h1>
         <div class="a-text-center m-b-55"><?php the_content() ?></div>
 
         <?php  if( have_rows('evento') ):?>
             <?php   while ( have_rows('evento') ) : the_row(); ?>
             <div class="a-clearfix a-bo-events" id="<?php echo  get_sub_field('id_event');?>">
-                <div class="a-col-6">
+                <div class="a-col-6 a-text-right">
                     <img src="<?php echo get_sub_field('image_event');?>" alt="" class="a-img-responsive">
                 </div>
                 <div class="a-col-6 p-l-10">
@@ -24,7 +24,7 @@
                         </div>
                     <?php endif; ?>
                     <?php if(get_sub_field('title_event')): ?>
-                        <h2 class="a-bo-events__title">
+                        <h2 class="a-bo-events__title m-b-20">
                             <?php echo get_sub_field('title_event');?>
                         </h2>
                     <?php endif; ?>

@@ -3,7 +3,7 @@
 <section class="a-highlights" style="<?php echo $style ?>">
   <div class="a-container">
     <?php if(get_field('titulo_highligter_rest')):  ?>
-      <h1 class="a-highlights__title">
+      <h1 class="a-highlights__title m-b-15">
         <?php echo get_field('titulo_highligter_rest'); ?>
       </h1>
     <?php endif ?>

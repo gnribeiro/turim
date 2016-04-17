@@ -32,9 +32,7 @@ Class Gwp_Form_Handler {
         $validation->rule('email',        'Valid::email');
         $validation->rule('mensage',      'not_empty');
         $validation->rule('subject',      'not_empty');
-        $validation->rule('reserva',      'not_empty');
         $validation->rule('type-company', 'not_empty');
-        $validation->rule('hotel'       , 'not_empty');
         $validation->rule('captcha',      'not_empty');
 
         if(!$validation->check()){
@@ -81,7 +79,7 @@ Class Gwp_Form_Handler {
 
             $mail->set_subject('Mensagem do Formulario');
             $mail->set_template('contactos.php');
-            $mail->set_from("geral@turim-hotels.com");
+            $mail->set_from("turim-hotels <dirgeral@turimhoteis.com>");
             $mail->set_to($emailTo);
             $mail->set_vars($dados);
             $send = $mail->send();

@@ -1,7 +1,7 @@
 <section class="a-ligth p-t-80 p-b-70">
     <div class="a-container">
         <?php if(get_field('title_hotels_home')): ?>
-            <h1 class="a-text-center"><?php the_field('title_hotels_home'); ?></h1>
+            <h1 class="a-text-center m-b-10"><?php the_field('title_hotels_home'); ?></h1>
         <?php endif ?>
         <?php if(get_field('content_hotels_home')): ?>
             <div class="a-text-center a-content p-b-25"><?php the_field('content_hotels_home'); ?></div>

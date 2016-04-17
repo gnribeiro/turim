@@ -9,7 +9,7 @@
         <h1 class="a-logo"><a href="<?php echo pll_home_url(); ?>">Turim</a></h1>
         <div class="a-menu">
             <a href="#" class="a-btn a-btn--menu">MENU</a>
-            <a href="#" class="a-btn a-btn--reservation"><?php _e('RESERVA' , 'turim')?></a>
+            <a href="#" class="a-btn a-btn--reservation"><?php _e('RESERVAR' , 'turim')?></a>
         </div>
         <h2  class="a-banner__title"><?php echo $title; ?></h2>
         <div class="a-banner__resume"><?php echo $resume; ?></div>

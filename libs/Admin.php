@@ -19,6 +19,7 @@ Class Admin {
 
         add_theme_support( 'post-thumbnails' );
         add_action( 'admin_menu',  array($this, 'instagram_delete_cache'));
+
     }
 
     protected function register_menus()

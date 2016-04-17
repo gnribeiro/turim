@@ -75,17 +75,17 @@
             border           : 2px solid $dark;
             height           : 42px;
             position         : absolute;
-            top              : 185px;
+            top              : 105px;
             right            : 12px;
         }
 
         @include m('promotions') {
             background-color : $dark;
-            width            : 138px;
+            width            : 160px;
             border           : 2px solid $dark;
             height           : 42px;
             position         : absolute;
-            top              : 100px;
+            top              : 160px;
             right            : 12px;
         }
 
@@ -195,5 +195,21 @@
 
         }
 
+    }
+
+    &-link-phone{
+      color:$dark;
+      text-decoration: none;
+      &:hover {
+        color:$dark;
+      text-decoration: none;
+      }
+
+      @include m('ligth') {
+        color:#ffffff;
+        &:hover {
+             color:#ffffff;
+          }
+      }
     }
 }

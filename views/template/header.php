@@ -9,7 +9,7 @@
                  <li class="a-social">
                     <a href="<?php echo get_option( 'instagram_site' ); ?>" class="a-social--instagram">instagram</a>
                 </li>
-                <li  class="a-social">
+                <li  class="a-social a-hide-mobile">
                     <span class="a-social--phone">(+351) 210 330 800</span>
                 </li>
                 <li class="a-lang">

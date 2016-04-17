@@ -8385,6 +8385,7 @@ Zepto.fn.outerWidth = function(a) {
                     paginationClickable: !0,
                     nextButton: ".swiper-button-next",
                     prevButton: ".swiper-button-prev",
+                    slidesPerView: 2,
                     spaceBetween: 30
                 });
                 a(".a-tabs__content:not(.a-tabs__content--selected)").hide(), a(".a-tab-visibility").length && a(".a-tab-visibility").removeClass("a-tab-visibility");

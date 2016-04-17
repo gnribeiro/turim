@@ -4,15 +4,15 @@
 			<li><?php echo $value->post_title ?></li>
 
 			<?php if(get_field("fax_contacts", $value->ID) ): ?>
-				<li>Fax: <?php echo get_field("fax_contacts", $value->ID) ?></li>
+				<li>Fax: <a href="tel:<?php echo get_field("fax_contacts", $value->ID) ?>" class="a-link-phone"><?php echo get_field("fax_contacts", $value->ID) ?></a></li>
 			<?php endif ?>
 
 			<?php if(get_field("telefone_contacts", $value->ID) ): ?>
-				<li>Phone: <?php echo get_field("telefone_contacts" , $value->ID) ?></li>
+				<li>Phone: <a href="tel:<?php echo get_field("telefone_contacts" , $value->ID) ?>" class="a-link-phone"><?php echo get_field("telefone_contacts" , $value->ID) ?></a></li>
 			<?php endif ?>
 
 			<?php if(get_field("email_contacts", $value->ID) ): ?>
-				<li><?php echo get_field("email_contacts" , $value->ID) ?></li>
+				<li><a href="mailto:<?php echo get_field("email_contacts" , $value->ID) ?>" class="a-link-phone"><?php echo get_field("email_contacts" , $value->ID) ?></a></li>
 			<?php endif ?>
 		</ul>
 	<?php endforeach; ?>

@@ -1,17 +1,17 @@
 <p>Mensagem do Formulário de Adesão do Site </p>
 
 <p>
-    De: <?php echo $nome ?>.
+    De:&nbsp; <?php echo $nome ?>.
     <br>
-    Email: <?php echo $email ?>.
+    Email:&nbsp; <?php echo $email ?>.
     <br>
-    Morada: <?php echo $address ?>.
+    Morada:&nbsp; <?php echo $address ?>.
     <br>
-    Código Postal: <?php echo $cp7 ?>.
+    Código Postal:&nbsp; <?php echo $cp7 ?>.
     <br>
-     Localidade: <?php echo $localidade ?>.
+     Localidade:&nbsp; <?php echo $localidade ?>.
     <br>
-    Nif: <?php echo $nif ?>.
+    Nif:&nbsp; <?php echo $nif ?>.
     <br>
-    Empresa: <?php echo $company ?>.
+    Empresa:&nbsp; <?php echo $company ?>.
 </p>

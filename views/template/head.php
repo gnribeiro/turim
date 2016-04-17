@@ -18,9 +18,9 @@
     <script type='text/javascript'>
     /* <![CDATA[ */
     var vars_site = {
-        "theme_url"        : "<?php  echo THEMEURL ?>",
-        "ajax_url"         : " <?php echo admin_url( 'admin-ajax.php' ) ?>",
-        "language_current" : "<?php echo pll_current_language() ?>"
+        "theme_url"        : '',
+        "ajax_url"         : ' <?php echo admin_url( "admin-ajax.php" ) ?>',
+        "language_current" : '<?php echo pll_current_language() ?>'
     };
     /* ]]> */
     </script>

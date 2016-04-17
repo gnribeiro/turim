@@ -29,6 +29,7 @@ jQuery(function($){
                     paginationClickable: true,
                     nextButton: '.swiper-button-next',
                     prevButton: '.swiper-button-prev',
+                    slidesPerView: 2,
                     spaceBetween: 30
                 })
 

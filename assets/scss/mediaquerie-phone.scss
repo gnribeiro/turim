@@ -37,9 +37,12 @@
 				float: none !important;
 				display: block;
 				max-width: none;
-				width: 100%;
-				height: auto;
-				max-height: none;
+				width: 277px;
+		    height: auto;
+		    max-height: none;
+		    margin-left: auto;
+		    margin-right: auto;
+
 			}
 
 			@include e('highlight') {
@@ -104,9 +107,8 @@
 			}
 
 			.a-btn--transparent{
-				margin-top: 10px;
-				clear: both;
-    			float: none !important;
+				width: 117px;
+    		min-width: 100px;
 			}
 		}
 
@@ -271,6 +273,13 @@
 
 	}
 
+	.a-menu-main--footer ul.menu > li {
+    float: none;
+    text-align: left;
+    margin-left: 0px;
+    margin-bottom: 20px;
+	}
+
 	.a-slick-gallery.swiper-container{
 		    margin-top: 35px;
 	}
@@ -346,5 +355,28 @@
 		width: 100%;
 		margin-right: 0px;
 		margin-bottom: 20px;
+	}
+
+	.a-btn--promotions {
+		left: 0;
+    top: -60px;
+    right: auto;
+	}
+
+	.a-menu-main--footer li.a-hotel-menu {
+  	  width: auto;
+	}
+
+	.a-reservar{
+		display: none;
+	}
+
+	.a-reservar--selected{
+		display: block;
+	}
+
+	.a-highlights__title{
+		    font-size: 30px;
+    line-height: 36px;
 	}
 }

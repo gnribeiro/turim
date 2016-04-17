@@ -76,19 +76,19 @@ Class Gwp_Ajax{
 
 
                 $dados= array(
-                    'nome'         => $_POST['nome'],
-                    'email'        => $_POST['email'],
-                    'phone'        => $_POST['phone'],
-                    'subject'      => $_POST['subject'],
-                    'localidade'   => $_POST['localidade'],
-                    'age'          => $_POST['age'],
-                    'obs'          => $_POST['obs']
+                    'nome'         => $data['nome'],
+                    'email'        => $data['email'],
+                    'phone'        => $data['phone'],
+                    'subject'      => $data['subject'],
+                    'localidade'   => $data['localidade'],
+                    'age'          => $data['age'],
+                    'obs'          => $data['obs']
                 );
 
                 $mail->set_attachments($attachments);
                 $mail->set_subject('Mensagem do Formulario de Recrutamento');
                 $mail->set_template('recrutamento.php');
-                $mail->set_from("geral@turim-hotels.com");
+                $mail->set_from("turim-hotels <dirgeral@turimhoteis.com>");
                 $mail->set_to($emailTo);
                 $mail->set_vars($dados);
                 $send = $mail->send();
@@ -134,18 +134,18 @@ Class Gwp_Ajax{
             $mail    = new Gwp_Mailman();
             $emailTo = get_option( 'emails_info' );
             $dados   = array(
-                'nome'         => $_POST['nome'],
-                'email'        => $_POST['email'],
-                'company'      => $_POST['company'],
-                'cp7'          => $_POST['cp7'],
-                'address'      => $_POST['address'],
-                'localidade'   => $_POST['localidade'],
-                'obs'          => $_POST['obs']
+                'nome'         => $data['nome'],
+                'email'        => $data['email'],
+                'company'      => $data['company'],
+                'cp7'          => $data['cp7'],
+                'address'      => $data['address'],
+                'localidade'   => $data['localidade'],
+                'obs'          => $data['obs']
             );
 
             $mail->set_subject('Mensagem do Formulario de Informação');
             $mail->set_template('info.php');
-            $mail->set_from("geral@turim-hotels.com");
+            $mail->set_from("turim-hotels <dirgeral@turimhoteis.com>");
             $mail->set_to($emailTo);
             $mail->set_vars($dados);
             $send = $mail->send();
@@ -187,18 +187,18 @@ Class Gwp_Ajax{
             $mail    = new Gwp_Mailman();
             $emailTo = get_option('emails_adesao');
             $dados   = array(
-                'nome'         => $_POST['nome'],
-                'email'        => $_POST['email'],
-                'company'      => $_POST['company'],
-                'cp7'          => $_POST['cp7'],
-                'address'      => $_POST['address'],
-                'localidade'   => $_POST['localidade'],
-                'nif'          => $_POST['nif']
+                'nome'         => $data['nome'],
+                'email'        => $data['email'],
+                'company'      => $data['company'],
+                'cp7'          => $data['cp7'],
+                'address'      => $data['address'],
+                'localidade'   => $data['localidade'],
+                'nif'          => $data['nif']
             );
 
             $mail->set_subject('Mensagem do Formulario de Adesão');
             $mail->set_template('adesao.php');
-            $mail->set_from("geral@turim-hotels.com");
+            $mail->set_from("turim-hotels <dirgeral@turimhoteis.com>");
             $mail->set_to($emailTo);
             $mail->set_vars($dados);
             $send = $mail->send();
@@ -309,19 +309,19 @@ Class Gwp_Ajax{
             $mail    = new Gwp_Mailman();
             $emailTo =  get_option('emails_reservar');
             $dados   = array(
-                'nome'         => $_POST['nome'],
-                'email'        => $_POST['email'],
-                'persons'      => $_POST['persons'],
-                'date'         => $_POST['date-reserve'],
-                'time'         => $_POST['time'],
-                'restaurent'   => $_POST['restaurent'],
+                'nome'         => $data['nome'],
+                'persons'      => $data['persons'],
+                'date'         => $data['date-reserve'],
+                'time'         => $data['time'],
+                'restaurent'   => $data['restaurent'],
             );
 
-            $mail->set_subject('Mensagem do Formulario de Adesão');
-            $mail->set_template('reservas.php');
-            $mail->set_from("geral@turim-hotels.com");
+            $mail->set_subject('Mensagem do Formulario de Reservas');
+
+            $mail->set_from("turim-hotels <dirgeral@turimhoteis.com>");
             $mail->set_to($emailTo);
             $mail->set_vars($dados);
+             $mail->set_template('reservas.php');
             $send = $mail->send();
 
             $message = ($send) ? Helper::message("forms/reservas", "sucesso.msg")

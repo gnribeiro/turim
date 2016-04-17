@@ -67,6 +67,8 @@
             box-sizing : border-box;
             padding: 15px 26px 0;
             border: 1px solid #000000;
+            border-radius: 0;
+            box-shadow: none;
 
             @include m(modal) {
                 height: 65px;
@@ -128,6 +130,8 @@
             padding: 0px 26px 0;
             border: 1px solid #000000;
              color: #000000;
+             border-radius: 0;
+            box-shadow: none;
 
             &::-webkit-input-placeholder { /* Safari, Chrome and Opera */
                 color: #d3d3d3;

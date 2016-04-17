@@ -7,12 +7,12 @@ return array(
 
     'email' => array(
       'not_empty'    => __('Campo de preenchimento obrigatório', 'turim'),
-      'Valid::email' => __('Email inválido'
+      'Valid::email' => __('Email inválido'),
     ),
 
      'phone' => array(
       'not_empty'    => __('Campo de preenchimento obrigatório', 'turim'),
-      'numeric' => __('Telemóvel inválido'
+      'numeric' => __('Telemóvel inválido'),
     ),
 
     'mensage' => array(

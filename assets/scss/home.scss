@@ -18,6 +18,7 @@
       margin:0 auto;
       p{
         margin-bottom: 30px;
+        margin-top: 7px;
       }
       strong{
         @include lato-bold;
@@ -28,6 +29,8 @@
 
     @include e('title') {
       text-align    : center;
+      margin: 0 0 0px;
+      line-height: 55px;
     }
 
     @include e('resume') {
@@ -49,6 +52,7 @@
       font-size: 16px;
       line-height: 17px;
       margin: 0 0 22px;
+      text-transform: uppercase;
       strong{
          @include lato-bold;
       }
@@ -132,7 +136,7 @@
       text-align  : center;
       float       : right;
       padding          : 0 30px;
-      width        : 284px;
+      max-width        : 284px;
       position: relative;
       &:before{
         @include arrow(left , 12px, $blue);
@@ -182,6 +186,18 @@
         font-size: 12px;
         margin-bottom: 8px;
         line-height: 13px;
+        text-transform: uppercase;
+      }
+
+      a{
+        cursor: pointer;
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        &:hover{
+          color: #ffffff;
+          text-decoration: none;
+        }
       }
     }
 
@@ -207,14 +223,23 @@
     }
   }
   &-newsletter{
-    @include e(info){
+    @include e(info) {
       font-size: 16px;
     }
+
+    @include e(form) {
+        .a-input-error,
+       .a-field-success
+       {
+          height: auto;
+       }
+    }
+
   }
 
 
 
-  &-hotel-legend{
+  &-hotel-legend {
     font-size: 13px;
     line-height: 13px;
     margin-top: 15px;

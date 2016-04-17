@@ -79,6 +79,28 @@
               background-position:-507px 0 ;
           }
       }
+      @include m(pool_rest) {
+          &:before{
+              background-position:-694px 0 ;
+          }
+      }
+
+      @include m(tenis_res) {
+          &:before{
+              background-position:-740px -46px ;
+          }
+      }
+      @include m(golf_rest) {
+          &:before{
+              background-position:-646px -46px ;
+          }
+      }
+
+      @include m(infantil_rest) {
+          &:before{
+                background-position:-694px -46px;
+          }
+      }
 
       @include m(res_air_conditioned) {
           &:before{

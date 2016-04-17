@@ -1,17 +1,17 @@
 <p>Mensagem do Formulário de Reserva do Site </p>
 
 <p>
-    De: <?php echo $nome ?>.
+    De:&nbsp; <?php echo $nome ?>.
     <br>
-    Email: <?php echo $email ?>.
+    Email:&nbsp; <?php echo $email ?>.
     <br>
-    Nº de Pessoas: <?php echo $persons ?>.
+    Nº de Pessoas:&nbsp; <?php echo $persons ?>.
     <br>
-    Data da Reserva: <?php echo $date ?>.
+    Data da Reserva:&nbsp; <?php echo $date ?>.
     <br>
-    Horas: <?php echo $time ?>.
+    Horas:&nbsp; <?php echo $time ?>.
     <br>
-    Restaurente: <?php echo $restaurent ?>.
+    Restaurente:&nbsp; <?php echo $restaurent ?>.
     <br>
-    Empresa: <?php echo $company ?>.
+    Empresa:&nbsp; <?php echo $company ?>.
 </p>

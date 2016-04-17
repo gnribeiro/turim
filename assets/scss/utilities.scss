@@ -172,6 +172,16 @@
         opacity    : 0;
         visibility : hidden;
     }
+
+    &-h-273{
+        height   : 273px;
+        overflow : hidden;
+    }
+
+    &-h-308{
+        height   : 308px;
+        overflow : hidden;
+    }
 }
 
 @media (max-width: 767px){

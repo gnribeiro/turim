@@ -27,14 +27,18 @@
                 <?php if (get_field('email_hotel')): ?>
                     <li class="a-contacts-hotel__list">
                         <i class="fa fa-envelope"></i>&nbsp;
+                        <a href="mailTo:<?php echo get_field('email_hotel'); ?>" class="a-link-phone">
                         <?php echo get_field('email_hotel'); ?>
+                        </a>
                     </li>
                 <?php endif ?>
 
                 <?php if (get_field('phone_hotel')): ?>
                     <li class="a-contacts-hotel__list">
                         <i class="fa fa-phone"></i>&nbsp;
+                        <a href="tel:<?php echo get_field('phone_hotel'); ?>" class="a-link-phone">
                         <?php echo get_field('phone_hotel'); ?>
+                        </a>
                     </li>
                 <?php endif ?>
 

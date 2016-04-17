@@ -1,17 +1,17 @@
 <p>Mensagem do Formulário de Recrutamento do Site </p>
 
 <p>
-    De: <?php echo $nome ?>.
+    De: &nbsp;<?php echo $nome ?>.
     <br>
-    Email: <?php echo $email ?>.
+    Email:&nbsp; <?php echo $email ?>.
     <br>
-    Assunto: <?php echo $subject ?>.
+    Assunto:&nbsp; <?php echo $subject ?>.
     <br>
-    Localidade: <?php echo $localidade ?>.
+    Localidade:&nbsp; <?php echo $localidade ?>.
     <br>
-    Idade: <?php echo $age ?>.
+    Idade:&nbsp; <?php echo $age ?>.
     <br>
-    Telefone: <?php echo $phone ?>.
+    Telefone:&nbsp; <?php echo $phone ?>.
 </p>
 <p>
     Mensagem:

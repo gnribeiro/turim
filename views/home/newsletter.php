@@ -9,7 +9,7 @@
 ' , 'turim')?>
       </div>
       <div class="a-col-4">
-        <form action="" method="post" enctype='multipart/form-data' data-a-widget="Ajax" data-a-widget-options="<?php echo $ajax ?>" class="a-relative">
+        <form action="" method="post" enctype='multipart/form-data' data-a-widget="Ajax" data-a-widget-options="<?php echo $ajax ?>" class="a-relative a-newsletter__form">
           <div class="a-loading  a-hide">
                 <img src="<?php printf('%s/assets/images/load.gif' , THEMEURL) ?>" alt="" />
             </div>

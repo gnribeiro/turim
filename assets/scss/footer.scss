@@ -99,7 +99,15 @@
       line-height: 12px;
     }
     @include e(content) {
-
+      a {
+        color:#ffffff;
+        text-decoration: none;
+        cursor:pointer;
+        &:hover{
+          color:#ffffff;
+        text-decoration: none;
+        }
+      }
     }
     @include e(phone) {
       font-size: 20px;

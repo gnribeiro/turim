@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: turim\n"
-"POT-Creation-Date: 2016-02-08 16:55+0000\n"
-"PO-Revision-Date: 2016-02-08 17:18+0000\n"
+"POT-Creation-Date: 2016-03-01 10:46+0000\n"
+"PO-Revision-Date: 2016-03-01 10:48+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -1385,53 +1385,85 @@ msgstr "An error has occurred. try again."
 msgid "Please supply a render template"
 msgstr ""
 
-#: ../libs/Site.php:123
+#: ../libs/Site.php:86
+msgid "A nossa cozinha"
+msgstr "Our kitchen\t"
+
+#: ../libs/Site.php:87
+msgid "O nosso Chef"
+msgstr "Our Chef"
+
+#: ../libs/Site.php:88
+msgid "Ementa"
+msgstr "Menu"
+
+#: ../libs/Site.php:89
+msgid "Galeria"
+msgstr "Gallery"
+
+#: ../libs/Site.php:126
 msgid "Facilidades <br> para Deficientes"
 msgstr "facilities for <br> people with disabilities"
 
-#: ../libs/Site.php:124
+#: ../libs/Site.php:127
 msgid "Salas de <br> Reunião"
 msgstr "Meeting <br> Rooms"
 
-#: ../libs/Site.php:125
+#: ../libs/Site.php:128
 msgid "Quarto <br> Executivo"
 msgstr "Room <br> Executive"
 
-#: ../libs/Site.php:126
+#: ../libs/Site.php:129
 msgid "Berço e Facilidades <br> para Bebés"
 msgstr "Cot and facilities <br> for Babies"
 
-#: ../libs/Site.php:127
+#: ../libs/Site.php:130
 msgid "Wireless"
 msgstr "Wireless"
 
-#: ../libs/Site.php:128
+#: ../libs/Site.php:131
 msgid "Cafetaria"
 msgstr "cafeteria"
 
-#: ../libs/Site.php:129
+#: ../libs/Site.php:132
 msgid "Ar <br> Condicionado"
 msgstr "Air <br>Conditioning"
 
-#: ../libs/Site.php:130
+#: ../libs/Site.php:133
 msgid "Sala de <br> Leitura"
 msgstr "Reading <br> Room"
 
-#: ../libs/Site.php:131
+#: ../libs/Site.php:134
 msgid "Parque de <br> Estacionamento"
 msgstr "Park <br> Parking"
 
-#: ../libs/Site.php:132
+#: ../libs/Site.php:135
 msgid "Sala <br> Multimédia"
 msgstr "Media  <br> Room"
 
-#: ../libs/Site.php:133
+#: ../libs/Site.php:136
 msgid "Restaurante"
 msgstr "Restaurant"
 
-#: ../libs/Site.php:134
+#: ../libs/Site.php:137
 msgid "Bar"
 msgstr "Pub"
+
+#: ../libs/Site.php:138
+msgid "Piscina"
+msgstr "Pool"
+
+#: ../libs/Site.php:139
+msgid "Campo de ténis"
+msgstr "Tennis court"
+
+#: ../libs/Site.php:140
+msgid "Campo de golf"
+msgstr "Golf Course"
+
+#: ../libs/Site.php:141
+msgid "Parque infantil"
+msgstr "Playground"
 
 #: ../messages/forms/adesao.php:5 ../messages/forms/adesao.php:9
 #: ../messages/forms/adesao.php:14 ../messages/forms/adesao.php:18
@@ -1487,7 +1519,7 @@ msgstr "Wrong Code"
 
 #: ../messages/forms/newsletter.php:12
 msgid "Subescrição feita com sucesso"
-msgstr ""
+msgstr "Subscription whit success"
 
 #: ../messages/forms/recrutamento.php:20
 msgid "Idade inválida"
@@ -1633,7 +1665,7 @@ msgid "Recrutamento"
 msgstr "Recruitment"
 
 #: ../views/home/destaques/highlight.php:23 ../views/home/promos.php:29
-#: ../views/shared/banner.php:27
+#: ../views/shared/banner-video.php:39 ../views/shared/banner.php:27
 msgid "Saber Mais"
 msgstr "know more"
 
@@ -1660,13 +1692,13 @@ msgstr "See Restaurants"
 msgid "Ver Localização"
 msgstr "See Location"
 
-#: ../views/hoteis/contactos.php:43
+#: ../views/hoteis/contactos.php:47
 msgid "Ver Transportes Mais próximos"
 msgstr "See Transport Closer"
 
 #: ../views/hoteis/index.php:5
-msgid "Promoções"
-msgstr "Promotions"
+msgid "Ver Promoções"
+msgstr "See Promotions"
 
 #: ../views/hoteis/index.php:7
 msgid "SOBRE O HOTEL"
@@ -1779,9 +1811,10 @@ msgstr "Attach File"
 msgid "OBSERVAÇÕES"
 msgstr "COMMENTS"
 
-#: ../views/modals/reserva.php:3 ../views/shared/form-reservas.php:3
+#: ../views/modals/reserva.php:3 ../views/shared/banner.php:12
+#: ../views/shared/form-reservas.php:3
 msgid "RESERVAR"
-msgstr "TO RESERVE"
+msgstr "BOOKING"
 
 #: ../views/modals/reserva.php:4
 msgid "TURIM HOTÉIS • RESERVAS"
@@ -1827,9 +1860,13 @@ msgstr "Book Table"
 msgid "Siga-nos no Facebook"
 msgstr "Follow us on Facebook"
 
-#: ../views/shared/banner.php:12
+#: ../views/shared/banner-video.php:24
 msgid "RESERVA"
 msgstr "BOOKING"
+
+#: ../views/shared/form-reservas.php:13
+msgid "Todos os Hotéis"
+msgstr "All hotels"
 
 #: ../views/shared/form-reservas.php:22
 msgid "DE:"
@@ -1863,17 +1900,20 @@ msgstr "Availability"
 msgid "Corporate"
 msgstr "Corporate"
 
-#: ../views/template/footer.php:31
+#: ../views/template/footer.php:32
 msgid "Todos os Direitos Reservados."
 msgstr "All rights reserved."
 
-#: ../views/template/footer.php:32
+#: ../views/template/footer.php:33
 msgid "Politica de Privacidade"
 msgstr "Privacy policy"
 
-#: ../views/template/footer.php:33
+#: ../views/template/footer.php:34
 msgid "Termos e Condições"
 msgstr "Terms and conditions"
+
+#~ msgid "Promoções"
+#~ msgstr "Promotions"
 
 #~ msgid "Erro 404"
 #~ msgstr "Error 404"
