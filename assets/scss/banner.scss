@@ -1,3 +1,5 @@
+
+
 .a{
   &-logo{
     @include sprite;
@@ -15,15 +17,16 @@
         cursor: pointer;
         display: block;
         text-align: center;
-        color: #fff;
+        color: #ffffff;
     }
   }
 
   &-video{
-    width: 100%;
+    width: 100% !important;
     height: auto;
+
         @include e(content) {
-            top: 50px;
+            top: 40%;
             position: absolute;
             height: auto;
             left: 0;
@@ -57,7 +60,8 @@
   }
 
   &-banner{
-    padding-top         : 30px;
+
+    padding-top         : 256px;
     background-repeat   : no-repeat;
     background-position : 50% 0%;
     background-attachment: fixed;
@@ -69,6 +73,13 @@
     @include m(video) {
         height: auto;
         padding-top:0;
+
+
+        img{
+            width: 100%;
+            height: auto;
+            display: block;
+        }
     }
 
     @include m(nofixed) {
@@ -76,16 +87,15 @@
         background-position : 50% 50%;
     }
 
-    h2 {
-        margin:0 0 42px;
-    }
 
     @include e('title'){
         @include montserrat-bold;
-        font-size      : 54px;
+        font-size      : 48px;
         text-align     : center;
         text-transform : uppercase;
         margin-bottom  : 24px;
+        font-weight: lighter;
+        margin-bottom: 30px;
     }
 
     @include e('resume'){

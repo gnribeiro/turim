@@ -2,7 +2,16 @@ jQuery(function($){
 
   if($("#a-google-map").length){
     function initialize() {
-        var location = new google.maps.LatLng(38.723852, -9.149396);
+
+        var coord    = $("#a-google-map").data('coord');
+
+        if(coord === 'false' || coord === '')
+          return
+
+        coord = coord.split(',')
+        console.log( parseFloat(coord[0]) , parseFloat(coord[1])    , "38.523483,-8.9996047")
+
+        var location = new google.maps.LatLng(parseFloat(coord[0]) , parseFloat(coord[1]));
 
           var map = new google.maps.Map(document.getElementById('a-google-map'), {
             center: location,

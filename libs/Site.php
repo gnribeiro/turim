@@ -2,13 +2,17 @@
 
     class Site extends Base
     {
+
+
         public function __construct()
         {
             parent::__construct();
 
-
-
             $this->data_header['hoteis']     = $this->hoteis_select();
+
+            $this->view->set('hoteis', $this->data_header['hoteis'] );
+            $this->data_header['reservation']= $this->view->render('shared/form-reservas');
+            $this->data_header['menu']= $this->view->render('shared/menu');
 
         }
 
@@ -63,9 +67,33 @@
 
         public function events()
         {
+             $modal = array(
+                'content' => '#info',
+                'form'    =>  true
+            );
 
+            $ajax  = array('action'  => 'info');
+
+            $this->view->set('modal',  Helper::setJson($modal));
+            $this->view->set('ajax' ,  Helper::setJson($ajax));
             $this->view->set('banner', $this->get_banner());
             $content = $this->view->render('events');
+            $this->content($content);
+        }
+
+        public function casamentos()
+        {
+             $modal = array(
+                'content' => '#info',
+                'form'    =>  true
+            );
+
+            $ajax  = array('action'  => 'info');
+
+            $this->view->set('modal',  Helper::setJson($modal));
+            $this->view->set('ajax' ,  Helper::setJson($ajax));
+            $this->view->set('banner', $this->get_banner());
+            $content = $this->view->render('casamentos');
             $this->content($content);
         }
 
@@ -149,32 +177,9 @@
                 'infantil_rest'        => __('Parque infantil', 'turim')
             );
 
-            $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
-            if (strpos($url,'-2/') !== false) {
-                $tabs = array(
-                    'History'           => 'tabs/history',
-                    'Gallery'           => 'tabs/galeria',
-                    'Events & Meetings' => 'tabs/events'
-                );
-            }
-            else {
-                $tabs = array(
-                    'historia'           => 'tabs/history',
-                    'galeria de Imagens' => 'tabs/galeria',
-                    'reuniões & eventos' => 'tabs/events'
-                );
-            }
-
-            $tabs_json  = array(
-                'btns'    => '.a-tabs__link',
-                'content' => '.a-tabs__content'
-            );
-
-            $this->view->set('tabs_json',  Helper::setJson($tabs_json));
             $this->view->set('highlights', $this->highlights());
             $this->view->set('services'  , $services);
-            $this->view->set('tabs'      , $this->get_tabs($tabs , 'imagens_tab_galeria_hotel' , 'imagem_tab_galeria_hotel'));
             $content = $this->view->render('hoteis/index');
             $this->content($content);
         }
@@ -275,17 +280,26 @@
 
             if(count($query->posts)){
                 foreach ($query->posts as $key => $value) {
-                 $destaques[$key] = array(
-                  'title'             => $value->post_title,
-                  'content'           => $value->post_content,
-                  'image'             => get_field('image_destaque_home', $value->ID),
-                  'title-box'         => get_field('titulo_destaque_home', $value->ID),
-                  'link'              => get_field('link_destaque_home', $value->ID),
-                  'title_highlight'   => get_field('title_highlight_destaque_home', $value->ID),
-                  'content_highlight' => get_field('content_highlight_destaque_home', $value->ID),
-                  'image_highlight'   => get_field('image_highlight_destaque_home', $value->ID),
-                  'color_highlight'   => get_field('color_destaque_home', $value->ID),
-                 );
+                    $hotels     = get_field('hoteis_destaques_home', $value->ID);
+                    $num_hotels = ($hotels!== false) ? count($hotels) : 0;
+                    $url        = get_field('link_destaque_home', $value->ID);
+                    $text_num   = ($num_hotels == 1) ? __('hotel' , 'turim') : __('hoteis' , 'turim');
+                    $link       = (!filter_var($url, FILTER_VALIDATE_URL) === false)? $url : false;
+
+                    $destaques[$key] = array(
+                        'title'             => $value->post_title,
+                        'content'           => $value->post_content,
+                        'text_num'          => $text_num,
+                        'hotels'            => $hotels,
+                        'num_hotels'        => $num_hotels,
+                        'image'             => get_field('image_destaque_home', $value->ID),
+                        'title-box'         => get_field('titulo_destaque_home', $value->ID),
+                        'link'              => $link ,
+                        'title_highlight'   => get_field('title_highlight_destaque_home', $value->ID),
+                        'content_highlight' => get_field('content_highlight_destaque_home', $value->ID),
+                        'image_highlight'   => get_field('image_highlight_destaque_home', $value->ID),
+                        'color_highlight'   => get_field('color_destaque_home', $value->ID),
+                    );
                 }
             }
             return $destaques;
@@ -321,14 +335,15 @@
                $this->view->set('style' , $style);
                return $this->view->render('shared/highlights');
             }
-
         }
 
         protected function get_homeintros(){
             $intros = array();
 
             if(get_field('home-intro')){
-                foreach (get_field('home-intro') as  $values) {
+                foreach (get_field('home-intro') as $k => $values) {
+                    $classes = ($k === 0) ? 'a-intro a-intro--light' : 'a-intro';
+                    $this->view->set('classes' , $classes);
                     foreach ($values as $key =>  $value) {
                         if($key === 'image' ){
                             $url    = $value['url'];
@@ -352,42 +367,34 @@
         }
 
 
-        protected function get_weather(){
+        /* protected function get_weather(){
             $feed  = "http://weather.yahooapis.com/forecastrss?p=POXX0039&u=c";
-            $temps = [];
-            try {
-                $xml_contemt   = file_get_contents($feed);
+            $xml   =  new SimpleXMLElement(file_get_contents($feed));
+            $temps = array();
 
-                $xml   =  new SimpleXMLElement();
-                $temps = array();
+            if ( $xml !== false ) {
+                $namespaces = $xml->getNamespaces(true);
+                $geo = $xml->channel->item->children($namespaces['yweather']);
 
-                if ( $xml !== false ) {
-                    $namespaces = $xml->getNamespaces(true);
-                    $geo = $xml->channel->item->children($namespaces['yweather']);
+                if(is_object($geo[1])){
+                    $attr = $geo[1]->attributes();
 
-                    if(is_object($geo[1])){
-                        $attr = $geo[1]->attributes();
-
-                        if(is_object($attr->low) && is_object($attr->high)){
-                            $temps['low']  = (string) $attr->low;
-                            $temps['high'] = (string) $attr->high;
-                        }
+                    if(is_object($attr->low) && is_object($attr->high)){
+                        $temps['low']  = (string) $attr->low;
+                        $temps['high'] = (string) $attr->high;
                     }
-
-
                 }
 
-                return $temps;
+
             }
-            catch (Exception $e) {
-                return $temps;
-            }
-        }
+
+            return $temps;
+        } */
 
 
         protected function get_banner()
         {
-            $weather = array();
+            /* $weather = array();
 
             if((is_home() || is_front_page())){
                 if ( false === ( $weather = get_transient( 'weather_homepage' ) ) ) {
@@ -396,7 +403,7 @@
 
                     set_transient( 'weather_homepage', $weather, 3 * HOUR_IN_SECONDS );
                 }
-            }
+            } */
 
             $banner = get_field('banner') ;
             $video  = get_field('video_banner');
@@ -408,9 +415,12 @@
             $this->view->resume = (get_field('resume')) ? get_field('resume') : '';
             $this->view->link   = (get_field('link_banner'))? get_field('link_banner') : false;
             $this->view->hoteis = $this->data_header['hoteis'];
-            $this->view->weather= $weather;
+            //$this->view->weather= $weather;
 
-            if($video){
+            if(is_home() || is_front_page()){
+                return $this->view->render('shared/slideshow');
+            }
+            elseif($video){
                 return $this->view->render('shared/banner-video');
             }
             else{

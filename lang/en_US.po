@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: turim\n"
-"POT-Creation-Date: 2016-03-01 10:46+0000\n"
-"PO-Revision-Date: 2016-03-01 10:48+0000\n"
+"POT-Creation-Date: 2016-05-08 16:15+0100\n"
+"PO-Revision-Date: 2016-05-08 16:18+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -1213,11 +1213,11 @@ msgstr ""
 msgid "Filter Hotel list"
 msgstr ""
 
-#: ../config/customPostTypes.php:88
+#: ../config/customPostTypes.php:88 ../libs/Site.php:286
 msgid "hotel"
 msgstr ""
 
-#: ../config/customPostTypes.php:89
+#: ../config/customPostTypes.php:89 ../libs/Site.php:286
 msgid "hoteis"
 msgstr ""
 
@@ -1369,15 +1369,15 @@ msgstr ""
 msgid "&raquo;"
 msgstr ""
 
-#: ../libs/Gwp_Ajax.php:252
+#: ../libs/Gwp_Ajax.php:302
 msgid "Esse email já existe na base dados"
 msgstr "This email already exists in the database"
 
-#: ../libs/Gwp_Ajax.php:276
+#: ../libs/Gwp_Ajax.php:326
 msgid "Subscrição efetuada com sucesso."
 msgstr "Was successful subscription."
 
-#: ../libs/Gwp_Ajax.php:279
+#: ../libs/Gwp_Ajax.php:329
 msgid "Ocorreu um erro. tente novamente."
 msgstr "An error has occurred. try again."
 
@@ -1385,83 +1385,83 @@ msgstr "An error has occurred. try again."
 msgid "Please supply a render template"
 msgstr ""
 
-#: ../libs/Site.php:86
+#: ../libs/Site.php:122
 msgid "A nossa cozinha"
 msgstr "Our kitchen\t"
 
-#: ../libs/Site.php:87
+#: ../libs/Site.php:123
 msgid "O nosso Chef"
 msgstr "Our Chef"
 
-#: ../libs/Site.php:88
+#: ../libs/Site.php:124
 msgid "Ementa"
 msgstr "Menu"
 
-#: ../libs/Site.php:89
+#: ../libs/Site.php:125
 msgid "Galeria"
 msgstr "Gallery"
 
-#: ../libs/Site.php:126
+#: ../libs/Site.php:162
 msgid "Facilidades <br> para Deficientes"
 msgstr "facilities for <br> people with disabilities"
 
-#: ../libs/Site.php:127
+#: ../libs/Site.php:163
 msgid "Salas de <br> Reunião"
 msgstr "Meeting <br> Rooms"
 
-#: ../libs/Site.php:128
+#: ../libs/Site.php:164
 msgid "Quarto <br> Executivo"
 msgstr "Room <br> Executive"
 
-#: ../libs/Site.php:129
+#: ../libs/Site.php:165
 msgid "Berço e Facilidades <br> para Bebés"
 msgstr "Cot and facilities <br> for Babies"
 
-#: ../libs/Site.php:130
+#: ../libs/Site.php:166
 msgid "Wireless"
 msgstr "Wireless"
 
-#: ../libs/Site.php:131
+#: ../libs/Site.php:167
 msgid "Cafetaria"
 msgstr "cafeteria"
 
-#: ../libs/Site.php:132
+#: ../libs/Site.php:168
 msgid "Ar <br> Condicionado"
 msgstr "Air <br>Conditioning"
 
-#: ../libs/Site.php:133
+#: ../libs/Site.php:169
 msgid "Sala de <br> Leitura"
 msgstr "Reading <br> Room"
 
-#: ../libs/Site.php:134
+#: ../libs/Site.php:170
 msgid "Parque de <br> Estacionamento"
 msgstr "Park <br> Parking"
 
-#: ../libs/Site.php:135
+#: ../libs/Site.php:171
 msgid "Sala <br> Multimédia"
 msgstr "Media  <br> Room"
 
-#: ../libs/Site.php:136
+#: ../libs/Site.php:172
 msgid "Restaurante"
 msgstr "Restaurant"
 
-#: ../libs/Site.php:137
+#: ../libs/Site.php:173
 msgid "Bar"
 msgstr "Pub"
 
-#: ../libs/Site.php:138
+#: ../libs/Site.php:174
 msgid "Piscina"
 msgstr "Pool"
 
-#: ../libs/Site.php:139
+#: ../libs/Site.php:175
 msgid "Campo de ténis"
 msgstr "Tennis court"
 
-#: ../libs/Site.php:140
+#: ../libs/Site.php:176
 msgid "Campo de golf"
 msgstr "Golf Course"
 
-#: ../libs/Site.php:141
+#: ../libs/Site.php:177
 msgid "Parque infantil"
 msgstr "Playground"
 
@@ -1469,6 +1469,11 @@ msgstr "Playground"
 #: ../messages/forms/adesao.php:14 ../messages/forms/adesao.php:18
 #: ../messages/forms/adesao.php:22 ../messages/forms/adesao.php:27
 #: ../messages/forms/adesao.php:31 ../messages/forms/adesao.php:35
+#: ../messages/forms/adesao.php:39 ../messages/forms/adesao_ask.php:5
+#: ../messages/forms/adesao_ask.php:9 ../messages/forms/adesao_ask.php:14
+#: ../messages/forms/adesao_ask.php:18 ../messages/forms/adesao_ask.php:23
+#: ../messages/forms/adesao_ask.php:27 ../messages/forms/adesao_ask.php:32
+#: ../messages/forms/adesao_ask.php:36 ../messages/forms/adesao_ask.php:40
 #: ../messages/forms/contactos.php:5 ../messages/forms/contactos.php:9
 #: ../messages/forms/contactos.php:14 ../messages/forms/contactos.php:19
 #: ../messages/forms/contactos.php:23 ../messages/forms/contactos.php:26
@@ -1487,31 +1492,32 @@ msgstr "Playground"
 msgid "Campo de preenchimento obrigatório"
 msgstr "required field"
 
-#: ../messages/forms/adesao.php:10 ../messages/forms/contactos.php:10
-#: ../messages/forms/info.php:10 ../messages/forms/newsletter.php:8
-#: ../messages/forms/recrutamento.php:10
+#: ../messages/forms/adesao.php:10 ../messages/forms/adesao_ask.php:10
+#: ../messages/forms/contactos.php:10 ../messages/forms/info.php:10
+#: ../messages/forms/newsletter.php:8 ../messages/forms/recrutamento.php:10
 msgid "Email inválido"
 msgstr "Invalid email"
 
-#: ../messages/forms/adesao.php:23
+#: ../messages/forms/adesao.php:23 ../messages/forms/adesao_ask.php:28
 msgid "Nif inválido"
 msgstr "Invalid Vat"
 
-#: ../messages/forms/adesao.php:40 ../messages/forms/contactos.php:43
-#: ../messages/forms/info.php:34 ../messages/forms/recrutamento.php:39
-#: ../messages/forms/reservas.php:27
-msgid "Dados enviados com sucesso, aguarde uma resposta"
-msgstr "Data sent successfully , wait for an answer"
-
-#: ../messages/forms/adesao.php:41 ../messages/forms/contactos.php:44
-#: ../messages/forms/info.php:35 ../messages/forms/recrutamento.php:40
-#: ../messages/forms/reservas.php:28
-msgid "Não possivel enviar email tente mais tarde"
-msgstr "Not possible to send email try later"
-
+#: ../messages/forms/adesao.php:40 ../messages/forms/adesao_ask.php:19
 #: ../messages/forms/contactos.php:15 ../messages/forms/recrutamento.php:15
 msgid "Telemóvel inválido"
 msgstr "Invalid phone"
+
+#: ../messages/forms/adesao.php:45 ../messages/forms/adesao_ask.php:45
+#: ../messages/forms/contactos.php:43 ../messages/forms/info.php:34
+#: ../messages/forms/recrutamento.php:39 ../messages/forms/reservas.php:27
+msgid "Dados enviados com sucesso, aguarde uma resposta"
+msgstr "Data sent successfully , wait for an answer"
+
+#: ../messages/forms/adesao.php:46 ../messages/forms/adesao_ask.php:46
+#: ../messages/forms/contactos.php:44 ../messages/forms/info.php:35
+#: ../messages/forms/recrutamento.php:40 ../messages/forms/reservas.php:28
+msgid "Não possivel enviar email tente mais tarde"
+msgstr "Not possible to send email try later"
 
 #: ../messages/forms/contactos.php:35
 msgid "Código Errado"
@@ -1541,81 +1547,74 @@ msgstr "Invalid number"
 msgid "Pagina não encontrada"
 msgstr "Page not found"
 
+#: ../views/casamentos.php:12 ../views/events.php:81
+msgid "Pedir Informação"
+msgstr "Ask for information"
+
+#: ../views/collum2.php:18
+msgid "Pedir Adesão"
+msgstr "Request membership"
+
 #: ../views/contacts.php:21 ../views/modals/adesao.php:10
-#: ../views/modals/info.php:9 ../views/modals/recrutamento.php:12
-#: ../views/modals/reserva.php:10
+#: ../views/modals/adesao_ask.php:10 ../views/modals/info.php:9
+#: ../views/modals/recrutamento.php:12 ../views/modals/reserva.php:10
 msgid "NOME"
 msgstr "NAME"
 
 #: ../views/contacts.php:22 ../views/modals/adesao.php:11
-#: ../views/modals/info.php:10 ../views/modals/recrutamento.php:13
-#: ../views/modals/reserva.php:11
+#: ../views/modals/adesao_ask.php:11 ../views/modals/info.php:10
+#: ../views/modals/recrutamento.php:13 ../views/modals/reserva.php:11
 msgid "Introduzir Nome Completo"
 msgstr "Enter Full Name"
 
-#: ../views/contacts.php:30
-msgid "Particular ou Empresa"
-msgstr "Private or Company"
+#: ../views/contacts.php:29
+msgid "PARTICULAR OU EMPRESA"
+msgstr "PRIVATE OR COMPANY"
 
-#: ../views/contacts.php:31
-msgid "Particular"
-msgstr "Private"
-
-#: ../views/contacts.php:32
-msgid "Empresa"
-msgstr "Company"
-
-#: ../views/contacts.php:41
+#: ../views/contacts.php:38
 msgid "HOTEL"
 msgstr "HOTEL"
 
-#: ../views/contacts.php:52 ../views/modals/adesao.php:16
-#: ../views/modals/info.php:41 ../views/modals/recrutamento.php:18
+#: ../views/contacts.php:49 ../views/modals/adesao.php:16
+#: ../views/modals/adesao_ask.php:16 ../views/modals/info.php:21
+#: ../views/modals/recrutamento.php:18
 msgid "EMAIL"
 msgstr "EMAIL"
 
-#: ../views/contacts.php:53 ../views/modals/info.php:42
+#: ../views/contacts.php:50 ../views/modals/info.php:22
 #: ../views/modals/recrutamento.php:19
 msgid "Introduzir email"
 msgstr "Enter email"
 
-#: ../views/contacts.php:60 ../views/modals/recrutamento.php:51
+#: ../views/contacts.php:57
 msgid "ASSUNTO"
 msgstr "SUBJECT"
 
-#: ../views/contacts.php:61 ../views/modals/recrutamento.php:52
+#: ../views/contacts.php:58
 msgid "Introduzir assunto"
 msgstr "Enter subject"
 
-#: ../views/contacts.php:68
-msgid "QUARTO/Nº DE RESERVA"
-msgstr "ROOM / NUMBER OF RESERVATION"
-
-#: ../views/contacts.php:69
-msgid "Introduzir Número de Reserva ou Quarto"
-msgstr "Enter Reservation number or room"
-
-#: ../views/contacts.php:76
+#: ../views/contacts.php:65
 msgid "MENSAGEM"
 msgstr "MESSAGE"
 
-#: ../views/contacts.php:77
+#: ../views/contacts.php:66
 msgid "Introduzir Mensagem"
 msgstr "Enter Message"
 
-#: ../views/contacts.php:86
+#: ../views/contacts.php:75
 msgid "Inserir código de segurança"
 msgstr "Insert security code"
 
-#: ../views/contacts.php:99 ../views/modals/recrutamento.php:67
+#: ../views/contacts.php:88 ../views/modals/recrutamento.php:73
 msgid "Enviar"
 msgstr "Send"
 
-#: ../views/contacts.php:110
+#: ../views/contacts.php:99
 msgid "NÚMERO ÚNICO"
 msgstr "UNIQUE NUMBER"
 
-#: ../views/contacts.php:111
+#: ../views/contacts.php:100
 msgid "INFORMAÇÕES E RESERVAS"
 msgstr "INFORMATION AND RESERVATIONS"
 
@@ -1636,7 +1635,7 @@ msgid "Adesão"
 msgstr "Accession"
 
 #: ../views/forms/adesao.php:5 ../views/forms/recrutamento.php:5
-#: ../views/modals/adesao.php:4
+#: ../views/modals/adesao.php:4 ../views/modals/adesao_ask.php:4
 msgid "TURIM HOTÉIS  •  FICHA DE INSCRIÇÃO"
 msgstr "HOTELS TURIM • REGISTRATION FORM"
 
@@ -1664,8 +1663,9 @@ msgstr "RECRUITMENT"
 msgid "Recrutamento"
 msgstr "Recruitment"
 
-#: ../views/home/destaques/highlight.php:23 ../views/home/promos.php:29
-#: ../views/shared/banner-video.php:39 ../views/shared/banner.php:27
+#: ../views/home/destaques/highlight.php:23 ../views/home/promos.php:47
+#: ../views/shared/banner-video.php:41 ../views/shared/banner.php:18
+#: ../views/shared/slideshow.php:30 ../views/shared/slideshow.php:50
 msgid "Saber Mais"
 msgstr "know more"
 
@@ -1688,19 +1688,36 @@ msgstr "Subscribe"
 msgid "Ver Restaurantes"
 msgstr "See Restaurants"
 
-#: ../views/hoteis/contactos.php:20
+#: ../views/hoteis/contactos.php:27
 msgid "Ver Localização"
 msgstr "See Location"
 
-#: ../views/hoteis/contactos.php:47
+#: ../views/hoteis/contactos.php:54
 msgid "Ver Transportes Mais próximos"
 msgstr "See Transport Closer"
 
-#: ../views/hoteis/index.php:5
-msgid "Ver Promoções"
-msgstr "See Promotions"
+#: ../views/hoteis/events.php:5
+msgid "REUNIÕES & EVENTOS"
+msgstr "MEETINGS & EVENTS"
 
-#: ../views/hoteis/index.php:7
+#: ../views/hoteis/events.php:19
+msgid "DISPOSIÇÃO EM ESCOLA"
+msgstr "PROVISION IN SCHOOL"
+
+#: ../views/hoteis/events.php:24 ../views/hoteis/events.php:37
+#: ../views/hoteis/events.php:50
+msgid "PESSOAS"
+msgstr "PEOPLE"
+
+#: ../views/hoteis/events.php:32
+msgid "DISPOSIÇÃO EM PLATEIA"
+msgstr "PROVISION IN AUDIENCE"
+
+#: ../views/hoteis/events.php:45
+msgid "DISPOSIÇÃO EM U"
+msgstr "PROVISION IN U"
+
+#: ../views/hoteis/index.php:6
 msgid "SOBRE O HOTEL"
 msgstr "ABOUT THE HOTEL"
 
@@ -1721,7 +1738,7 @@ msgstr ""
 msgid "ADESÃO"
 msgstr "ACCESSION"
 
-#: ../views/modals/adesao.php:17
+#: ../views/modals/adesao.php:17 ../views/modals/adesao_ask.php:17
 msgid "Introduzir Email"
 msgstr "Enter Email"
 
@@ -1741,59 +1758,69 @@ msgstr "Vat"
 msgid "Introduzir Nif"
 msgstr "Enter Vat"
 
-#: ../views/modals/adesao.php:34 ../views/modals/info.php:21
+#: ../views/modals/adesao.php:34 ../views/modals/adesao_ask.php:22
+#: ../views/modals/recrutamento.php:30 ../views/modals/reserva.php:16
+msgid "TELEMÓVEL"
+msgstr "Mobile"
+
+#: ../views/modals/adesao.php:35 ../views/modals/adesao_ask.php:23
+#: ../views/modals/recrutamento.php:31
+msgid "Introduzir telemóvel"
+msgstr "Enter Mobile"
+
+#: ../views/modals/adesao.php:40 ../views/modals/adesao_ask.php:28
 msgid "MORADA"
 msgstr "ADDRESS"
 
-#: ../views/modals/adesao.php:35 ../views/modals/info.php:22
+#: ../views/modals/adesao.php:41 ../views/modals/adesao_ask.php:29
 msgid "Introduzir Morada"
 msgstr "Enter Address"
 
-#: ../views/modals/adesao.php:42 ../views/modals/info.php:28
+#: ../views/modals/adesao.php:48 ../views/modals/adesao_ask.php:36
 msgid "CÓDIGO POSTAL"
 msgstr "ZIP CODE"
 
-#: ../views/modals/adesao.php:43 ../views/modals/info.php:29
+#: ../views/modals/adesao.php:49 ../views/modals/adesao_ask.php:37
 msgid "Introduzir Código Postal"
 msgstr "Enter Zip Code"
 
-#: ../views/modals/adesao.php:48 ../views/modals/info.php:34
+#: ../views/modals/adesao.php:54 ../views/modals/adesao_ask.php:42
 #: ../views/modals/recrutamento.php:24
 msgid "LOCALIDADE"
 msgstr "LOCATION"
 
-#: ../views/modals/adesao.php:49 ../views/modals/info.php:35
+#: ../views/modals/adesao.php:55 ../views/modals/adesao_ask.php:43
 #: ../views/modals/recrutamento.php:25
 msgid "Introduzir Localidade"
 msgstr "Enter Location"
 
-#: ../views/modals/adesao.php:58 ../views/modals/info.php:58
+#: ../views/modals/adesao.php:64 ../views/modals/adesao_ask.php:52
 msgid "Enviar pedido de Adesão"
 msgstr "Send inquiry Accession"
+
+#: ../views/modals/adesao_ask.php:3
+msgid "PEDIR ADESÃO"
+msgstr "ASK FOR MEMBERSHIP"
 
 #: ../views/modals/info.php:3
 msgid "PEDIR INFORMAÇÕES"
 msgstr "ORDERING INFORMATION"
 
-#: ../views/modals/info.php:47
+#: ../views/modals/info.php:27
 msgid "ESCREVA AQUI A SUA MENSAGEM"
 msgstr "WRITE HERE YOUR MESSAGE"
 
-#: ../views/modals/info.php:48
+#: ../views/modals/info.php:28
 msgid "Escreva aqui a sua mensagem"
 msgstr "Write your message"
+
+#: ../views/modals/info.php:38
+msgid "Enviar pedido"
+msgstr "Send request"
 
 #: ../views/modals/recrutamento.php:4
 msgid "TURIM HOTÉIS • FICHA DE INSCRIÇÃO"
 msgstr "HOTELS TURIM • REGISTRATION FORM"
-
-#: ../views/modals/recrutamento.php:30 ../views/modals/reserva.php:16
-msgid "TELEMÓVEL"
-msgstr "Mobile"
-
-#: ../views/modals/recrutamento.php:31
-msgid "Introduzir telemóvel"
-msgstr "Enter Mobile"
 
 #: ../views/modals/recrutamento.php:36
 msgid "IDADE"
@@ -1807,12 +1834,36 @@ msgstr "Enter age"
 msgid "Anexar Ficheiro"
 msgstr "Attach File"
 
+#: ../views/modals/recrutamento.php:52
+msgid "ÁREA DE CANDIDATURA"
+msgstr "APPLICATION AREA"
+
+#: ../views/modals/recrutamento.php:53
+msgid "Receção"
+msgstr "Reception"
+
+#: ../views/modals/recrutamento.php:54
+msgid "Restauração/Bar"
+msgstr "Restaurants / Bar"
+
+#: ../views/modals/recrutamento.php:55
+msgid "Manutenção/limpezas"
+msgstr "Maintenance / cleaning"
+
+#: ../views/modals/recrutamento.php:56
+msgid "Bagageiro"
+msgstr "roof rack"
+
 #: ../views/modals/recrutamento.php:57
+msgid "Outros"
+msgstr "Others"
+
+#: ../views/modals/recrutamento.php:63
 msgid "OBSERVAÇÕES"
 msgstr "COMMENTS"
 
-#: ../views/modals/reserva.php:3 ../views/shared/banner.php:12
-#: ../views/shared/form-reservas.php:3
+#: ../views/modals/reserva.php:3 ../views/shared/form-reservas.php:3
+#: ../views/template/header.php:35
 msgid "RESERVAR"
 msgstr "BOOKING"
 
@@ -1860,10 +1911,6 @@ msgstr "Book Table"
 msgid "Siga-nos no Facebook"
 msgstr "Follow us on Facebook"
 
-#: ../views/shared/banner-video.php:24
-msgid "RESERVA"
-msgstr "BOOKING"
-
 #: ../views/shared/form-reservas.php:13
 msgid "Todos os Hotéis"
 msgstr "All hotels"
@@ -1900,6 +1947,10 @@ msgstr "Availability"
 msgid "Corporate"
 msgstr "Corporate"
 
+#: ../views/shared/highlights.php:22
+msgid "Coordenadas"
+msgstr "Coordinates"
+
 #: ../views/template/footer.php:32
 msgid "Todos os Direitos Reservados."
 msgstr "All rights reserved."
@@ -1911,6 +1962,27 @@ msgstr "Privacy policy"
 #: ../views/template/footer.php:34
 msgid "Termos e Condições"
 msgstr "Terms and conditions"
+
+#~ msgid "Ver Promoções"
+#~ msgstr "See Promotions"
+
+#~ msgid "RESERVA"
+#~ msgstr "BOOKING"
+
+#~ msgid "Particular ou Empresa"
+#~ msgstr "Private or Company"
+
+#~ msgid "Particular"
+#~ msgstr "Private"
+
+#~ msgid "Empresa"
+#~ msgstr "Company"
+
+#~ msgid "QUARTO/Nº DE RESERVA"
+#~ msgstr "ROOM / NUMBER OF RESERVATION"
+
+#~ msgid "Introduzir Número de Reserva ou Quarto"
+#~ msgstr "Enter Reservation number or room"
 
 #~ msgid "Promoções"
 #~ msgstr "Promotions"

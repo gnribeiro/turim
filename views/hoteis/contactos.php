@@ -3,12 +3,19 @@
     <div class="a-container">
       <div class="a-clearfix">
         <div class="a-col-3 a-sm-col-6">
-          <div id="a-google-map" class="a-contacts-hotel__google-map"></div>
+          <div id="a-google-map" class="a-contacts-hotel__google-map" data-coord="<?php echo get_field('google_map_hotel') ?>"></div>
         </div>
         <div class="a-col-3 a-sm-col-6">
           <div class="p-t-20">
             <div class="a-contacts-hotel__title">
-              <?php echo preg_replace('/turim/i', '<strong>TURIM</strong>', $post->post_title); ?>
+
+            <?php
+                $hotel_title = (get_field('nome_hotel_contacts')) ?
+                    get_field('nome_hotel_contacts') :
+                    preg_replace('/turim/i', '<strong>TURIM</strong>', $post->post_title);
+
+                echo  $hotel_title
+             ?>
             </div>
             <?php if (get_field('morada_hotel')): ?>
                 <div class="a-contacts-hotel__address">

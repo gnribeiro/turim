@@ -1,4 +1,6 @@
 <?php
+// update_option('siteurl', 'http://turim.aliceyoung.pt' );
+// update_option('home', 'http://turim.aliceyoung.pt' );
 define('EXT', '.php');
 define('DOCROOT', realpath(dirname(__FILE__)).DIRECTORY_SEPARATOR);
 

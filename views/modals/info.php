@@ -17,7 +17,6 @@
             <div class="a-input-error  a-input-error--modal"></div>
         </div>
 
-
         <div class="a-field a-field--modal">
             <label class="a-field__label  a-field__label--modal" for="email"><?php _e('EMAIL' , 'turim')?></label>
             <input type="text" class="a-input-email a-input-email--modal" name="email" placeholder="<?php _e('Introduzir email' , 'turim')?>" id="email" value=""/>
@@ -36,7 +35,7 @@
 
             </div>
 
-            <button type="submit" class="a-btn a-btn--submit a-btn--submit--modal"> <?php _e('Enviar pedido de Adesão' , 'turim')?><i class="fa fa-chevron-right"></i></button>
+            <button type="submit" class="a-btn a-btn--submit a-btn--submit--modal"> <?php _e('Enviar pedido' , 'turim')?><i class="fa fa-chevron-right"></i></button>
         </div>
 
     </form>

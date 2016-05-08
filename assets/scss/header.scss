@@ -1,12 +1,25 @@
+body{
+  padding-top: 40px;
+}
 header.main{
-    height     : 40px;
-    padding-top: 10px;
-    background-color: $dark;
+  position: fixed;
+  height: 4px;
+  top:0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+
+
+    .a-header-social{
+      height     : 40px;
+      padding-top: 10px;
+      background-color: $dark;
+    }
 
     & > ul{
       list-style : none;
       width      : auto;
-      height     : 40px;
+      height     : auto;
       float      : right;
       margin     : 0;
       padding    : 0;
@@ -17,6 +30,7 @@ header.main{
             float         : left;
             position      : relative;
             padding-right : 20px;
+            width: 130px;
 
             @include e('content') {
                 @include transition(height 0.5s ease);
@@ -33,6 +47,8 @@ header.main{
                 height: 30px;
                 overflow: hidden;
                 line-height: 18px;
+                position: absolute;
+                width: 130px;
 
                 li{
                   @include display(flex);

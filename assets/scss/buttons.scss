@@ -197,19 +197,30 @@
 
     }
 
-    &-link-phone{
+  &-link-phone{
+    color:$dark;
+    text-decoration: none;
+    &:hover {
       color:$dark;
-      text-decoration: none;
-      &:hover {
-        color:$dark;
-      text-decoration: none;
-      }
-
-      @include m('ligth') {
-        color:#ffffff;
-        &:hover {
-             color:#ffffff;
-          }
-      }
+    text-decoration: none;
     }
+
+    @include m('ligth') {
+      color:#ffffff;
+      &:hover {
+           color:#ffffff;
+        }
+    }
+  }
+
+  &-link{
+    @include m('lighter') {
+      color:#ffffff;
+      text-decoration: none;
+      &:hover ,
+      &:focus {
+           color:#ffffff;
+        }
+    }
+  }
 }

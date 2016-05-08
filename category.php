@@ -1,4 +1,5 @@
 <?php
     global $site;
-    $site->fallback();
+    //$site->fallback();
+    $site->set_content('404');
 ?>

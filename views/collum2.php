@@ -1,4 +1,4 @@
-<?php global $post, $site ?>
+<?php global $post,  $site?>
 <section class="a-lignt p-t-70 p-b-75">
   <div class="a-container">
    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

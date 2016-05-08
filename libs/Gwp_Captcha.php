@@ -107,6 +107,7 @@ Class Gwp_Captcha{
         $color     = imagecolorallocate($captcha, $color['r'], $color['g'], $color['b']);
         $font      = $config['fonts'][0];
         $font_size = $config['max_font_size'];
+        $angle     = '2';
 
         if( !file_exists($font) )
             throw new Exception('Font file not found: ' . $font);

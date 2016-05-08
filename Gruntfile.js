@@ -13,6 +13,7 @@ module.exports = function(grunt){
                 'bower_components/jquery/jquery-migrate.min.js',
                 'bower_components/moment/moment.js',
                 'bower_components/pikaday/pikaday.js',
+                'bower_components/slick-carousel/slick/slick.min.js',
                 'assets/js/vendor/dropkick_min.js',
                 'assets/js/vendor/swiper.jquery.min.js',
                 'assets/js/vendor/mediaelement/build/mediaelement-and-player.min.js',
@@ -21,6 +22,7 @@ module.exports = function(grunt){
                 'assets/js/widgets/a-ajax.js',
                 'assets/js/widgets/a-video.js',
                 'assets/js/widgets/a-modal.js',
+                'assets/js/widgets/a-image-modal.js',
                 'assets/js/widgets/a-tabs.js',
                 'assets/js/index.js'
 

@@ -1,7 +1,7 @@
 <div class="a-clearfix">
     <div class="a-col-8">
         <?php if( get_field('contedo_hist_tab_res')): ?>
-            <div class="p-b-20 p-r-15 a-ligth-txt a-h-273">
+            <div class="p-b-20 p-r-15 a-ligth-txt">
                 <?php echo get_field('contedo_hist_tab_res') ?>
             </div>
         <?php endif; ?>

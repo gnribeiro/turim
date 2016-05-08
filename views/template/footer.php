@@ -19,7 +19,7 @@ echo $site->get_partial('home/newsletter',
                 <div class="a-footer-contacts__title"><?php _e('Fale connosco' , 'turim')?></div>
                 <div class="a-footer-contacts__content">
                     <span class="a-footer-contacts__phone"><i class="fa fa-phone"></i>
-                    <a href="tel:210 330 800" class="a-link-phone">210 330 800</a></span>
+                    <a href="tel:210 330 800" class="a-link-phone">(+351) 210 330 800</a></span>
                     <span class="a-footer-contacts__email"><i class="fa fa-chevron-right"></i>  <a href="mailto:reservas@turimhoteis.com">reservas@turimhoteis.com</a> </span>
                 </div>
             </div>
@@ -40,6 +40,8 @@ echo $site->get_partial('home/newsletter',
 </footer>
         <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script src="<?php echo THEMEURL?>assets/js/index-min.js"></script>
+
+
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -1,8 +1,79 @@
 @media  (max-width: 767px){
+	body{
+	    padding-top: 0px;
+	}
 
+	header.main{
+	position: static;
+	height: auto;
+	background-color: $dark;
+
+	}
+
+	.a-casamentos .swiper-button-next, .a-casamentos .swiper-button-prev{
+		    top: -20px;
+	}
+
+	.swiper-button-next, .swiper-button-prev{
+		    top: 60%;
+	}
+
+	.a-col-8{
+		width: 100%;
+	}
+	.a-tabs__content .a-icon{
+		top: 30%;
+		display: block !important;
+	}
+
+	.a-sliedshow .slick-prev, .a-sliedshow .slick-next{
+
+		width: 20px;
+    height: 20px;
+    font-size: 20px;
+	}
+
+	.a-bo-highlights--right{
+		text-align: left;
+
+		&:before{
+			right: auto;;
+			left: 0;
+		}
+	}
+
+	.a-sliedshow .slick-next{
+		right: 10px;
+	}
+
+	.a-sliedshow .slick-prev{
+		left: 10px;
+	}
+
+	.a-btn--menu{
+    border: 2px solid #a0a0a0;
+    background-color: #a0a0a0;
+	}
+
+
+
+.a-panel-promo__header__text{
+	position: static;
+	padding:20px 0;
+}
 	.a{
 		&-logo{
-		    margin: 50px auto 48px;
+		    margin: 50px auto 40px;
+		}
+
+		&-video__content{
+			    top: 24%;
+		}
+
+		&-menu-content{
+			background-color: transparent;
+			height: auto;
+			position: static;
 		}
 
 		&-menu{
@@ -13,9 +84,15 @@
 
 		&-banner{
 			@include e('title') {
-				line-height: 37px;
-    			font-size: 34px;
+				line-height: 18px;
+    		font-size: 14px;
+    		margin-bottom: 6px;
 			}
+
+				@include e('resume') {
+					font-size: 14px;
+					 margin: 0 auto 14px;
+				}
 		}
 
 		&-weather{
@@ -31,7 +108,7 @@
 				float: none !important;
 				margin-left: auto;
     			margin-right: auto;
-    			margin-bottom: 10px;
+    			position: static;
 			}
 			@include e('content') {
 				float: none !important;

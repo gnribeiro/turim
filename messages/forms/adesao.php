@@ -14,11 +14,6 @@ return array(
       'not_empty'    => __('Campo de preenchimento obrigatório', 'turim'),
     ),
 
-    'phone' => array(
-      'not_empty'    => __('Campo de preenchimento obrigatório', 'turim'),
-      'numeric' => __('Telemóvel inválido', 'turim'),
-    ),
-
     'address' => array(
       'not_empty'    => __('Campo de preenchimento obrigatório', 'turim'),
     ),
@@ -40,11 +35,14 @@ return array(
       'not_empty' => __('Campo de preenchimento obrigatório', 'turim'),
     ),
 
+    'phone' => array(
+      'not_empty'    => __('Campo de preenchimento obrigatório', 'turim'),
+      'numeric' => __('Telemóvel inválido', 'turim'),
+    ),
+
 
     'sucesso' => array(
       'msg' => __('Dados enviados com sucesso, aguarde uma resposta', 'turim'),
       'error' => __('Não possivel enviar email tente mais tarde', 'turim')
     ),
-
-
 );

@@ -30,7 +30,13 @@ jQuery(function($){
                     nextButton: '.swiper-button-next',
                     prevButton: '.swiper-button-prev',
                     slidesPerView: 2,
-                    spaceBetween: 30
+                    spaceBetween: 30,
+                    breakpoints: {
+                         767: {
+                            slidesPerView: 1,
+                            spaceBetweenSlides: 10
+                         }
+                    }
                 })
 
                 $( ".a-tabs__content:not(.a-tabs__content--selected)" ).hide();
@@ -203,10 +209,12 @@ jQuery(function($){
                 btnMenu.on('click' , function(event){
                     event.preventDefault();
                     if(btnMenu.hasClass('a-btn--menu--selected')){
+                        $("header.main").removeClass('menu--selected');
                         btnMenu.removeClass('a-btn--menu--selected');
                         menu.slideUp()
                     }
                     else{
+                        $("header.main").addClass('menu--selected');
                         btnMenu.addClass('a-btn--menu--selected');
                         menu.slideDown();
                     }

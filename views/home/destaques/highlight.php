@@ -6,7 +6,7 @@
                         <h6 class="a-uppercase"><?php echo $data['title_highlight'] ?></h6>
                         <div class="a-panel-promo__bo">
                             <?php echo $data['content_highlight'] ?>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
             </div>

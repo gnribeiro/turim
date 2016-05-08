@@ -17,6 +17,13 @@
         <?php echo get_field('resume_highligter_rest'); ?>
       </div>
     <?php endif ?>
+    <?php if(get_field('coordenadas_hotel_highligter')):  ?>
+      <div class="a-highlights__resume">
+        <?php  _e("Coordenadas" , 'turim') ?>
+        <br>
+        <a class="a-link--lighter" href="https://www.google.com/maps/dir/Current+Location/<?php echo get_field('coordenadas_hotel_highligter') ?>" target="blank"><?php echo get_field('coordenadas_hotel_highligter'); ?></a>
+      </div>
+    <?php endif ?>
   </div>
 </section>
 

@@ -82,8 +82,21 @@
 
     &-highlights{
 			padding-left: 26px;
-            position: relative;
-            margin-bottom: 40px;
+      position: relative;
+      margin-bottom: 40px;
+      @include  m("right"){
+        padding-left: 0px;
+        padding-right: 26px;
+
+
+      }
+
+      &.a-bo-highlights--right{
+           &:before{
+          left: auto;
+          right: 0;
+        }
+      }
 
       @include  m("title"){
         @include lato-blackbold;
@@ -105,6 +118,7 @@
         background-color: #202020;
         content: '';
       }
+
 		}
 	}
 

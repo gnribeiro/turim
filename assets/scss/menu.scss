@@ -1,4 +1,15 @@
 .a {
+
+    &-menu-content{
+      width: 100%;
+      height: 150px;
+      background-color: rgba(0 ,0 , 0, 0.3);
+      padding-top: 30px;
+      z-index: 9;
+      position: relative;
+      overflow: hidden;
+    }
+
     &-menu-main{
       position: absolute;
       top:0;
@@ -173,3 +184,12 @@
 
 
 }
+ header.main.menu--selected{
+    .a-menu-content{
+      background-color: rgba(0, 0, 0, 0);
+    }
+    .a-header-social {
+      position: relative;
+      z-index: 99;
+    }
+ }

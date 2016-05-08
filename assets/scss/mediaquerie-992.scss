@@ -4,18 +4,24 @@
 		right:15px;
 	}
 
+	.a-panel-promo__bo li{
+		min-width: 191px;
+	}
+
+	.a-sliedshow .slick-next{
+		   right: 1%;
+	}
+
+	.a-sliedshow .slick-prev{
+		   left: 1%;
+	}
+
 	.a{
 		&-panel-promo{
 			margin-bottom: 30px;
 			@include e('header') {
-				float: none;
-				display: block;
-				background-color: $dark;
-				height: auto;
-				max-width: none;
-		    	padding-bottom: 25px;
-		    	width: 100%;
-		    	padding-top: 25px;
+
+		    padding-top: 25px;
 
 				& > img{
 					display: none;
@@ -28,18 +34,11 @@
 
 			}
 			@include e('content') {
-				float: none !important;
-				display: block;
-				max-width: none;
-				width: 100%;
+
 
 			}
 			@include e('highlight') {
-				@include align-items(center);
-				@include display(flex);
-				@include justify-content(center);
-				float: left;
-				height: 275px;
+
 			}
 
 		}

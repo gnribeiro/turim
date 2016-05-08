@@ -27,6 +27,7 @@
       max-height       : 98%;
       overflow-y       : auto;
       overflow-x       : hidden;
+      max-width: 90%;
     }
 
     @include e(close) {
@@ -60,5 +61,27 @@
         margin    : 0 0 10px;
       }
     }
+
+    @include m(image) {
+      .a-modal__close{
+          display: inline-block;
+          font: normal normal normal 14px/1 FontAwesome;
+          font-size: 25px;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          color: #ffffff;
+
+          &:before {
+            content: "\f057";
+          }
+
+          & > i{
+            display: none;
+          }
+      }
+    }
   }
+
+
 }
+

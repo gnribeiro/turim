@@ -12,7 +12,6 @@
     </div>
     <div class="a-panel-promo__content">
         <div class="a-panel-promo__figure">
-            <div class="a-panel-promo__label"> <?php echo $data['title'] ?></div>
             <img src=" <?php echo $data['image'] ?>" alt="" class="a-img-responsive" />
         </div>
         <div class="a-panel-promo__highlight">

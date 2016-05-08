@@ -6,7 +6,6 @@ Class Gwp_Form_Handler {
 
     public static function init() {
         add_action( 'wp_loaded', array( __CLASS__, 'contacts_action' ), 20 );
-
     }
 
     public static function  contacts_action(){

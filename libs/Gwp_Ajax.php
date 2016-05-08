@@ -10,23 +10,23 @@ Class Gwp_Ajax{
 
     function __construct(){
 
-        add_action( 'wp_ajax_recrutament',        array( $this, 'recrutament' ) );
-        add_action( 'wp_ajax_nopriv_recrutament', array( $this, 'recrutament' ) );
+      add_action( 'wp_ajax_recrutament',        array( $this, 'recrutament' ) );
+      add_action( 'wp_ajax_nopriv_recrutament', array( $this, 'recrutament' ) );
 
-        add_action( 'wp_ajax_info',        array( $this, 'info' ) );
-        add_action( 'wp_ajax_nopriv_info', array( $this, 'info' ) );
+      add_action( 'wp_ajax_info',        array( $this, 'info' ) );
+      add_action( 'wp_ajax_nopriv_info', array( $this, 'info' ) );
 
-        add_action( 'wp_ajax_adesao',        array( $this, 'adesao' ) );
-        add_action( 'wp_ajax_nopriv_adesao', array( $this, 'adesao' ) );
+      add_action( 'wp_ajax_adesao',        array( $this, 'adesao' ) );
+      add_action( 'wp_ajax_nopriv_adesao', array( $this, 'adesao' ) );
 
-        add_action( 'wp_ajax_adesao_ask',        array( $this, 'adesao_ask' ) );
-        add_action( 'wp_ajax_nopriv_adesao_ask', array( $this, 'adesao_ask' ) );
+      add_action( 'wp_ajax_adesao_ask',        array( $this, 'adesao_ask' ) );
+      add_action( 'wp_ajax_nopriv_adesao_ask', array( $this, 'adesao_ask' ) );
 
-        add_action( 'wp_ajax_reservas',        array( $this, 'reservas' ) );
-        add_action( 'wp_ajax_nopriv_reservas', array( $this, 'reservas' ) );
+      add_action( 'wp_ajax_reservas',        array( $this, 'reservas' ) );
+      add_action( 'wp_ajax_nopriv_reservas', array( $this, 'reservas' ) );
 
-        add_action( 'wp_ajax_newsletter',        array( $this, 'newsletter' ) );
-        add_action( 'wp_ajax_nopriv_newsletter', array( $this, 'newsletter' ) );
+      add_action( 'wp_ajax_newsletter',        array( $this, 'newsletter' ) );
+      add_action( 'wp_ajax_nopriv_newsletter', array( $this, 'newsletter' ) );
     }
 
 
@@ -107,6 +107,56 @@ Class Gwp_Ajax{
                 $errors['cvform'] = Helper::message("forms/recrutamento", "cvform.mainerror");
                 echo   json_encode( $errors);
             }
+        }
+
+        die();
+    }
+
+    public function adesao_ask(){
+        $errors  = array();
+        $data    = array();
+        parse_str($_POST['dados'], $data);
+
+        $validation = Validation::factory($data );
+        $validation->rule('nome',        'not_empty');
+        $validation->rule('address',     'not_empty');
+        $validation->rule('cp7',         'not_empty');
+        $validation->rule('phone',       'not_empty');
+        $validation->rule('phone',       'numeric');
+        $validation->rule('email',       'not_empty');
+        $validation->rule('email',       'Valid::email');
+        $validation->rule('localidade',  'not_empty');
+        $validation->check();
+
+        $errors = $validation->errors('forms/adesao');
+
+        if(count($errors)){
+            echo   json_encode( $errors);
+        }
+        else{
+            $mail    = new Gwp_Mailman();
+            $emailTo = get_option('emails_adesao');
+            $dados   = array(
+                'nome'         => $data['nome'],
+                'email'        => $data['email'],
+                'cp7'          => $data['cp7'],
+                'phone'        => $data['phone'],
+                'address'      => $data['address'],
+                'localidade'   => $data['localidade'],
+            );
+
+            $mail->set_subject('Mensagem do Formulario de Adesão');
+            $mail->set_template('adesao_ask.php');
+            $mail->set_from("turim-hotels <dirgeral@turimhoteis.com>");
+            $mail->set_to($emailTo);
+            $mail->set_vars($dados);
+            $send = $mail->send();
+
+            $message = ($send) ? Helper::message("forms/adesao", "sucesso.msg")
+            : Helper::message("forms/adesao", "sucesso.error");
+
+            $sucess = array('sucesso' =>$message);
+            echo json_encode($sucess) ;
         }
 
         die();
@@ -198,56 +248,6 @@ Class Gwp_Ajax{
 
             $mail->set_subject('Mensagem do Formulario de Adesão');
             $mail->set_template('adesao.php');
-            $mail->set_from("turim-hotels <dirgeral@turimhoteis.com>");
-            $mail->set_to($emailTo);
-            $mail->set_vars($dados);
-            $send = $mail->send();
-
-            $message = ($send) ? Helper::message("forms/adesao", "sucesso.msg")
-            : Helper::message("forms/adesao", "sucesso.error");
-
-            $sucess = array('sucesso' =>$message);
-            echo json_encode($sucess) ;
-        }
-
-        die();
-    }
-
-    public function adesao_ask(){
-        $errors  = array();
-        $data    = array();
-        parse_str($_POST['dados'], $data);
-
-        $validation = Validation::factory($data );
-        $validation->rule('nome',        'not_empty');
-        $validation->rule('address',     'not_empty');
-        $validation->rule('cp7',         'not_empty');
-        $validation->rule('phone',       'not_empty');
-        $validation->rule('phone',       'numeric');
-        $validation->rule('email',       'not_empty');
-        $validation->rule('email',       'Valid::email');
-        $validation->rule('localidade',  'not_empty');
-        $validation->check();
-
-        $errors = $validation->errors('forms/adesao');
-
-        if(count($errors)){
-            echo   json_encode( $errors);
-        }
-        else{
-            $mail    = new Gwp_Mailman();
-            $emailTo = get_option('emails_adesao');
-            $dados   = array(
-                'nome'         => $data['nome'],
-                'email'        => $data['email'],
-                'cp7'          => $data['cp7'],
-                'phone'        => $data['phone'],
-                'address'      => $data['address'],
-                'localidade'   => $data['localidade'],
-            );
-
-            $mail->set_subject('Mensagem do Formulario de Adesão');
-            $mail->set_template('adesao_ask.php');
             $mail->set_from("turim-hotels <dirgeral@turimhoteis.com>");
             $mail->set_to($emailTo);
             $mail->set_vars($dados);

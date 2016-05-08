@@ -1,4 +1,4 @@
-<section class="a-intro" <?php echo $style ?>>
+<section class="<?php echo $classes  ?>" <?php echo $style ?>>
     <div class="a-container">
         <?php if(isset($intro_resume)): ?>
             <h2 class="a-intro__resume"><?php echo $intro_resume ?></h2>

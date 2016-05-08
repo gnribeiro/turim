@@ -120,6 +120,7 @@
 
         @include e(item) {
             float: left;
+            cursor: pointer;
         }
     }
 }

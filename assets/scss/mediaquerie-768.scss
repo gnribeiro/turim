@@ -4,20 +4,36 @@
 		right:15px;
 	}
 
+	.a-sliedshow .slick-next{
+		   right: 1%;
+	}
+
+	.a-sliedshow .slick-prev{
+		   left: 1%;
+	}
+
+
+	.a-panel-promo h6{
+		  padding-top: 20px;
+	}
+
 	.a{
 		&-logo{
 		    margin: 0 auto 76px;
+		    float: left;
 		}
 
 		&-menu{
-		   top: 103px;
+		   top: 13px;
 		}
 
 
 
 		&-banner{
 			@include e('title') {
-				line-height: 58px;
+					line-height: 35px;
+    			font-size: 30px;
+    			margin-bottom: 15px;
 			}
 		}
 
@@ -35,14 +51,8 @@
 		&-panel-promo{
 			margin-bottom: 30px;
 			@include e('header') {
-				float: none;
-				display: block;
-				background-color: $dark;
-				height: auto;
-				max-width: none;
-		    	padding-bottom: 25px;
-		    	width: 100%;
-		    	padding-top: 25px;
+				max-width: 190px;
+		    padding-top: 25px;
 
 				& > img{
 					display: none;

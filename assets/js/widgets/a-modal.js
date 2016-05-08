@@ -31,6 +31,10 @@ jQuery(function($){
             }
         },
 
+        addClassModal:function(className){
+          $(".a-modal__container").addClass(className);
+        },
+
         merge : function(options){
 
           if(options !== undefined){
@@ -88,17 +92,21 @@ jQuery(function($){
 
         setContent : function(html){
 
-            $('.a-modal__setcontent').append(html) ;
+            $('.a-modal__setcontent').html(html) ;
         },
 
         close : function(){
-           if( typeof this.settings.onClose === "function" )
+          if( typeof this.settings.onClose === "function" )
             this.settings.onClose();
 
           if(this.settings.form && $(".a-field-form--modal").length){
             $(".a-field-form--modal").trigger('reset');
             $("#sucesso" , ".a-field-form--modal").html('');
             $(".a-input-error--modal" , ".a-field-form--modal").html('');
+          }
+
+          if($('.a-input-fake').length){
+            $('.a-input-fake').html('');
           }
 
           $(this.modalElement).removeClass("a-modal__container--selected");

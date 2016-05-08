@@ -8,6 +8,36 @@
     position: static;
 }
 
+
+.swiper-button-disabled{
+  display: none !important;
+}
+
+.a-casamentos{
+  .a-slick-gallery.swiper-container{
+    position: relative;
+    margin-top: 40px;
+  }
+
+  .swiper-wrapper {
+    position: relative;
+  }
+
+   .swiper-button-next,
+   .swiper-button-prev{
+      color:$dark;
+      border: 2px solid $dark;
+      top: 50%;
+  }
+   .swiper-button-next{
+    right: 0;
+   }
+    .swiper-button-prev{
+    left: 0;
+   }
+}
+
+
 .swiper-button-next, .swiper-button-prev{
    @include css3-prefix(border-radius , 32px );
     top: 481px;

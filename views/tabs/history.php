@@ -1,7 +1,7 @@
 <div class="a-clearfix">
     <div class="a-col-8">
         <?php if( get_field('conteudo_hotel_tab_hist')): ?>
-            <div class="a-h-308 p-r-15 a-ligth-txt">
+            <div class="p-r-15 a-ligth-txt">
                 <?php echo get_field('conteudo_hotel_tab_hist') ?>
             </div>
         <?php endif; ?>

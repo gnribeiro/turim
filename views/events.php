@@ -1,4 +1,4 @@
-<?php global $post;?>
+<?php global $post, $site;?>
 <section class="a-light p-t-70 p-b-75">
   <article class="a-container">
 
@@ -76,9 +76,16 @@
                             </div>
                         </div>
                      <?php endif; ?>
+                    <?php if(get_sub_field('id_event')=='reunioes' || get_sub_field('id_event')=='cocktails'): ?>
+                    <div>
+                      <a class="a-btn a-btn--dark m-t-15" data-a-widget="Amodal" data-a-widget-options="<?php echo $modal ?>"><?php _e('Pedir Informação' , 'turim')?> <i class="fa fa-chevron-right" ></i></a>
+                    </div>
+                    <?php endif; ?>
+
                 </div>
             </div>
-        <?php  endwhile; ; endif?>
+        <?php  endwhile;  endif?>
     <?php endwhile; endif ?>
   </article>
 </section>
+<?php echo $site->get_partial('modals/info' , array('ajax'=>$ajax)) ?>
